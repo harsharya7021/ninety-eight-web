@@ -1,0 +1,16 @@
+# ---- editor / OS noise ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- local server logs ----
+*.log
+/tmp/
+
+# ---- node, if you add any tooling later ----
+node_modules/
+.env
+.env.local
