@@ -1,44 +1,57 @@
-NINETY-EIGHT · Website v2.3
+NINETY-EIGHT · Website v2.4
 ===========================
 Hand-coded. No Figma. Real motion, real interaction.
-v2.3 tightens the pinned train stage and removes the fork.
+v2.4 turns the pinned train stage into a clean section breaker.
 
-WHAT CHANGED IN v2.3
+WHAT CHANGED IN v2.4
 --------------------
+1. TRAIN IS A SECTION BREAKER NOW
+   The pinned stage is no longer a content section. It's a
+   transitional band between hero and services — short
+   (160vh pinned, ~520px visible), cream-colored, quiet.
+
+2. NO DARK BOX
+   Removed the radial-gradient dark stage, the border, and
+   the drop shadow. The train canvas is transparent and the
+   train itself floats directly on the cream paper. Lighting
+   was rebalanced (more ambient, less rim) and the PBR
+   material dropped its self-emissive glow so the paint reads
+   correctly on a bright backdrop.
+
+3. CHIPS + DIAL + COPY-SWAP REMOVED
+   The 3-column layout (left copy / center train / right
+   chips) is gone. The chips duplicated the main nav anyway.
+   Replaced with a minimal ticket-stub layout: small kicker
+   top-left ("Platform 98 · Northbound"), route top-right
+   ("Zigzag · Express"), rail lines across the middle, and
+   a Vignelli-esque italic line at the bottom ("Culture is
+   the track. Talent is the train.")
+
+4. WIDER SLIDE
+   Train amplitude raised from 4.6 to 7.2 world units and
+   start pushed further off the left edge so it actually
+   enters and exits the viewport. Camera pulled back slightly
+   (z=7.2, fov=32) to frame the wider travel range.
+
+v2.3 · FORK REMOVED, SLIDE (still in)
+-------------------------------------
 1. TRAIN: SLIDE, DON'T SPIN
-   The pinned train section used to rotate the 3D model 720° while
-   the chips on the right toggled — it read as decorative motion
-   without payoff. The train now glides laterally across the
-   stage instead: enters from the left at prog=0, exits right at
-   prog=1. No rotation, no tilt, no OrbitControls. The model
-   orientation is locked so it reads as a train on a track.
+   The train glides laterally across the stage — enters from
+   the left at prog=0, exits right at prog=1. No rotation, no
+   tilt, no OrbitControls. Model orientation is locked so it
+   reads as a train on a track.
 
-2. CHIPS ARE NAVIGATION
-   The seven stop chips (Board · Services · Roster · Work ·
-   Culture · About · Terminus) are now real <button>s. Clicking
-   any of them hands off to Lenis and glides the page to the
-   matching section (anchors: #services, #roster, #work,
-   #culture, #about, #contact). Active chip gets a gold fill;
-   inactive stops dim and drift right as scroll progress moves.
-
-3. FORK: REMOVED
+2. FORK: REMOVED
    The draggable 3D fork in the footer is out. In its place is a
    dark TERMINUS panel — same carbon background, same gold
    accent, but flat HTML/CSS. Less novelty, more directness.
    ~200 lines of Three.js and an entire GLTF/OrbitControls
    import went with it.
 
-4. HERO MARK TIGHTER
-   "NINETY EIGHT" was crowding the right edge on wide viewports.
-   Reduced clamp from 13vw→11.8vw max 220→196 and dropped letter
-   spacing one tick so the mark sits more comfortably within the
-   column.
-
-5. DIAL NOW READS PROGRESS
-   The pin-stat under the heading used to count "° rotation"
-   through two full spins. Since the train no longer rotates,
-   it now reads "XX % through the line" — matches the
-   slide-across metaphor.
+3. HERO MARK TIGHTER
+   Reduced clamp from 13vw→11.8vw max 220→196 and dropped
+   letter spacing one tick so the mark sits comfortably within
+   the column on wide viewports.
 
 FILES
 -----

@@ -144,42 +144,33 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .tl-row .yr{font:600 11px/1 var(--mono);letter-spacing:.12em;color:var(--red);text-transform:uppercase}
 .tl-row .ev{font:700 15px/1.35 var(--display);margin-top:4px;letter-spacing:-.01em}
 
-/* 3D train stage — used inside the sticky pin section below */
-.train-stage{position:relative;width:100%;height:100%;border-radius:14px;overflow:hidden;background:radial-gradient(ellipse at 50% 80%,#18181c 0%,#0E0E10 70%);border:1px solid rgba(14,14,16,.15);box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+/* 3D train stage — transparent; the train floats on whatever's behind it */
+.train-stage{position:relative;width:100%;height:100%;overflow:visible;background:transparent}
 #train-canvas{width:100%;height:100%;display:block}
-.train-hint{position:absolute;left:20px;bottom:18px;color:#f4efe0;font:500 11px/1.2 var(--mono);letter-spacing:.2em;text-transform:uppercase;opacity:.7;display:flex;align-items:center;gap:10px;transition:opacity .5s}
-.train-hint::before{content:"";width:20px;height:1px;background:var(--gold)}
-.train-hint.hidden{opacity:0}
-.train-badges{position:absolute;top:18px;left:20px;right:20px;display:flex;justify-content:space-between;gap:12px;color:#f4efe0;font:500 10px/1.2 var(--mono);letter-spacing:.22em;text-transform:uppercase;opacity:.8}
-.train-badges .right{text-align:right}
-.train-load{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(245,176,21,.15)}
+.train-load{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(245,176,21,.15);pointer-events:none}
 .train-load i{display:block;height:100%;width:0%;background:var(--gold);transition:width .2s}
 
-/* ---------- sticky pin stage (Apple-style scroll scrub) ---------- */
-.pin-train{position:relative;height:260vh;background:var(--paper);z-index:2}
-.pin-train .pin-inner{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:36px;padding:80px 28px;align-items:center}
-.pin-train .pin-stage{position:relative;height:72vh;max-height:720px;min-height:360px}
-.pin-train .pin-stage .train-stage{height:100%}
-.pin-train .pin-left,.pin-train .pin-right{position:relative;z-index:3}
-.pin-train .pin-kicker{font:500 11px/1 var(--mono);letter-spacing:.24em;color:var(--slate);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
-.pin-train .pin-kicker::before{content:"";width:22px;height:1px;background:var(--red)}
-.pin-train h2{font:800 clamp(36px,4.8vw,64px)/.95 var(--display);letter-spacing:-.035em}
-.pin-train h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--slate)}
-.pin-train .pin-copy{margin-top:18px;font:500 15px/1.55 var(--display);color:var(--slate);max-width:320px}
-.pin-train .pin-ticker{margin-top:24px;font:500 12px/1.4 var(--mono);letter-spacing:.18em;color:var(--red);text-transform:uppercase}
-.pin-train .pin-stat{margin-top:10px;font:800 clamp(36px,5vw,56px)/1 var(--display);letter-spacing:-.02em;display:flex;align-items:baseline;gap:6px}
-.pin-train .pin-stat small{font:500 11px/1 var(--mono);letter-spacing:.18em;color:var(--slate);text-transform:uppercase;font-weight:500}
-.pin-train .pin-right{text-align:right}
-.pin-train .pin-right h3{font:500 11px/1 var(--mono);letter-spacing:.22em;color:var(--slate);text-transform:uppercase;margin-bottom:14px}
-.pin-train .pin-right .chip{display:inline-block;margin:0 0 8px 8px;padding:10px 14px;border:1px solid rgba(14,14,16,.18);border-radius:999px;font:700 12px/1 var(--display);letter-spacing:-.005em;background:rgba(255,255,255,.45);color:var(--carbon);cursor:pointer;font-family:var(--display);-webkit-appearance:none;appearance:none;transition:opacity .5s var(--ease), transform .5s var(--ease), background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease)}
-.pin-train .pin-right .chip:hover{background:var(--carbon);color:var(--paper);border-color:var(--carbon)}
-.pin-train .pin-right .chip.active{background:var(--gold);border-color:var(--gold);color:var(--carbon)}
-.pin-train .pin-right .chip.dim{opacity:.25;transform:translateX(6px)}
+/* ---------- SECTION BREAKER · train glides across between sections ---------- */
+.pin-train{position:relative;height:160vh;background:var(--paper);z-index:2;border-top:1px solid rgba(14,14,16,.08);border-bottom:1px solid rgba(14,14,16,.08)}
+.pin-train .pin-inner{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden}
+.pin-train .pin-stage{position:relative;width:100%;height:56vh;max-height:520px;min-height:300px}
+/* rail line — two thin horizontal strokes behind the train */
+.pin-train .rail{position:absolute;left:-4%;right:-4%;height:1px;background:rgba(14,14,16,.16);pointer-events:none}
+.pin-train .rail.top{top:calc(50% - 22px)}
+.pin-train .rail.bot{top:calc(50% + 22px)}
+.pin-train .rail-tick{position:absolute;top:calc(50% + 28px);width:1px;height:10px;background:rgba(14,14,16,.2);pointer-events:none}
+/* kicker + tagline sit quietly at the edges of the breaker */
+.pin-train .pin-label{position:absolute;top:26px;left:28px;font:500 11px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--slate);display:flex;align-items:center;gap:10px;z-index:3}
+.pin-train .pin-label::before{content:"";width:22px;height:1px;background:var(--red)}
+.pin-train .pin-route{position:absolute;top:26px;right:28px;font:500 11px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--slate);z-index:3}
+.pin-train .pin-route b{color:var(--red);font-weight:700}
+.pin-train .pin-quote{position:absolute;bottom:36px;left:28px;right:28px;text-align:center;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(16px,1.4vw,22px);color:var(--slate);max-width:640px;margin:0 auto;z-index:3}
 @media (max-width:1080px){
   .pin-train{height:auto}
-  .pin-train .pin-inner{position:relative;height:auto;grid-template-columns:1fr;padding:80px 22px;gap:22px}
-  .pin-train .pin-stage{height:55vh;min-height:340px}
-  .pin-train .pin-right{text-align:left}
+  .pin-train .pin-inner{position:relative;height:auto;padding:80px 22px}
+  .pin-train .pin-stage{height:46vh;min-height:280px}
+  .pin-train .pin-label,.pin-train .pin-route{position:static;display:inline-flex;margin:0 auto 18px}
+  .pin-train .pin-quote{position:static;margin-top:24px}
 }
 
 /* scroll cue */
@@ -473,39 +464,28 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   <svg class="thread-canvas" id="thread-hero" preserveAspectRatio="none"></svg>
 </header>
 
-<!-- =================== PIN · TRAIN STAGE (sticky scrub) =================== -->
-<section class="pin-train" id="stage">
+<!-- =================== SECTION BREAKER · train glides across =================== -->
+<section class="pin-train" id="stage" aria-label="Platform 98">
   <div class="pin-inner">
-    <aside class="pin-left">
-      <div class="pin-kicker">Platform <b style="color:var(--red);font-weight:600">98</b> · Live</div>
-      <h2 id="pin-h2">The train <em>is always moving.</em></h2>
-      <p class="pin-copy" id="pin-copy">Ride the line. Tap any stop on the right to jump to that car.</p>
-      <div class="pin-ticker" id="pin-ticker">NOW BOARDING · PLATFORM 98</div>
-      <div class="pin-stat"><span id="pin-dial">00</span><small>% through the line</small></div>
-    </aside>
+    <span class="pin-label">Platform <b style="color:var(--red);font-weight:700">98</b> · Northbound</span>
+    <span class="pin-route">Zigzag <b>·</b> Express</span>
 
     <div class="pin-stage">
+      <span class="rail top"></span>
+      <span class="rail bot"></span>
+      <span class="rail-tick" style="left:12%"></span>
+      <span class="rail-tick" style="left:28%"></span>
+      <span class="rail-tick" style="left:44%"></span>
+      <span class="rail-tick" style="left:60%"></span>
+      <span class="rail-tick" style="left:76%"></span>
+      <span class="rail-tick" style="left:92%"></span>
       <div class="train-stage">
         <canvas id="train-canvas"></canvas>
-        <div class="train-badges">
-          <span>PLATFORM <b style="color:var(--gold)">98</b> · NORTHBOUND</span>
-          <span class="right">ZIGZAG · EXPRESS</span>
-        </div>
-        <div class="train-hint" id="train-hint">Sliding through Platform 98</div>
         <div class="train-load"><i id="train-load-bar"></i></div>
       </div>
     </div>
 
-    <aside class="pin-right" aria-label="Stops">
-      <h3>Stops on this line</h3>
-      <div><button type="button" class="chip" data-stop="0" data-target="top">Board</button></div>
-      <div><button type="button" class="chip" data-stop="1" data-target="#services">Services</button></div>
-      <div><button type="button" class="chip" data-stop="2" data-target="#roster">Roster</button></div>
-      <div><button type="button" class="chip" data-stop="3" data-target="#work">Work</button></div>
-      <div><button type="button" class="chip" data-stop="4" data-target="#culture">Culture</button></div>
-      <div><button type="button" class="chip" data-stop="5" data-target="#about">About</button></div>
-      <div><button type="button" class="chip" data-stop="6" data-target="#contact">Terminus</button></div>
-    </aside>
+    <p class="pin-quote">Culture is the track. <em>Talent is the train.</em></p>
   </div>
 </section>
 
@@ -882,24 +862,9 @@ const heroEl    = document.querySelector('.hero');
 const aerialEl  = document.querySelector('.hero .aerial');
 const heroRight = document.querySelector('.hero-right');
 const pinTrain  = document.querySelector('.pin-train');
-const pinDial   = document.getElementById('pin-dial');
-const pinTick   = document.getElementById('pin-ticker');
-const pinH2     = document.getElementById('pin-h2');
-const pinCopy   = document.getElementById('pin-copy');
-const chips     = Array.from(document.querySelectorAll('.pin-train .chip'));
 const markEl    = document.querySelector('.mark');
 
-const STOPS = [
-  { tick:'NOW BOARDING · PLATFORM 98',   h2:'The train <em>is always moving.</em>',              copy:'Ride the line. Every stop is a platform we\u2019ve built \u2014 or tap a chip to jump ahead.' },
-  { tick:'NOW APPROACHING · SERVICES',   h2:'Creative, <em>PR, digital, strategy.</em>',         copy:'Four cars, one engine. We run integrated services so the narrative arrives whole.' },
-  { tick:'NOW APPROACHING · ROSTER',     h2:'We move <em>people, not pixels.</em>',              copy:'Athletes, actors, chefs, founders. Careers staged like productions.' },
-  { tick:'NOW APPROACHING · WORK',       h2:'Proof in <em>platforms, not decks.</em>',           copy:'Tournaments, launches, openings, films. Work you can walk into.' },
-  { tick:'NOW APPROACHING · CULTURE',    h2:'Culture is <em>the track.</em>',                    copy:'Hospitality rooms, sports fields, fashion weeks \u2014 the track we run on.' },
-  { tick:'NOW APPROACHING · ABOUT',      h2:'Since <em>2019.</em> Delhi, Noida, Mumbai.',        copy:'Founded by Harsh Arya. Built for brands that want more than a retainer.' },
-  { tick:'ARRIVING AT \u00B7 TERMINUS',  h2:'The next stop <em>is yours.</em>',                  copy:'Say hi. Grab a seat at the platform.' }
-];
-
-let lastProg = -1, lastStopIdx = -1;
+let lastProg = -1;
 
 function scrollTick(){
   const y = window.scrollY || document.documentElement.scrollTop || 0;
@@ -911,48 +876,25 @@ function scrollTick(){
   nav.classList.toggle('scrolled', y > 60);
 
   // -- HERO PARALLAX -------------------------------------------
-  // Aerial sinks slow, right column lifts, mark drifts up subtly.
-  // Only pay the cost while the hero is on screen.
   if(heroEl){
     const hr = heroEl.getBoundingClientRect();
     if(hr.bottom > -200 && hr.top < vh){
-      const t = Math.min(1, Math.max(0, y / vh));          // 0..1 across first viewport
+      const t = Math.min(1, Math.max(0, y / vh));
       if(aerialEl)  aerialEl.style.transform  = `translate3d(0, ${y * 0.18}px, 0) scale(${1 + t*0.05})`;
       if(heroRight) heroRight.style.transform = `translate3d(0, ${-y * 0.12}px, 0)`;
       if(markEl)    markEl.style.transform    = `translate3d(0, ${-y * 0.04}px, 0)`;
     }
   }
 
-  // -- PIN-TRAIN PROGRESS --------------------------------------
+  // -- SECTION-BREAKER TRAIN SLIDE -----------------------------
+  // Train slides laterally as we scroll through the pinned range.
   if(pinTrain){
     const r = pinTrain.getBoundingClientRect();
     const total = pinTrain.offsetHeight - vh;
-    // -r.top = how far we've scrolled into the pin section (0 when section top = viewport top)
     const prog = Math.max(0, Math.min(1, (-r.top) / Math.max(1, total)));
-
     if(prog !== lastProg){
       lastProg = prog;
       if(window.__setTrainProgress) window.__setTrainProgress(prog);
-
-      // progress dial (0..100%)
-      const pct = Math.round(prog * 100);
-      if(pinDial) pinDial.textContent = String(pct).padStart(2,'0');
-
-      // stop index 0..6 (7 stops across pinned range)
-      const stopIdx = Math.min(STOPS.length - 1, Math.floor(prog * STOPS.length));
-      if(stopIdx !== lastStopIdx){
-        lastStopIdx = stopIdx;
-        const s = STOPS[stopIdx];
-        if(pinTick) pinTick.textContent = s.tick;
-        if(pinH2)   pinH2.innerHTML     = s.h2;
-        if(pinCopy) pinCopy.textContent = s.copy;
-        // active + dim chips
-        chips.forEach(c=>{
-          const ci = +c.dataset.stop;
-          c.classList.toggle('active', ci === stopIdx);
-          c.classList.toggle('dim', ci !== stopIdx);
-        });
-      }
     }
   }
 }
@@ -1152,23 +1094,18 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
   const scene = new THREE.Scene();
-  // Train no longer rotates — it slides. No OrbitControls, no drag.
-  // Camera stays locked front-on; the chips on the right carry all the navigation.
-  const cam = new THREE.PerspectiveCamera(35, 1, 0.01, 200);
-  cam.position.set(0, 1.2, 5.4);
+  // Section breaker mode — the train glides across the stage laterally.
+  // Camera pulled back and framed low so the model reads at wide viewports.
+  const cam = new THREE.PerspectiveCamera(32, 1, 0.01, 200);
+  cam.position.set(0, 0.9, 7.2);
   cam.lookAt(0, 0, 0);
 
-  const key  = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(4,6,3);
-  const fill = new THREE.DirectionalLight(0xA9C7FF, 0.9); fill.position.set(-4,2,-2);
-  const rim  = new THREE.DirectionalLight(0xF5B015, 1.1); rim.position.set(0,3,-4);
-  scene.add(key, fill, rim, new THREE.AmbientLight(0xffffff, 0.25));
-
-  const disk = new THREE.Mesh(
-    new THREE.CircleGeometry(3, 64),
-    new THREE.MeshBasicMaterial({color:0xF5B015, transparent:true, opacity:0.06})
-  );
-  disk.rotation.x = -Math.PI/2; disk.position.y = -0.6;
-  scene.add(disk);
+  // Lighting tuned for a bright cream backdrop — lift ambient so the
+  // train reads cleanly on paper without a dark stage behind it.
+  const key  = new THREE.DirectionalLight(0xffffff, 2.0); key.position.set(4,6,3);
+  const fill = new THREE.DirectionalLight(0xA9C7FF, 0.7); fill.position.set(-4,2,-2);
+  const rim  = new THREE.DirectionalLight(0xF5B015, 0.9); rim.position.set(0,3,-4);
+  scene.add(key, fill, rim, new THREE.AmbientLight(0xffffff, 0.55));
 
   // expose: scroll-progress (0..1) → rotation + drift
   let scrollProg = 0;
@@ -1189,11 +1126,11 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
     g=>{
       model = g.scene;
 
-      // Force a visible PBR material on every mesh — the Meshy export has
-      // baked textures that sometimes render transparent or near-invisible.
+      // Force a visible PBR material on every mesh. Tuned for a cream
+      // backdrop — no self-emissive glow, slightly more roughness so
+      // the paint reads as paint, not chrome.
       const paint = new THREE.MeshStandardMaterial({
-        color: 0x1F4D8C, metalness: 0.55, roughness: 0.32,
-        emissive: 0x0a1f3a, emissiveIntensity: 0.12
+        color: 0x1F4D8C, metalness: 0.6, roughness: 0.38
       });
       model.traverse(o=>{
         if(o.isMesh){
@@ -1235,9 +1172,10 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
 
   // base rotation captured once the model is ready — fixed, no spin.
   let baseRotY = -0.45, baseRotX = 0.18, smoothProg = 0;
-  // Train starts just off-screen left and slides all the way across.
-  const SLIDE_AMPLITUDE = 4.6;   // total horizontal travel in world units
-  const SLIDE_START     = -2.3;  // x at prog = 0 (just off left edge)
+  // Breaker mode — train enters from far off-screen left,
+  // exits far off-screen right. Wider amplitude for a full slide.
+  const SLIDE_AMPLITUDE = 7.2;   // total horizontal travel in world units
+  const SLIDE_START     = -3.6;  // x at prog = 0 (well off the left edge)
 
   (function anim(){
     requestAnimationFrame(anim);
@@ -1255,26 +1193,6 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
     renderer.render(scene, cam);
   })();
 })();
-
-/* ============================================================
-   4. CHIP NAVIGATION · pin-train stops → jump to sections
-   ============================================================ */
-
-document.querySelectorAll('.pin-train .chip').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const target = btn.dataset.target;
-    if(!target) return;
-    if(target === 'top'){
-      if(typeof lenis !== 'undefined') lenis.scrollTo(0, {duration: 1.4});
-      else window.scrollTo({top:0, behavior:'smooth'});
-      return;
-    }
-    const el = document.querySelector(target);
-    if(!el) return;
-    if(typeof lenis !== 'undefined') lenis.scrollTo(el, {offset: -40, duration: 1.4});
-    else el.scrollIntoView({behavior:'smooth', block:'start'});
-  });
-});
 
 </script>
 </body>
