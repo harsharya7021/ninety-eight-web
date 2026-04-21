@@ -90,7 +90,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(221,61,56,.18)}
 
 /* the "NINETY EIGHT" mark */
-.mark{margin-top:22px;font-family:var(--display);font-weight:900;line-height:.82;letter-spacing:-.045em;font-size:clamp(58px,13vw,220px);white-space:nowrap}
+.mark{margin-top:22px;font-family:var(--display);font-weight:900;line-height:.82;letter-spacing:-.05em;font-size:clamp(58px,11.8vw,196px);white-space:nowrap;max-width:100%}
 .mark .row{display:flex;flex-wrap:nowrap;gap:0;white-space:nowrap}
 .mark .l{position:relative;display:inline-block;transform:translateY(90%);opacity:0;will-change:transform,opacity}
 .mark .l.in{animation:letterIn .95s var(--ease) forwards}
@@ -171,7 +171,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .pin-train .pin-stat small{font:500 11px/1 var(--mono);letter-spacing:.18em;color:var(--slate);text-transform:uppercase;font-weight:500}
 .pin-train .pin-right{text-align:right}
 .pin-train .pin-right h3{font:500 11px/1 var(--mono);letter-spacing:.22em;color:var(--slate);text-transform:uppercase;margin-bottom:14px}
-.pin-train .pin-right .chip{display:inline-block;margin:0 0 8px 8px;padding:10px 14px;border:1px solid rgba(14,14,16,.18);border-radius:999px;font:700 12px/1 var(--display);letter-spacing:-.005em;background:rgba(255,255,255,.45);transition:opacity .5s var(--ease), transform .5s var(--ease)}
+.pin-train .pin-right .chip{display:inline-block;margin:0 0 8px 8px;padding:10px 14px;border:1px solid rgba(14,14,16,.18);border-radius:999px;font:700 12px/1 var(--display);letter-spacing:-.005em;background:rgba(255,255,255,.45);color:var(--carbon);cursor:pointer;font-family:var(--display);-webkit-appearance:none;appearance:none;transition:opacity .5s var(--ease), transform .5s var(--ease), background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease)}
+.pin-train .pin-right .chip:hover{background:var(--carbon);color:var(--paper);border-color:var(--carbon)}
+.pin-train .pin-right .chip.active{background:var(--gold);border-color:var(--gold);color:var(--carbon)}
 .pin-train .pin-right .chip.dim{opacity:.25;transform:translateX(6px)}
 @media (max-width:1080px){
   .pin-train{height:auto}
@@ -271,17 +273,20 @@ section{position:relative;padding:120px 28px;z-index:2}
 .stat .n sub{font-size:.42em;color:var(--slate);font-weight:600;letter-spacing:0}
 .stat p{font:500 12px/1.35 var(--mono);letter-spacing:.12em;color:var(--slate);text-transform:uppercase;margin-top:6px}
 
-/* ---------- footer / fork stage ---------- */
+/* ---------- footer / terminus ---------- */
 footer{position:relative;background:var(--carbon);color:var(--paper);padding:120px 28px 40px;overflow:hidden;z-index:2}
 footer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(245,176,21,.06) 0%,transparent 55%);pointer-events:none}
-.fork-stage{position:relative;height:620px;margin-bottom:80px;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 50% 55%,#1b1b20 0%,#0E0E10 70%)}
-#fork-canvas{width:100%;height:100%;display:block;cursor:grab}
-#fork-canvas:active{cursor:grabbing}
-.fork-hint{position:absolute;left:22px;bottom:20px;font:500 11px/1.2 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;opacity:.9;transition:opacity .5s;z-index:3}
-.fork-hint::before{content:"";width:22px;height:1px;background:var(--gold)}
-.fork-hint.hidden{opacity:0}
-.fork-tag{position:absolute;top:22px;left:22px;font:500 10px/1.2 var(--mono);letter-spacing:.24em;text-transform:uppercase;opacity:.6;z-index:3}
-.fork-tag b{color:var(--gold);font-weight:600}
+.terminus{position:relative;margin-bottom:80px;padding:72px 40px 64px;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 50% 55%,#1b1b20 0%,#0E0E10 70%);border:1px solid rgba(245,176,21,.14)}
+.terminus .t-tag{font:500 10px/1.2 var(--mono);letter-spacing:.28em;text-transform:uppercase;opacity:.7}
+.terminus .t-tag b{color:var(--gold);font-weight:600}
+.terminus h2{margin-top:14px;font:800 clamp(42px,6.4vw,96px)/.92 var(--display);letter-spacing:-.035em;max-width:18ch}
+.terminus h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--gold)}
+.terminus .t-sub{margin-top:20px;font:500 14px/1.55 var(--display);color:rgba(244,239,224,.68);max-width:46ch}
+.terminus .t-stops{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+.terminus .t-stops span{font:500 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,224,.5);padding:8px 12px;border:1px solid rgba(244,239,224,.14);border-radius:999px}
+.terminus .t-stops span.now{color:var(--gold);border-color:rgba(245,176,21,.45);background:rgba(245,176,21,.08)}
+.terminus::after{content:"";position:absolute;right:36px;top:40px;width:42px;height:42px;border-radius:50%;background:var(--red);box-shadow:0 0 0 6px rgba(221,61,56,.18);display:flex}
+@media(max-width:680px){.terminus{padding:56px 24px}.terminus::after{display:none}}
 
 .contact{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:50px;border-top:1.5px solid rgba(244,239,224,.18);padding-top:56px}
 @media (max-width:980px){.contact{grid-template-columns:1fr}}
@@ -474,9 +479,9 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     <aside class="pin-left">
       <div class="pin-kicker">Platform <b style="color:var(--red);font-weight:600">98</b> · Live</div>
       <h2 id="pin-h2">The train <em>is always moving.</em></h2>
-      <p class="pin-copy" id="pin-copy">Scroll to rotate. Every turn is a brand story, every stop a platform we've built.</p>
-      <div class="pin-ticker" id="pin-ticker">NOW APPROACHING · SERVICES</div>
-      <div class="pin-stat"><span id="pin-dial">00</span><small>° rotation</small></div>
+      <p class="pin-copy" id="pin-copy">Ride the line. Tap any stop on the right to jump to that car.</p>
+      <div class="pin-ticker" id="pin-ticker">NOW BOARDING · PLATFORM 98</div>
+      <div class="pin-stat"><span id="pin-dial">00</span><small>% through the line</small></div>
     </aside>
 
     <div class="pin-stage">
@@ -486,20 +491,20 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
           <span>PLATFORM <b style="color:var(--gold)">98</b> · NORTHBOUND</span>
           <span class="right">ZIGZAG · EXPRESS</span>
         </div>
-        <div class="train-hint" id="train-hint">Scroll · or drag to rotate</div>
+        <div class="train-hint" id="train-hint">Sliding through Platform 98</div>
         <div class="train-load"><i id="train-load-bar"></i></div>
       </div>
     </div>
 
     <aside class="pin-right" aria-label="Stops">
       <h3>Stops on this line</h3>
-      <div><span class="chip" data-stop="0">Board</span></div>
-      <div><span class="chip" data-stop="1">Services</span></div>
-      <div><span class="chip" data-stop="2">Roster</span></div>
-      <div><span class="chip" data-stop="3">Work</span></div>
-      <div><span class="chip" data-stop="4">Culture</span></div>
-      <div><span class="chip" data-stop="5">About</span></div>
-      <div><span class="chip" data-stop="6">Terminus</span></div>
+      <div><button type="button" class="chip" data-stop="0" data-target="top">Board</button></div>
+      <div><button type="button" class="chip" data-stop="1" data-target="#services">Services</button></div>
+      <div><button type="button" class="chip" data-stop="2" data-target="#roster">Roster</button></div>
+      <div><button type="button" class="chip" data-stop="3" data-target="#work">Work</button></div>
+      <div><button type="button" class="chip" data-stop="4" data-target="#culture">Culture</button></div>
+      <div><button type="button" class="chip" data-stop="5" data-target="#about">About</button></div>
+      <div><button type="button" class="chip" data-stop="6" data-target="#contact">Terminus</button></div>
     </aside>
   </div>
 </section>
@@ -704,7 +709,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 </section>
 
 <!-- =================== CULTURE =================== -->
-<section class="culture" aria-hidden="true">
+<section class="culture" id="culture" aria-label="Culture">
   <div class="marquee" id="marquee">
     <span>
       <i>CULTURE</i> <em>is the</em> track <span class="star">✺</span>
@@ -750,13 +755,22 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   <svg class="thread-canvas" id="thread-about" preserveAspectRatio="none"></svg>
 </section>
 
-<!-- =================== FOOTER · FORK =================== -->
+<!-- =================== FOOTER · TERMINUS =================== -->
 <footer id="contact">
   <div class="wrap">
-    <div class="fork-stage">
-      <canvas id="fork-canvas"></canvas>
-      <span class="fork-tag"><b>TERMINUS</b> · every line ends here</span>
-      <div class="fork-hint" id="fork-hint">Drag right · pull the fork · strands follow</div>
+    <div class="terminus">
+      <div class="t-tag"><b>TERMINUS</b> · every line ends here</div>
+      <h2>The next stop <em>is yours.</em></h2>
+      <p class="t-sub">End of the line for the tour. Start of the line for your brand. Drop us a note and we'll set a departure time.</p>
+      <div class="t-stops">
+        <span>Board</span>
+        <span>Services</span>
+        <span>Roster</span>
+        <span>Work</span>
+        <span>Culture</span>
+        <span>About</span>
+        <span class="now">Terminus</span>
+      </div>
     </div>
 
     <div class="contact">
@@ -817,7 +831,6 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 <script type="module">
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import Lenis from 'https://esm.sh/lenis@1.1.14';
 
 /* ============================================================
@@ -877,7 +890,7 @@ const chips     = Array.from(document.querySelectorAll('.pin-train .chip'));
 const markEl    = document.querySelector('.mark');
 
 const STOPS = [
-  { tick:'NOW BOARDING · PLATFORM 98',   h2:'The train <em>is always moving.</em>',              copy:'Scroll to rotate. Every turn is a brand story, every stop a platform we\u2019ve built.' },
+  { tick:'NOW BOARDING · PLATFORM 98',   h2:'The train <em>is always moving.</em>',              copy:'Ride the line. Every stop is a platform we\u2019ve built \u2014 or tap a chip to jump ahead.' },
   { tick:'NOW APPROACHING · SERVICES',   h2:'Creative, <em>PR, digital, strategy.</em>',         copy:'Four cars, one engine. We run integrated services so the narrative arrives whole.' },
   { tick:'NOW APPROACHING · ROSTER',     h2:'We move <em>people, not pixels.</em>',              copy:'Athletes, actors, chefs, founders. Careers staged like productions.' },
   { tick:'NOW APPROACHING · WORK',       h2:'Proof in <em>platforms, not decks.</em>',           copy:'Tournaments, launches, openings, films. Work you can walk into.' },
@@ -921,9 +934,9 @@ function scrollTick(){
       lastProg = prog;
       if(window.__setTrainProgress) window.__setTrainProgress(prog);
 
-      // degree dial
-      const deg = Math.round(prog * 720);        // two full turns for drama
-      if(pinDial) pinDial.textContent = String(deg).padStart(3,'0');
+      // progress dial (0..100%)
+      const pct = Math.round(prog * 100);
+      if(pinDial) pinDial.textContent = String(pct).padStart(2,'0');
 
       // stop index 0..6 (7 stops across pinned range)
       const stopIdx = Math.min(STOPS.length - 1, Math.floor(prog * STOPS.length));
@@ -933,9 +946,10 @@ function scrollTick(){
         if(pinTick) pinTick.textContent = s.tick;
         if(pinH2)   pinH2.innerHTML     = s.h2;
         if(pinCopy) pinCopy.textContent = s.copy;
-        // active chip
+        // active + dim chips
         chips.forEach(c=>{
           const ci = +c.dataset.stop;
+          c.classList.toggle('active', ci === stopIdx);
           c.classList.toggle('dim', ci !== stopIdx);
         });
       }
@@ -1138,8 +1152,11 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
   const scene = new THREE.Scene();
+  // Train no longer rotates — it slides. No OrbitControls, no drag.
+  // Camera stays locked front-on; the chips on the right carry all the navigation.
   const cam = new THREE.PerspectiveCamera(35, 1, 0.01, 200);
-  cam.position.set(3.8, 1.8, 3.8);
+  cam.position.set(0, 1.2, 5.4);
+  cam.lookAt(0, 0, 0);
 
   const key  = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(4,6,3);
   const fill = new THREE.DirectionalLight(0xA9C7FF, 0.9); fill.position.set(-4,2,-2);
@@ -1152,13 +1169,6 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
   );
   disk.rotation.x = -Math.PI/2; disk.position.y = -0.6;
   scene.add(disk);
-
-  const ctrl = new OrbitControls(cam, canvas);
-  ctrl.enableDamping = true; ctrl.enablePan = false;
-  ctrl.minDistance = 2.4; ctrl.maxDistance = 7;
-  ctrl.autoRotate = false; // scroll drives rotation now
-  let userInteracted = false;
-  ctrl.addEventListener('start', ()=>{ userInteracted = true; document.getElementById('train-hint').classList.add('hidden'); });
 
   // expose: scroll-progress (0..1) → rotation + drift
   let scrollProg = 0;
@@ -1223,217 +1233,48 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
     }
   );
 
-  // base rotation captured once the model is ready
+  // base rotation captured once the model is ready — fixed, no spin.
   let baseRotY = -0.45, baseRotX = 0.18, smoothProg = 0;
+  // Train starts just off-screen left and slides all the way across.
+  const SLIDE_AMPLITUDE = 4.6;   // total horizontal travel in world units
+  const SLIDE_START     = -2.3;  // x at prog = 0 (just off left edge)
 
   (function anim(){
     requestAnimationFrame(anim);
-    ctrl.update();
     // smooth the scroll progress so it doesn't snap
     smoothProg += (scrollProg - smoothProg) * 0.08;
     if(model){
-      const idleBob = Math.sin(performance.now()*0.0012)*0.03;
+      const idleBob = Math.sin(performance.now()*0.0012)*0.025;
       model.position.y = bobBase + idleBob;
-      // scroll drives one full rotation across the pinned section
-      const scrollSpin = smoothProg * Math.PI * 2.0;
-      // gentle drift along travel axis
-      model.position.x = (smoothProg - 0.5) * 0.6;
-      // when user has grabbed, OrbitControls owns the camera; the model
-      // still scroll-rotates on top so the relationship feels alive
-      model.rotation.y = baseRotY + scrollSpin;
-      model.rotation.x = baseRotX + Math.sin(smoothProg * Math.PI) * 0.12;
+      // pure lateral slide — enter left, exit right — no rotation
+      model.position.x = SLIDE_START + smoothProg * SLIDE_AMPLITUDE;
+      // lock orientation — this is a train on a track, not a gyroscope
+      model.rotation.y = baseRotY;
+      model.rotation.x = baseRotX;
     }
     renderer.render(scene, cam);
   })();
 })();
 
 /* ============================================================
-   4. THREE.JS · FORK (draggable, strands respond)
+   4. CHIP NAVIGATION · pin-train stops → jump to sections
    ============================================================ */
 
-(function initFork(){
-  const canvas = document.getElementById('fork-canvas');
-  const rect = ()=>canvas.getBoundingClientRect();
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-  const scene = new THREE.Scene();
-  const cam = new THREE.PerspectiveCamera(32, 1, 0.01, 200);
-  cam.position.set(0, 1.6, 8.5);
-  cam.lookAt(0.6, 0.2, 0);
-
-  scene.add(new THREE.AmbientLight(0xffffff, 0.35));
-  const key  = new THREE.DirectionalLight(0xffffff, 1.5); key.position.set(3,5,4); scene.add(key);
-  const fill = new THREE.DirectionalLight(0xF5B015, 0.7); fill.position.set(-4,-2,3); scene.add(fill);
-  const rim  = new THREE.DirectionalLight(0xDD3D38, 0.8); rim.position.set(0,0,-5); scene.add(rim);
-
-  /* =========================================================
-     HORIZONTAL FORK · handle off-screen LEFT · tines point RIGHT
-     The entire fork is built pointing UP along +Y, then the
-     whole group is rotated -90° around Z so +Y becomes +X.
-     This way "tineTop" in local-Y maps to right-edge in world-X.
-     ========================================================= */
-
-  const forkGroup = new THREE.Group();
-  const matte = new THREE.MeshStandardMaterial({ color:0x0A0A0D, metalness:0.95, roughness:0.25 });
-  const gold  = new THREE.MeshStandardMaterial({ color:0xF5B015, metalness:0.9,  roughness:0.25 });
-
-  // handle (long cylinder along Y)
-  const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.15, 3.0, 24), matte);
-  handle.position.y = -1.5;
-  forkGroup.add(handle);
-  // cap on the end of the handle
-  const cap = new THREE.Mesh(new THREE.SphereGeometry(0.16, 24, 16), gold);
-  cap.position.y = -3.05;
-  forkGroup.add(cap);
-  // neck
-  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.20, 0.5, 24), matte);
-  neck.position.y = 0.05;
-  forkGroup.add(neck);
-  // crossbar (goes across Z so we see it in profile)
-  const cross = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.16, 1.25), matte);
-  cross.position.y = 0.34;
-  forkGroup.add(cross);
-  // four tines extending up in local-Y (will become +X after rotation)
-  const tinePos = [-0.46, -0.15, 0.15, 0.46]; // along local Z
-  tinePos.forEach(z=>{
-    const tine = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.045, 1.5, 16), matte);
-    tine.position.set(0, 1.12, z);
-    forkGroup.add(tine);
-    const tip = new THREE.Mesh(new THREE.ConeGeometry(0.055, 0.13, 16), matte);
-    tip.position.set(0, 1.91, z);
-    forkGroup.add(tip);
-  });
-
-  // rotate the whole fork 90° clockwise around Z → handle points LEFT, tines RIGHT
-  forkGroup.rotation.z = -Math.PI / 2;
-  // pull it to the left edge of the stage
-  forkGroup.position.set(-1.4, 0.2, 0);
-  scene.add(forkGroup);
-
-  /* =========================================================
-     SIX STRANDS · all descend FROM ABOVE, drape over the tines
-     from above, wrap underneath, then dangle down the right
-     side as "pasta tails". This matches the Zagnoli reference.
-     ========================================================= */
-
-  const strandColors = [0x1F4D8C, 0xDD3D38, 0xF5B015, 0x2F9E5E, 0x7E4DA5, 0xE87722];
-  const strands = strandColors.map(c=>({
-    mat: new THREE.MeshStandardMaterial({color:c, metalness:.15, roughness:.55}),
-    mesh: null
-  }));
-
-  // In WORLD coordinates now, since the fork is already rotated.
-  // Tine tips after rotation (local Y=1.91 → world X):
-  //   world position of tine tip i = forkGroup.position + rotZ(-90)(0, 1.91, tinePos[i])
-  //   rotZ(-90) : (x,y,z) → (y, -x, z)
-  //   so (0, 1.91, z) → (1.91, 0, z). Plus fork pos (-1.4, 0.2, 0):
-  //   world = ( -1.4 + 1.91, 0.2 + 0, z ) = ( 0.51, 0.2, z )
-  // So the tine TIPS are at world X ≈ 0.51, Y ≈ 0.2, Z ≈ tinePos[i].
-  // The tine BASES (local Y=0.34, crossbar) → world X ≈ -1.06.
-
-  const tineTipWorld = tinePos.map(z=>({ x: 0.51, y: 0.20, z }));
-  const tineBaseWorld = tinePos.map(z=>({ x: -1.06, y: 0.20, z }));
-
-  function buildStrand(i, pull, t){
-    // each strand gets one tine it wraps around
-    const tineIdx = i % 4;
-    const tipW = tineTipWorld[tineIdx];
-    const baseW = tineBaseWorld[tineIdx];
-    const midTineX = (tipW.x + baseW.x)/2;
-    const midTineZ = tipW.z;
-
-    // horizontal spread where the strand descends from above (top of stage)
-    const startX = -3.2 + (i * 1.15) + Math.sin(t*0.4 + i)*0.15;
-    const startY = 3.6 + Math.sin(t*0.5 + i)*0.1;    // high above
-    const startZ = (i - 2.5) * 0.35;
-
-    // approach the fork from above
-    const p1 = new THREE.Vector3(startX + (midTineX-startX)*0.25, 2.6, startZ*0.6);
-    const p2 = new THREE.Vector3(midTineX - 0.1, 1.6, midTineZ + 0.25);
-    // wrap DOWN over the top of the tine
-    const p3 = new THREE.Vector3(midTineX, 0.55, midTineZ + 0.12);
-    // around the back (below the tine)
-    const p4 = new THREE.Vector3(midTineX + 0.08, 0.05 - pull*0.25, midTineZ - 0.08);
-    const p5 = new THREE.Vector3(midTineX + 0.15, 0.2 - pull*0.2, midTineZ - 0.18);
-    // over the top again — second loop
-    const p6 = new THREE.Vector3(midTineX + 0.1, 0.6 - pull*0.15, midTineZ + 0.02);
-    // exit past the tine tip — pasta tail dangling right
-    const p7 = new THREE.Vector3(tipW.x + 0.4 + pull*0.8, 0.0 + Math.sin(t + i)*0.1, tipW.z + Math.cos(t + i)*0.12);
-    const p8 = new THREE.Vector3(tipW.x + 1.1 + pull*1.4, -0.9 + Math.cos(t*0.8 + i)*0.15 - pull*0.4, tipW.z + Math.sin(t*0.6 + i)*0.18);
-    const p9 = new THREE.Vector3(tipW.x + 1.9 + pull*2.0, -1.8 - pull*0.6, tipW.z + Math.cos(t*0.4 + i)*0.2);
-
-    const p0 = new THREE.Vector3(startX, startY, startZ);
-    const curve = new THREE.CatmullRomCurve3(
-      [p0, p1, p2, p3, p4, p5, p6, p7, p8, p9],
-      false, 'catmullrom', 0.35
-    );
-    return new THREE.TubeGeometry(curve, 96, 0.055, 10, false);
-  }
-
-  strands.forEach((s, i)=>{
-    s.mesh = new THREE.Mesh(buildStrand(i, 0, 0), s.mat);
-    scene.add(s.mesh);
-  });
-
-  /* =========================================================
-     DRAG · horizontal drag PULLS the fork to the right and
-     extends the strands' pasta tails. Vertical drag tilts it.
-     ========================================================= */
-
-  let pullT = 0, pullTarget = 0;
-  let dragging = false, lastX = 0;
-  let tilt = 0, tiltTarget = 0;
-
-  canvas.addEventListener('pointerdown', e=>{
-    dragging = true; lastX = e.clientX;
-    canvas.setPointerCapture(e.pointerId);
-    document.getElementById('fork-hint').classList.add('hidden');
-  });
-  canvas.addEventListener('pointermove', e=>{
-    const r = rect();
-    const ny = (e.clientY - r.top) / r.height * 2 - 1;
-    tiltTarget = ny * 0.12;
-    if(dragging){
-      const dx = (e.clientX - lastX);
-      pullTarget = Math.min(1, Math.max(0, pullTarget + dx/500));
-      lastX = e.clientX;
+document.querySelectorAll('.pin-train .chip').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const target = btn.dataset.target;
+    if(!target) return;
+    if(target === 'top'){
+      if(typeof lenis !== 'undefined') lenis.scrollTo(0, {duration: 1.4});
+      else window.scrollTo({top:0, behavior:'smooth'});
+      return;
     }
+    const el = document.querySelector(target);
+    if(!el) return;
+    if(typeof lenis !== 'undefined') lenis.scrollTo(el, {offset: -40, duration: 1.4});
+    else el.scrollIntoView({behavior:'smooth', block:'start'});
   });
-  function endDrag(){ dragging = false; pullTarget *= 0.2; } // spring back
-  canvas.addEventListener('pointerup', endDrag);
-  canvas.addEventListener('pointercancel', endDrag);
-  canvas.addEventListener('pointerleave', endDrag);
-
-  function resize(){
-    const r = rect();
-    renderer.setSize(r.width, r.height, false);
-    cam.aspect = r.width / r.height; cam.updateProjectionMatrix();
-  }
-  resize(); window.addEventListener('resize', resize);
-
-  const forkBaseX = -1.4;
-
-  (function anim(){
-    requestAnimationFrame(anim);
-    pullT += (pullTarget - pullT)*0.1;
-    tilt  += (tiltTarget - tilt)*0.08;
-
-    // pulling right moves the fork right AND rotates strands' tails
-    forkGroup.position.x = forkBaseX + pullT * 1.5;
-    forkGroup.rotation.x = tilt;
-    forkGroup.position.y = 0.2 + Math.sin(performance.now()*0.0008)*0.02;
-
-    const t = performance.now()*0.001;
-    strands.forEach((s, i)=>{
-      s.mesh.geometry.dispose();
-      s.mesh.geometry = buildStrand(i, pullT, t);
-    });
-
-    renderer.render(scene, cam);
-  })();
-})();
+});
 
 </script>
 </body>

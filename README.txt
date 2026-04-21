@@ -1,8 +1,44 @@
-NINETY-EIGHT · Website v2.2
+NINETY-EIGHT · Website v2.3
 ===========================
 Hand-coded. No Figma. Real motion, real interaction.
-v2.2 adds Apple-style scroll — inertial smooth-scroll + hero
-parallax + a pinned scroll-scrub train stage.
+v2.3 tightens the pinned train stage and removes the fork.
+
+WHAT CHANGED IN v2.3
+--------------------
+1. TRAIN: SLIDE, DON'T SPIN
+   The pinned train section used to rotate the 3D model 720° while
+   the chips on the right toggled — it read as decorative motion
+   without payoff. The train now glides laterally across the
+   stage instead: enters from the left at prog=0, exits right at
+   prog=1. No rotation, no tilt, no OrbitControls. The model
+   orientation is locked so it reads as a train on a track.
+
+2. CHIPS ARE NAVIGATION
+   The seven stop chips (Board · Services · Roster · Work ·
+   Culture · About · Terminus) are now real <button>s. Clicking
+   any of them hands off to Lenis and glides the page to the
+   matching section (anchors: #services, #roster, #work,
+   #culture, #about, #contact). Active chip gets a gold fill;
+   inactive stops dim and drift right as scroll progress moves.
+
+3. FORK: REMOVED
+   The draggable 3D fork in the footer is out. In its place is a
+   dark TERMINUS panel — same carbon background, same gold
+   accent, but flat HTML/CSS. Less novelty, more directness.
+   ~200 lines of Three.js and an entire GLTF/OrbitControls
+   import went with it.
+
+4. HERO MARK TIGHTER
+   "NINETY EIGHT" was crowding the right edge on wide viewports.
+   Reduced clamp from 13vw→11.8vw max 220→196 and dropped letter
+   spacing one tick so the mark sits more comfortably within the
+   column.
+
+5. DIAL NOW READS PROGRESS
+   The pin-stat under the heading used to count "° rotation"
+   through two full spins. Since the train no longer rotates,
+   it now reads "XX % through the line" — matches the
+   slide-across metaphor.
 
 FILES
 -----
@@ -24,7 +60,7 @@ Any OS:
 
 A local server is required because browsers block .glb loading over file://.
 
-WHAT'S NEW IN v2.2 · APPLE-FEEL SCROLL
+WHAT'S IN v2.2 · APPLE-FEEL SCROLL (still in)
 --------------------------------------
 A. LENIS SMOOTH SCROLL
    Global inertial scroll via Lenis (pinned wheel + touch).
