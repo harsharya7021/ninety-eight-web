@@ -1,7 +1,261 @@
-NINETY-EIGHT · Website v2.4
-===========================
+NINETY-EIGHT · Website v2.10
+============================
 Hand-coded. No Figma. Real motion, real interaction.
-v2.4 turns the pinned train stage into a clean section breaker.
+v2.10 brings the actual proof of work onto the page — the 57
+Instagram highlight covers 98 designed for clients are now live
+in the Roster section, organized as Hospitality (72 brands) and
+Brand Partners (26 brands). Brands without a cover get a placeholder
+circle with their initials in a brand color, ready to swap.
+
+WHAT CHANGED IN v2.10
+---------------------
+1. WORK SHOWCASE — REAL DELIVERABLES, NOT PILL LISTS
+   Replaced the small "Brand Partners" / "Hospitality & IM" pill
+   blocks (15 + 12 placeholder names) with a proper showcase:
+     · Hospitality — 72 brands, 44 with the actual highlight
+       covers we designed (Adda, Andreas, Baoji, Baris GK,
+       Bayroute, Boccon Cheeni, Butter Room, Crusty Culture,
+       Deja Brew, Duty Free, Farzi, Fig, Flaunt, Gastronomica,
+       Getafix, Hard Rock Cafe, Hook, Iskate by Roseate, Kleo,
+       La Roca, Limitless Cookhouse, Local, Madam Chutney,
+       Mai Bao, Molecule, Monet, Nao by Bercos, Ophelia,
+       Pa Pa Ya, Poetry, Pot Pot, Rang Punjab, Rizq, Sizzling
+       Shack, Sky Lantern, Slay Coffee, Slique, TBSP, Thai Mama,
+       The Weekend, UCH Rewind, Unplugged Courtyard, Vietnom,
+       Wheaty)
+     · Brand Partners — 26 brands across D2C / FMCG / ed-tech /
+       collabs, 3 with covers (Betway, Indian Sneaker Fest,
+       RD Accessories). Rest sit as initial-on-color placeholder
+       circles until cover work or logos arrive.
+
+2. HIGHLIGHTS FOLDER COPIED INTO PROJECT
+   The 57 PNGs from the user's Insta Highlights folder are now
+   at website-v2/highlights/ (~6.2 MB). They load lazily on
+   scroll and are cropped to 78px circles (64px on mobile) so
+   the page stays light.
+
+3. SECTION HEADER UPDATED FOR THE NEW SCOPE
+   "Talent · Proof of Work" → "Talent & Brands · Proof of Work."
+   "People we've spoken for" → "People and brands we've spoken
+   for." Note rewritten to acknowledge the 90+ brand showcase
+   sitting below the 5-talent carousel.
+
+4. PLACEHOLDER SYSTEM
+   Brands without a cover get a circle with 1–3 letter initials
+   on one of the brand-palette colors (deterministic by name
+   hash). When you send the missing covers / logos later, drop
+   the file in website-v2/highlights/ and replace one line in
+   the Python brand-list to point at it — easy retrofit.
+
+DATA SOURCE
+   Brand list compiled from "98 Entertainment.xlsx" Sheet 1
+   (77 rows of brand × service × creative-format × IG/PR/YT
+   links). Founder-page data from Sheet 2 (podcasts, talks,
+   college lectures, press) is parked for the founder-page
+   build, which is on hold until Harsh shares richer bio,
+   photos, school logos and article URLs.
+
+WHAT CHANGED IN v2.9
+--------------------
+1. CO-FOUNDER FRAMING — REMOVED EVERYWHERE
+   The "partner" Harsh referred to is romantic, not business.
+   Stripped from the founder bio, the timeline (2024 + 2026
+   entries), and the README. Title remains "Founder" (singular).
+
+2. STUDIO NOTES — PROFESSIONALIZED
+   The right-column hero timeline is now institutional and
+   credentialed instead of personal-narrative. Out: "age 20",
+   "cold-calling", "therapy", "unlearning", "first stable client:
+   a cloud kitchen", "250 sq ft office". In: "Founded in Delhi
+   NCR. The practice takes shape...", "Founder pauses operations
+   to complete the ISB MBA", "A year of structured rebuilding.
+   Frameworks before scale." Position: art + science, well-read,
+   well-traveled, credentialed, stable.
+
+3. ROSTER — SLIDING CAROUSEL
+   Replaced the 5-card vertical grid with a horizontal scroll-
+   snap carousel — one slide per talent (Ishant Sharma, Singh
+   Sisters, Arjun Bhati, Avani Prashanth, Himanshu Nagar). Each
+   slide is wider, with a stat block (Tests/Wickets/Followers
+   for Ishant, Sisters/Captaincy/Awards for Singh Sisters, etc.)
+   and tags. Native trackpad/swipe scrolling, plus prev/next
+   arrow buttons, click-on-dot navigation, and arrow-key support
+   when the rail has focus. Active dot + button-disabled state
+   are kept in sync via a rAF-throttled scroll observer.
+
+4. ABOUT — CLICK-TO-EXPAND BIO (native <dialog>)
+   The visible founder bio is now short and credentials-forward:
+   "Engineer by training, operator by trade. Built and ran 98 from
+   2020-2023... paused for ISB MBA... now leads v2.0." A "Read
+   more about Harsh →" pill opens a native <dialog> modal with
+   the longer professional narrative — Background, Writing &
+   Thought Leadership (The Economic Times column, Gen Z Economics
+   blog with Prof. Tantri, documentary, playbook), and the three
+   stories of "98". Closes on backdrop click, on the close button,
+   or on Escape.
+
+5. BRANDS-BLOCK LAYOUT FIX
+   The Roster carousel sits full-width above. Brand Partners and
+   Hospitality & IM brand pills now sit side-by-side in a
+   2-column grid below it (.brands-block). Stacks on mobile.
+
+NOTE
+   The hospitality client list (Mai Bao, 1OAK, Junkyard, etc.)
+   and the six work tiles ("Stories on the map") are flagged
+   for content updates from Harsh — kept as-is until he provides
+   the new copy.
+
+WHAT CHANGED IN v2.8
+--------------------
+1. POSITIONING — "CREATIVE POWERHOUSE · BUSINESS PARTNERS FOR HIRE"
+   Title and meta description updated. The site is no longer
+   "a marketing & advertising studio" — it's a creative
+   powerhouse. Strategy, marketing, advertising, execution,
+   financial modeling, market research — explicitly NOT
+   operational consulting.
+
+2. SERVICES — REPLACED 6 PR-ERA ROWS WITH THE V2.0 SEVEN
+   01 Strategy
+   02 Consulting
+   03 Marketing
+   04 Advertising
+   05 Execution
+   06 Financial Modeling
+   07 Market Research
+   Section header note updated from "Six lines" to "Seven lines."
+   The "we don't do operational consulting" boundary is stated
+   in the section intro.
+
+3. TIMELINE — REWRITTEN WITH THE REAL ARC
+   Removed fabricated entries (2024 "Bombay studio opens" /
+   2025 "Bangalore studio opens"). New arc:
+     2020 — Founded by Harsh Arya, age 20. Cloud kitchen first.
+     2021 — Pratima Singh joins as first talent client.
+     2022 — Ishant Sharma signs exclusive. Restaurants on
+            retainer across Delhi NCR, Bombay, Bangalore.
+     2023 — 55+ brands. Founder pauses agency for ISB.
+     2024 — ISB MBA. Met co-founder.
+     2025 — Year of unlearning. Therapy, frameworks, structure.
+     2026 — 98 v2.0, co-founded. Same conviction. Better
+            scaffolding.
+
+4. ROSTER — REFRAMED AS PROOF OF WORK
+   Section header changes from "People we speak for" to
+   "People we've spoken for." Talent management isn't a v2.0
+   offering — but the deal-making muscle is, and the names
+   (Ishant Sharma, Singh Sisters, Arjun Bhati, Avani
+   Prashanth, Himanshu Nagar) are the receipts.
+
+5. FOUNDER BIO — REWRITTEN
+   New copy reflects the actual story: founded at 20, scaled
+   to 55+ brands and a Test-cricketer roster by 2023, paused
+   for ISB, met co-founder there, writes on Gen Z economics
+   for The Economic Times. Co-founder card is stubbed in the
+   HTML as a comment — uncomment + fill in when ready.
+
+6. STATS — VERTICALS → SERVICE LINES
+   "6× Verticals we run" → "7× Service lines we ship."
+   "12K+ Media placements" left in but is a v1 PR-era number
+   — flag to confirm or replace.
+
+WHAT CHANGED IN v2.7
+--------------------
+1. STATION CHIP · "NOW APPROACHING"
+   Bottom-right chip slides in when you scroll into a section,
+   shows the line bullet (SV / TM / WK / AU / TR) and the
+   section name, holds 2.2 s, then slides back out. Driven by
+   IntersectionObserver — fires only on transition (last
+   announced ID is cached), no per-frame work. The "best
+   match" entry in each batch wins so adjacent sections
+   don't fight each other.
+
+2. MAGNETIC CTAs
+   Three element classes pull toward the cursor when it gets
+   within 110 px: nav .cta ("Let's Talk"), footer .cta-big
+   (the email button), and every .svc-row .arrow ("Board →").
+   Pull strength 0.32 of the offset. Throttled through one rAF
+   tick per mousemove batch and skips offscreen elements, so
+   the loop costs almost nothing. .pulling toggles the
+   transition off while engaged (instant tracking) and back on
+   when leaving the radius (smooth return to rest).
+   Disabled on touch + small viewports.
+
+3. STATION RAIL · RIGHT-EDGE WAYFINDING
+   Fixed bullet stack on the right (SV / TM / WK / AU). The
+   bullet for the section currently in view is full-size and
+   ringed; the others sit dim and slightly smaller. A vertical
+   1px track connects them. Each bullet is a clickable anchor
+   to its section, with the section name revealing on hover.
+   Hidden on the hero (fades in once you scroll past it).
+   Hidden under 1080 px (uses the existing nav for mobile).
+
+NOTE
+   The IntersectionObserver picks the entry with the highest
+   intersectionRatio in each batch, so adjacent sections don't
+   announce-fight. Only one chip animation runs at a time.
+
+WHAT CHANGED IN v2.6
+--------------------
+1. TRAIN — REMOVED ENTIRELY
+   The pinned section breaker (`.pin-train`), the train canvas,
+   the 27 MB `train.glb` payload, all the Three.js + GLTFLoader
+   code, the importmap, and the 60-fps render loop are gone.
+   `train.glb` and `logo.glb` still sit in the folder but the
+   page no longer fetches them. The ticket-stub layout
+   (Platform 98, Zigzag Express, Vignelli quote) goes with it
+   — services now follows the hero directly.
+
+2. LENIS — REMOVED
+   The biggest cause of "laggy". Lenis hijacked every wheel
+   event and rolled it through a 1.15 s easing curve, which
+   feels heavy on a Mac trackpad where users expect native
+   instant scroll. We're back on browser-native scroll.
+   Anchor links use window.scrollTo({behavior:'smooth'}) —
+   smooth on jumps, snappy on the wheel.
+
+3. SCRIPT BLOCK SIMPLIFIED
+   With three.js + Lenis gone, there is no more ES module
+   block — single classic <script>, no importmap, no
+   third-party JS at all (lucide / lenis / three are all out).
+   File size 62.8 KB → 53.3 KB. Lines 1199 → 998.
+
+4. DEAD FORK COMMENTS REMOVED
+   The thread-builder no longer stashes window.__forkEntry
+   (the v2.3 fork is long gone; this was a stale handoff).
+
+WHAT CHANGED IN v2.5
+--------------------
+1. FOUNDED 2020 (not 2019)
+   Year corrected everywhere: <title>, meta description, nav small
+   text, hero meta strip, services PR copy, footer copyright,
+   and the entire timeline (each year shifted forward by one).
+
+2. THREE CITIES — DELHI NCR, BOMBAY, BANGALORE
+   Replaced "Delhi · Noida · Mumbai" everywhere with the real
+   operating footprint. Hero kicker, hero meta, About stat,
+   and footer studio block all updated. The Greater Noida +
+   Sector-63 addresses now live under one "Studio — Delhi NCR"
+   block. Bombay (Bandra) by appointment. Bangalore by
+   appointment — drop in a real street address when ready.
+
+3. 55+ BRANDS (not 35+)
+   Hero meta, About count-up stat (data-count="55"), meta
+   description, and timeline all updated.
+
+4. POSITIONING — MARKETING & ADVERTISING
+   Primary positioning is now "Marketing & Advertising" instead
+   of "PR & Talent Management". Title, meta description, hero
+   kicker, hero meta strip, and footer service line all reframed.
+   The six-row services list (PR / Talent Mgmt / Influencer /
+   Brand Dev / Content / Partnerships) is unchanged — those are
+   the lines on the platform.
+
+5. NAV LOGO — PLACEHOLDER FLAGGED
+   The generic arrow mark in the top-left has been swapped for
+   an italic "98" so it at least references the brand. This is
+   STILL a placeholder. Drop a real logo file into website-v2/
+   as logo.svg (preferred) or logo.png and swap the .logo-mark
+   span for an <img>.
 
 WHAT CHANGED IN v2.4
 --------------------

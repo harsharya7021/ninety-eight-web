@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ninety-Eight Entertainment — Public Relations · Talent Management</title>
-<meta name="description" content="Ninety-Eight Entertainment — a PR & talent management studio out of Delhi-NCR and Mumbai. 35+ brands. Since 2019." />
+<title>Ninety-Eight — A creative powerhouse. Business partners for hire.</title>
+<meta name="description" content="Ninety-Eight is a creative powerhouse out of Delhi NCR, Bombay and Bangalore. Strategy, marketing, advertising, execution, financial modeling, market research — for founders who want a partner, not a vendor. Since 2020." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -144,34 +144,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .tl-row .yr{font:600 11px/1 var(--mono);letter-spacing:.12em;color:var(--red);text-transform:uppercase}
 .tl-row .ev{font:700 15px/1.35 var(--display);margin-top:4px;letter-spacing:-.01em}
 
-/* 3D train stage — transparent; the train floats on whatever's behind it */
-.train-stage{position:relative;width:100%;height:100%;overflow:visible;background:transparent}
-#train-canvas{width:100%;height:100%;display:block}
-.train-load{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(245,176,21,.15);pointer-events:none}
-.train-load i{display:block;height:100%;width:0%;background:var(--gold);transition:width .2s}
-
-/* ---------- SECTION BREAKER · train glides across between sections ---------- */
-.pin-train{position:relative;height:160vh;background:var(--paper);z-index:2;border-top:1px solid rgba(14,14,16,.08);border-bottom:1px solid rgba(14,14,16,.08)}
-.pin-train .pin-inner{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden}
-.pin-train .pin-stage{position:relative;width:100%;height:56vh;max-height:520px;min-height:300px}
-/* rail line — two thin horizontal strokes behind the train */
-.pin-train .rail{position:absolute;left:-4%;right:-4%;height:1px;background:rgba(14,14,16,.16);pointer-events:none}
-.pin-train .rail.top{top:calc(50% - 22px)}
-.pin-train .rail.bot{top:calc(50% + 22px)}
-.pin-train .rail-tick{position:absolute;top:calc(50% + 28px);width:1px;height:10px;background:rgba(14,14,16,.2);pointer-events:none}
-/* kicker + tagline sit quietly at the edges of the breaker */
-.pin-train .pin-label{position:absolute;top:26px;left:28px;font:500 11px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--slate);display:flex;align-items:center;gap:10px;z-index:3}
-.pin-train .pin-label::before{content:"";width:22px;height:1px;background:var(--red)}
-.pin-train .pin-route{position:absolute;top:26px;right:28px;font:500 11px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--slate);z-index:3}
-.pin-train .pin-route b{color:var(--red);font-weight:700}
-.pin-train .pin-quote{position:absolute;bottom:36px;left:28px;right:28px;text-align:center;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(16px,1.4vw,22px);color:var(--slate);max-width:640px;margin:0 auto;z-index:3}
-@media (max-width:1080px){
-  .pin-train{height:auto}
-  .pin-train .pin-inner{position:relative;height:auto;padding:80px 22px}
-  .pin-train .pin-stage{height:46vh;min-height:280px}
-  .pin-train .pin-label,.pin-train .pin-route{position:static;display:inline-flex;margin:0 auto 18px}
-  .pin-train .pin-quote{position:static;margin-top:24px}
-}
+/* (3D train + section-breaker styles removed in v2.6) */
 
 /* scroll cue */
 .scroll-cue{position:absolute;left:50%;transform:translateX(-50%);bottom:22px;z-index:4;font:500 10px/1 var(--mono);letter-spacing:.3em;color:var(--slate);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -220,7 +193,31 @@ section{position:relative;padding:120px 28px;z-index:2}
 .talent-card .tag{display:inline-block;margin-top:6px;margin-right:6px;font:500 10px/1 var(--mono);letter-spacing:.18em;color:var(--slate);text-transform:uppercase;padding:5px 9px;border:1px solid rgba(14,14,16,.15);border-radius:999px}
 .talent-col{display:grid;gap:14px}
 .brands-col{display:flex;flex-direction:column;gap:14px}
-.brands-col h3{font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+.brands-block{display:grid;grid-template-columns:1fr 1fr;gap:32px;position:relative;z-index:3}
+.brands-block h3{font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+@media (max-width:820px){.brands-block{grid-template-columns:1fr}}
+
+/* ---------- v2.10 · WORK SHOWCASE (real Insta highlight covers + placeholders) ---------- */
+.work-showcase{position:relative;z-index:3}
+.ws-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(14,14,16,.12)}
+.ws-head h3{font:800 clamp(20px,2vw,28px)/1 var(--display);letter-spacing:-.02em;color:var(--carbon)}
+.ws-count{font:500 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);text-align:right}
+.bt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:18px 12px}
+.bt{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--carbon);transition:transform .25s var(--ease)}
+.bt:hover{transform:translateY(-3px)}
+.bt-img{width:78px;height:78px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#0E0E10;color:#fff;font:800 14px/1 var(--display);letter-spacing:-.01em;box-shadow:0 6px 14px -8px rgba(0,0,0,.45),0 0 0 1px rgba(14,14,16,.06) inset;position:relative;transition:box-shadow .3s var(--ease), transform .3s var(--ease)}
+.bt:hover .bt-img{box-shadow:0 14px 24px -10px rgba(0,0,0,.55),0 0 0 2px var(--gold) inset}
+.bt-img img{width:100%;height:100%;object-fit:cover;display:block}
+.bt-name{font:500 11px/1.25 var(--mono);letter-spacing:.05em;color:var(--slate);text-align:center;max-width:100px;text-transform:uppercase;transition:color .25s var(--ease)}
+.bt:hover .bt-name{color:var(--carbon)}
+.bt.is-placeholder .bt-img{font-size:13px}
+@media (max-width:600px){
+  .bt-grid{grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:14px 10px}
+  .bt-img{width:64px;height:64px}
+  .bt-name{font-size:10px;max-width:84px}
+  .ws-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .ws-count{text-align:left}
+}
 .brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .brand-pill{padding:12px 14px;border:1px solid rgba(14,14,16,.18);border-radius:10px;font:700 13px/1.2 var(--display);text-align:center;background:rgba(255,255,255,.55);transition:all .3s var(--ease);letter-spacing:-.005em}
 .brand-pill:hover{background:var(--carbon);color:var(--paper);transform:translateY(-2px)}
@@ -306,6 +303,84 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   .svc-row p,.svc-row .arrow{display:none}
   .sec-head{gap:18px}
 }
+
+/* ---------- v2.7 · APPROACH CHIP (now-approaching MTA banner) ---------- */
+.approach-chip{position:fixed;bottom:32px;right:32px;z-index:60;display:flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;background:rgba(14,14,16,.94);color:var(--paper);border-radius:999px;font:600 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;box-shadow:0 12px 32px rgba(0,0,0,.32),0 0 0 1px rgba(255,255,255,.04) inset;transform:translate(140%,0);opacity:0;transition:transform .55s var(--ease), opacity .35s ease;pointer-events:none;backdrop-filter:blur(8px)}
+.approach-chip.in{transform:translate(0,0);opacity:1}
+.approach-chip .ac-bullet{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 9px/1 var(--mono);letter-spacing:.04em;color:#fff;flex:0 0 26px}
+.approach-chip .ac-text{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+.approach-chip .ac-text small{font:500 10px/1 var(--mono);letter-spacing:.22em;color:rgba(244,239,224,.55)}
+.approach-chip .ac-text b{font:700 11px/1 var(--display);letter-spacing:.04em;color:var(--gold);text-transform:uppercase}
+@media (max-width:820px){.approach-chip{bottom:18px;right:18px;left:18px;padding:8px 14px 8px 8px;font-size:10px;justify-content:center}}
+
+/* ---------- v2.7 · STATION RAIL (right-edge wayfinding) ---------- */
+.station-rail{position:fixed;top:50%;right:18px;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:50;opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
+.station-rail.visible{opacity:1;pointer-events:auto}
+.station-rail .rail-track{position:absolute;top:8px;bottom:8px;left:50%;width:1px;background:rgba(14,14,16,.18);transform:translateX(-50%);z-index:-1}
+.rail-stop{display:flex;align-items:center;gap:10px;color:var(--slate);text-decoration:none;flex-direction:row-reverse}
+.rail-stop .rs-bullet{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font:700 9px/1 var(--mono);letter-spacing:.04em;color:#fff;opacity:.32;transform:scale(.85);transition:opacity .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease)}
+.rail-stop .rs-label{font:600 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate);opacity:0;transform:translateX(8px);transition:opacity .25s var(--ease), transform .25s var(--ease);pointer-events:none}
+.rail-stop:hover .rs-bullet{opacity:1;transform:scale(1)}
+.rail-stop:hover .rs-label{opacity:1;transform:translateX(0)}
+.rail-stop.active .rs-bullet{opacity:1;transform:scale(1.08);box-shadow:0 0 0 5px rgba(245,240,225,.55)}
+@media (max-width:1080px){.station-rail{display:none}}
+
+/* ---------- v2.7 · MAGNETIC ELEMENTS (cursor-pull) ---------- */
+.magnetic{transition:transform .35s cubic-bezier(.2,.7,.2,1);will-change:transform}
+.magnetic.pulling{transition:none}
+@media (hover:none),(max-width:820px){.magnetic{transition:none}.magnetic.pulling{transform:none !important}}
+
+/* ---------- v2.9 · FOUNDER DIALOG (click-to-expand bio) ---------- */
+.founder-open{margin-top:18px;display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--carbon);color:var(--carbon);padding:10px 16px;border-radius:999px;font:600 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .25s var(--ease), color .25s var(--ease)}
+.founder-open:hover{background:var(--carbon);color:var(--paper)}
+.founder-dialog{border:none;padding:0;max-width:720px;width:calc(100% - 36px);max-height:88vh;border-radius:14px;background:var(--paper);color:var(--carbon);box-shadow:0 30px 80px -10px rgba(0,0,0,.45);overflow:hidden}
+.founder-dialog::backdrop{background:rgba(14,14,16,.62);backdrop-filter:blur(4px)}
+.founder-dialog .fd-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid rgba(14,14,16,.1);background:var(--paper);z-index:2}
+.founder-dialog .fd-head .fd-tag{font:500 10px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--slate);display:flex;align-items:center;gap:8px}
+.founder-dialog .fd-head .fd-tag::before{content:"";width:18px;height:1px;background:var(--red)}
+.founder-dialog .fd-close{width:34px;height:34px;border-radius:50%;border:1px solid rgba(14,14,16,.18);background:transparent;cursor:pointer;font:400 22px/1 var(--display);color:var(--carbon);display:grid;place-items:center;transition:all .2s var(--ease)}
+.founder-dialog .fd-close:hover{background:var(--carbon);color:var(--paper);border-color:var(--carbon)}
+.founder-dialog .fd-body{padding:32px 36px 44px;overflow-y:auto;max-height:calc(88vh - 72px)}
+.founder-dialog h2{font:800 clamp(28px,3vw,42px)/1.05 var(--display);letter-spacing:-.025em;margin-bottom:6px}
+.founder-dialog .fd-byline{font:500 11px/1.4 var(--mono);color:var(--red);letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;display:block}
+.founder-dialog h3{font:700 16px/1.3 var(--display);letter-spacing:-.01em;margin:30px 0 10px;display:flex;align-items:center;gap:10px}
+.founder-dialog h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--gold);flex:0 0 14px}
+.founder-dialog h3:nth-of-type(2)::before{background:var(--purple)}
+.founder-dialog h3:nth-of-type(3)::before{background:var(--royal)}
+.founder-dialog h3:nth-of-type(4)::before{background:var(--green)}
+.founder-dialog p{font:500 14.5px/1.65 var(--display);color:var(--ink);margin-bottom:14px;max-width:62ch}
+.founder-dialog .fd-creds{display:flex;flex-direction:column;gap:6px;margin-top:8px;padding:14px 16px;background:rgba(14,14,16,.04);border-radius:10px;font:500 12.5px/1.4 var(--mono);color:var(--slate)}
+@media (max-width:680px){.founder-dialog .fd-body{padding:24px 22px 36px}.founder-dialog h2{font-size:26px}}
+
+/* ---------- v2.9 · ROSTER CAROUSEL (scroll-snap, native trackpad) ---------- */
+.roster-stage{position:relative}
+.roster-rail{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 22px 28px;margin:0 -22px;scrollbar-width:none;-ms-overflow-style:none}
+.roster-rail::-webkit-scrollbar{display:none}
+.roster-slide{flex:0 0 calc(min(560px, 80vw));scroll-snap-align:center;background:rgba(255,255,255,.55);border:1px solid rgba(14,14,16,.12);border-radius:18px;padding:36px;display:grid;grid-template-columns:130px 1fr;gap:28px;align-items:center;backdrop-filter:blur(6px);transition:transform .4s var(--ease), box-shadow .4s var(--ease)}
+.roster-slide:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.roster-slide .rs-init{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 38px/1 var(--display);letter-spacing:-.02em;flex:0 0 130px;box-shadow:0 14px 30px -12px rgba(0,0,0,.4)}
+.roster-slide .rs-meta{font:500 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-bottom:10px}
+.roster-slide h4{font:800 clamp(24px,2.4vw,32px)/1 var(--display);letter-spacing:-.02em;margin-bottom:8px}
+.roster-slide .rs-role{font:500 14px/1.5 var(--display);color:var(--slate);margin-bottom:14px}
+.roster-slide .rs-stats{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:14px;padding:12px 0;border-top:1px solid rgba(14,14,16,.08);border-bottom:1px solid rgba(14,14,16,.08)}
+.roster-slide .rs-stat{display:flex;flex-direction:column;gap:2px}
+.roster-slide .rs-stat .n{font:800 18px/1 var(--display);letter-spacing:-.02em}
+.roster-slide .rs-stat .l{font:500 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate)}
+.roster-slide .rs-tags{display:flex;flex-wrap:wrap;gap:6px}
+.roster-slide .rs-tag{font:500 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate);padding:5px 9px;border:1px solid rgba(14,14,16,.15);border-radius:999px}
+.roster-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px}
+.roster-nav button{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--carbon);background:transparent;color:var(--carbon);cursor:pointer;display:grid;place-items:center;font:400 20px/1 var(--display);transition:all .25s var(--ease)}
+.roster-nav button:hover{background:var(--carbon);color:var(--paper)}
+.roster-nav button:disabled{opacity:.25;cursor:not-allowed}
+.roster-dots{display:flex;gap:8px;align-items:center}
+.roster-dots .dot{width:8px;height:8px;border-radius:50%;background:rgba(14,14,16,.2);transition:all .3s var(--ease);cursor:pointer;border:none;padding:0}
+.roster-dots .dot.active{background:var(--carbon);transform:scale(1.3)}
+@media (max-width:820px){
+  .roster-slide{grid-template-columns:1fr;text-align:center;padding:28px 22px}
+  .roster-slide .rs-init{margin:0 auto 6px}
+  .roster-slide .rs-stats{justify-content:center}
+  .roster-slide .rs-tags{justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -317,10 +392,10 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 <!-- =================== NAV =================== -->
 <nav class="nav" id="nav">
   <a class="logo" href="#top">
-    <span class="logo-mark" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M6 18 L18 6 M8 6 H18 V16" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg>
+    <span class="logo-mark" aria-hidden="true" title="placeholder — drop your real logo into website-v2/ as logo.svg or logo.png">
+      <svg viewBox="0 0 24 24"><text x="12" y="17.5" text-anchor="middle" font-family="Instrument Serif, serif" font-style="italic" font-weight="400" font-size="18" fill="currentColor">98</text></svg>
     </span>
-    <span>Ninety-Eight<br><small>Entertainment · since 2019</small></span>
+    <span>Ninety-Eight<br><small>Entertainment · since 2020</small></span>
   </a>
   <ul>
     <li><a href="#services" class="active">Services</a></li>
@@ -411,7 +486,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 
   <div class="hero-grid">
     <div>
-      <span class="kicker"><span class="dot"></span> PR · TALENT · CULTURE · DELHI–NCR / MUMBAI</span>
+      <span class="kicker"><span class="dot"></span> MARKETING · ADVERTISING · DELHI NCR · BOMBAY · BANGALORE</span>
 
       <h1 class="mark" aria-label="Ninety Eight">
         <div class="row one">
@@ -437,10 +512,10 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       </p>
 
       <div class="hero-meta">
-        <span><b>35+</b> brands</span>
-        <span><b>Since</b> 2019</span>
-        <span><b>Delhi</b> · Noida · Mumbai</span>
-        <span><b>PR</b> · Talent · IM</span>
+        <span><b>55+</b> brands</span>
+        <span><b>Since</b> 2020</span>
+        <span><b>Delhi NCR</b> · Bombay · Bangalore</span>
+        <span><b>Marketing</b> · Advertising</span>
       </div>
     </div>
 
@@ -450,12 +525,13 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
         "The life of a designer is a life of fight: fight against the ugliness."
         <small>— MASSIMO VIGNELLI, OUR PATRON SAINT</small>
       </p>
-      <div class="tl-row" data-reveal><div class="yr">2019</div><div class="ev">Ninety-Eight founds in Greater Noida. First account: a single restaurant.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2020</div><div class="ev">Sports desk opens. Pratima, Akanksha &amp; Prashanti Singh join the roster.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2021</div><div class="ev">Ishant Sharma signs. 2.4M followers, a new PR playbook.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2022</div><div class="ev">35+ brands. Arjun Bhati &amp; Avani Prashanth headline the golf book.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2023</div><div class="ev">Hospitality vertical scales — Mai Bao, 1OAK, Junkyard, Vietnom.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">now</div><div class="ev">Two studios. Three cities. One idea: <em>culture is the track, talent is the train.</em></div></div>
+      <div class="tl-row" data-reveal><div class="yr">2020</div><div class="ev">Founded in Delhi NCR. The practice takes shape around restaurants and direct-to-consumer brands.</div></div>
+      <div class="tl-row" data-reveal><div class="yr">2021</div><div class="ev">Sports practice opens. Pratima Singh — captain of the Indian basketball side — joins as the first talent client.</div></div>
+      <div class="tl-row" data-reveal><div class="yr">2022</div><div class="ev">Ishant Sharma signs as exclusive talent. Roster expands across Delhi NCR, Bombay, Bangalore.</div></div>
+      <div class="tl-row" data-reveal><div class="yr">2023</div><div class="ev">55+ brands on the book. Founder pauses operations to complete the ISB MBA.</div></div>
+      <div class="tl-row" data-reveal><div class="yr">2024</div><div class="ev">Founder completes the ISB MBA — adds corporate finance, strategy, market research and organisational design to the toolkit.</div></div>
+      <div class="tl-row" data-reveal><div class="yr">2025</div><div class="ev">A year of structured rebuilding. Frameworks before scale.</div></div>
+      <div class="tl-row" data-reveal><div class="yr">2026</div><div class="ev">98 v2.0 — a creative powerhouse. <em>Same conviction. Sharper craft. Broader services.</em></div></div>
     </aside>
   </div>
 
@@ -463,31 +539,6 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 
   <svg class="thread-canvas" id="thread-hero" preserveAspectRatio="none"></svg>
 </header>
-
-<!-- =================== SECTION BREAKER · train glides across =================== -->
-<section class="pin-train" id="stage" aria-label="Platform 98">
-  <div class="pin-inner">
-    <span class="pin-label">Platform <b style="color:var(--red);font-weight:700">98</b> · Northbound</span>
-    <span class="pin-route">Zigzag <b>·</b> Express</span>
-
-    <div class="pin-stage">
-      <span class="rail top"></span>
-      <span class="rail bot"></span>
-      <span class="rail-tick" style="left:12%"></span>
-      <span class="rail-tick" style="left:28%"></span>
-      <span class="rail-tick" style="left:44%"></span>
-      <span class="rail-tick" style="left:60%"></span>
-      <span class="rail-tick" style="left:76%"></span>
-      <span class="rail-tick" style="left:92%"></span>
-      <div class="train-stage">
-        <canvas id="train-canvas"></canvas>
-        <div class="train-load"><i id="train-load-bar"></i></div>
-      </div>
-    </div>
-
-    <p class="pin-quote">Culture is the track. <em>Talent is the train.</em></p>
-  </div>
-</section>
 
 <!-- =================== SERVICES =================== -->
 <section id="services">
@@ -497,44 +548,50 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
         <span class="sec-tag"><span class="bullet" style="background:var(--red)">SV</span> Services · SV Line</span>
         <h2>What we move. <em>Daily.</em></h2>
       </div>
-      <p class="note">Six lines out of the station. Pick the one that gets your story where it needs to go.</p>
+      <p class="note">Seven lines out of the station. Each one gets your business somewhere it couldn't get on its own. We don't do operational consulting — that's not our thing.</p>
     </div>
 
     <div class="svc-list">
       <a class="svc-row" href="#contact">
         <span class="num">01</span>
-        <h3>Public Relations</h3>
-        <p>Narrative-led campaigns, media relations, crisis handling. We've placed over 12,000 stories since 2019.</p>
+        <h3>Strategy</h3>
+        <p>Where the business goes next. We map the 12–18-month plan that gets you from where you are to where you're trying to be.</p>
         <span class="arrow">Board →</span>
       </a>
       <a class="svc-row" href="#contact">
         <span class="num">02</span>
-        <h3>Talent Management</h3>
-        <p>Athletes, artists, founders. Long-term deal-making and day-to-day representation.</p>
+        <h3>Consulting</h3>
+        <p>Bring the ambiguous problem, leave with a tested approach. Go-to-market, positioning, growth — sit-beside-you consulting, not operational.</p>
         <span class="arrow">Board →</span>
       </a>
       <a class="svc-row" href="#contact">
         <span class="num">03</span>
-        <h3>Influencer Marketing</h3>
-        <p>Creator rosters vetted for fit, not just reach. Full-funnel briefs, on-brand output.</p>
+        <h3>Marketing</h3>
+        <p>Narrative-led campaigns built around what your audience actually believes — fielded across the channels that move the needle.</p>
         <span class="arrow">Board →</span>
       </a>
       <a class="svc-row" href="#contact">
         <span class="num">04</span>
-        <h3>Brand Development</h3>
-        <p>Identity, positioning, campaign launches. We build the platform before we ever ask for the megaphone.</p>
+        <h3>Advertising</h3>
+        <p>Concept, copy, art direction, production. The kind of advertising that earns its place in the feed instead of buying it.</p>
         <span class="arrow">Board →</span>
       </a>
       <a class="svc-row" href="#contact">
         <span class="num">05</span>
-        <h3>Content &amp; Production</h3>
-        <p>Editorial, short-form, stills. Our in-house team ships the asset the moment the story breaks.</p>
+        <h3>Execution</h3>
+        <p>Plans don't ship themselves. We staff, project-manage, and deliver — so the work gets out the door on time, in spec.</p>
         <span class="arrow">Board →</span>
       </a>
       <a class="svc-row" href="#contact">
         <span class="num">06</span>
-        <h3>Partnerships &amp; Events</h3>
-        <p>From league hospitality decks to restaurant launches — we stitch brands to moments that matter.</p>
+        <h3>Financial Modeling</h3>
+        <p>Three-statement models, scenario planning, fundraising decks. Numbers your investors can interrogate, line by line.</p>
+        <span class="arrow">Board →</span>
+      </a>
+      <a class="svc-row" href="#contact">
+        <span class="num">07</span>
+        <h3>Market Research</h3>
+        <p>Primary and desk research that holds up under scrutiny — segment sizing, competitor mapping, willingness-to-pay.</p>
         <span class="arrow">Board →</span>
       </a>
     </div>
@@ -547,93 +604,199 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag"><span class="bullet" style="background:var(--purple)">TM</span> Talent · Roster</span>
-        <h2>People we <em>speak for.</em></h2>
+        <span class="sec-tag"><span class="bullet" style="background:var(--purple)">TM</span> Talent &amp; Brands · Proof of Work</span>
+        <h2>People and brands we've <em>spoken for.</em></h2>
       </div>
-      <p class="note">A short list, carefully kept. Athletes, creators, founders, taste-makers.</p>
+      <p class="note">Five athletes and creators we've represented — plus 90+ restaurants and brands we've helped launch, name, design highlight covers for, and run social on. Talent management isn't the v2.0 offering, but the deal-making and brand-building muscle is. These are the receipts.</p>
     </div>
 
-    <div class="roster-grid">
-      <div class="talent-col">
-        <div class="talent-card reveal">
-          <div class="init" style="background:var(--royal)">IS</div>
+    <div class="roster-stage reveal">
+      <div class="roster-rail" id="roster-rail" tabindex="0" aria-label="Talent roster — scroll to navigate">
+        <article class="roster-slide">
+          <div class="rs-init" style="background:var(--royal)">IS</div>
           <div>
+            <span class="rs-meta">01 · Cricket</span>
             <h4>Ishant Sharma</h4>
-            <p>Indian Test fast bowler · 105 Tests · 311 wickets</p>
-            <span class="tag">2.4M followers</span><span class="tag">CRICKET</span>
+            <p class="rs-role">Indian Test fast bowler. Represented exclusively across the v1 chapter.</p>
+            <div class="rs-stats">
+              <div class="rs-stat"><span class="n">105</span><span class="l">Tests</span></div>
+              <div class="rs-stat"><span class="n">311</span><span class="l">Wickets</span></div>
+              <div class="rs-stat"><span class="n">2.4M</span><span class="l">Followers</span></div>
+            </div>
+            <div class="rs-tags"><span class="rs-tag">Exclusive · 2022</span><span class="rs-tag">Brand deals</span></div>
           </div>
-        </div>
-        <div class="talent-card reveal">
-          <div class="init" style="background:var(--orange)">SS</div>
+        </article>
+
+        <article class="roster-slide">
+          <div class="rs-init" style="background:var(--orange)">SS</div>
           <div>
-            <h4>Singh Sisters</h4>
-            <p>Pratima, Akanksha, Prashanti &amp; Divya · Indian basketball team</p>
-            <span class="tag">PADMA SHRI · ARJUNA</span><span class="tag">BASKETBALL</span>
+            <span class="rs-meta">02 · Basketball</span>
+            <h4>The Singh Sisters</h4>
+            <p class="rs-role">Pratima, Akanksha, Prashanti &amp; Divya — captains and stalwarts of the Indian women's basketball side.</p>
+            <div class="rs-stats">
+              <div class="rs-stat"><span class="n">4</span><span class="l">Sisters</span></div>
+              <div class="rs-stat"><span class="n">India</span><span class="l">Captaincy</span></div>
+              <div class="rs-stat"><span class="n">Padma Shri</span><span class="l">Arjuna Award</span></div>
+            </div>
+            <div class="rs-tags"><span class="rs-tag">Roster · 2021</span><span class="rs-tag">Narrative</span></div>
           </div>
-        </div>
-        <div class="talent-card reveal">
-          <div class="init" style="background:var(--gold)">AB</div>
+        </article>
+
+        <article class="roster-slide">
+          <div class="rs-init" style="background:var(--gold)">AB</div>
           <div>
+            <span class="rs-meta">03 · Golf</span>
             <h4>Arjun Bhati</h4>
-            <p>Three-time Junior World Champion, professional golfer</p>
-            <span class="tag">3× WORLD JR</span><span class="tag">GOLF</span>
+            <p class="rs-role">Three-time Junior World Champion. Professional golfer with a sponsor list worth reading.</p>
+            <div class="rs-stats">
+              <div class="rs-stat"><span class="n">3×</span><span class="l">Junior World</span></div>
+              <div class="rs-stat"><span class="n">Pro</span><span class="l">Tour</span></div>
+            </div>
+            <div class="rs-tags"><span class="rs-tag">Talent mgmt</span><span class="rs-tag">Endorsements</span></div>
           </div>
-        </div>
-        <div class="talent-card reveal">
-          <div class="init" style="background:var(--green)">AP</div>
+        </article>
+
+        <article class="roster-slide">
+          <div class="rs-init" style="background:var(--green)">AP</div>
           <div>
+            <span class="rs-meta">04 · Golf</span>
             <h4>Avani Prashanth</h4>
-            <p>Asian Games '22 qualifier · amateur-to-pro golfer</p>
-            <span class="tag">ASIAN GAMES</span><span class="tag">GOLF</span>
+            <p class="rs-role">Asian Games '22 qualifier. Amateur-to-professional transition narrated in real time.</p>
+            <div class="rs-stats">
+              <div class="rs-stat"><span class="n">Asian</span><span class="l">Games '22</span></div>
+              <div class="rs-stat"><span class="n">Amateur</span><span class="l">→ Pro</span></div>
+            </div>
+            <div class="rs-tags"><span class="rs-tag">PR + Talent</span><span class="rs-tag">Career arc</span></div>
           </div>
-        </div>
-        <div class="talent-card reveal">
-          <div class="init" style="background:var(--red)">HN</div>
+        </article>
+
+        <article class="roster-slide">
+          <div class="rs-init" style="background:var(--red)">HN</div>
           <div>
+            <span class="rs-meta">05 · Athletics</span>
             <h4>Himanshu Nagar</h4>
-            <p>National-level athlete · endurance &amp; performance</p>
-            <span class="tag">ATHLETICS</span>
+            <p class="rs-role">National-level athlete. Endurance and performance specialist.</p>
+            <div class="rs-stats">
+              <div class="rs-stat"><span class="n">National</span><span class="l">Level</span></div>
+              <div class="rs-stat"><span class="n">Endurance</span><span class="l">Specialist</span></div>
+            </div>
+            <div class="rs-tags"><span class="rs-tag">Talent mgmt</span></div>
           </div>
+        </article>
+      </div>
+
+      <div class="roster-nav" aria-label="Roster navigation">
+        <button type="button" class="rn-prev" aria-label="Previous">‹</button>
+        <div class="roster-dots" id="roster-dots" role="tablist"></div>
+        <button type="button" class="rn-next" aria-label="Next">›</button>
+      </div>
+    </div>
+
+    <!-- v2.10 · brand showcase: Hospitality + Brand Partners (real covers + placeholders) -->
+    <div class="work-showcase">
+      <div class="ws-block reveal">
+        <div class="ws-head">
+          <h3>Hospitality</h3>
+          <span class="ws-count">72 restaurants, cafes &amp; bars · 44 with cover work shown</span>
+        </div>
+        <div class="bt-grid">
+            <a class="bt" href="#" title="Adda" aria-label="Adda"><span class="bt-img"><img loading="lazy" src="highlights/Adda By Striker_.png" alt="Adda cover"></span><span class="bt-name">Adda</span></a>
+            <a class="bt" href="#" title="Andreas" aria-label="Andreas"><span class="bt-img"><img loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span><span class="bt-name">Andreas</span></a>
+            <a class="bt" href="#" title="Baoji" aria-label="Baoji"><span class="bt-img"><img loading="lazy" src="highlights/Baoji_.png" alt="Baoji cover"></span><span class="bt-name">Baoji</span></a>
+            <a class="bt" href="#" title="Baris GK" aria-label="Baris GK"><span class="bt-img"><img loading="lazy" src="highlights/Baris GK.png" alt="Baris GK cover"></span><span class="bt-name">Baris GK</span></a>
+            <a class="bt" href="#" title="Bayroute" aria-label="Bayroute"><span class="bt-img"><img loading="lazy" src="highlights/Bayroute.png" alt="Bayroute cover"></span><span class="bt-name">Bayroute</span></a>
+            <a class="bt is-placeholder" href="#" title="Big Tree Cafe" aria-label="Big Tree Cafe"><span class="bt-img" style="background:var(--red)">BTC</span><span class="bt-name">Big Tree Cafe</span></a>
+            <a class="bt" href="#" title="Boccon Cheeni" aria-label="Boccon Cheeni"><span class="bt-img"><img loading="lazy" src="highlights/Boccon Cheeni.png" alt="Boccon Cheeni cover"></span><span class="bt-name">Boccon Cheeni</span></a>
+            <a class="bt is-placeholder" href="#" title="Burger Rani" aria-label="Burger Rani"><span class="bt-img" style="background:var(--red)">BR</span><span class="bt-name">Burger Rani</span></a>
+            <a class="bt" href="#" title="Butter Room" aria-label="Butter Room"><span class="bt-img"><img loading="lazy" src="highlights/Butter ROOM.png" alt="Butter Room cover"></span><span class="bt-name">Butter Room</span></a>
+            <a class="bt is-placeholder" href="#" title="Cafe Delhi Heights" aria-label="Cafe Delhi Heights"><span class="bt-img" style="background:var(--red)">CDH</span><span class="bt-name">Cafe Delhi Heights</span></a>
+            <a class="bt is-placeholder" href="#" title="Choki Dhani" aria-label="Choki Dhani"><span class="bt-img" style="background:var(--gold)">CD</span><span class="bt-name">Choki Dhani</span></a>
+            <a class="bt" href="#" title="Crusty Culture" aria-label="Crusty Culture"><span class="bt-img"><img loading="lazy" src="highlights/Crusty Culture_.png" alt="Crusty Culture cover"></span><span class="bt-name">Crusty Culture</span></a>
+            <a class="bt is-placeholder" href="#" title="Daryaganj" aria-label="Daryaganj"><span class="bt-img" style="background:var(--red)">DA</span><span class="bt-name">Daryaganj</span></a>
+            <a class="bt" href="#" title="Deja Brew" aria-label="Deja Brew"><span class="bt-img"><img loading="lazy" src="highlights/Deja Brew_.png" alt="Deja Brew cover"></span><span class="bt-name">Deja Brew</span></a>
+            <a class="bt is-placeholder" href="#" title="Delilah" aria-label="Delilah"><span class="bt-img" style="background:var(--green)">DE</span><span class="bt-name">Delilah</span></a>
+            <a class="bt is-placeholder" href="#" title="Distillery" aria-label="Distillery"><span class="bt-img" style="background:var(--orange)">DI</span><span class="bt-name">Distillery</span></a>
+            <a class="bt is-placeholder" href="#" title="Dublr" aria-label="Dublr"><span class="bt-img" style="background:var(--red)">DU</span><span class="bt-name">Dublr</span></a>
+            <a class="bt" href="#" title="Duty Free" aria-label="Duty Free"><span class="bt-img"><img loading="lazy" src="highlights/Duty Free.png" alt="Duty Free cover"></span><span class="bt-name">Duty Free</span></a>
+            <a class="bt" href="#" title="Farzi Cafe" aria-label="Farzi Cafe"><span class="bt-img"><img loading="lazy" src="highlights/farzi.png" alt="Farzi Cafe cover"></span><span class="bt-name">Farzi Cafe</span></a>
+            <a class="bt" href="#" title="Fig" aria-label="Fig"><span class="bt-img"><img loading="lazy" src="highlights/Fig.png" alt="Fig cover"></span><span class="bt-name">Fig</span></a>
+            <a class="bt" href="#" title="Flaunt" aria-label="Flaunt"><span class="bt-img"><img loading="lazy" src="highlights/flaunt.png" alt="Flaunt cover"></span><span class="bt-name">Flaunt</span></a>
+            <a class="bt" href="#" title="Gastronomica" aria-label="Gastronomica"><span class="bt-img"><img loading="lazy" src="highlights/Gastronomica_.png" alt="Gastronomica cover"></span><span class="bt-name">Gastronomica</span></a>
+            <a class="bt" href="#" title="Getafix" aria-label="Getafix"><span class="bt-img"><img loading="lazy" src="highlights/Getafix.png" alt="Getafix cover"></span><span class="bt-name">Getafix</span></a>
+            <a class="bt is-placeholder" href="#" title="Grub Fest" aria-label="Grub Fest"><span class="bt-img" style="background:var(--gold)">GF</span><span class="bt-name">Grub Fest</span></a>
+            <a class="bt" href="#" title="Hard Rock Cafe" aria-label="Hard Rock Cafe"><span class="bt-img"><img loading="lazy" src="highlights/Hard Rock Cafe.png" alt="Hard Rock Cafe cover"></span><span class="bt-name">Hard Rock Cafe</span></a>
+            <a class="bt is-placeholder" href="#" title="Hitchki" aria-label="Hitchki"><span class="bt-img" style="background:var(--purple)">HI</span><span class="bt-name">Hitchki</span></a>
+            <a class="bt" href="#" title="Hook" aria-label="Hook"><span class="bt-img"><img loading="lazy" src="highlights/Hook.png" alt="Hook cover"></span><span class="bt-name">Hook</span></a>
+            <a class="bt is-placeholder" href="#" title="Imperfecto" aria-label="Imperfecto"><span class="bt-img" style="background:var(--pink)">IM</span><span class="bt-name">Imperfecto</span></a>
+            <a class="bt" href="#" title="Iskate by Roseate" aria-label="Iskate by Roseate"><span class="bt-img"><img loading="lazy" src="highlights/iskate by roseate.png" alt="Iskate by Roseate cover"></span><span class="bt-name">Iskate by Roseate</span></a>
+            <a class="bt is-placeholder" href="#" title="Khubani" aria-label="Khubani"><span class="bt-img" style="background:var(--gold)">KH</span><span class="bt-name">Khubani</span></a>
+            <a class="bt" href="#" title="Kleo" aria-label="Kleo"><span class="bt-img"><img loading="lazy" src="highlights/Kleo_.png" alt="Kleo cover"></span><span class="bt-name">Kleo</span></a>
+            <a class="bt" href="#" title="La Roca" aria-label="La Roca"><span class="bt-img"><img loading="lazy" src="highlights/La Roca.png" alt="La Roca cover"></span><span class="bt-name">La Roca</span></a>
+            <a class="bt" href="#" title="Limitless Cookhouse" aria-label="Limitless Cookhouse"><span class="bt-img"><img loading="lazy" src="highlights/Limitless cookhouse.png" alt="Limitless Cookhouse cover"></span><span class="bt-name">Limitless Cookhouse</span></a>
+            <a class="bt is-placeholder" href="#" title="Liv Bar" aria-label="Liv Bar"><span class="bt-img" style="background:var(--royal)">LB</span><span class="bt-name">Liv Bar</span></a>
+            <a class="bt" href="#" title="Local" aria-label="Local"><span class="bt-img"><img loading="lazy" src="highlights/Local_.png" alt="Local cover"></span><span class="bt-name">Local</span></a>
+            <a class="bt is-placeholder" href="#" title="Louis Burger" aria-label="Louis Burger"><span class="bt-img" style="background:var(--green)">LB</span><span class="bt-name">Louis Burger</span></a>
+            <a class="bt" href="#" title="Madam Chutney" aria-label="Madam Chutney"><span class="bt-img"><img loading="lazy" src="highlights/Madam Chutney_.png" alt="Madam Chutney cover"></span><span class="bt-name">Madam Chutney</span></a>
+            <a class="bt" href="#" title="Mai Bao" aria-label="Mai Bao"><span class="bt-img"><img loading="lazy" src="highlights/Mai Bao_.png" alt="Mai Bao cover"></span><span class="bt-name">Mai Bao</span></a>
+            <a class="bt" href="#" title="Molecule" aria-label="Molecule"><span class="bt-img"><img loading="lazy" src="highlights/Molecule_.png" alt="Molecule cover"></span><span class="bt-name">Molecule</span></a>
+            <a class="bt" href="#" title="Monet" aria-label="Monet"><span class="bt-img"><img loading="lazy" src="highlights/Monet.png" alt="Monet cover"></span><span class="bt-name">Monet</span></a>
+            <a class="bt" href="#" title="Nao by Bercos" aria-label="Nao by Bercos"><span class="bt-img"><img loading="lazy" src="highlights/Nao By Bercos_.png" alt="Nao by Bercos cover"></span><span class="bt-name">Nao by Bercos</span></a>
+            <a class="bt is-placeholder" href="#" title="NH-54 Faridabad" aria-label="NH-54 Faridabad"><span class="bt-img" style="background:var(--gold)">NF</span><span class="bt-name">NH-54 Faridabad</span></a>
+            <a class="bt is-placeholder" href="#" title="One8 Commune" aria-label="One8 Commune"><span class="bt-img" style="background:var(--pink)">OC</span><span class="bt-name">One8 Commune</span></a>
+            <a class="bt" href="#" title="Ophelia" aria-label="Ophelia"><span class="bt-img"><img loading="lazy" src="highlights/Ophelia.png" alt="Ophelia cover"></span><span class="bt-name">Ophelia</span></a>
+            <a class="bt" href="#" title="Pa Pa Ya" aria-label="Pa Pa Ya"><span class="bt-img"><img loading="lazy" src="highlights/Pa Pa Ya.png" alt="Pa Pa Ya cover"></span><span class="bt-name">Pa Pa Ya</span></a>
+            <a class="bt" href="#" title="Poetry" aria-label="Poetry"><span class="bt-img"><img loading="lazy" src="highlights/Poetry_.png" alt="Poetry cover"></span><span class="bt-name">Poetry</span></a>
+            <a class="bt" href="#" title="Pot Pot" aria-label="Pot Pot"><span class="bt-img"><img loading="lazy" src="highlights/Pot Pot_.png" alt="Pot Pot cover"></span><span class="bt-name">Pot Pot</span></a>
+            <a class="bt is-placeholder" href="#" title="Punjab Grill × Adani" aria-label="Punjab Grill × Adani"><span class="bt-img" style="background:var(--pink)">PGA</span><span class="bt-name">Punjab Grill × Adani</span></a>
+            <a class="bt" href="#" title="Rang Punjab" aria-label="Rang Punjab"><span class="bt-img"><img loading="lazy" src="highlights/Rang Punjab.png" alt="Rang Punjab cover"></span><span class="bt-name">Rang Punjab</span></a>
+            <a class="bt" href="#" title="Rizq" aria-label="Rizq"><span class="bt-img"><img loading="lazy" src="highlights/Rizq.png" alt="Rizq cover"></span><span class="bt-name">Rizq</span></a>
+            <a class="bt is-placeholder" href="#" title="Romeo Lane" aria-label="Romeo Lane"><span class="bt-img" style="background:var(--gold)">RL</span><span class="bt-name">Romeo Lane</span></a>
+            <a class="bt is-placeholder" href="#" title="Rustique" aria-label="Rustique"><span class="bt-img" style="background:var(--gold)">RU</span><span class="bt-name">Rustique</span></a>
+            <a class="bt is-placeholder" href="#" title="Sassy Oscar" aria-label="Sassy Oscar"><span class="bt-img" style="background:var(--green)">SO</span><span class="bt-name">Sassy Oscar</span></a>
+            <a class="bt" href="#" title="Sizzling Shack" aria-label="Sizzling Shack"><span class="bt-img"><img loading="lazy" src="highlights/Sizzling Shack_.png" alt="Sizzling Shack cover"></span><span class="bt-name">Sizzling Shack</span></a>
+            <a class="bt is-placeholder" href="#" title="Sky House" aria-label="Sky House"><span class="bt-img" style="background:var(--green)">SH</span><span class="bt-name">Sky House</span></a>
+            <a class="bt" href="#" title="Sky Lantern" aria-label="Sky Lantern"><span class="bt-img"><img loading="lazy" src="highlights/Sky Lantern.png" alt="Sky Lantern cover"></span><span class="bt-name">Sky Lantern</span></a>
+            <a class="bt" href="#" title="Slay Coffee" aria-label="Slay Coffee"><span class="bt-img"><img loading="lazy" src="highlights/Slay Coffee Highlights.png" alt="Slay Coffee cover"></span><span class="bt-name">Slay Coffee</span></a>
+            <a class="bt" href="#" title="Slique" aria-label="Slique"><span class="bt-img"><img loading="lazy" src="highlights/Slique_.png" alt="Slique cover"></span><span class="bt-name">Slique</span></a>
+            <a class="bt is-placeholder" href="#" title="Slyce Pizza" aria-label="Slyce Pizza"><span class="bt-img" style="background:var(--pink)">SP</span><span class="bt-name">Slyce Pizza</span></a>
+            <a class="bt is-placeholder" href="#" title="Snackstar" aria-label="Snackstar"><span class="bt-img" style="background:var(--gold)">SN</span><span class="bt-name">Snackstar</span></a>
+            <a class="bt is-placeholder" href="#" title="Spice Station" aria-label="Spice Station"><span class="bt-img" style="background:var(--pink)">SS</span><span class="bt-name">Spice Station</span></a>
+            <a class="bt" href="#" title="TBSP" aria-label="TBSP"><span class="bt-img"><img loading="lazy" src="highlights/TBSP Highlight.png" alt="TBSP cover"></span><span class="bt-name">TBSP</span></a>
+            <a class="bt" href="#" title="Thai Mama" aria-label="Thai Mama"><span class="bt-img"><img loading="lazy" src="highlights/thai mamama.png" alt="Thai Mama cover"></span><span class="bt-name">Thai Mama</span></a>
+            <a class="bt" href="#" title="The Weekend" aria-label="The Weekend"><span class="bt-img"><img loading="lazy" src="highlights/The Weekend_.png" alt="The Weekend cover"></span><span class="bt-name">The Weekend</span></a>
+            <a class="bt is-placeholder" href="#" title="Tickled Pink" aria-label="Tickled Pink"><span class="bt-img" style="background:var(--gold)">TP</span><span class="bt-name">Tickled Pink</span></a>
+            <a class="bt" href="#" title="UCH Rewind" aria-label="UCH Rewind"><span class="bt-img"><img loading="lazy" src="highlights/UCH.png" alt="UCH Rewind cover"></span><span class="bt-name">UCH Rewind</span></a>
+            <a class="bt" href="#" title="Unplugged Courtyard" aria-label="Unplugged Courtyard"><span class="bt-img"><img loading="lazy" src="highlights/Unplugged Courtyard_.png" alt="Unplugged Courtyard cover"></span><span class="bt-name">Unplugged Courtyard</span></a>
+            <a class="bt" href="#" title="Vietnom" aria-label="Vietnom"><span class="bt-img"><img loading="lazy" src="highlights/Vietnom_.png" alt="Vietnom cover"></span><span class="bt-name">Vietnom</span></a>
+            <a class="bt" href="#" title="Wheaty" aria-label="Wheaty"><span class="bt-img"><img loading="lazy" src="highlights/Wheaty_.png" alt="Wheaty cover"></span><span class="bt-name">Wheaty</span></a>
+            <a class="bt is-placeholder" href="#" title="Xero Degree Courtyard" aria-label="Xero Degree Courtyard"><span class="bt-img" style="background:var(--brown)">XDC</span><span class="bt-name">Xero Degree Courtyard</span></a>
+            <a class="bt is-placeholder" href="#" title="Yeti" aria-label="Yeti"><span class="bt-img" style="background:var(--green)">YE</span><span class="bt-name">Yeti</span></a>
+            <a class="bt is-placeholder" href="#" title="Younion" aria-label="Younion"><span class="bt-img" style="background:var(--red)">YO</span><span class="bt-name">Younion</span></a>
         </div>
       </div>
 
-      <div class="brands-col">
-        <div class="reveal">
+      <div class="ws-block reveal" style="margin-top:48px">
+        <div class="ws-head">
           <h3>Brand Partners</h3>
-          <div class="brand-grid">
-            <span class="brand-pill">WOW</span>
-            <span class="brand-pill">Decathlon</span>
-            <span class="brand-pill">BSC</span>
-            <span class="brand-pill">Happydent</span>
-            <span class="brand-pill">Chaayos</span>
-            <span class="brand-pill">Biotique</span>
-            <span class="brand-pill">DW</span>
-            <span class="brand-pill">Healthvit</span>
-            <span class="brand-pill">Fast &amp; Up</span>
-            <span class="brand-pill">Kama</span>
-            <span class="brand-pill">ONE Champ.</span>
-            <span class="brand-pill">Dot &amp; Key</span>
-            <span class="brand-pill">Dyson</span>
-            <span class="brand-pill">Clove</span>
-            <span class="brand-pill">SockSoho</span>
-          </div>
+          <span class="ws-count">16 brands across D2C, FMCG, ed-tech &amp; collabs · 3 with cover work shown</span>
         </div>
-        <div class="reveal" style="margin-top:16px">
-          <h3>Hospitality &amp; IM</h3>
-          <div class="brand-grid">
-            <span class="brand-pill">Mai Bao</span>
-            <span class="brand-pill">1OAK</span>
-            <span class="brand-pill">Junkyard</span>
-            <span class="brand-pill">Vietnom</span>
-            <span class="brand-pill">Romeo Lane</span>
-            <span class="brand-pill">Cafe Delhi Hts</span>
-            <span class="brand-pill">Snackstar.in</span>
-            <span class="brand-pill">Grenade</span>
-            <span class="brand-pill">Dublr</span>
-            <span class="brand-pill">Thai Mama</span>
-            <span class="brand-pill">Iskate</span>
-            <span class="brand-pill">ADDA</span>
-          </div>
+        <div class="bt-grid">
+            <a class="bt is-placeholder" href="#" title="AAFT" aria-label="AAFT"><span class="bt-img" style="background:var(--purple)">AA</span><span class="bt-name">AAFT</span></a>
+            <a class="bt is-placeholder" href="#" title="Adani × Lite Bite Foods" aria-label="Adani × Lite Bite Foods"><span class="bt-img" style="background:var(--red)">ALB</span><span class="bt-name">Adani × Lite Bite Foods</span></a>
+            <a class="bt is-placeholder" href="#" title="Asian Business School" aria-label="Asian Business School"><span class="bt-img" style="background:var(--royal)">ABS</span><span class="bt-name">Asian Business School</span></a>
+            <a class="bt" href="#" title="Betway" aria-label="Betway"><span class="bt-img"><img loading="lazy" src="highlights/betway.png" alt="Betway cover"></span><span class="bt-name">Betway</span></a>
+            <a class="bt is-placeholder" href="#" title="Borges India" aria-label="Borges India"><span class="bt-img" style="background:var(--brown)">BI</span><span class="bt-name">Borges India</span></a>
+            <a class="bt is-placeholder" href="#" title="BSC" aria-label="BSC"><span class="bt-img" style="background:var(--royal)">BS</span><span class="bt-name">BSC</span></a>
+            <a class="bt is-placeholder" href="#" title="Chaayos" aria-label="Chaayos"><span class="bt-img" style="background:var(--royal)">CH</span><span class="bt-name">Chaayos</span></a>
+            <a class="bt is-placeholder" href="#" title="Fast &amp; Up" aria-label="Fast &amp; Up"><span class="bt-img" style="background:var(--red)">FU</span><span class="bt-name">Fast &amp; Up</span></a>
+            <a class="bt is-placeholder" href="#" title="Happydent" aria-label="Happydent"><span class="bt-img" style="background:var(--orange)">HA</span><span class="bt-name">Happydent</span></a>
+            <a class="bt" href="#" title="Indian Sneaker Fest" aria-label="Indian Sneaker Fest"><span class="bt-img"><img loading="lazy" src="highlights/Sneaker Fest.png" alt="Indian Sneaker Fest cover"></span><span class="bt-name">Indian Sneaker Fest</span></a>
+            <a class="bt is-placeholder" href="#" title="Mainstreet × CRED" aria-label="Mainstreet × CRED"><span class="bt-img" style="background:var(--red)">MC</span><span class="bt-name">Mainstreet × CRED</span></a>
+            <a class="bt is-placeholder" href="#" title="Meta" aria-label="Meta"><span class="bt-img" style="background:var(--brown)">ME</span><span class="bt-name">Meta</span></a>
+            <a class="bt is-placeholder" href="#" title="Miss Doozy" aria-label="Miss Doozy"><span class="bt-img" style="background:var(--red)">MD</span><span class="bt-name">Miss Doozy</span></a>
+            <a class="bt" href="#" title="RD Accessories" aria-label="RD Accessories"><span class="bt-img"><img loading="lazy" src="highlights/RD.png" alt="RD Accessories cover"></span><span class="bt-name">RD Accessories</span></a>
+            <a class="bt is-placeholder" href="#" title="Truly Madly" aria-label="Truly Madly"><span class="bt-img" style="background:var(--brown)">TM</span><span class="bt-name">Truly Madly</span></a>
+            <a class="bt is-placeholder" href="#" title="Unacademy" aria-label="Unacademy"><span class="bt-img" style="background:var(--brown)">UN</span><span class="bt-name">Unacademy</span></a>
         </div>
       </div>
     </div>
@@ -715,20 +878,21 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
         <div class="avatar">HA</div>
         <div>
           <h4>Harsh Arya</h4>
-          <small>Co-Founder · Ninety-Eight Entertainment</small>
-          <p>Persevering, endearing, thirteen-hour-day kind. Harsh's habit of reading both the P&amp;L and the room is how 98 moves between a Test match, a category launch, and a rooftop opening in the same afternoon.</p>
+          <small>Founder · Ninety-Eight</small>
+          <p>Engineer by training, operator by trade. Built and ran 98 from 2020–2023 across sports, hospitality and direct-to-consumer brands, paused to complete an ISB MBA, and now leads the v2.0 practice. Writes a column on Gen Z economics for The Economic Times.</p>
           <div class="edu">
             <span>Indian School of Business · MBA</span>
-            <span>Georgia Institute of Technology</span>
+            <span>Georgia Institute of Technology · Engineering &amp; Research</span>
           </div>
+          <button class="founder-open" type="button" aria-haspopup="dialog" aria-controls="founder-dialog">Read more about Harsh →</button>
         </div>
       </div>
 
       <div class="stats">
-        <div class="stat reveal"><div class="n"><span data-count="35">00</span><b>+</b></div><p>Brands since inception</p></div>
+        <div class="stat reveal"><div class="n"><span data-count="55">00</span><b>+</b></div><p>Brands since inception</p></div>
         <div class="stat reveal"><div class="n"><span data-count="12">00</span><sub>K+</sub></div><p>Media placements</p></div>
-        <div class="stat reveal"><div class="n"><span data-count="6">0</span><b>×</b></div><p>Verticals we run</p></div>
-        <div class="stat reveal"><div class="n"><span data-count="3">0</span></div><p>Cities · Delhi · Noida · Mumbai</p></div>
+        <div class="stat reveal"><div class="n"><span data-count="7">0</span><b>×</b></div><p>Service lines we ship</p></div>
+        <div class="stat reveal"><div class="n"><span data-count="3">0</span></div><p>Cities · Delhi NCR · Bombay · Bangalore</p></div>
       </div>
     </div>
   </div>
@@ -773,19 +937,19 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       </div>
 
       <div class="block">
-        <h5>Studio — Greater Noida</h5>
-        <p>GF-16, Omaxe Arcade<br><em>Near Pari Chowk, Greater Noida</em></p>
-        <h5 style="margin-top:22px">Studio — Noida</h5>
-        <p>A-59, Sector-63<br><em>Noida</em></p>
-        <h5 style="margin-top:22px">Studio — Mumbai</h5>
+        <h5>Studio — Delhi NCR</h5>
+        <p>GF-16, Omaxe Arcade · Greater Noida<br>A-59, Sector-63 · Noida</p>
+        <h5 style="margin-top:22px">Studio — Bombay</h5>
         <p>Bandra West<br><em>(by appointment)</em></p>
+        <h5 style="margin-top:22px">Studio — Bangalore</h5>
+        <p><em>(by appointment)</em></p>
       </div>
     </div>
 
     <div class="meta-bar">
       <div class="studios">
-        <span><b>©2019–2026</b> Ninety-Eight Entertainment</span>
-        <span>PR · Talent · Influencer</span>
+        <span><b>©2020–2026</b> Ninety-Eight Entertainment</span>
+        <span>Marketing · Advertising · PR · Talent</span>
         <span>GST 09ABCDE1234F1Z5</span>
       </div>
       <div class="socials">
@@ -798,42 +962,61 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   </div>
 </footer>
 
-<!-- ========== Three.js import map ========== -->
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-  }
-}
-</script>
+<!-- v2.7 · station chip (now-approaching banner) — must be in DOM before script runs -->
+<div class="approach-chip" id="approach-chip" aria-hidden="true">
+  <span class="ac-bullet"></span>
+  <span class="ac-text"></span>
+</div>
 
-<script type="module">
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import Lenis from 'https://esm.sh/lenis@1.1.14';
+<!-- v2.7 · station rail (right-edge wayfinding) -->
+<aside class="station-rail" id="station-rail" aria-label="Section indicator"></aside>
 
+<!-- v2.9 · founder dialog (click-to-expand bio) -->
+<dialog id="founder-dialog" class="founder-dialog" aria-labelledby="fd-title">
+  <header class="fd-head">
+    <span class="fd-tag">About · Harsh Arya</span>
+    <button type="button" class="fd-close" aria-label="Close">×</button>
+  </header>
+  <div class="fd-body">
+    <h2 id="fd-title">Harsh Arya</h2>
+    <span class="fd-byline">Founder · Ninety-Eight</span>
+
+    <p>Engineer by training, operator by trade. Built and ran 98 between 2020 and 2023 across sports, hospitality and direct-to-consumer brands — closing exclusive deals with international athletes, taking restaurants from launch to retainer, and growing the book to 55+ active accounts. Paused the practice in 2023 to complete an ISB MBA, and now leads the v2.0 chapter as a creative powerhouse.</p>
+
+    <h3>Background</h3>
+    <p>Engineering undergrad with research time at Georgia Institute of Technology. MBA from the Indian School of Business. Reads widely across economics, design history and culture; travels often. Brings the equal halves of art and science to client work — equally at home in a brand-launch room and a three-statement model.</p>
+
+    <h3>Writing &amp; thought leadership</h3>
+    <p>Writes a regular column on Gen Z economics for The Economic Times. Runs Gen Z Economics, a research-led blog in collaboration with Professor Tantri (ISB / Power Finance Corporation). Authored a documentary on influencer culture and the Gen Z creator economy, and a forthcoming playbook for early-career founders.</p>
+
+    <h3>The name "98"</h3>
+    <p>Three stories, one name. The honest one: a wall, somewhere in Delhi, with "98" painted on it — spotted during a YouTube shoot with a friend in the late 2010s. The shorthand one: 1998, the cusp year — anyone born after is part of the same generational frame. The third stays internal, for clients who ask in person.</p>
+
+    <div class="fd-creds">
+      Indian School of Business · MBA<br>
+      Georgia Institute of Technology · Engineering &amp; Research<br>
+      Columnist · The Economic Times (Gen Z Economics)
+    </div>
+  </div>
+</dialog>
+
+<script>
 /* ============================================================
-   0. LENIS · smooth-scroll inertia (Apple-feel)
+   0. ANCHOR LINKS · native smooth-scroll
+   v2.6: Lenis removed. Using browser-native scroll behaviour
+   for snappier wheel response — no inertia layer in JS.
    ============================================================ */
 
-const lenis = new Lenis({
-  duration: 1.15,
-  easing: (t)=>Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smoothWheel: true,
-  wheelMultiplier: 1.0,
-  touchMultiplier: 1.6,
-});
-function lenisRaf(time){ lenis.raf(time); requestAnimationFrame(lenisRaf); }
-requestAnimationFrame(lenisRaf);
-
-// hijack anchor links so smooth-scroll respects them
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', e=>{
     const id = a.getAttribute('href');
     if(id && id.length > 1){
       const target = document.querySelector(id);
-      if(target){ e.preventDefault(); lenis.scrollTo(target, {offset: -40, duration: 1.4}); }
+      if(target){
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.scrollY - 40;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
     }
   });
 });
@@ -852,19 +1035,15 @@ const progress = document.getElementById('progress');
 const nav = document.getElementById('nav');
 
 /* ------------------------------------------------------------
-   Apple-style scroll orchestrator
+   Scroll orchestrator
    Everything that needs scrollY is batched into ONE rAF loop.
-   We read scrollY once and dispatch — top bar, nav state, hero
-   parallax, pinned train stage (progress + copy + chips).
+   v2.6 surface area: top progress bar, nav state, hero parallax.
    ------------------------------------------------------------ */
 
 const heroEl    = document.querySelector('.hero');
 const aerialEl  = document.querySelector('.hero .aerial');
 const heroRight = document.querySelector('.hero-right');
-const pinTrain  = document.querySelector('.pin-train');
 const markEl    = document.querySelector('.mark');
-
-let lastProg = -1;
 
 function scrollTick(){
   const y = window.scrollY || document.documentElement.scrollTop || 0;
@@ -886,17 +1065,6 @@ function scrollTick(){
     }
   }
 
-  // -- SECTION-BREAKER TRAIN SLIDE -----------------------------
-  // Train slides laterally as we scroll through the pinned range.
-  if(pinTrain){
-    const r = pinTrain.getBoundingClientRect();
-    const total = pinTrain.offsetHeight - vh;
-    const prog = Math.max(0, Math.min(1, (-r.top) / Math.max(1, total)));
-    if(prog !== lastProg){
-      lastProg = prog;
-      if(window.__setTrainProgress) window.__setTrainProgress(prog);
-    }
-  }
 }
 
 let tickQueued = false;
@@ -907,8 +1075,6 @@ function queueTick(){
 }
 window.addEventListener('scroll', queueTick, {passive:true});
 window.addEventListener('resize', queueTick);
-// Lenis fires wheel-driven scroll — also tick on its own event for safety
-if(typeof lenis !== 'undefined' && lenis.on) lenis.on('scroll', queueTick);
 // run once so the initial state is correct
 scrollTick();
 
@@ -1050,8 +1216,6 @@ function buildThreads(){
     carry = next;
   });
 
-  // store final anchors so fork can know where strands "enter"
-  window.__forkEntry = carry;
 }
 
 window.addEventListener('load', ()=>{
@@ -1081,119 +1245,226 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
   document.querySelectorAll('.thread-canvas path').forEach(p=>p.classList.add('drawn'));
 }, 220); });
 
+/* (Three.js train initialisation removed in v2.6) */
+
 /* ============================================================
-   3. THREE.JS · TRAIN
+   3. v2.7 · STATION CHIP + STATION RAIL
+   Both fed by the existing nav IntersectionObserver above.
    ============================================================ */
 
-(function initTrain(){
-  const canvas = document.getElementById('train-canvas');
-  const rect = () => canvas.getBoundingClientRect();
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+const stopMeta = {
+  services: { code:'SV', name:'Services', color:'var(--red)',    sub:'SV Line' },
+  roster:   { code:'TM', name:'Roster',   color:'var(--purple)', sub:'TM Line' },
+  work:     { code:'WK', name:'Work',     color:'var(--gold)',   sub:'WK Line' },
+  about:    { code:'AU', name:'About',    color:'var(--pink)',   sub:'AU Line' },
+  contact:  { code:'TR', name:'Terminus', color:'var(--carbon)', sub:'End of Line' }
+};
 
-  const scene = new THREE.Scene();
-  // Section breaker mode — the train glides across the stage laterally.
-  // Camera pulled back and framed low so the model reads at wide viewports.
-  const cam = new THREE.PerspectiveCamera(32, 1, 0.01, 200);
-  cam.position.set(0, 0.9, 7.2);
-  cam.lookAt(0, 0, 0);
+// build station rail dynamically from stopMeta (skip contact for the rail —
+// it's the terminus, the rail represents en-route stops)
+const railEl = document.getElementById('station-rail');
+if (railEl) {
+  const railOrder = ['services','roster','work','about'];
+  railEl.innerHTML = '<span class="rail-track"></span>' + railOrder.map(id => {
+    const m = stopMeta[id];
+    return `<a class="rail-stop" data-section="${id}" href="#${id}" aria-label="Jump to ${m.name}">
+      <span class="rs-bullet" style="background:${m.color}">${m.code}</span>
+      <span class="rs-label">${m.name}</span>
+    </a>`;
+  }).join('');
+}
+const railStops = document.querySelectorAll('.rail-stop');
 
-  // Lighting tuned for a bright cream backdrop — lift ambient so the
-  // train reads cleanly on paper without a dark stage behind it.
-  const key  = new THREE.DirectionalLight(0xffffff, 2.0); key.position.set(4,6,3);
-  const fill = new THREE.DirectionalLight(0xA9C7FF, 0.7); fill.position.set(-4,2,-2);
-  const rim  = new THREE.DirectionalLight(0xF5B015, 0.9); rim.position.set(0,3,-4);
-  scene.add(key, fill, rim, new THREE.AmbientLight(0xffffff, 0.55));
+// chip elements
+const chipEl     = document.getElementById('approach-chip');
+const chipBullet = chipEl ? chipEl.querySelector('.ac-bullet') : null;
+const chipText   = chipEl ? chipEl.querySelector('.ac-text')   : null;
+let chipTimer = null, lastAnnounced = null;
 
-  // expose: scroll-progress (0..1) → rotation + drift
-  let scrollProg = 0;
-  window.__setTrainProgress = (p)=>{ scrollProg = Math.max(0, Math.min(1, p)); };
+function announceStop(id){
+  const m = stopMeta[id];
+  if (!m || !chipEl || id === lastAnnounced) return;
+  lastAnnounced = id;
+  chipBullet.style.background = m.color;
+  chipBullet.textContent = m.code;
+  chipText.innerHTML = `<small>Now approaching</small><b>${m.name}</b>`;
+  chipEl.classList.add('in');
+  clearTimeout(chipTimer);
+  chipTimer = setTimeout(()=>chipEl.classList.remove('in'), 2200);
+}
 
-  function resize(){
-    const r = rect();
-    renderer.setSize(r.width, r.height, false);
-    cam.aspect = r.width / r.height; cam.updateProjectionMatrix();
+// Re-observe sections so we can drive both rail + chip alongside the nav-link
+// active state. We use a fresh observer (rather than piggybacking on navObs)
+// because we want to fire announceStop on *transition*, not on every entry.
+const stopObs = new IntersectionObserver((entries)=>{
+  // pick the entry that's most-visible in this batch
+  let best = null;
+  entries.forEach(e=>{
+    if (!e.isIntersecting) return;
+    if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
+  });
+  if (best) {
+    const id = best.target.id;
+    railStops.forEach(s => s.classList.toggle('active', s.dataset.section === id));
+    announceStop(id);
   }
-  resize(); window.addEventListener('resize', resize);
+}, {threshold:[0.35, 0.6]});
+['services','roster','work','about','contact'].forEach(id=>{
+  const el = document.getElementById(id);
+  if (el) stopObs.observe(el);
+});
 
-  const loader = new GLTFLoader();
-  const loadBar = document.getElementById('train-load-bar');
-  let model = null, bobBase = 0;
+// reveal the rail once the user has scrolled past the hero
+const heroSection = document.querySelector('.hero');
+if (railEl && heroSection) {
+  const railVisObs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      // hero leaving viewport → rail visible; hero in view → rail hidden
+      railEl.classList.toggle('visible', !e.isIntersecting);
+    });
+  }, {threshold: 0.05});
+  railVisObs.observe(heroSection);
+}
 
-  loader.load('train.glb',
-    g=>{
-      model = g.scene;
+/* ============================================================
+   4. v2.7 · MAGNETIC CTAs (hover-only cursor pull)
+   Tag the elements at runtime so the HTML stays clean. Throttle
+   the mousemove through one rAF tick. Skip when offscreen.
+   ============================================================ */
 
-      // Force a visible PBR material on every mesh. Tuned for a cream
-      // backdrop — no self-emissive glow, slightly more roughness so
-      // the paint reads as paint, not chrome.
-      const paint = new THREE.MeshStandardMaterial({
-        color: 0x1F4D8C, metalness: 0.6, roughness: 0.38
-      });
-      model.traverse(o=>{
-        if(o.isMesh){
-          o.material = paint;
-          o.castShadow = true; o.receiveShadow = true;
-        }
-      });
+const magnets = [...document.querySelectorAll('.nav .cta, .contact .cta-big, .svc-row .arrow')];
+magnets.forEach(el => el.classList.add('magnetic'));
 
-      // Measure, centre, scale. The Meshy zigzag bbox is very thin on
-      // Y/Z, so scale to the LONG axis and thicken with a Y-rotation.
-      const box = new THREE.Box3().setFromObject(model);
-      const size = box.getSize(new THREE.Vector3());
-      const center = box.getCenter(new THREE.Vector3());
-      model.position.sub(center);
-      const longest = Math.max(size.x, size.y, size.z);
-      const s = 2.6 / longest;
-      model.scale.setScalar(s);
-      // orient so the long axis runs across the view
-      model.rotation.y = -0.45;
-      model.rotation.x = 0.18;
+const PULL_RADIUS = 110;       // px — engage when cursor is within this
+const PULL_STRENGTH = 0.32;    // 0..1 — how much of the offset to apply
 
-      scene.add(model);
-      bobBase = model.position.y;
-      loadBar.style.width = '100%';
-      setTimeout(()=>loadBar.parentElement.style.display='none', 600);
-      console.info('[98] train loaded · bbox', size.toArray().map(v=>v.toFixed(2)), '· scale', s.toFixed(2));
-    },
-    p=>{ if(p.total) loadBar.style.width = (p.loaded/p.total*100)+'%'; },
-    err=>{
-      console.error('[98] train.glb failed to load:', err);
-      // surface the failure so we don't silently swap a placeholder in
-      const msg = document.createElement('div');
-      msg.style.cssText = 'position:absolute;inset:0;display:grid;place-items:center;color:#F5B015;font:500 11px/1.4 ui-monospace,monospace;letter-spacing:.2em;text-align:center;padding:30px';
-      msg.innerHTML = 'TRAIN · OFFLINE<br><small style="color:#9a9280;font-weight:400;letter-spacing:.14em">could not load train.glb — run via server</small>';
-      document.querySelector('.train-stage').appendChild(msg);
-      loadBar.parentElement.style.display='none';
+let _magX = -9999, _magY = -9999, _magQueued = false;
+function _magTick(){
+  _magQueued = false;
+  for (let i = 0; i < magnets.length; i++) {
+    const el = magnets[i];
+    const r = el.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > innerHeight) {
+      if (el.classList.contains('pulling')) { el.classList.remove('pulling'); el.style.transform = ''; }
+      continue;
     }
-  );
-
-  // base rotation captured once the model is ready — fixed, no spin.
-  let baseRotY = -0.45, baseRotX = 0.18, smoothProg = 0;
-  // Breaker mode — train enters from far off-screen left,
-  // exits far off-screen right. Wider amplitude for a full slide.
-  const SLIDE_AMPLITUDE = 7.2;   // total horizontal travel in world units
-  const SLIDE_START     = -3.6;  // x at prog = 0 (well off the left edge)
-
-  (function anim(){
-    requestAnimationFrame(anim);
-    // smooth the scroll progress so it doesn't snap
-    smoothProg += (scrollProg - smoothProg) * 0.08;
-    if(model){
-      const idleBob = Math.sin(performance.now()*0.0012)*0.025;
-      model.position.y = bobBase + idleBob;
-      // pure lateral slide — enter left, exit right — no rotation
-      model.position.x = SLIDE_START + smoothProg * SLIDE_AMPLITUDE;
-      // lock orientation — this is a train on a track, not a gyroscope
-      model.rotation.y = baseRotY;
-      model.rotation.x = baseRotX;
+    const cx = r.left + r.width/2, cy = r.top + r.height/2;
+    const dx = _magX - cx, dy = _magY - cy;
+    const d = Math.hypot(dx, dy);
+    if (d < PULL_RADIUS) {
+      el.classList.add('pulling');
+      el.style.transform = `translate(${dx*PULL_STRENGTH}px, ${dy*PULL_STRENGTH}px)`;
+    } else if (el.classList.contains('pulling')) {
+      el.classList.remove('pulling');
+      el.style.transform = '';
     }
-    renderer.render(scene, cam);
-  })();
+  }
+}
+window.addEventListener('mousemove', e => {
+  _magX = e.clientX; _magY = e.clientY;
+  if (!_magQueued) { _magQueued = true; requestAnimationFrame(_magTick); }
+}, {passive:true});
+
+/* ============================================================
+   5. v2.9 · ROSTER CAROUSEL (scroll-snap + arrows + dots)
+   The .roster-rail is a native horizontal scroll container with
+   scroll-snap. We add prev/next buttons and clickable dots that
+   call scrollTo(); we also observe scroll position to keep the
+   active dot + button-disabled states in sync.
+   ============================================================ */
+
+(function initRosterCarousel(){
+  const rail  = document.getElementById('roster-rail');
+  const dots  = document.getElementById('roster-dots');
+  const prev  = document.querySelector('.roster-nav .rn-prev');
+  const next  = document.querySelector('.roster-nav .rn-next');
+  if (!rail || !dots || !prev || !next) return;
+
+  const slides = [...rail.querySelectorAll('.roster-slide')];
+  if (!slides.length) return;
+
+  // build dots
+  dots.innerHTML = slides.map((_,i) => `<button type="button" class="dot" data-i="${i}" aria-label="Go to slide ${i+1}"></button>`).join('');
+  const dotEls = [...dots.querySelectorAll('.dot')];
+
+  function slideStep(){
+    // distance from one slide-center to the next
+    if (slides.length < 2) return slides[0].offsetWidth;
+    return slides[1].getBoundingClientRect().left - slides[0].getBoundingClientRect().left;
+  }
+
+  function activeIndex(){
+    const railRect = rail.getBoundingClientRect();
+    const railCenter = railRect.left + railRect.width / 2;
+    let best = 0, bestDist = Infinity;
+    slides.forEach((s, i) => {
+      const r = s.getBoundingClientRect();
+      const c = r.left + r.width / 2;
+      const d = Math.abs(c - railCenter);
+      if (d < bestDist) { bestDist = d; best = i; }
+    });
+    return best;
+  }
+
+  function syncState(){
+    const i = activeIndex();
+    dotEls.forEach((d, di) => d.classList.toggle('active', di === i));
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  }
+
+  function goTo(i){
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    const target = slides[i];
+    const railRect = rail.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    // align target's center to rail's center
+    const delta = (targetRect.left + targetRect.width/2) - (railRect.left + railRect.width/2);
+    rail.scrollBy({left: delta, behavior: 'smooth'});
+  }
+
+  prev.addEventListener('click', () => goTo(activeIndex() - 1));
+  next.addEventListener('click', () => goTo(activeIndex() + 1));
+  dotEls.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+
+  // keyboard support when rail has focus
+  rail.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(activeIndex() + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(activeIndex() - 1); }
+  });
+
+  // throttle scroll-driven sync through rAF
+  let railQ = false;
+  rail.addEventListener('scroll', () => {
+    if (railQ) return;
+    railQ = true;
+    requestAnimationFrame(() => { railQ = false; syncState(); });
+  }, {passive:true});
+
+  // initial state
+  syncState();
 })();
 
+/* ============================================================
+   6. v2.9 · FOUNDER DIALOG (click-to-open bio)
+   ============================================================ */
+
+(function initFounderDialog(){
+  const open  = document.querySelector('.founder-open');
+  const dlg   = document.getElementById('founder-dialog');
+  if (!open || !dlg) return;
+  const close = dlg.querySelector('.fd-close');
+
+  open.addEventListener('click', () => {
+    if (typeof dlg.showModal === 'function') dlg.showModal();
+    else dlg.setAttribute('open', '');  // ancient-browser fallback
+  });
+  close.addEventListener('click', () => dlg.close());
+  // click on backdrop closes
+  dlg.addEventListener('click', e => {
+    if (e.target === dlg) dlg.close();
+  });
+})();
 </script>
 </body>
 </html>
