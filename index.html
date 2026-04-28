@@ -156,8 +156,13 @@ section{position:relative;padding:120px 28px;z-index:2}
 .wrap{max-width:1400px;margin:0 auto;position:relative}
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:52px;flex-wrap:wrap}
 .sec-head .lead{max-width:640px}
-.sec-tag{display:inline-flex;align-items:center;gap:10px;font:500 11px/1 var(--mono);letter-spacing:.22em;color:var(--slate);text-transform:uppercase;margin-bottom:16px}
-.bullet{width:28px;height:28px;border-radius:50%;display:inline-grid;place-items:center;color:#fff;font:800 12px/1 var(--display);letter-spacing:0}
+/* v2.25 · sec-tag styled as a subway-station hanging tile.
+   Black bg, white text, down-arrow on the left, colored circle badge on the right.
+   Sits ABOVE the section heading like a real subway-station sign. */
+.sec-tag{display:inline-flex;align-items:center;gap:14px;font:600 11px/1 var(--mono);letter-spacing:.22em;color:#fff;text-transform:uppercase;margin-bottom:24px;background:var(--carbon);padding:11px 14px 11px 12px;border-radius:6px;box-shadow:0 8px 20px -10px rgba(14,14,16,.35);position:relative}
+.sec-tag::before{content:"↓";display:inline-block;font:700 14px/1 var(--display);color:var(--gold);margin-right:-4px}
+.sec-tag::after{content:"";position:absolute;top:-12px;left:18%;right:18%;height:12px;background:linear-gradient(to bottom, transparent, transparent 50%, rgba(14,14,16,.18) 50%, rgba(14,14,16,.18) 60%, transparent 60%);background-size:1px 12px;background-repeat:repeat-x;opacity:.7}
+.bullet{width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;color:#fff;font:800 10px/1 var(--display);letter-spacing:0;flex-shrink:0}
 .sec-head h2{font:800 clamp(44px,6vw,80px)/.95 var(--display);letter-spacing:-.035em}
 .sec-head h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--slate)}
 .sec-head .note{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--slate);max-width:320px}
@@ -199,6 +204,12 @@ section{position:relative;padding:120px 28px;z-index:2}
 
 /* ---------- v2.10 · WORK SHOWCASE (real Insta highlight covers + placeholders) ---------- */
 .work-showcase{position:relative;z-index:3}
+.ws-backdrop{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.ws-watermark{position:absolute;right:-3vw;top:50%;transform:translateY(-50%);font:900 clamp(280px, 36vw, 520px)/.85 var(--display);color:rgba(14,14,16,.04);letter-spacing:-.06em;user-select:none;pointer-events:none}
+.work-showcase > .ws-block{position:relative;z-index:1}
+@media (max-width:780px){
+  .ws-watermark{font-size:200px;right:-30px}
+}
 .ws-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(14,14,16,.12)}
 .ws-head h3{font:800 clamp(20px,2vw,28px)/1 var(--display);letter-spacing:-.02em;color:var(--carbon)}
 .ws-count{font:500 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);text-align:right}
@@ -247,7 +258,12 @@ section{position:relative;padding:120px 28px;z-index:2}
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;z-index:3}
 @media (max-width:1080px){.about-grid{grid-template-columns:1fr}}
 .founder{display:flex;gap:22px;padding:22px;border:1px solid rgba(14,14,16,.14);border-radius:14px;background:rgba(255,255,255,.5)}
-.founder .avatar{width:74px;height:74px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff;font:800 22px/1 var(--display);flex:0 0 74px}
+.founder-pin-canvas{position:absolute;top:-62px;left:-62px;width:220px;height:220px;pointer-events:none;z-index:5}
+.founder .avatar{position:relative;width:96px;height:96px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff;font:800 26px/1 var(--display);flex:0 0 96px;overflow:hidden;box-shadow:0 12px 28px -14px rgba(0,0,0,.4);z-index:1}
+.founder .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.founder .avatar .avatar-initials{position:relative;z-index:1;display:none}
+.founder .avatar.avatar-fallback{background:var(--green)}
+.founder .avatar.avatar-fallback .avatar-initials{display:block}
 .founder h4{font:700 18px/1.2 var(--display);letter-spacing:-.01em}
 .founder small{font:500 11px/1.4 var(--mono);color:var(--red);letter-spacing:.12em;text-transform:uppercase;margin-top:2px;display:block}
 .founder p{font:500 14px/1.55 var(--display);color:var(--slate);margin-top:10px}
@@ -305,13 +321,15 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 }
 
 /* ---------- v2.7 · APPROACH CHIP (now-approaching MTA banner) ---------- */
-.approach-chip{position:fixed;bottom:32px;right:32px;z-index:60;display:flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;background:rgba(14,14,16,.94);color:var(--paper);border-radius:999px;font:600 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;box-shadow:0 12px 32px rgba(0,0,0,.32),0 0 0 1px rgba(255,255,255,.04) inset;transform:translate(140%,0);opacity:0;transition:transform .55s var(--ease), opacity .35s ease;pointer-events:none;backdrop-filter:blur(8px)}
-.approach-chip.in{transform:translate(0,0);opacity:1}
+/* v2.25 · Approach chip moved from bottom-right to TOP-CENTER (slides down from above the nav).
+   Reads as a real "Now approaching" platform announcement. */
+.approach-chip{position:fixed;top:84px;left:50%;z-index:60;display:flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;background:rgba(14,14,16,.94);color:var(--paper);border-radius:999px;font:600 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;box-shadow:0 12px 32px rgba(0,0,0,.32),0 0 0 1px rgba(255,255,255,.04) inset;transform:translate(-50%,-180%);opacity:0;transition:transform .55s var(--ease), opacity .35s ease;pointer-events:none;backdrop-filter:blur(8px)}
+.approach-chip.in{transform:translate(-50%, 0);opacity:1}
 .approach-chip .ac-bullet{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 9px/1 var(--mono);letter-spacing:.04em;color:#fff;flex:0 0 26px}
 .approach-chip .ac-text{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
 .approach-chip .ac-text small{font:500 10px/1 var(--mono);letter-spacing:.22em;color:rgba(244,239,224,.55)}
 .approach-chip .ac-text b{font:700 11px/1 var(--display);letter-spacing:.04em;color:var(--gold);text-transform:uppercase}
-@media (max-width:820px){.approach-chip{bottom:18px;right:18px;left:18px;padding:8px 14px 8px 8px;font-size:10px;justify-content:center}}
+@media (max-width:820px){.approach-chip{top:72px;padding:7px 14px 7px 7px;font-size:10px}}
 
 /* ---------- v2.7 · STATION RAIL (right-edge wayfinding) ---------- */
 .station-rail{position:fixed;top:50%;right:18px;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:50;opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
@@ -381,6 +399,357 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   .roster-slide .rs-stats{justify-content:center}
   .roster-slide .rs-tags{justify-content:center}
 }
+
+/* ============================================================
+   v2.14 · ISHANT CAROUSEL — no-friction headline carousel
+   Lives at the top of #our-people. Six visual slides, swipeable.
+   Ends with a magnet (email capture). Long-form modal still
+   available as a "Read the playbook" toggle below the carousel.
+   ============================================================ */
+.ishant-carousel{position:relative;margin-top:14px;margin-bottom:64px}
+.ic-rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 22px 22px;margin:0 -22px;scrollbar-width:none}
+.ic-rail::-webkit-scrollbar{display:none}
+.ic-slide{flex:0 0 calc(min(900px, 86vw));scroll-snap-align:center;border-radius:18px;overflow:hidden;position:relative;min-height:460px;display:flex;align-items:flex-end;color:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+/* v2.23 · cut-out portraits — right-anchored, vertically centered, contain (preserve full figure) */
+.ic-slide .ic-portrait{position:absolute;right:0;bottom:0;top:0;height:100%;width:auto;max-width:55%;object-fit:contain;object-position:right bottom;display:block;z-index:1}
+.ic-slide .ic-portrait.ic-img-missing{display:none}
+@media (max-width:780px){
+  .ic-slide .ic-portrait{max-width:45%;opacity:.85}
+}
+.ic-slide .ic-text{position:relative;z-index:2;padding:36px 40px 36px;max-width:62%;color:inherit}
+.ic-slide .ic-text-full{max-width:88%}
+.ic-slide .ic-meta{font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:14px;display:inline-flex;align-items:center;gap:10px}
+.ic-slide .ic-meta::before{content:"";width:24px;height:1px;background:currentColor;opacity:.7}
+.ic-slide h3{font:800 clamp(34px,4.4vw,60px)/.96 var(--display);letter-spacing:-.03em;color:inherit;margin-bottom:14px}
+.ic-slide .ic-tagline{font:500 clamp(14px,1.5vw,17px)/1.5 var(--display);color:rgba(255,255,255,.92);max-width:42ch;margin-bottom:14px}
+.ic-slide .ic-cite{font:600 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.92);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(255,255,255,.5);border-radius:999px;transition:all .25s var(--ease);margin-top:8px}
+.ic-slide .ic-cite:hover{background:#fff;color:var(--carbon);border-color:#fff}
+
+/* slide variants — paper + carbon + gold need different text contrast */
+.ic-slide.ic-numbers-slide{color:var(--carbon)}
+.ic-slide.ic-numbers-slide .ic-meta{color:var(--slate)}
+.ic-slide.ic-numbers-slide .ic-meta::before{background:var(--carbon)}
+.ic-slide.ic-magnet-slide{color:var(--carbon)}
+.ic-slide.ic-magnet-slide .ic-meta{color:var(--carbon)}
+.ic-slide.ic-magnet-slide .ic-meta::before{background:var(--carbon)}
+.ic-slide.ic-magnet-slide h3{color:var(--carbon)}
+
+/* numbers grid inside slide */
+.ic-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 20px}
+.ic-stat{padding:14px 14px;background:rgba(14,14,16,.06);border:1px solid rgba(14,14,16,.1);border-radius:10px;display:flex;flex-direction:column;gap:2px}
+.ic-stat .n{font:800 26px/1 var(--display);letter-spacing:-.02em;color:var(--carbon)}
+.ic-stat .l{font:500 10px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:6px}
+.ic-stat .d{font:600 11px/1.3 var(--mono);color:var(--green);margin-top:4px}
+.ic-pull{font:600 18px/1.4 var(--display);color:var(--carbon);max-width:46ch;border-left:3px solid var(--gold);padding:6px 0 6px 18px;margin-top:8px;font-style:italic}
+.ic-pull em{color:var(--slate)}
+
+/* magnet form */
+.ic-form{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center;max-width:520px}
+.ic-form input{flex:1 1 240px;min-width:0;padding:12px 16px;font:500 14px/1.2 var(--display);background:rgba(255,255,255,.85);border:1.5px solid var(--carbon);border-radius:999px;color:var(--carbon);outline:none}
+.ic-form input::placeholder{color:rgba(14,14,16,.45)}
+.ic-form input:focus{border-color:var(--royal);box-shadow:0 0 0 3px rgba(31,77,140,.18)}
+.ic-form button{padding:12px 20px;font:600 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;background:var(--carbon);color:var(--paper);border:1.5px solid var(--carbon);border-radius:999px;cursor:pointer;transition:all .25s var(--ease)}
+.ic-form button:hover{background:var(--paper);color:var(--carbon)}
+.ic-form-msg{flex:1 1 100%;font:500 11px/1.3 var(--mono);letter-spacing:.04em;color:var(--carbon);min-height:14px}
+
+/* nav · arrows + dots */
+.ic-nav{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:24px}
+.ic-nav button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(14,14,16,.2);background:transparent;cursor:pointer;font:400 22px/1 var(--display);color:var(--carbon);display:grid;place-items:center;transition:all .2s var(--ease)}
+.ic-nav button:hover:not(:disabled){background:var(--carbon);color:var(--paper);border-color:var(--carbon)}
+.ic-nav button:disabled{opacity:.3;cursor:not-allowed}
+.ic-dots{display:flex;gap:8px;align-items:center}
+.ic-dots .dot{width:8px;height:8px;border-radius:50%;background:rgba(14,14,16,.2);transition:all .3s var(--ease);cursor:pointer;border:none;padding:0}
+.ic-dots .dot.active{background:var(--carbon);transform:scale(1.3)}
+.ic-longform{margin-top:14px;text-align:center}
+.ic-longform a{font:500 11px/1.3 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate);text-decoration:underline;text-decoration-color:rgba(14,14,16,.2);text-underline-offset:6px;transition:color .25s var(--ease)}
+.ic-longform a:hover{color:var(--carbon);text-decoration-color:var(--carbon)}
+
+/* v2.18 · TRAIN STRIP — divider between sections.
+   v2.23 · transparent strip (no paper bg, no borders), bigger train again. */
+.train-strip{position:relative;background:transparent;height:720px;overflow:hidden}
+.train-strip-tag{position:absolute;top:24px;left:28px;font:500 11px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--slate);z-index:3;display:inline-flex;align-items:center;gap:10px}
+.train-strip-tag::before{content:"";width:30px;height:1px;background:var(--carbon)}
+/* v2.25 · bottom-anchored to match the .mov reference (train sits at the bottom of the strip) */
+.train-img{position:absolute;bottom:-30px;height:600px;width:auto;will-change:left;z-index:2;filter:drop-shadow(0 40px 50px rgba(14,14,16,.18));left:50vw;transition:left .15s linear}
+/* Auto-loop fallback if JS scroll-drive hasn't initialised */
+.train-strip:not([data-scroll-driven]) .train-img{
+  animation: train-pass 36s linear infinite;
+  transition: none;
+}
+@keyframes train-pass{
+  0%   { left: 100vw; }
+  100% { left: -2400px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .train-img{animation:none;transition:none;left:50%;bottom:-30px}
+}
+@media (max-width:980px){
+  .train-strip{height:480px}
+  .train-img{height:400px;bottom:-20px}
+}
+@media (max-width:780px){
+  .train-strip{height:340px}
+  .train-img{height:280px;bottom:-15px}
+  .train-strip-tag{font-size:9px;letter-spacing:.18em;left:18px;top:16px}
+}
+
+/* v2.20 · PULLABLE THREADS — clicking a section heading "twangs" the
+   colored threads emanating from the logo through that section. */
+.thread-canvas{transition: transform .15s ease}
+.thread-canvas.threads-twang{animation: thread-twang .9s cubic-bezier(.36,.07,.19,.97)}
+@keyframes thread-twang{
+  0%   { transform: translateX(0) }
+  10%  { transform: translateX(-4px) }
+  20%  { transform: translateX(5px) }
+  30%  { transform: translateX(-4px) }
+  40%  { transform: translateX(3px) }
+  50%  { transform: translateX(-2px) }
+  60%  { transform: translateX(1.5px) }
+  70%  { transform: translateX(-1px) }
+  80%  { transform: translateX(0.5px) }
+  100% { transform: translateX(0) }
+}
+.sec-head h2,
+.timeline h3,
+.terminus h2{cursor:pointer;user-select:none}
+.sec-head h2::after,
+.timeline h3::after{
+  content: "↯ pull";
+  display:inline-block;
+  margin-left:14px;
+  font:500 9px/1 var(--mono);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--slate);
+  opacity:0;
+  transform:translateY(2px);
+  transition: opacity .25s ease, transform .25s ease;
+  vertical-align: middle;
+}
+.sec-head h2:hover::after,
+.timeline h3:hover::after{opacity:.6;transform:translateY(0)}
+
+/* v2.22 · MANIFESTO removed entirely (CSS kept commented for restoration if ever needed). */
+
+/* v2.16 · Terminus tag + subway-ticket reveal on the magnet slide */
+.ic-terminus-tag{font:600 10px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--carbon);display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--carbon);border-radius:999px;background:rgba(14,14,16,.06);margin-bottom:18px;align-self:flex-start;animation:ic-tag-in .8s var(--ease) both}
+.ic-terminus-tag .ict-bullet{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(221,61,56,.6);animation:ic-pulse 1.6s var(--ease) infinite}
+@keyframes ic-tag-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes ic-pulse{0%,100%{box-shadow:0 0 0 0 rgba(221,61,56,.6)}50%{box-shadow:0 0 0 8px rgba(221,61,56,0)}}
+
+.ic-magnet-slide .ic-form.ic-form-out{opacity:0;transform:translateY(6px);transition:opacity .25s var(--ease), transform .25s var(--ease);pointer-events:none}
+
+.ic-ticket{margin-top:8px;animation:ic-ticket-in .9s var(--ease) both}
+.ic-ticket-card{position:relative;background:var(--paper);color:var(--carbon);border:1px solid var(--carbon);border-radius:10px;padding:22px 24px 22px;max-width:520px;box-shadow:0 30px 60px -28px rgba(0,0,0,.45);overflow:hidden}
+.ic-ticket-card::before,.ic-ticket-card::after{content:"";position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:var(--gold);transform:translateY(-50%)}
+.ic-ticket-card::before{left:-7px}
+.ic-ticket-card::after{right:-7px}
+.ic-ticket-stamp{position:absolute;top:18px;right:24px;transform:rotate(8deg);padding:6px 12px;border:2px solid var(--red);color:var(--red);font:800 11px/1 var(--display);letter-spacing:.18em;border-radius:4px;text-transform:uppercase;animation:ic-stamp-in .6s .35s cubic-bezier(.34,1.56,.64,1) both;opacity:0;transform-origin:center}
+.ic-ticket-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px}
+.ic-ticket-label{font:500 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate)}
+.ic-ticket-line{display:inline-flex;gap:4px}
+.ictl-dot{width:8px;height:8px;border-radius:50%}
+.ic-ticket-headline{font:800 24px/1.1 var(--display);letter-spacing:-.02em;margin:6px 0 16px}
+.ic-ticket-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;border-top:1px dashed rgba(14,14,16,.18);border-bottom:1px dashed rgba(14,14,16,.18);padding:12px 0;margin-bottom:14px}
+.ic-ticket-fields > div{display:flex;flex-direction:column;gap:2px}
+.ic-ticket-fields small{font:500 9px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
+.ic-ticket-fields span{font:600 13px/1.2 var(--display);color:var(--carbon)}
+.ic-ticket-fields .ic-ticket-email{font-family:var(--mono);font-size:12px}
+.ic-ticket-perf{height:1px;border-top:1px dotted rgba(14,14,16,.25);margin:0 -24px 12px}
+.ic-ticket-note{font:500 12px/1.5 var(--display);color:var(--slate);max-width:42ch}
+.ic-ticket-note em{color:var(--carbon);font-style:normal;font-weight:600}
+@keyframes ic-ticket-in{from{opacity:0;transform:translateY(14px) rotate(-1deg)}to{opacity:1;transform:none}}
+@keyframes ic-stamp-in{0%{opacity:0;transform:rotate(8deg) scale(2.2)}100%{opacity:1;transform:rotate(8deg) scale(1)}}
+
+@media (max-width:780px){
+  .ic-slide{flex-basis:calc(100vw - 44px);min-height:520px}
+  .ic-slide .ic-text{max-width:100%;padding:28px 26px}
+  .ic-stats{grid-template-columns:repeat(2,1fr)}
+  .ic-slide h3{font-size:32px}
+}
+
+/* v2.15 · SCROLL LOCK — Apple-style pin & advance */
+.scroll-lock-wrapper{position:relative}
+.scroll-lock-sticky{position:relative}
+.scroll-lock-skip{display:none}
+@media (min-width:1080px) and (prefers-reduced-motion: no-preference){
+  .scroll-lock-wrapper.scroll-lock-active{height:600vh}
+  .scroll-lock-wrapper.scroll-lock-active .scroll-lock-sticky{
+    position:sticky;top:78px;height:calc(100vh - 78px);
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .scroll-lock-wrapper.scroll-lock-active .ic-rail{
+    scroll-snap-type:none;scroll-behavior:auto;
+    overflow:hidden;pointer-events:none;
+  }
+  .scroll-lock-wrapper.scroll-lock-active .ic-nav,
+  .scroll-lock-wrapper.scroll-lock-active .ic-longform{pointer-events:auto}
+  /* progress chip — visible only in scroll-lock mode */
+  .scroll-lock-wrapper.scroll-lock-active .scroll-lock-skip{
+    display:flex;position:absolute;top:14px;right:14px;z-index:5;
+    align-items:center;gap:10px;padding:8px 14px;border-radius:999px;
+    background:rgba(14,14,16,.78);color:var(--paper);
+    font:500 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+    backdrop-filter:blur(8px);border:1px solid rgba(244,239,224,.2);
+    cursor:pointer;text-decoration:none;transition:all .25s var(--ease);
+  }
+  .scroll-lock-wrapper.scroll-lock-active .scroll-lock-skip:hover{background:var(--carbon)}
+  .scroll-lock-wrapper.scroll-lock-active .scroll-lock-skip .slp{
+    width:80px;height:3px;background:rgba(244,239,224,.2);border-radius:2px;overflow:hidden;
+  }
+  .scroll-lock-wrapper.scroll-lock-active .scroll-lock-skip .slp::after{
+    content:"";display:block;height:100%;width:var(--lock-progress,0%);
+    background:var(--gold);transition:width .15s linear;
+  }
+}
+
+/* ============================================================
+   v2.14b · Featured Cases — bigger tiles per request
+   ============================================================ */
+.featured-cases .fc-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+.featured-cases .fc-card .fc-cover{height:240px}
+.featured-cases .fc-card .fc-cover.is-text .fc-mark{font-size:54px}
+.featured-cases .fc-card .fc-name{font-size:clamp(24px,2.4vw,30px)}
+.featured-cases .fc-card .fc-body{padding:24px 26px 26px}
+.featured-cases .fc-card .fc-teaser{font-size:14.5px}
+@media (max-width:780px){
+  .featured-cases .fc-grid{grid-template-columns:1fr;gap:18px}
+  .featured-cases .fc-card .fc-cover{height:200px}
+}
+
+/* ============================================================
+   v2.13 · CASE DIALOG — reusable case-study modal system
+   Pattern reused by every Tier 1 case (Ishant first; Slay,
+   YYC, Andreas, Ophelia, Rooh, Khubani, Arista Vault to follow).
+   ============================================================ */
+.case-dialog{border:none;padding:0;width:calc(100% - 32px);max-width:920px;max-height:92vh;border-radius:14px;background:var(--paper);color:var(--carbon);box-shadow:0 30px 80px -10px rgba(0,0,0,.5);overflow:hidden}
+.case-dialog::backdrop{background:rgba(14,14,16,.72);backdrop-filter:blur(6px)}
+.case-dialog .cd-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;background:var(--paper);border-bottom:1px solid rgba(14,14,16,.1);z-index:5}
+.case-dialog .cd-tag{font:500 10px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--slate);display:flex;align-items:center;gap:8px}
+.case-dialog .cd-tag::before{content:"";width:18px;height:1px;background:var(--royal)}
+.case-dialog .cd-close{width:34px;height:34px;border-radius:50%;border:1px solid rgba(14,14,16,.18);background:transparent;cursor:pointer;font:400 22px/1 var(--display);color:var(--carbon);display:grid;place-items:center;transition:all .2s var(--ease)}
+.case-dialog .cd-close:hover{background:var(--carbon);color:var(--paper);border-color:var(--carbon)}
+.case-dialog .cd-body{overflow-y:auto;max-height:calc(92vh - 60px)}
+
+/* Hero · banner with cut-out talent on color bg */
+.cd-hero{position:relative;background:var(--royal);overflow:hidden;aspect-ratio:5/3;min-height:280px;max-height:60vh;display:flex;align-items:flex-end}
+.cd-hero img{position:absolute;right:0;top:0;bottom:0;height:100%;width:auto;max-width:60%;object-fit:contain;object-position:right bottom;display:block}
+.cd-hero .cd-hero-text{position:relative;z-index:2;padding:36px 36px 32px;color:#fff;max-width:60%}
+.cd-hero .cd-hero-meta{font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.cd-hero .cd-hero-meta::before{content:"";width:24px;height:1px;background:#fff}
+.cd-hero h2{font:800 clamp(32px,4vw,56px)/1 var(--display);letter-spacing:-.03em;color:#fff;margin-bottom:10px}
+.cd-hero .cd-hero-sub{font:500 14.5px/1.45 var(--display);color:rgba(255,255,255,.92);max-width:46ch}
+
+/* Chapter rhythm */
+.cd-chapter{padding:42px 36px 0;max-width:760px;margin:0 auto}
+.cd-chapter:last-of-type{padding-bottom:36px}
+.cd-chapter h3{font:800 22px/1.2 var(--display);letter-spacing:-.02em;color:var(--carbon);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.cd-chapter h3 .cd-num{font:600 10px/1 var(--mono);letter-spacing:.2em;color:var(--slate);background:rgba(14,14,16,.06);padding:6px 10px;border-radius:6px;flex-shrink:0}
+.cd-chapter h3 .cd-bullet{width:10px;height:10px;border-radius:50%;flex:0 0 10px}
+.cd-chapter p{font:500 15px/1.65 var(--display);color:var(--ink);margin-bottom:14px;max-width:64ch}
+.cd-chapter p.cd-lead{font-size:16px;color:var(--carbon);font-weight:500}
+.cd-chapter .cd-pull{font:600 18px/1.45 var(--display);color:var(--carbon);max-width:50ch;border-left:3px solid var(--gold);padding:6px 0 6px 18px;margin:18px 0;font-style:italic}
+
+/* Stats grid · the receipts */
+.cd-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0 8px}
+.cd-stat{padding:18px 18px;background:rgba(255,255,255,.55);border:1px solid rgba(14,14,16,.12);border-radius:10px;display:flex;flex-direction:column;gap:4px}
+.cd-stat .n{font:800 26px/1 var(--display);letter-spacing:-.02em;color:var(--carbon)}
+.cd-stat .l{font:500 10px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:6px}
+.cd-stat .d{font:600 11px/1.3 var(--mono);color:var(--green);margin-top:4px}
+
+/* Press citation */
+.cd-cite{display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(14,14,16,.04);border:1px solid rgba(14,14,16,.08);border-radius:8px;margin:14px 0;font:500 12.5px/1.5 var(--mono);color:var(--slate)}
+.cd-cite a{color:var(--royal);text-decoration:underline;font-weight:600}
+
+/* Mid-modal hero divider · scene break */
+.cd-divider{margin:32px 0 0;width:100%;aspect-ratio:5/2;background:var(--green);overflow:hidden;position:relative}
+.cd-divider img{position:absolute;right:8%;bottom:0;height:130%;width:auto;object-fit:contain;display:block}
+
+/* Sister-case link · Arista Vault */
+.cd-sister{margin:18px 0 4px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;background:var(--carbon);color:var(--paper);border-radius:10px;text-decoration:none;transition:transform .2s var(--ease)}
+.cd-sister:hover{transform:translateX(3px)}
+.cd-sister .cd-sister-label{font:500 10px/1.2 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,224,.65);margin-bottom:4px;display:block}
+.cd-sister .cd-sister-name{font:800 18px/1.1 var(--display);letter-spacing:-.01em}
+.cd-sister .cd-sister-arrow{font:400 22px/1 var(--display);opacity:.8}
+
+/* Closing hero · "End of the line" */
+.cd-close-hero{margin-top:40px;padding:48px 36px;background:var(--carbon);color:var(--paper);text-align:center;position:relative;overflow:hidden}
+.cd-close-hero::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(to right,var(--royal),var(--gold),var(--red),var(--green))}
+.cd-close-hero .cd-close-tag{font:500 10px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:rgba(244,239,224,.6);margin-bottom:14px;display:block}
+.cd-close-hero h4{font:800 clamp(20px,2.4vw,28px)/1.25 var(--display);letter-spacing:-.02em;max-width:36ch;margin:0 auto 14px;color:#fff}
+.cd-close-hero p{font:500 13px/1.55 var(--mono);letter-spacing:.04em;color:rgba(244,239,224,.75);max-width:50ch;margin:0 auto}
+
+/* Roster cards become clickable cases · cursor + subtle lift */
+.roster-slide[data-case]{cursor:pointer}
+.roster-slide[data-case]:hover{transform:translateY(-2px);transition:transform .25s var(--ease)}
+.roster-slide[data-case]:focus-visible{outline:2px solid var(--royal);outline-offset:4px}
+
+@media (max-width:680px){
+  .case-dialog{width:calc(100% - 16px);max-height:96vh}
+  .cd-hero{aspect-ratio:4/3}
+  .cd-hero .cd-hero-text{max-width:100%;padding:24px 22px}
+  .cd-chapter{padding:32px 22px 0}
+  .cd-close-hero{padding:36px 22px}
+}
+
+/* ============================================================
+   v2.12 · FEATURED CASES — Tier 1 hospitality heroes
+   Hero cards lifted out of the alphabetical T2 grid. "Case
+   study (in production)" status until modals land in Sprint 2/3.
+   ============================================================ */
+.featured-cases{margin-bottom:60px}
+.fc-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--carbon)}
+.fc-head h3{font:800 clamp(22px,2.4vw,32px)/1 var(--display);letter-spacing:-.02em;color:var(--carbon)}
+.fc-head .fc-headmeta{font:500 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);text-align:right}
+.fc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:980px){.fc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.fc-grid{grid-template-columns:1fr}}
+.fc-card{position:relative;display:flex;flex-direction:column;background:rgba(255,255,255,.6);border:1px solid rgba(14,14,16,.14);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--carbon);transition:transform .28s var(--ease),box-shadow .28s var(--ease);cursor:pointer}
+.fc-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -18px rgba(0,0,0,.38)}
+.fc-card:focus-visible{outline:2px solid var(--royal);outline-offset:4px}
+.fc-card .fc-stripe{height:6px;width:100%}
+.fc-card .fc-cover{width:100%;height:170px;background:#fff;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid rgba(14,14,16,.08);position:relative}
+.fc-card .fc-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.fc-card:hover .fc-cover img{transform:scale(1.04)}
+.fc-card .fc-cover.is-text{color:var(--paper);background:var(--carbon);text-align:center;flex-direction:column;display:flex;justify-content:center;gap:6px}
+.fc-card .fc-cover.is-text .fc-mark{font:800 44px/1 var(--display);letter-spacing:-.02em}
+.fc-card .fc-cover.is-text .fc-marksub{font:500 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(244,239,224,.7)}
+.fc-card .fc-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.fc-card .fc-tag{font:600 10px/1.2 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate);display:inline-flex;align-items:center;gap:8px;margin-bottom:2px}
+.fc-card .fc-tag .fc-bullet{width:8px;height:8px;border-radius:50%}
+.fc-card .fc-name{font:800 clamp(20px,2vw,24px)/1.15 var(--display);letter-spacing:-.02em;color:var(--carbon)}
+.fc-card .fc-teaser{font:500 13.5px/1.5 var(--display);color:var(--ink);max-width:42ch;margin-top:6px}
+.fc-card .fc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;font:600 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
+.fc-card .fc-status{padding:5px 11px;border:1px solid rgba(14,14,16,.16);border-radius:999px;background:rgba(14,14,16,.04);font-size:9.5px}
+.fc-card .fc-link{display:inline-flex;align-items:center;gap:6px}
+
+/* ============================================================
+   v2.11 · PRESS STRIP — "As Featured In"
+   Sits inside #about, below .about-grid. Newspaper clippings
+   + ET column anchor as a horizontal scroll rail.
+   ============================================================ */
+.press-strip{margin-top:48px;padding-top:36px;border-top:1px solid rgba(14,14,16,.12);position:relative;z-index:3}
+.ps-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:20px;flex-wrap:wrap}
+.ps-tag{font:500 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);display:inline-flex;align-items:center;gap:10px}
+.ps-tag .bullet{display:inline-block;width:10px;height:10px;border-radius:50%}
+.ps-count{font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+.ps-rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;scrollbar-width:thin;scrollbar-color:rgba(14,14,16,.25) transparent}
+.ps-rail::-webkit-scrollbar{height:6px}
+.ps-rail::-webkit-scrollbar-thumb{background:rgba(14,14,16,.18);border-radius:3px}
+.ps-rail::-webkit-scrollbar-track{background:transparent}
+.ps-card{flex:0 0 240px;scroll-snap-align:start;text-decoration:none;color:var(--carbon);display:flex;flex-direction:column;gap:10px;transition:transform .25s var(--ease)}
+.ps-card:hover{transform:translateY(-3px)}
+.ps-card:focus-visible{outline:2px solid var(--royal);outline-offset:6px;border-radius:12px}
+.ps-img{width:240px;height:320px;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 6px 18px -10px rgba(0,0,0,.35),0 0 0 1px rgba(14,14,16,.08) inset;display:grid;place-items:center;transition:box-shadow .3s var(--ease)}
+.ps-card:hover .ps-img{box-shadow:0 14px 28px -12px rgba(0,0,0,.5),0 0 0 2px var(--royal) inset}
+.ps-img img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.ps-pub{font:700 11px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--carbon)}
+.ps-meta{font:500 10px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate)}
+@media (max-width:780px){
+  .ps-card{flex-basis:200px}
+  .ps-img{width:200px;height:266px}
+  .ps-head{flex-direction:column;align-items:flex-start;gap:6px}
+}
 </style>
 </head>
 <body>
@@ -398,9 +767,8 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     <span>Ninety-Eight<br><small>Entertainment · since 2020</small></span>
   </a>
   <ul>
-    <li><a href="#services" class="active">Services</a></li>
-    <li><a href="#roster">Roster</a></li>
-    <li><a href="#work">Work</a></li>
+    <li><a href="#our-people" class="active">Our People</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a class="cta" href="#contact"><span class="dot"></span> Let's Talk</a>
@@ -507,8 +875,9 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       </h1>
 
       <p class="tagline">
-        We build <em>reputations</em> the way a subway map builds a city —
-        every line a different story, every stop a place worth arriving at.
+        Not a company. A <em>collective for the culture</em>.
+        Business partners for hire — here to help you scale.
+        Built by Gen Z, for the dreamers running the next generation's businesses.
       </p>
 
       <div class="hero-meta">
@@ -522,15 +891,14 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     <aside class="timeline" aria-label="Studio timeline">
       <h3>Studio · Notes</h3>
       <p class="quote">
-        "The life of a designer is a life of fight: fight against the ugliness."
+        "If you can design one thing, you can design everything."
         <small>— MASSIMO VIGNELLI, OUR PATRON SAINT</small>
       </p>
       <div class="tl-row" data-reveal><div class="yr">2020</div><div class="ev">Founded in Delhi NCR. The practice takes shape around restaurants and direct-to-consumer brands.</div></div>
       <div class="tl-row" data-reveal><div class="yr">2021</div><div class="ev">Sports practice opens. Pratima Singh — captain of the Indian basketball side — joins as the first talent client.</div></div>
       <div class="tl-row" data-reveal><div class="yr">2022</div><div class="ev">Ishant Sharma signs as exclusive talent. Roster expands across Delhi NCR, Bombay, Bangalore.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2023</div><div class="ev">55+ brands on the book. Founder pauses operations to complete the ISB MBA.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2024</div><div class="ev">Founder completes the ISB MBA — adds corporate finance, strategy, market research and organisational design to the toolkit.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2025</div><div class="ev">A year of structured rebuilding. Frameworks before scale.</div></div>
+      <div class="tl-row" data-reveal><div class="yr">2023</div><div class="ev">55+ brands on the book. Studio paused.</div></div>
+      <div class="tl-row" data-reveal><div class="yr">2024–25</div><div class="ev">ISB MBA. New tools — corporate finance, strategy, market research, organisation design. <em>Frameworks before scale.</em></div></div>
       <div class="tl-row" data-reveal><div class="yr">2026</div><div class="ev">98 v2.0 — a creative powerhouse. <em>Same conviction. Sharper craft. Broader services.</em></div></div>
     </aside>
   </div>
@@ -540,7 +908,316 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   <svg class="thread-canvas" id="thread-hero" preserveAspectRatio="none"></svg>
 </header>
 
-<!-- =================== SERVICES =================== -->
+<!-- v2.22 · MANIFESTO removed entirely. Long copy lives in hero tagline.
+     The "not for the capital, for the culture" line is implicit in the brand voice now. -->
+
+<!-- v2.18 · TRAIN STRIP · 98 Express. Replaces the old "Culture is the track" marquee.
+     v2.23 · Transparent strip, bigger train (580px), scroll-driven via JS.
+     Rails + station labels removed for a cleaner divider. -->
+<aside class="train-strip" aria-label="The 98 Express — passing through" id="train-strip">
+  <span class="train-strip-tag">// 98 Express · scrolls with you</span>
+  <img src="Train/train-png-v2-higher-res.png" alt="98 monorail" class="train-img" loading="lazy">
+</aside>
+
+<!-- =================== OUR PEOPLE · lifted above Services per v2.14 — case study can't be buried =================== -->
+<section id="our-people">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="lead">
+        <span class="sec-tag"><span class="bullet" style="background:var(--royal)">RP</span> Our roster · Tier 1 cases</span>
+        <h2>People that we have <em>spoken for.</em></h2>
+      </div>
+      <p class="note">One athlete at the centre. Six restaurants on the line. Seventeen brands in the book. The rest is below — a logo wall of selected clients, none of whom got there because we were cheap.</p>
+    </div>
+
+    <!-- v2.14 · ISHANT CAROUSEL · the no-friction headline
+         v2.15 · Wrapped in scroll-lock — desktop ≥1080px pins the carousel
+         and converts vertical scroll into horizontal slide advance, Apple-style.
+         Mobile + reduced-motion fall through to native swipe. -->
+    <div class="scroll-lock-wrapper" id="ishant-scroll-lock">
+    <a class="scroll-lock-skip" id="scroll-lock-skip" href="#featured-cases" aria-label="Skip the Ishant case and continue to Featured Cases">
+      <span class="slp" aria-hidden="true"></span>
+      Skip to next case ↓
+    </a>
+    <div class="scroll-lock-sticky">
+    <div class="ishant-carousel reveal" aria-label="Ishant Sharma — featured case carousel">
+      <div class="ic-rail" id="ic-rail" tabindex="0" aria-label="Swipe through chapters">
+
+        <article class="ic-slide" data-c="open" style="background:var(--royal)">
+          <img class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%202.png" alt="Ishant Sharma in India Test whites, holding a cricket ball" onerror="this.classList.add('ic-img-missing')">
+          <div class="ic-text">
+            <span class="ic-meta">01 · The Case · 2020–2023</span>
+            <h3>Ishant Sharma</h3>
+            <p class="ic-tagline">The personal-brand case. <br>We didn't manage talent. We ran a brand.</p>
+          </div>
+        </article>
+
+        <article class="ic-slide ic-numbers-slide" data-c="numbers" style="background:var(--paper);color:var(--carbon)">
+          <div class="ic-text ic-text-full">
+            <span class="ic-meta" style="color:var(--slate)">02 · The Receipts · YoY 2022 → 2023</span>
+            <div class="ic-stats">
+              <div class="ic-stat"><span class="n">7.5M</span><span class="l">Instagram likes</span><span class="d">+140% · 2.4×</span></div>
+              <div class="ic-stat"><span class="n">23.7M</span><span class="l">Reels views</span><span class="d">+156% · 2.56×</span></div>
+              <div class="ic-stat"><span class="n">8,868</span><span class="l">Comments</span><span class="d">+85% · 1.85×</span></div>
+              <div class="ic-stat"><span class="n">4.75M</span><span class="l">Twitter impressions</span><span class="d">in 70 tweets</span></div>
+            </div>
+            <p class="ic-pull">Better posts, not more posts. <em>Same audience, different framing.</em></p>
+          </div>
+        </article>
+
+        <article class="ic-slide" data-c="rupay" style="background:var(--green)">
+          <img class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%203.png" alt="Ishant Sharma celebrating, arm raised" onerror="this.classList.add('ic-img-missing')">
+          <div class="ic-text">
+            <span class="ic-meta">03 · RuPay × IPL 2022</span>
+            <h3>Howzzaaaatt!</h3>
+            <p class="ic-tagline">NPCI's first IPL campaign. Five films. Our talent at the centre.</p>
+            <a class="ic-cite" href="https://brandequity.economictimes.indiatimes.com/news/advertising/ipl-2022-rupays-ad-positions-its-payment-speed-as-fast-as-ishant-sharmas-bowling/90909370" target="_blank" rel="noopener">ET BrandEquity, Apr 2022 ↗</a>
+          </div>
+        </article>
+
+        <article class="ic-slide ic-dark-slide" data-c="channel" style="background:var(--carbon);color:var(--paper)">
+          <div class="ic-text ic-text-full">
+            <span class="ic-meta" style="color:rgba(244,239,224,.7)">04 · Spinny × Ranveer · The Channel Trade</span>
+            <h3 style="color:var(--paper)">We sold the audience.</h3>
+            <p class="ic-tagline" style="color:rgba(244,239,224,.92)">Spinny rented the channel. Ranveer brought the bridge. The 2023 lift was credited to these collabs by name in the year-end report.</p>
+          </div>
+        </article>
+
+        <article class="ic-slide" data-c="equity" style="background:var(--red)">
+          <img class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%201.png" alt="Ishant Sharma in INDIA jersey, mid-celebration" onerror="this.classList.add('ic-img-missing')">
+          <div class="ic-text">
+            <span class="ic-meta">05 · The Model · Equity, not retainer</span>
+            <h3>When we believed,<br>we owned the upside.</h3>
+            <p class="ic-tagline">Same operating system. Different asset class.</p>
+            <a class="ic-cite" href="#case-arista-vault" data-case="arista-vault">Arista Vault — sister case →</a>
+          </div>
+        </article>
+
+        <article class="ic-slide ic-magnet-slide" data-c="magnet" style="background:var(--gold);color:var(--carbon)">
+          <div class="ic-text ic-text-full">
+            <span class="ic-terminus-tag"><span class="ict-bullet"></span>Terminus · Your stop</span>
+            <span class="ic-meta" style="color:var(--carbon)">06 · The Trick · Pull back the curtain</span>
+            <h3>Want the playbook?</h3>
+            <p class="ic-tagline" style="color:var(--carbon)">The full Ishant case as a PDF — what we did, the deal structure, the numbers, the language we use. Drop your email; we'll send it.</p>
+            <form class="ic-form" data-magnet="ishant-playbook">
+              <input type="email" placeholder="you@brand.com" required aria-label="Email address">
+              <button type="submit">Send the playbook ↗</button>
+              <span class="ic-form-msg" aria-live="polite"></span>
+            </form>
+
+            <!-- v2.16 · subway-ticket reveal — replaces the form on submit -->
+            <div class="ic-ticket" hidden aria-hidden="true">
+              <div class="ic-ticket-card">
+                <div class="ic-ticket-stamp" aria-hidden="true">
+                  <span>ON BOARD</span>
+                </div>
+                <div class="ic-ticket-row">
+                  <span class="ic-ticket-label">Terminus · Ninety Eight</span>
+                  <span class="ic-ticket-line"><span class="ictl-dot" style="background:var(--royal)"></span><span class="ictl-dot" style="background:var(--gold)"></span><span class="ictl-dot" style="background:var(--red)"></span><span class="ictl-dot" style="background:var(--green)"></span></span>
+                </div>
+                <h4 class="ic-ticket-headline">One playbook,<br>en route.</h4>
+                <div class="ic-ticket-fields">
+                  <div><small>To</small><span class="ic-ticket-email">you@brand.com</span></div>
+                  <div><small>Ticket</small><span class="ic-ticket-num">#0001</span></div>
+                  <div><small>Dispatched</small><span class="ic-ticket-when">just now</span></div>
+                </div>
+                <div class="ic-ticket-perf" aria-hidden="true"></div>
+                <p class="ic-ticket-note">Check inbox in a minute. If it doesn't land, look in <em>Promotions</em>.</p>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+
+      <div class="ic-nav" aria-label="Carousel navigation">
+        <button type="button" class="ic-prev" aria-label="Previous slide">‹</button>
+        <div class="ic-dots" id="ic-dots" role="tablist"></div>
+        <button type="button" class="ic-next" aria-label="Next slide">›</button>
+      </div>
+
+      <!-- v2.16 · "long version" link removed — the playbook is the magnet payload, not a free side-door -->
+    </div>
+    </div><!-- /.scroll-lock-sticky -->
+    </div><!-- /.scroll-lock-wrapper -->
+
+    <!-- v2.10 · brand showcase: Hospitality + Brand Partners (real covers + placeholders).
+         v2.21 · stable backdrop — vertical subway-line rail on the left edge plus
+         a large "98" watermark. Always visible; doesn't fade in/out with scroll. -->
+    <div class="work-showcase">
+      <div class="ws-backdrop" aria-hidden="true">
+        <div class="ws-watermark">98</div>
+      </div>
+
+      <!-- v2.12 · Featured Cases · Tier 1 hospitality heroes lifted above the logo wall -->
+      <div class="ws-block featured-cases reveal" id="featured-cases">
+        <div class="fc-head">
+          <h3>Featured Cases · Hospitality</h3>
+          <span class="fc-headmeta">6 case studies · in production</span>
+        </div>
+        <div class="fc-grid">
+
+          <a class="fc-card" href="#case-slay-coffee" aria-label="Slay Coffee — case study coming soon">
+            <span class="fc-stripe" style="background:var(--gold)"></span>
+            <span class="fc-cover"><img loading="lazy" src="highlights/Slay Coffee Highlights.png" alt="Slay Coffee cover"></span>
+            <div class="fc-body">
+              <span class="fc-tag"><span class="fc-bullet" style="background:var(--gold)"></span>Campaign · Awards</span>
+              <h4 class="fc-name">Slay Coffee</h4>
+              <p class="fc-teaser">The campaign that built a name. The awards came after.</p>
+              <div class="fc-foot"><span class="fc-status">Case in production</span><span class="fc-link">Read ↗</span></div>
+            </div>
+          </a>
+
+          <a class="fc-card" href="#case-yyc-group" aria-label="YYC Group — TBSP, Pot Pot, Wheaty — case study coming soon">
+            <span class="fc-stripe" style="background:var(--green)"></span>
+            <span class="fc-cover is-text"><span class="fc-mark">YYC</span><span class="fc-marksub">TBSP · Pot Pot · Wheaty</span></span>
+            <div class="fc-body">
+              <span class="fc-tag"><span class="fc-bullet" style="background:var(--green)"></span>Restaurant Group</span>
+              <h4 class="fc-name">Yum Yum Cha</h4>
+              <p class="fc-teaser">Three restaurants under one parent. Awards under one roof.</p>
+              <div class="fc-foot"><span class="fc-status">Case in production</span><span class="fc-link">Read ↗</span></div>
+            </div>
+          </a>
+
+          <a class="fc-card" href="#case-andreas" aria-label="Andreas — case study coming soon">
+            <span class="fc-stripe" style="background:var(--royal)"></span>
+            <span class="fc-cover"><img loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span>
+            <div class="fc-body">
+              <span class="fc-tag"><span class="fc-bullet" style="background:var(--royal)"></span>Fine Dining</span>
+              <h4 class="fc-name">Andreas</h4>
+              <p class="fc-teaser">Elevated dining, told elevated.</p>
+              <div class="fc-foot"><span class="fc-status">Case in production</span><span class="fc-link">Read ↗</span></div>
+            </div>
+          </a>
+
+          <a class="fc-card" href="#case-ophelia" aria-label="Ophelia — case study coming soon">
+            <span class="fc-stripe" style="background:var(--pink)"></span>
+            <span class="fc-cover"><img loading="lazy" src="highlights/Ophelia.png" alt="Ophelia cover"></span>
+            <div class="fc-body">
+              <span class="fc-tag"><span class="fc-bullet" style="background:var(--pink)"></span>Lounge · Lifestyle</span>
+              <h4 class="fc-name">Ophelia</h4>
+              <p class="fc-teaser">A new chapter for a familiar address.</p>
+              <div class="fc-foot"><span class="fc-status">Case in production</span><span class="fc-link">Read ↗</span></div>
+            </div>
+          </a>
+
+          <a class="fc-card" href="#case-rooh" aria-label="Rooh — case study coming soon">
+            <span class="fc-stripe" style="background:var(--red)"></span>
+            <span class="fc-cover is-text" style="background:var(--red)"><span class="fc-mark">Rooh</span><span class="fc-marksub">Modern Indian</span></span>
+            <div class="fc-body">
+              <span class="fc-tag"><span class="fc-bullet" style="background:var(--red)"></span>Modern Indian</span>
+              <h4 class="fc-name">Rooh</h4>
+              <p class="fc-teaser">Modern Indian, properly framed.</p>
+              <div class="fc-foot"><span class="fc-status">Case in production</span><span class="fc-link">Read ↗</span></div>
+            </div>
+          </a>
+
+          <a class="fc-card" href="#case-khubani" aria-label="Khubani — case study coming soon">
+            <span class="fc-stripe" style="background:var(--orange)"></span>
+            <span class="fc-cover is-text" style="background:var(--orange)"><span class="fc-mark">Khubani</span><span class="fc-marksub">Heritage · Modern Pulse</span></span>
+            <div class="fc-body">
+              <span class="fc-tag"><span class="fc-bullet" style="background:var(--orange)"></span>Heritage Cuisine</span>
+              <h4 class="fc-name">Khubani</h4>
+              <p class="fc-teaser">Heritage menus with a modern pulse.</p>
+              <div class="fc-foot"><span class="fc-status">Case in production</span><span class="fc-link">Read ↗</span></div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="ws-block reveal">
+        <div class="ws-head">
+          <h3>Hospitality · Selected Clients</h3>
+          <span class="ws-count">51 restaurants, cafes &amp; bars · 43 with cover work shown · including the 6 featured above</span>
+        </div>
+        <div class="bt-grid">
+            <a class="bt" href="#" title="Andreas" aria-label="Andreas"><span class="bt-img"><img loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span><span class="bt-name">Andreas</span></a>
+            <a class="bt" href="#" title="Baoji" aria-label="Baoji"><span class="bt-img"><img loading="lazy" src="highlights/Baoji_.png" alt="Baoji cover"></span><span class="bt-name">Baoji</span></a>
+            <a class="bt" href="#" title="Baris GK" aria-label="Baris GK"><span class="bt-img"><img loading="lazy" src="highlights/Baris GK.png" alt="Baris GK cover"></span><span class="bt-name">Baris GK</span></a>
+            <a class="bt" href="#" title="Bayroute" aria-label="Bayroute"><span class="bt-img"><img loading="lazy" src="highlights/Bayroute.png" alt="Bayroute cover"></span><span class="bt-name">Bayroute</span></a>
+            <a class="bt" href="#" title="Boccon Cheeni" aria-label="Boccon Cheeni"><span class="bt-img"><img loading="lazy" src="highlights/Boccon Cheeni.png" alt="Boccon Cheeni cover"></span><span class="bt-name">Boccon Cheeni</span></a>
+            <a class="bt" href="#" title="Butter Room" aria-label="Butter Room"><span class="bt-img"><img loading="lazy" src="highlights/Butter ROOM.png" alt="Butter Room cover"></span><span class="bt-name">Butter Room</span></a>
+            <a class="bt" href="#" title="Crusty Culture" aria-label="Crusty Culture"><span class="bt-img"><img loading="lazy" src="highlights/Crusty Culture_.png" alt="Crusty Culture cover"></span><span class="bt-name">Crusty Culture</span></a>
+            <a class="bt" href="#" title="Deja Brew" aria-label="Deja Brew"><span class="bt-img"><img loading="lazy" src="highlights/Deja Brew_.png" alt="Deja Brew cover"></span><span class="bt-name">Deja Brew</span></a>
+            <a class="bt" href="#" title="Duty Free" aria-label="Duty Free"><span class="bt-img"><img loading="lazy" src="highlights/Duty Free.png" alt="Duty Free cover"></span><span class="bt-name">Duty Free</span></a>
+            <a class="bt" href="#" title="Farzi Cafe" aria-label="Farzi Cafe"><span class="bt-img"><img loading="lazy" src="highlights/farzi.png" alt="Farzi Cafe cover"></span><span class="bt-name">Farzi Cafe</span></a>
+            <a class="bt" href="#" title="Fig" aria-label="Fig"><span class="bt-img"><img loading="lazy" src="highlights/Fig.png" alt="Fig cover"></span><span class="bt-name">Fig</span></a>
+            <a class="bt" href="#" title="Flaunt" aria-label="Flaunt"><span class="bt-img"><img loading="lazy" src="highlights/flaunt.png" alt="Flaunt cover"></span><span class="bt-name">Flaunt</span></a>
+            <a class="bt" href="#" title="Gastronomica" aria-label="Gastronomica"><span class="bt-img"><img loading="lazy" src="highlights/Gastronomica_.png" alt="Gastronomica cover"></span><span class="bt-name">Gastronomica</span></a>
+            <a class="bt" href="#" title="Getafix" aria-label="Getafix"><span class="bt-img"><img loading="lazy" src="highlights/Getafix.png" alt="Getafix cover"></span><span class="bt-name">Getafix</span></a>
+            <a class="bt" href="#" title="Hard Rock Cafe" aria-label="Hard Rock Cafe"><span class="bt-img"><img loading="lazy" src="highlights/Hard Rock Cafe.png" alt="Hard Rock Cafe cover"></span><span class="bt-name">Hard Rock Cafe</span></a>
+            <a class="bt is-placeholder" href="#" title="Hitchki" aria-label="Hitchki"><span class="bt-img" style="background:var(--purple)">HI</span><span class="bt-name">Hitchki</span></a>
+            <a class="bt" href="#" title="Hook" aria-label="Hook"><span class="bt-img"><img loading="lazy" src="highlights/Hook.png" alt="Hook cover"></span><span class="bt-name">Hook</span></a>
+            <a class="bt is-placeholder" href="#" title="Imperfecto" aria-label="Imperfecto"><span class="bt-img" style="background:var(--pink)">IM</span><span class="bt-name">Imperfecto</span></a>
+            <a class="bt" href="#" title="Iskate by Roseate" aria-label="Iskate by Roseate"><span class="bt-img"><img loading="lazy" src="highlights/iskate by roseate.png" alt="Iskate by Roseate cover"></span><span class="bt-name">Iskate by Roseate</span></a>
+            <a class="bt is-placeholder" href="#" title="Khubani" aria-label="Khubani"><span class="bt-img" style="background:var(--gold)">KH</span><span class="bt-name">Khubani</span></a>
+            <a class="bt" href="#" title="Kleo" aria-label="Kleo"><span class="bt-img"><img loading="lazy" src="highlights/Kleo_.png" alt="Kleo cover"></span><span class="bt-name">Kleo</span></a>
+            <a class="bt" href="#" title="La Roca" aria-label="La Roca"><span class="bt-img"><img loading="lazy" src="highlights/La Roca.png" alt="La Roca cover"></span><span class="bt-name">La Roca</span></a>
+            <a class="bt" href="#" title="Limitless Cookhouse" aria-label="Limitless Cookhouse"><span class="bt-img"><img loading="lazy" src="highlights/Limitless cookhouse.png" alt="Limitless Cookhouse cover"></span><span class="bt-name">Limitless Cookhouse</span></a>
+            <a class="bt" href="#" title="Local" aria-label="Local"><span class="bt-img"><img loading="lazy" src="highlights/Local_.png" alt="Local cover"></span><span class="bt-name">Local</span></a>
+            <a class="bt" href="#" title="Madam Chutney" aria-label="Madam Chutney"><span class="bt-img"><img loading="lazy" src="highlights/Madam Chutney_.png" alt="Madam Chutney cover"></span><span class="bt-name">Madam Chutney</span></a>
+            <a class="bt" href="#" title="Mai Bao" aria-label="Mai Bao"><span class="bt-img"><img loading="lazy" src="highlights/Mai Bao_.png" alt="Mai Bao cover"></span><span class="bt-name">Mai Bao</span></a>
+            <a class="bt is-placeholder" href="#" title="Miss Doozy" aria-label="Miss Doozy"><span class="bt-img" style="background:var(--red)">MD</span><span class="bt-name">Miss Doozy</span></a>
+            <a class="bt" href="#" title="Molecule" aria-label="Molecule"><span class="bt-img"><img loading="lazy" src="highlights/Molecule_.png" alt="Molecule cover"></span><span class="bt-name">Molecule</span></a>
+            <a class="bt" href="#" title="Monet" aria-label="Monet"><span class="bt-img"><img loading="lazy" src="highlights/Monet.png" alt="Monet cover"></span><span class="bt-name">Monet</span></a>
+            <a class="bt" href="#" title="Nao by Bercos" aria-label="Nao by Bercos"><span class="bt-img"><img loading="lazy" src="highlights/Nao By Bercos_.png" alt="Nao by Bercos cover"></span><span class="bt-name">Nao by Bercos</span></a>
+            <a class="bt is-placeholder" href="#" title="One8 Commune" aria-label="One8 Commune"><span class="bt-img" style="background:var(--pink)">OC</span><span class="bt-name">One8 Commune</span></a>
+            <a class="bt" href="#" title="Ophelia" aria-label="Ophelia"><span class="bt-img"><img loading="lazy" src="highlights/Ophelia.png" alt="Ophelia cover"></span><span class="bt-name">Ophelia</span></a>
+            <a class="bt" href="#" title="Pa Pa Ya" aria-label="Pa Pa Ya"><span class="bt-img"><img loading="lazy" src="highlights/Pa Pa Ya.png" alt="Pa Pa Ya cover"></span><span class="bt-name">Pa Pa Ya</span></a>
+            <a class="bt" href="#" title="Poetry" aria-label="Poetry"><span class="bt-img"><img loading="lazy" src="highlights/Poetry_.png" alt="Poetry cover"></span><span class="bt-name">Poetry</span></a>
+            <a class="bt" href="#" title="Pot Pot" aria-label="Pot Pot"><span class="bt-img"><img loading="lazy" src="highlights/Pot Pot_.png" alt="Pot Pot cover"></span><span class="bt-name">Pot Pot</span></a>
+            <a class="bt" href="#" title="Rang Punjab" aria-label="Rang Punjab"><span class="bt-img"><img loading="lazy" src="highlights/Rang Punjab.png" alt="Rang Punjab cover"></span><span class="bt-name">Rang Punjab</span></a>
+            <a class="bt" href="#" title="Rizq" aria-label="Rizq"><span class="bt-img"><img loading="lazy" src="highlights/Rizq.png" alt="Rizq cover"></span><span class="bt-name">Rizq</span></a>
+            <a class="bt is-placeholder" href="#" title="Romeo Lane" aria-label="Romeo Lane"><span class="bt-img" style="background:var(--gold)">RL</span><span class="bt-name">Romeo Lane</span></a>
+            <a class="bt is-placeholder" href="#" title="Rooh" aria-label="Rooh"><span class="bt-img" style="background:var(--pink)">RH</span><span class="bt-name">Rooh</span></a>
+            <a class="bt" href="#" title="Sizzling Shack" aria-label="Sizzling Shack"><span class="bt-img"><img loading="lazy" src="highlights/Sizzling Shack_.png" alt="Sizzling Shack cover"></span><span class="bt-name">Sizzling Shack</span></a>
+            <a class="bt" href="#" title="Sky Lantern" aria-label="Sky Lantern"><span class="bt-img"><img loading="lazy" src="highlights/Sky Lantern.png" alt="Sky Lantern cover"></span><span class="bt-name">Sky Lantern</span></a>
+            <a class="bt" href="#" title="Slay Coffee" aria-label="Slay Coffee"><span class="bt-img"><img loading="lazy" src="highlights/Slay Coffee Highlights.png" alt="Slay Coffee cover"></span><span class="bt-name">Slay Coffee</span></a>
+            <a class="bt" href="#" title="Slique" aria-label="Slique"><span class="bt-img"><img loading="lazy" src="highlights/Slique_.png" alt="Slique cover"></span><span class="bt-name">Slique</span></a>
+            <a class="bt" href="#" title="TBSP" aria-label="TBSP"><span class="bt-img"><img loading="lazy" src="highlights/TBSP Highlight.png" alt="TBSP cover"></span><span class="bt-name">TBSP</span></a>
+            <a class="bt" href="#" title="Thai Mama" aria-label="Thai Mama"><span class="bt-img"><img loading="lazy" src="highlights/thai mamama.png" alt="Thai Mama cover"></span><span class="bt-name">Thai Mama</span></a>
+            <a class="bt" href="#" title="The Weekend" aria-label="The Weekend"><span class="bt-img"><img loading="lazy" src="highlights/The Weekend_.png" alt="The Weekend cover"></span><span class="bt-name">The Weekend</span></a>
+            <a class="bt" href="#" title="UCH Rewind" aria-label="UCH Rewind"><span class="bt-img"><img loading="lazy" src="highlights/UCH.png" alt="UCH Rewind cover"></span><span class="bt-name">UCH Rewind</span></a>
+            <a class="bt" href="#" title="Unplugged Courtyard" aria-label="Unplugged Courtyard"><span class="bt-img"><img loading="lazy" src="highlights/Unplugged Courtyard_.png" alt="Unplugged Courtyard cover"></span><span class="bt-name">Unplugged Courtyard</span></a>
+            <a class="bt" href="#" title="Vietnom" aria-label="Vietnom"><span class="bt-img"><img loading="lazy" src="highlights/Vietnom_.png" alt="Vietnom cover"></span><span class="bt-name">Vietnom</span></a>
+            <a class="bt" href="#" title="Wheaty" aria-label="Wheaty"><span class="bt-img"><img loading="lazy" src="highlights/Wheaty_.png" alt="Wheaty cover"></span><span class="bt-name">Wheaty</span></a>
+            <a class="bt is-placeholder" href="#" title="Yeti" aria-label="Yeti"><span class="bt-img" style="background:var(--green)">YE</span><span class="bt-name">Yeti</span></a>
+        </div>
+      </div>
+
+      <div class="ws-block reveal" style="margin-top:48px">
+        <div class="ws-head">
+          <h3>Brand Partners</h3>
+          <span class="ws-count">17 brands across D2C, FMCG, ed-tech, gaming &amp; equity collabs · 3 with cover work shown</span>
+        </div>
+        <div class="bt-grid">
+            <a class="bt is-placeholder" href="#" title="AAFT" aria-label="AAFT"><span class="bt-img" style="background:var(--purple)">AA</span><span class="bt-name">AAFT</span></a>
+            <a class="bt is-placeholder" href="#" title="Adani × Lite Bite Foods" aria-label="Adani × Lite Bite Foods"><span class="bt-img" style="background:var(--red)">ALB</span><span class="bt-name">Adani × Lite Bite Foods</span></a>
+            <a class="bt is-placeholder" href="#" title="Arista Vault" aria-label="Arista Vault"><span class="bt-img" style="background:var(--gold)">AV</span><span class="bt-name">Arista Vault</span></a>
+            <a class="bt is-placeholder" href="#" title="Asian Business School" aria-label="Asian Business School"><span class="bt-img" style="background:var(--royal)">ABS</span><span class="bt-name">Asian Business School</span></a>
+            <a class="bt" href="#" title="Betway" aria-label="Betway"><span class="bt-img"><img loading="lazy" src="highlights/betway.png" alt="Betway cover"></span><span class="bt-name">Betway</span></a>
+            <a class="bt is-placeholder" href="#" title="Borges India" aria-label="Borges India"><span class="bt-img" style="background:var(--brown)">BI</span><span class="bt-name">Borges India</span></a>
+            <a class="bt is-placeholder" href="#" title="Fast &amp; Up" aria-label="Fast &amp; Up"><span class="bt-img" style="background:var(--red)">FU</span><span class="bt-name">Fast &amp; Up</span></a>
+            <a class="bt is-placeholder" href="#" title="Happydent" aria-label="Happydent"><span class="bt-img" style="background:var(--orange)">HA</span><span class="bt-name">Happydent</span></a>
+            <a class="bt" href="#" title="Indian Sneaker Fest" aria-label="Indian Sneaker Fest"><span class="bt-img"><img loading="lazy" src="highlights/Sneaker Fest.png" alt="Indian Sneaker Fest cover"></span><span class="bt-name">Indian Sneaker Fest</span></a>
+            <a class="bt is-placeholder" href="#" title="Mainstreet × CRED" aria-label="Mainstreet × CRED"><span class="bt-img" style="background:var(--red)">MC</span><span class="bt-name">Mainstreet × CRED</span></a>
+            <a class="bt is-placeholder" href="#" title="Meta" aria-label="Meta"><span class="bt-img" style="background:var(--brown)">ME</span><span class="bt-name">Meta</span></a>
+            <a class="bt" href="#" title="RD Accessories" aria-label="RD Accessories"><span class="bt-img"><img loading="lazy" src="highlights/RD.png" alt="RD Accessories cover"></span><span class="bt-name">RD Accessories</span></a>
+            <a class="bt is-placeholder" href="#" title="RuPay" aria-label="RuPay"><span class="bt-img" style="background:var(--royal)">RP</span><span class="bt-name">RuPay</span></a>
+            <a class="bt is-placeholder" href="#" title="Spinny" aria-label="Spinny"><span class="bt-img" style="background:var(--orange)">SP</span><span class="bt-name">Spinny</span></a>
+            <a class="bt is-placeholder" href="#" title="Truly Madly" aria-label="Truly Madly"><span class="bt-img" style="background:var(--brown)">TM</span><span class="bt-name">Truly Madly</span></a>
+            <a class="bt is-placeholder" href="#" title="Unacademy" aria-label="Unacademy"><span class="bt-img" style="background:var(--brown)">UN</span><span class="bt-name">Unacademy</span></a>
+            <a class="bt is-placeholder" href="#" title="Winzo" aria-label="Winzo"><span class="bt-img" style="background:var(--green)">WZ</span><span class="bt-name">Winzo</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="thread-canvas" id="thread-our-people" preserveAspectRatio="none"></svg>
+</section>
+
+<!-- =================== SERVICES · moved below Our People per v2.14 =================== -->
 <section id="services">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -599,268 +1276,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   <svg class="thread-canvas" id="thread-services" preserveAspectRatio="none"></svg>
 </section>
 
-<!-- =================== ROSTER =================== -->
-<section id="roster">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="lead">
-        <span class="sec-tag"><span class="bullet" style="background:var(--purple)">TM</span> Talent &amp; Brands · Proof of Work</span>
-        <h2>People and brands we've <em>spoken for.</em></h2>
-      </div>
-      <p class="note">Five athletes and creators we've represented — plus 90+ restaurants and brands we've helped launch, name, design highlight covers for, and run social on. Talent management isn't the v2.0 offering, but the deal-making and brand-building muscle is. These are the receipts.</p>
-    </div>
-
-    <div class="roster-stage reveal">
-      <div class="roster-rail" id="roster-rail" tabindex="0" aria-label="Talent roster — scroll to navigate">
-        <article class="roster-slide">
-          <div class="rs-init" style="background:var(--royal)">IS</div>
-          <div>
-            <span class="rs-meta">01 · Cricket</span>
-            <h4>Ishant Sharma</h4>
-            <p class="rs-role">Indian Test fast bowler. Represented exclusively across the v1 chapter.</p>
-            <div class="rs-stats">
-              <div class="rs-stat"><span class="n">105</span><span class="l">Tests</span></div>
-              <div class="rs-stat"><span class="n">311</span><span class="l">Wickets</span></div>
-              <div class="rs-stat"><span class="n">2.4M</span><span class="l">Followers</span></div>
-            </div>
-            <div class="rs-tags"><span class="rs-tag">Exclusive · 2022</span><span class="rs-tag">Brand deals</span></div>
-          </div>
-        </article>
-
-        <article class="roster-slide">
-          <div class="rs-init" style="background:var(--orange)">SS</div>
-          <div>
-            <span class="rs-meta">02 · Basketball</span>
-            <h4>The Singh Sisters</h4>
-            <p class="rs-role">Pratima, Akanksha, Prashanti &amp; Divya — captains and stalwarts of the Indian women's basketball side.</p>
-            <div class="rs-stats">
-              <div class="rs-stat"><span class="n">4</span><span class="l">Sisters</span></div>
-              <div class="rs-stat"><span class="n">India</span><span class="l">Captaincy</span></div>
-              <div class="rs-stat"><span class="n">Padma Shri</span><span class="l">Arjuna Award</span></div>
-            </div>
-            <div class="rs-tags"><span class="rs-tag">Roster · 2021</span><span class="rs-tag">Narrative</span></div>
-          </div>
-        </article>
-
-        <article class="roster-slide">
-          <div class="rs-init" style="background:var(--gold)">AB</div>
-          <div>
-            <span class="rs-meta">03 · Golf</span>
-            <h4>Arjun Bhati</h4>
-            <p class="rs-role">Three-time Junior World Champion. Professional golfer with a sponsor list worth reading.</p>
-            <div class="rs-stats">
-              <div class="rs-stat"><span class="n">3×</span><span class="l">Junior World</span></div>
-              <div class="rs-stat"><span class="n">Pro</span><span class="l">Tour</span></div>
-            </div>
-            <div class="rs-tags"><span class="rs-tag">Talent mgmt</span><span class="rs-tag">Endorsements</span></div>
-          </div>
-        </article>
-
-        <article class="roster-slide">
-          <div class="rs-init" style="background:var(--green)">AP</div>
-          <div>
-            <span class="rs-meta">04 · Golf</span>
-            <h4>Avani Prashanth</h4>
-            <p class="rs-role">Asian Games '22 qualifier. Amateur-to-professional transition narrated in real time.</p>
-            <div class="rs-stats">
-              <div class="rs-stat"><span class="n">Asian</span><span class="l">Games '22</span></div>
-              <div class="rs-stat"><span class="n">Amateur</span><span class="l">→ Pro</span></div>
-            </div>
-            <div class="rs-tags"><span class="rs-tag">PR + Talent</span><span class="rs-tag">Career arc</span></div>
-          </div>
-        </article>
-
-        <article class="roster-slide">
-          <div class="rs-init" style="background:var(--red)">HN</div>
-          <div>
-            <span class="rs-meta">05 · Athletics</span>
-            <h4>Himanshu Nagar</h4>
-            <p class="rs-role">National-level athlete. Endurance and performance specialist.</p>
-            <div class="rs-stats">
-              <div class="rs-stat"><span class="n">National</span><span class="l">Level</span></div>
-              <div class="rs-stat"><span class="n">Endurance</span><span class="l">Specialist</span></div>
-            </div>
-            <div class="rs-tags"><span class="rs-tag">Talent mgmt</span></div>
-          </div>
-        </article>
-      </div>
-
-      <div class="roster-nav" aria-label="Roster navigation">
-        <button type="button" class="rn-prev" aria-label="Previous">‹</button>
-        <div class="roster-dots" id="roster-dots" role="tablist"></div>
-        <button type="button" class="rn-next" aria-label="Next">›</button>
-      </div>
-    </div>
-
-    <!-- v2.10 · brand showcase: Hospitality + Brand Partners (real covers + placeholders) -->
-    <div class="work-showcase">
-      <div class="ws-block reveal">
-        <div class="ws-head">
-          <h3>Hospitality</h3>
-          <span class="ws-count">72 restaurants, cafes &amp; bars · 44 with cover work shown</span>
-        </div>
-        <div class="bt-grid">
-            <a class="bt" href="#" title="Adda" aria-label="Adda"><span class="bt-img"><img loading="lazy" src="highlights/Adda By Striker_.png" alt="Adda cover"></span><span class="bt-name">Adda</span></a>
-            <a class="bt" href="#" title="Andreas" aria-label="Andreas"><span class="bt-img"><img loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span><span class="bt-name">Andreas</span></a>
-            <a class="bt" href="#" title="Baoji" aria-label="Baoji"><span class="bt-img"><img loading="lazy" src="highlights/Baoji_.png" alt="Baoji cover"></span><span class="bt-name">Baoji</span></a>
-            <a class="bt" href="#" title="Baris GK" aria-label="Baris GK"><span class="bt-img"><img loading="lazy" src="highlights/Baris GK.png" alt="Baris GK cover"></span><span class="bt-name">Baris GK</span></a>
-            <a class="bt" href="#" title="Bayroute" aria-label="Bayroute"><span class="bt-img"><img loading="lazy" src="highlights/Bayroute.png" alt="Bayroute cover"></span><span class="bt-name">Bayroute</span></a>
-            <a class="bt is-placeholder" href="#" title="Big Tree Cafe" aria-label="Big Tree Cafe"><span class="bt-img" style="background:var(--red)">BTC</span><span class="bt-name">Big Tree Cafe</span></a>
-            <a class="bt" href="#" title="Boccon Cheeni" aria-label="Boccon Cheeni"><span class="bt-img"><img loading="lazy" src="highlights/Boccon Cheeni.png" alt="Boccon Cheeni cover"></span><span class="bt-name">Boccon Cheeni</span></a>
-            <a class="bt is-placeholder" href="#" title="Burger Rani" aria-label="Burger Rani"><span class="bt-img" style="background:var(--red)">BR</span><span class="bt-name">Burger Rani</span></a>
-            <a class="bt" href="#" title="Butter Room" aria-label="Butter Room"><span class="bt-img"><img loading="lazy" src="highlights/Butter ROOM.png" alt="Butter Room cover"></span><span class="bt-name">Butter Room</span></a>
-            <a class="bt is-placeholder" href="#" title="Cafe Delhi Heights" aria-label="Cafe Delhi Heights"><span class="bt-img" style="background:var(--red)">CDH</span><span class="bt-name">Cafe Delhi Heights</span></a>
-            <a class="bt is-placeholder" href="#" title="Choki Dhani" aria-label="Choki Dhani"><span class="bt-img" style="background:var(--gold)">CD</span><span class="bt-name">Choki Dhani</span></a>
-            <a class="bt" href="#" title="Crusty Culture" aria-label="Crusty Culture"><span class="bt-img"><img loading="lazy" src="highlights/Crusty Culture_.png" alt="Crusty Culture cover"></span><span class="bt-name">Crusty Culture</span></a>
-            <a class="bt is-placeholder" href="#" title="Daryaganj" aria-label="Daryaganj"><span class="bt-img" style="background:var(--red)">DA</span><span class="bt-name">Daryaganj</span></a>
-            <a class="bt" href="#" title="Deja Brew" aria-label="Deja Brew"><span class="bt-img"><img loading="lazy" src="highlights/Deja Brew_.png" alt="Deja Brew cover"></span><span class="bt-name">Deja Brew</span></a>
-            <a class="bt is-placeholder" href="#" title="Delilah" aria-label="Delilah"><span class="bt-img" style="background:var(--green)">DE</span><span class="bt-name">Delilah</span></a>
-            <a class="bt is-placeholder" href="#" title="Distillery" aria-label="Distillery"><span class="bt-img" style="background:var(--orange)">DI</span><span class="bt-name">Distillery</span></a>
-            <a class="bt is-placeholder" href="#" title="Dublr" aria-label="Dublr"><span class="bt-img" style="background:var(--red)">DU</span><span class="bt-name">Dublr</span></a>
-            <a class="bt" href="#" title="Duty Free" aria-label="Duty Free"><span class="bt-img"><img loading="lazy" src="highlights/Duty Free.png" alt="Duty Free cover"></span><span class="bt-name">Duty Free</span></a>
-            <a class="bt" href="#" title="Farzi Cafe" aria-label="Farzi Cafe"><span class="bt-img"><img loading="lazy" src="highlights/farzi.png" alt="Farzi Cafe cover"></span><span class="bt-name">Farzi Cafe</span></a>
-            <a class="bt" href="#" title="Fig" aria-label="Fig"><span class="bt-img"><img loading="lazy" src="highlights/Fig.png" alt="Fig cover"></span><span class="bt-name">Fig</span></a>
-            <a class="bt" href="#" title="Flaunt" aria-label="Flaunt"><span class="bt-img"><img loading="lazy" src="highlights/flaunt.png" alt="Flaunt cover"></span><span class="bt-name">Flaunt</span></a>
-            <a class="bt" href="#" title="Gastronomica" aria-label="Gastronomica"><span class="bt-img"><img loading="lazy" src="highlights/Gastronomica_.png" alt="Gastronomica cover"></span><span class="bt-name">Gastronomica</span></a>
-            <a class="bt" href="#" title="Getafix" aria-label="Getafix"><span class="bt-img"><img loading="lazy" src="highlights/Getafix.png" alt="Getafix cover"></span><span class="bt-name">Getafix</span></a>
-            <a class="bt is-placeholder" href="#" title="Grub Fest" aria-label="Grub Fest"><span class="bt-img" style="background:var(--gold)">GF</span><span class="bt-name">Grub Fest</span></a>
-            <a class="bt" href="#" title="Hard Rock Cafe" aria-label="Hard Rock Cafe"><span class="bt-img"><img loading="lazy" src="highlights/Hard Rock Cafe.png" alt="Hard Rock Cafe cover"></span><span class="bt-name">Hard Rock Cafe</span></a>
-            <a class="bt is-placeholder" href="#" title="Hitchki" aria-label="Hitchki"><span class="bt-img" style="background:var(--purple)">HI</span><span class="bt-name">Hitchki</span></a>
-            <a class="bt" href="#" title="Hook" aria-label="Hook"><span class="bt-img"><img loading="lazy" src="highlights/Hook.png" alt="Hook cover"></span><span class="bt-name">Hook</span></a>
-            <a class="bt is-placeholder" href="#" title="Imperfecto" aria-label="Imperfecto"><span class="bt-img" style="background:var(--pink)">IM</span><span class="bt-name">Imperfecto</span></a>
-            <a class="bt" href="#" title="Iskate by Roseate" aria-label="Iskate by Roseate"><span class="bt-img"><img loading="lazy" src="highlights/iskate by roseate.png" alt="Iskate by Roseate cover"></span><span class="bt-name">Iskate by Roseate</span></a>
-            <a class="bt is-placeholder" href="#" title="Khubani" aria-label="Khubani"><span class="bt-img" style="background:var(--gold)">KH</span><span class="bt-name">Khubani</span></a>
-            <a class="bt" href="#" title="Kleo" aria-label="Kleo"><span class="bt-img"><img loading="lazy" src="highlights/Kleo_.png" alt="Kleo cover"></span><span class="bt-name">Kleo</span></a>
-            <a class="bt" href="#" title="La Roca" aria-label="La Roca"><span class="bt-img"><img loading="lazy" src="highlights/La Roca.png" alt="La Roca cover"></span><span class="bt-name">La Roca</span></a>
-            <a class="bt" href="#" title="Limitless Cookhouse" aria-label="Limitless Cookhouse"><span class="bt-img"><img loading="lazy" src="highlights/Limitless cookhouse.png" alt="Limitless Cookhouse cover"></span><span class="bt-name">Limitless Cookhouse</span></a>
-            <a class="bt is-placeholder" href="#" title="Liv Bar" aria-label="Liv Bar"><span class="bt-img" style="background:var(--royal)">LB</span><span class="bt-name">Liv Bar</span></a>
-            <a class="bt" href="#" title="Local" aria-label="Local"><span class="bt-img"><img loading="lazy" src="highlights/Local_.png" alt="Local cover"></span><span class="bt-name">Local</span></a>
-            <a class="bt is-placeholder" href="#" title="Louis Burger" aria-label="Louis Burger"><span class="bt-img" style="background:var(--green)">LB</span><span class="bt-name">Louis Burger</span></a>
-            <a class="bt" href="#" title="Madam Chutney" aria-label="Madam Chutney"><span class="bt-img"><img loading="lazy" src="highlights/Madam Chutney_.png" alt="Madam Chutney cover"></span><span class="bt-name">Madam Chutney</span></a>
-            <a class="bt" href="#" title="Mai Bao" aria-label="Mai Bao"><span class="bt-img"><img loading="lazy" src="highlights/Mai Bao_.png" alt="Mai Bao cover"></span><span class="bt-name">Mai Bao</span></a>
-            <a class="bt" href="#" title="Molecule" aria-label="Molecule"><span class="bt-img"><img loading="lazy" src="highlights/Molecule_.png" alt="Molecule cover"></span><span class="bt-name">Molecule</span></a>
-            <a class="bt" href="#" title="Monet" aria-label="Monet"><span class="bt-img"><img loading="lazy" src="highlights/Monet.png" alt="Monet cover"></span><span class="bt-name">Monet</span></a>
-            <a class="bt" href="#" title="Nao by Bercos" aria-label="Nao by Bercos"><span class="bt-img"><img loading="lazy" src="highlights/Nao By Bercos_.png" alt="Nao by Bercos cover"></span><span class="bt-name">Nao by Bercos</span></a>
-            <a class="bt is-placeholder" href="#" title="NH-54 Faridabad" aria-label="NH-54 Faridabad"><span class="bt-img" style="background:var(--gold)">NF</span><span class="bt-name">NH-54 Faridabad</span></a>
-            <a class="bt is-placeholder" href="#" title="One8 Commune" aria-label="One8 Commune"><span class="bt-img" style="background:var(--pink)">OC</span><span class="bt-name">One8 Commune</span></a>
-            <a class="bt" href="#" title="Ophelia" aria-label="Ophelia"><span class="bt-img"><img loading="lazy" src="highlights/Ophelia.png" alt="Ophelia cover"></span><span class="bt-name">Ophelia</span></a>
-            <a class="bt" href="#" title="Pa Pa Ya" aria-label="Pa Pa Ya"><span class="bt-img"><img loading="lazy" src="highlights/Pa Pa Ya.png" alt="Pa Pa Ya cover"></span><span class="bt-name">Pa Pa Ya</span></a>
-            <a class="bt" href="#" title="Poetry" aria-label="Poetry"><span class="bt-img"><img loading="lazy" src="highlights/Poetry_.png" alt="Poetry cover"></span><span class="bt-name">Poetry</span></a>
-            <a class="bt" href="#" title="Pot Pot" aria-label="Pot Pot"><span class="bt-img"><img loading="lazy" src="highlights/Pot Pot_.png" alt="Pot Pot cover"></span><span class="bt-name">Pot Pot</span></a>
-            <a class="bt is-placeholder" href="#" title="Punjab Grill × Adani" aria-label="Punjab Grill × Adani"><span class="bt-img" style="background:var(--pink)">PGA</span><span class="bt-name">Punjab Grill × Adani</span></a>
-            <a class="bt" href="#" title="Rang Punjab" aria-label="Rang Punjab"><span class="bt-img"><img loading="lazy" src="highlights/Rang Punjab.png" alt="Rang Punjab cover"></span><span class="bt-name">Rang Punjab</span></a>
-            <a class="bt" href="#" title="Rizq" aria-label="Rizq"><span class="bt-img"><img loading="lazy" src="highlights/Rizq.png" alt="Rizq cover"></span><span class="bt-name">Rizq</span></a>
-            <a class="bt is-placeholder" href="#" title="Romeo Lane" aria-label="Romeo Lane"><span class="bt-img" style="background:var(--gold)">RL</span><span class="bt-name">Romeo Lane</span></a>
-            <a class="bt is-placeholder" href="#" title="Rustique" aria-label="Rustique"><span class="bt-img" style="background:var(--gold)">RU</span><span class="bt-name">Rustique</span></a>
-            <a class="bt is-placeholder" href="#" title="Sassy Oscar" aria-label="Sassy Oscar"><span class="bt-img" style="background:var(--green)">SO</span><span class="bt-name">Sassy Oscar</span></a>
-            <a class="bt" href="#" title="Sizzling Shack" aria-label="Sizzling Shack"><span class="bt-img"><img loading="lazy" src="highlights/Sizzling Shack_.png" alt="Sizzling Shack cover"></span><span class="bt-name">Sizzling Shack</span></a>
-            <a class="bt is-placeholder" href="#" title="Sky House" aria-label="Sky House"><span class="bt-img" style="background:var(--green)">SH</span><span class="bt-name">Sky House</span></a>
-            <a class="bt" href="#" title="Sky Lantern" aria-label="Sky Lantern"><span class="bt-img"><img loading="lazy" src="highlights/Sky Lantern.png" alt="Sky Lantern cover"></span><span class="bt-name">Sky Lantern</span></a>
-            <a class="bt" href="#" title="Slay Coffee" aria-label="Slay Coffee"><span class="bt-img"><img loading="lazy" src="highlights/Slay Coffee Highlights.png" alt="Slay Coffee cover"></span><span class="bt-name">Slay Coffee</span></a>
-            <a class="bt" href="#" title="Slique" aria-label="Slique"><span class="bt-img"><img loading="lazy" src="highlights/Slique_.png" alt="Slique cover"></span><span class="bt-name">Slique</span></a>
-            <a class="bt is-placeholder" href="#" title="Slyce Pizza" aria-label="Slyce Pizza"><span class="bt-img" style="background:var(--pink)">SP</span><span class="bt-name">Slyce Pizza</span></a>
-            <a class="bt is-placeholder" href="#" title="Snackstar" aria-label="Snackstar"><span class="bt-img" style="background:var(--gold)">SN</span><span class="bt-name">Snackstar</span></a>
-            <a class="bt is-placeholder" href="#" title="Spice Station" aria-label="Spice Station"><span class="bt-img" style="background:var(--pink)">SS</span><span class="bt-name">Spice Station</span></a>
-            <a class="bt" href="#" title="TBSP" aria-label="TBSP"><span class="bt-img"><img loading="lazy" src="highlights/TBSP Highlight.png" alt="TBSP cover"></span><span class="bt-name">TBSP</span></a>
-            <a class="bt" href="#" title="Thai Mama" aria-label="Thai Mama"><span class="bt-img"><img loading="lazy" src="highlights/thai mamama.png" alt="Thai Mama cover"></span><span class="bt-name">Thai Mama</span></a>
-            <a class="bt" href="#" title="The Weekend" aria-label="The Weekend"><span class="bt-img"><img loading="lazy" src="highlights/The Weekend_.png" alt="The Weekend cover"></span><span class="bt-name">The Weekend</span></a>
-            <a class="bt is-placeholder" href="#" title="Tickled Pink" aria-label="Tickled Pink"><span class="bt-img" style="background:var(--gold)">TP</span><span class="bt-name">Tickled Pink</span></a>
-            <a class="bt" href="#" title="UCH Rewind" aria-label="UCH Rewind"><span class="bt-img"><img loading="lazy" src="highlights/UCH.png" alt="UCH Rewind cover"></span><span class="bt-name">UCH Rewind</span></a>
-            <a class="bt" href="#" title="Unplugged Courtyard" aria-label="Unplugged Courtyard"><span class="bt-img"><img loading="lazy" src="highlights/Unplugged Courtyard_.png" alt="Unplugged Courtyard cover"></span><span class="bt-name">Unplugged Courtyard</span></a>
-            <a class="bt" href="#" title="Vietnom" aria-label="Vietnom"><span class="bt-img"><img loading="lazy" src="highlights/Vietnom_.png" alt="Vietnom cover"></span><span class="bt-name">Vietnom</span></a>
-            <a class="bt" href="#" title="Wheaty" aria-label="Wheaty"><span class="bt-img"><img loading="lazy" src="highlights/Wheaty_.png" alt="Wheaty cover"></span><span class="bt-name">Wheaty</span></a>
-            <a class="bt is-placeholder" href="#" title="Xero Degree Courtyard" aria-label="Xero Degree Courtyard"><span class="bt-img" style="background:var(--brown)">XDC</span><span class="bt-name">Xero Degree Courtyard</span></a>
-            <a class="bt is-placeholder" href="#" title="Yeti" aria-label="Yeti"><span class="bt-img" style="background:var(--green)">YE</span><span class="bt-name">Yeti</span></a>
-            <a class="bt is-placeholder" href="#" title="Younion" aria-label="Younion"><span class="bt-img" style="background:var(--red)">YO</span><span class="bt-name">Younion</span></a>
-        </div>
-      </div>
-
-      <div class="ws-block reveal" style="margin-top:48px">
-        <div class="ws-head">
-          <h3>Brand Partners</h3>
-          <span class="ws-count">16 brands across D2C, FMCG, ed-tech &amp; collabs · 3 with cover work shown</span>
-        </div>
-        <div class="bt-grid">
-            <a class="bt is-placeholder" href="#" title="AAFT" aria-label="AAFT"><span class="bt-img" style="background:var(--purple)">AA</span><span class="bt-name">AAFT</span></a>
-            <a class="bt is-placeholder" href="#" title="Adani × Lite Bite Foods" aria-label="Adani × Lite Bite Foods"><span class="bt-img" style="background:var(--red)">ALB</span><span class="bt-name">Adani × Lite Bite Foods</span></a>
-            <a class="bt is-placeholder" href="#" title="Asian Business School" aria-label="Asian Business School"><span class="bt-img" style="background:var(--royal)">ABS</span><span class="bt-name">Asian Business School</span></a>
-            <a class="bt" href="#" title="Betway" aria-label="Betway"><span class="bt-img"><img loading="lazy" src="highlights/betway.png" alt="Betway cover"></span><span class="bt-name">Betway</span></a>
-            <a class="bt is-placeholder" href="#" title="Borges India" aria-label="Borges India"><span class="bt-img" style="background:var(--brown)">BI</span><span class="bt-name">Borges India</span></a>
-            <a class="bt is-placeholder" href="#" title="BSC" aria-label="BSC"><span class="bt-img" style="background:var(--royal)">BS</span><span class="bt-name">BSC</span></a>
-            <a class="bt is-placeholder" href="#" title="Chaayos" aria-label="Chaayos"><span class="bt-img" style="background:var(--royal)">CH</span><span class="bt-name">Chaayos</span></a>
-            <a class="bt is-placeholder" href="#" title="Fast &amp; Up" aria-label="Fast &amp; Up"><span class="bt-img" style="background:var(--red)">FU</span><span class="bt-name">Fast &amp; Up</span></a>
-            <a class="bt is-placeholder" href="#" title="Happydent" aria-label="Happydent"><span class="bt-img" style="background:var(--orange)">HA</span><span class="bt-name">Happydent</span></a>
-            <a class="bt" href="#" title="Indian Sneaker Fest" aria-label="Indian Sneaker Fest"><span class="bt-img"><img loading="lazy" src="highlights/Sneaker Fest.png" alt="Indian Sneaker Fest cover"></span><span class="bt-name">Indian Sneaker Fest</span></a>
-            <a class="bt is-placeholder" href="#" title="Mainstreet × CRED" aria-label="Mainstreet × CRED"><span class="bt-img" style="background:var(--red)">MC</span><span class="bt-name">Mainstreet × CRED</span></a>
-            <a class="bt is-placeholder" href="#" title="Meta" aria-label="Meta"><span class="bt-img" style="background:var(--brown)">ME</span><span class="bt-name">Meta</span></a>
-            <a class="bt is-placeholder" href="#" title="Miss Doozy" aria-label="Miss Doozy"><span class="bt-img" style="background:var(--red)">MD</span><span class="bt-name">Miss Doozy</span></a>
-            <a class="bt" href="#" title="RD Accessories" aria-label="RD Accessories"><span class="bt-img"><img loading="lazy" src="highlights/RD.png" alt="RD Accessories cover"></span><span class="bt-name">RD Accessories</span></a>
-            <a class="bt is-placeholder" href="#" title="Truly Madly" aria-label="Truly Madly"><span class="bt-img" style="background:var(--brown)">TM</span><span class="bt-name">Truly Madly</span></a>
-            <a class="bt is-placeholder" href="#" title="Unacademy" aria-label="Unacademy"><span class="bt-img" style="background:var(--brown)">UN</span><span class="bt-name">Unacademy</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <svg class="thread-canvas" id="thread-roster" preserveAspectRatio="none"></svg>
-</section>
-
-<!-- =================== WORK =================== -->
-<section id="work">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="lead">
-        <span class="sec-tag"><span class="bullet" style="background:var(--gold)">WK</span> Case · WK Line</span>
-        <h2>Stories we <em>put on the map.</em></h2>
-      </div>
-      <p class="note">A representative six. Swap with your real case studies anytime.</p>
-    </div>
-
-    <div class="work-grid">
-      <a class="work-tile big reveal" style="--c1:var(--royal);--c2:#0a2a55">
-        <span class="meta">01 · Ishant Sharma · 2023</span>
-        <h3>From fast bowler to brand, in one signing window.</h3>
-        <span class="foot"><span>PR · DEAL STRUCTURE</span><span>Case ↗</span></span>
-      </a>
-      <a class="work-tile reveal" style="--c1:var(--red);--c2:#7a1a18">
-        <span class="meta">02 · Singh Sisters · 2022</span>
-        <h3>Women's basketball, finally on the front page.</h3>
-        <span class="foot"><span>NARRATIVE</span><span>Case ↗</span></span>
-      </a>
-      <a class="work-tile reveal" style="--c1:var(--gold);--c2:#a8720a">
-        <span class="meta">03 · Arjun Bhati · 2023</span>
-        <h3>A teenager, three world titles, a sponsor list worth reading.</h3>
-        <span class="foot"><span>TALENT MGMT</span><span>Case ↗</span></span>
-      </a>
-      <a class="work-tile reveal" style="--c1:var(--green);--c2:#175335">
-        <span class="meta">04 · Mai Bao · 2023</span>
-        <h3>A restaurant became a reservation in 30 days.</h3>
-        <span class="foot"><span>HOSPITALITY</span><span>Case ↗</span></span>
-      </a>
-      <a class="work-tile reveal" style="--c1:var(--purple);--c2:#3c1e58">
-        <span class="meta">05 · WOW Skin Science · 2022</span>
-        <h3>Category lead by conversation share.</h3>
-        <span class="foot"><span>BRAND</span><span>Case ↗</span></span>
-      </a>
-      <a class="work-tile reveal" style="--c1:var(--orange);--c2:#7f3d0f">
-        <span class="meta">06 · Avani Prashanth · 2024</span>
-        <h3>Amateur → pro, narrated in real time.</h3>
-        <span class="foot"><span>TALENT MGMT</span><span>Case ↗</span></span>
-      </a>
-    </div>
-  </div>
-  <svg class="thread-canvas" id="thread-work" preserveAspectRatio="none"></svg>
-</section>
-
-<!-- =================== CULTURE =================== -->
-<section class="culture" id="culture" aria-label="Culture">
-  <div class="marquee" id="marquee">
-    <span>
-      <i>CULTURE</i> <em>is the</em> track <span class="star">✺</span>
-      <i>TALENT</i> <em>is the</em> train <span class="star">✺</span>
-      <i>STORY</i> <em>is the</em> schedule <span class="star">✺</span>
-    </span>
-  </div>
-</section>
+<!-- v2.14 · removed #work and #culture sections — Ishant carousel + Featured Cases now carry case-study weight inside #our-people. Train marquee returns when video/PNG/3D assets land. -->
 
 <!-- =================== ABOUT =================== -->
 <section id="about">
@@ -875,14 +1291,18 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 
     <div class="about-grid">
       <div class="founder reveal">
-        <div class="avatar">HA</div>
+        <!-- v2.22 · founder pin canvas — Three.js renders the ISB GLB as a floating pin orbiting the avatar -->
+        <canvas class="founder-pin-canvas" id="founder-pin-canvas" aria-hidden="true"></canvas>
+        <div class="avatar"><img src="highlights/founder/harsh-isb.jpg" alt="Harsh Arya" onerror="this.parentNode.classList.add('avatar-fallback');this.remove();"><span class="avatar-initials">HA</span></div>
         <div>
           <h4>Harsh Arya</h4>
           <small>Founder · Ninety-Eight</small>
-          <p>Engineer by training, operator by trade. Built and ran 98 from 2020–2023 across sports, hospitality and direct-to-consumer brands, paused to complete an ISB MBA, and now leads the v2.0 practice. Writes a column on Gen Z economics for The Economic Times.</p>
+          <p>Engineer by training, operator by trade. Started 98 on day one of the decade — first pitch made over a single late-night conversation at a Greater Noida nightclub. Ran the practice from 2020 to 2023 out of a 250-sq-ft office, growing to 55+ brands and signing Ishant Sharma as exclusive talent in Feb 2022. Paused for the ISB MBA in '24, met a partner who's now co-building the v2.0 chapter. Founded <a href="https://genz-economics.com/" target="_blank" rel="noopener">Gen Z Economics</a> — a research-led give-back to ISB's Centre for Finance. VP at <strong>DEWS</strong>, a family-led education organisation that runs a school and a college.</p>
           <div class="edu">
             <span>Indian School of Business · MBA</span>
             <span>Georgia Institute of Technology · Engineering &amp; Research</span>
+            <span>Founder · Gen Z Economics</span>
+            <span>VP · DEWS</span>
           </div>
           <button class="founder-open" type="button" aria-haspopup="dialog" aria-controls="founder-dialog">Read more about Harsh →</button>
         </div>
@@ -893,6 +1313,51 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
         <div class="stat reveal"><div class="n"><span data-count="12">00</span><sub>K+</sub></div><p>Media placements</p></div>
         <div class="stat reveal"><div class="n"><span data-count="7">0</span><b>×</b></div><p>Service lines we ship</p></div>
         <div class="stat reveal"><div class="n"><span data-count="3">0</span></div><p>Cities · Delhi NCR · Bombay · Bangalore</p></div>
+      </div>
+    </div>
+
+    <!-- v2.11 · Press strip · "As featured in" — newspaper clippings.
+         data-article-url is a hook: drop the live article URL there once you have it
+         and we'll switch the click target away from the JPEG. -->
+    <div class="press-strip reveal">
+      <div class="ps-head">
+        <span class="ps-tag"><span class="bullet" style="background:var(--royal)"></span>Press · Featured In</span>
+        <span class="ps-count">Selected newspaper features · 2023–24</span>
+      </div>
+      <div class="ps-rail" tabindex="0" aria-label="Press features — scroll to navigate">
+        <a class="ps-card" href="press/Artboard 1.jpeg" target="_blank" rel="noopener" data-article-url="" aria-label="Outlook feature on 98 Entertainment">
+          <span class="ps-img"><img loading="lazy" src="press/Artboard 1.jpeg" alt="Outlook feature on Harsh Arya and 98 Entertainment"></span>
+          <span class="ps-pub">Outlook</span>
+          <span class="ps-meta">Entertainment Spotlight · Feature</span>
+        </a>
+        <a class="ps-card" href="press/Artboard 3.jpeg" target="_blank" rel="noopener" data-article-url="" aria-label="The Week feature on 98 Entertainment">
+          <span class="ps-img"><img loading="lazy" src="press/Artboard 3.jpeg" alt="The Week feature on Harsh Arya and 98 Entertainment"></span>
+          <span class="ps-pub">The Week</span>
+          <span class="ps-meta">Tech-driven Triumph · Feature</span>
+        </a>
+        <a class="ps-card" href="press/Artboard 4.jpeg" target="_blank" rel="noopener" data-article-url="" aria-label="mid-day feature on 98 Entertainment">
+          <span class="ps-img"><img loading="lazy" src="press/Artboard 4.jpeg" alt="mid-day feature on Harsh Arya and 98 Entertainment"></span>
+          <span class="ps-pub">mid-day</span>
+          <span class="ps-meta">Innovative Strategies · Feature</span>
+        </a>
+
+        <!-- v2.16 · stage appearances + podcasts — styled placeholders until you send the assets / live URLs.
+             Keep the same .ps-card shell so the rail layout stays consistent. -->
+        <a class="ps-card" href="#" data-talk-url="" aria-label="Josh Talk by Harsh Arya">
+          <span class="ps-img is-text" style="background:var(--red);color:var(--paper)"><em>Josh<br>Talk</em></span>
+          <span class="ps-pub">Josh Talk</span>
+          <span class="ps-meta">Stage · Founder Story</span>
+        </a>
+        <a class="ps-card" href="#" data-podcast-url="" aria-label="Podcast appearance — to be linked">
+          <span class="ps-img is-text" style="background:var(--royal);color:var(--paper)"><em>Podcast<br>·</em></span>
+          <span class="ps-pub">Podcast · TBD</span>
+          <span class="ps-meta">Long-form · Conversation</span>
+        </a>
+        <a class="ps-card" href="#" data-podcast-url="" aria-label="Podcast appearance — to be linked">
+          <span class="ps-img is-text" style="background:var(--green);color:var(--paper)"><em>Podcast<br>·</em></span>
+          <span class="ps-pub">Podcast · TBD</span>
+          <span class="ps-meta">Long-form · Conversation</span>
+        </a>
       </div>
     </div>
   </div>
@@ -908,10 +1373,8 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       <p class="t-sub">End of the line for the tour. Start of the line for your brand. Drop us a note and we'll set a departure time.</p>
       <div class="t-stops">
         <span>Board</span>
+        <span>Our People</span>
         <span>Services</span>
-        <span>Roster</span>
-        <span>Work</span>
-        <span>Culture</span>
         <span>About</span>
         <span class="now">Terminus</span>
       </div>
@@ -940,9 +1403,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
         <h5>Studio — Delhi NCR</h5>
         <p>GF-16, Omaxe Arcade · Greater Noida<br>A-59, Sector-63 · Noida</p>
         <h5 style="margin-top:22px">Studio — Bombay</h5>
-        <p>Bandra West<br><em>(by appointment)</em></p>
-        <h5 style="margin-top:22px">Studio — Bangalore</h5>
-        <p><em>(by appointment)</em></p>
+        <p>BKC<br><em>(by appointment)</em></p>
       </div>
     </div>
 
@@ -950,13 +1411,9 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       <div class="studios">
         <span><b>©2020–2026</b> Ninety-Eight Entertainment</span>
         <span>Marketing · Advertising · PR · Talent</span>
-        <span>GST 09ABCDE1234F1Z5</span>
       </div>
       <div class="socials">
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">X / Twitter</a>
-        <a href="#">YouTube</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
   </div>
@@ -981,22 +1438,166 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     <h2 id="fd-title">Harsh Arya</h2>
     <span class="fd-byline">Founder · Ninety-Eight</span>
 
-    <p>Engineer by training, operator by trade. Built and ran 98 between 2020 and 2023 across sports, hospitality and direct-to-consumer brands — closing exclusive deals with international athletes, taking restaurants from launch to retainer, and growing the book to 55+ active accounts. Paused the practice in 2023 to complete an ISB MBA, and now leads the v2.0 chapter as a creative powerhouse.</p>
+    <p>Engineer by training, operator by trade. Started 98 on the very first day of the decade — a 20-year-old turning a midnight conversation at a Greater Noida nightclub into a contract for social, design and branding. Built and ran the practice from 2020 to 2023, scaling out of a 250-sq-ft office to 55+ active brands across sports, hospitality and D2C, and signing Indian Test bowler Ishant Sharma as exclusive talent in February 2022. Paused for the ISB MBA in 2024, met a partner who's now co-founding the v2.0 chapter — a creative powerhouse, on its own terms.</p>
 
     <h3>Background</h3>
-    <p>Engineering undergrad with research time at Georgia Institute of Technology. MBA from the Indian School of Business. Reads widely across economics, design history and culture; travels often. Brings the equal halves of art and science to client work — equally at home in a brand-launch room and a three-statement model.</p>
+    <p>Engineering undergrad with research time at Georgia Institute of Technology. Equal-parts artist before any of this — photography, filmmaking, design — with the visual sensibility that still anchors how 98 looks. MBA from the Indian School of Business. Reads widely across economics, design history and culture; travels often. Brings the equal halves of art and science to client work — equally at home in a brand-launch room and a three-statement model.</p>
 
     <h3>Writing &amp; thought leadership</h3>
-    <p>Writes a regular column on Gen Z economics for The Economic Times. Runs Gen Z Economics, a research-led blog in collaboration with Professor Tantri (ISB / Power Finance Corporation). Authored a documentary on influencer culture and the Gen Z creator economy, and a forthcoming playbook for early-career founders.</p>
+    <p>Founded <a href="https://genz-economics.com/" target="_blank" rel="noopener"><strong>Gen Z Economics</strong></a>, a research-led blog given back to ISB's Centre for Finance — Professor Tantri and the Finance Club take over stewardship as the practice grows. Authored a documentary on influencer culture and the creator economy. Working on a forthcoming playbook for early-career founders.</p>
+
+    <h3>Beyond 98</h3>
+    <p>VP at <strong>DEWS</strong> — a family-led education organisation that runs a school and a college. Education has always been the long game in the family; this is the operating end of it.</p>
 
     <h3>The name "98"</h3>
-    <p>Three stories, one name. The honest one: a wall, somewhere in Delhi, with "98" painted on it — spotted during a YouTube shoot with a friend in the late 2010s. The shorthand one: 1998, the cusp year — anyone born after is part of the same generational frame. The third stays internal, for clients who ask in person.</p>
+    <p>Three stories, one name. The honest one: shooting a YouTube video with a friend — a dancer, now a YouTuber, both of us hooked on hip-hop, arts and music — when we spotted "98" painted in white on a grey wall, somewhere in Delhi. I told him: whenever I start something, I'm calling it 98. The shorthand one: <strong>1997</strong>, the cusp year — anyone born after is part of the same Gen Z generational frame, and I am one. We have a unique voice, we inherit a chaotic but unprecedentedly stable world, and our generation has the resources, sensitivity and information to do a lot of good. The third stays internal, for clients who ask in person.</p>
 
     <div class="fd-creds">
       Indian School of Business · MBA<br>
       Georgia Institute of Technology · Engineering &amp; Research<br>
-      Columnist · The Economic Times (Gen Z Economics)
+      Founder · Gen Z Economics<br>
+      VP · DEWS (Education)
     </div>
+  </div>
+</dialog>
+
+<!-- ====================================================================
+     v2.13 · CASE STUDY · ISHANT SHARMA — anchor case for Sprint 2
+     Opens via [data-case="ishant"] click handlers and #case-ishant anchor.
+     Hero images expected at highlights/ishant/ishant-hero-{royal,green,red}.png
+     ==================================================================== -->
+<dialog id="case-ishant" class="case-dialog" aria-labelledby="cd-ishant-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Talent · Ishant Sharma</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <!-- Hero -->
+    <div class="cd-hero" style="background:var(--royal)">
+      <img loading="lazy" src="Ishant%20images/Layer%202.png" alt="Ishant Sharma in India Test whites, holding a cricket ball" onerror="this.style.display='none'">
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Talent · Personal Brand · 2020–2023</span>
+        <h2 id="cd-ishant-title">Ishant Sharma</h2>
+        <p class="cd-hero-sub">The personal-brand case. We didn't manage talent. We ran a brand.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 01 · Thesis -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--gold)"></span>The Thesis</h3>
+      <p class="cd-lead">Most agencies sell talent management — calendar holds, brand briefs, NDA paperwork, an inbox between athlete and sponsor.</p>
+      <p>We sold the operating system underneath. A personal brand designed for revenue, with deal flow, manufactured likability, and equity participation built into the model.</p>
+      <p>Ishant was the proof of concept. 105 Tests, 311 wickets — already a name. What we added was the mechanism to <em>monetise that name without diluting it</em>.</p>
+      <blockquote class="cd-pull">Talent is the train. Personal brand is the timetable. We ran the timetable.</blockquote>
+    </section>
+
+    <!-- Chapter 02 · Signing -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--red)"></span>The Signing</h3>
+      <p>Won exclusive representation in 2022 — sole agency-of-record for brand deals, social media, and personal communications.</p>
+      <p>The shift in posture: from a talented bowler taking sponsor calls to an ownable property with a managed brand surface. From "what's the brief" to "what does the brand sound like, what is it worth, what kind of partner do we want."</p>
+    </section>
+
+    <!-- Chapter 03 · Numbers -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--royal)"></span>The Numbers</h3>
+      <p>Year-over-year, on the same audience. 2022 → 2023:</p>
+      <div class="cd-stats">
+        <div class="cd-stat"><span class="n">7.5M</span><span class="l">Instagram likes</span><span class="d">+140% · 2.4× lift</span></div>
+        <div class="cd-stat"><span class="n">23.7M</span><span class="l">Reels views</span><span class="d">+156% · 2.56× lift</span></div>
+        <div class="cd-stat"><span class="n">8,868</span><span class="l">Comments</span><span class="d">+85% · 1.85× lift</span></div>
+        <div class="cd-stat"><span class="n">4.75M</span><span class="l">Twitter impressions</span><span class="d">70 tweets, up from 55</span></div>
+      </div>
+      <p><strong>Better posts, not more posts.</strong> Publishing volume was nearly flat — 58 posts in '22, 61 in '23. The lift came from format choices, collab structure and timing, not from working the channel harder.</p>
+    </section>
+
+    <!-- Chapter 04 · RuPay × IPL 2022 -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--green)"></span>RuPay × IPL 2022</h3>
+      <p>NPCI's first-ever IPL campaign — <em>RuPay. Be On-The-Go</em> — went live in April 2022 with Ishant as the lead face.</p>
+      <p>Five films across TV, OTT, digital and social. The <em>Howzzaaaatt!</em> gag positioning RuPay's payment speed against Ishant's bowling. Harsha Bhogle and Virender Sehwag amplified on Twitter; DDB Mudra handled the creative; we ran the talent.</p>
+      <p>National scale. The most-watched cricket window of the year. Our talent at the centre.</p>
+      <div class="cd-cite">
+        Press: <a href="https://brandequity.economictimes.indiatimes.com/news/advertising/ipl-2022-rupays-ad-positions-its-payment-speed-as-fast-as-ishant-sharmas-bowling/90909370" target="_blank" rel="noopener">ET BrandEquity, April 18 2022</a> · 1,390 industry reads on launch day.
+      </div>
+    </section>
+
+    <!-- Mid-modal hero divider · green -->
+    <div class="cd-divider" style="background:var(--green)">
+      <img loading="lazy" src="Ishant%20images/Layer%203.png" alt="Ishant Sharma celebrating, arm raised" onerror="this.style.display='none'">
+    </div>
+
+    <!-- Chapter 05 · Spinny -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">05</span><span class="cd-bullet" style="background:var(--gold)"></span>Spinny — selling the socials</h3>
+      <p>The thesis in action. Instead of selling sponsorship slots one-off, we <em>rented the channel</em>.</p>
+      <p>Spinny ran a multi-week placement programme through Ishant's social handles, anchored on archival cricket reels — the same archival format the metrics team flagged as the highest-performing content type that year. The lift from that single format alone is most of the +14M reels-views jump shown above.</p>
+      <p>Outcome for Spinny: a sustained share-of-voice in cricket-fan circles that no single-window IPL slot could buy.</p>
+    </section>
+
+    <!-- Chapter 06 · Ranveer × Ishant -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">06</span><span class="cd-bullet" style="background:var(--red)"></span>Ranveer × Ishant</h3>
+      <p>Cross-talent collaborations between cinema's biggest livewire and cricket's quiet veteran — engineered, not coincidental. Joint content windows, cross-posted reels, brand-aligned moments.</p>
+      <p>The 2023 social-media report named these collaborations as the <em>primary driver</em> of the year's engagement lift. Two cultural circles, one bridge — that's the deal-making muscle.</p>
+    </section>
+
+    <!-- Chapter 07 · RD Accessories -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">07</span><span class="cd-bullet" style="background:var(--purple)"></span>RD Accessories</h3>
+      <p>A homegrown D2C accessories brand — the kind of partner that needs structure, not stardom. We built the deal architecture: rights, licensing, content windows, reporting cadence. Then we shipped — campaign creative, talent integration, social rollout.</p>
+      <p>The case for "business partner, not vendor." RD didn't buy a celebrity stamp; they got an operating partner.</p>
+    </section>
+
+    <!-- Chapter 08 · ABS -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">08</span><span class="cd-bullet" style="background:var(--orange)"></span>Asian Business School</h3>
+      <p>The partnership that didn't run on a quarter. Multi-year campus engagements, brand-talent integration, content for ABS that reads as content for Ishant — not as paid placement.</p>
+      <p>Long horizons over high spreads. The deal you keep coming back to.</p>
+    </section>
+
+    <!-- Chapter 09 · Daughter -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">09</span><span class="cd-bullet" style="background:var(--pink)"></span>The Daughter Announcement</h3>
+      <p>We were the ones to break the news. Not because we wanted the engagement — because we'd earned the trust to.</p>
+      <p>Personal milestones are where most agency relationships break. Too transactional to be invited in; too performative when they are. We treated the moment as Ishant's, not ours. The post went out on his timeline, in his voice, with no brand handle in the caption.</p>
+      <p>The metric we tracked here was <em>trust</em>. The numbers came anyway.</p>
+    </section>
+
+    <!-- Chapter 10 · Documentary -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">10</span><span class="cd-bullet" style="background:var(--royal)"></span>The Documentary</h3>
+      <p>Featured during our window — a long-form film on cricket, identity and the modern Indian player. We coordinated the appearance, the rights and the social rollout.</p>
+      <p>Coverage your competitor can't sponsor their way into.</p>
+    </section>
+
+    <!-- Mid-modal hero divider · red -->
+    <div class="cd-divider" style="background:var(--red)">
+      <img loading="lazy" src="Ishant%20images/Layer%201.png" alt="Ishant Sharma in INDIA jersey, mid-celebration" onerror="this.style.display='none'">
+    </div>
+
+    <!-- Chapter 11 · Equity -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">11</span><span class="cd-bullet" style="background:var(--gold)"></span>Equity, not retainer</h3>
+      <p>The natural extension. Once we'd proven the operating system on Ishant — a person — we tested the same playbook on a brand: <strong>Arista Vault</strong>, a luggage-tech founder we partnered with on equity terms instead of fees.</p>
+      <p>The case is its own page. The point here: when we believed, we owned the upside. Same operating system, different asset class.</p>
+      <a class="cd-sister" href="#case-arista-vault" data-case="arista-vault">
+        <div>
+          <span class="cd-sister-label">Sister case · in production</span>
+          <span class="cd-sister-name">Arista Vault — equity, not retainer</span>
+        </div>
+        <span class="cd-sister-arrow">→</span>
+      </a>
+    </section>
+
+    <!-- Closing hero -->
+    <div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · End of the v1 chapter</span>
+      <h4>We didn't manage Ishant's calendar. We built and ran his personal brand as a product.</h4>
+      <p>The numbers above are the receipts. The ones we don't show — equity participation, deal value, structural learning — are what we brought into v2.0.</p>
+    </div>
+
   </div>
 </dialog>
 
@@ -1078,7 +1679,7 @@ window.addEventListener('resize', queueTick);
 // run once so the initial state is correct
 scrollTick();
 
-const sectionIds = ['services','roster','work','about','contact'];
+const sectionIds = ['our-people','services','about','contact'];
 const links = document.querySelectorAll('.nav ul a');
 const navObs = new IntersectionObserver((entries)=>{
   entries.forEach(en=>{
@@ -1125,10 +1726,12 @@ document.querySelectorAll('a,button,.svc-row,.talent-card,.brand-pill,.work-tile
   el.addEventListener('mouseleave', ()=>ring.classList.remove('hover'));
 });
 
-// marquee duplication
+// marquee duplication — null-safe; section may be removed (v2.14 culture strip)
 (function(){
   const m = document.getElementById('marquee');
+  if (!m) return;
   const inner = m.firstElementChild;
+  if (!inner) return;
   for(let i=0;i<3;i++) m.appendChild(inner.cloneNode(true));
   let x = 0, speed = 0.35;
   (function tick(){
@@ -1165,11 +1768,10 @@ function buildThreads(){
     });
 
   const sections = [
-    { el: document.querySelector('.hero'),     svg: document.getElementById('thread-hero'),     vis:'solid' },
-    { el: document.getElementById('services'), svg: document.getElementById('thread-services'), vis:'solid' },
-    { el: document.getElementById('roster'),   svg: document.getElementById('thread-roster'),   vis:'ghost' },
-    { el: document.getElementById('work'),     svg: document.getElementById('thread-work'),     vis:'solid' },
-    { el: document.getElementById('about'),    svg: document.getElementById('thread-about'),    vis:'ghost' }
+    { el: document.querySelector('.hero'),         svg: document.getElementById('thread-hero'),       vis:'solid' },
+    { el: document.getElementById('our-people'),   svg: document.getElementById('thread-our-people'), vis:'solid' },
+    { el: document.getElementById('services'),     svg: document.getElementById('thread-services'),   vis:'solid' },
+    { el: document.getElementById('about'),        svg: document.getElementById('thread-about'),      vis:'ghost' }
   ];
 
   let carry = origins.slice();
@@ -1253,18 +1855,17 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
    ============================================================ */
 
 const stopMeta = {
-  services: { code:'SV', name:'Services', color:'var(--red)',    sub:'SV Line' },
-  roster:   { code:'TM', name:'Roster',   color:'var(--purple)', sub:'TM Line' },
-  work:     { code:'WK', name:'Work',     color:'var(--gold)',   sub:'WK Line' },
-  about:    { code:'AU', name:'About',    color:'var(--pink)',   sub:'AU Line' },
-  contact:  { code:'TR', name:'Terminus', color:'var(--carbon)', sub:'End of Line' }
+  'our-people': { code:'RP', name:'Our People', color:'var(--royal)',  sub:'RP Line' },
+  services:    { code:'SV', name:'Services',   color:'var(--red)',    sub:'SV Line' },
+  about:       { code:'AU', name:'About',      color:'var(--pink)',   sub:'AU Line' },
+  contact:     { code:'TR', name:'Terminus',   color:'var(--carbon)', sub:'End of Line' }
 };
 
 // build station rail dynamically from stopMeta (skip contact for the rail —
 // it's the terminus, the rail represents en-route stops)
 const railEl = document.getElementById('station-rail');
 if (railEl) {
-  const railOrder = ['services','roster','work','about'];
+  const railOrder = ['our-people','services','about'];
   railEl.innerHTML = '<span class="rail-track"></span>' + railOrder.map(id => {
     const m = stopMeta[id];
     return `<a class="rail-stop" data-section="${id}" href="#${id}" aria-label="Jump to ${m.name}">
@@ -1290,7 +1891,7 @@ function announceStop(id){
   chipText.innerHTML = `<small>Now approaching</small><b>${m.name}</b>`;
   chipEl.classList.add('in');
   clearTimeout(chipTimer);
-  chipTimer = setTimeout(()=>chipEl.classList.remove('in'), 2200);
+  chipTimer = setTimeout(()=>chipEl.classList.remove('in'), 3200);
 }
 
 // Re-observe sections so we can drive both rail + chip alongside the nav-link
@@ -1309,7 +1910,7 @@ const stopObs = new IntersectionObserver((entries)=>{
     announceStop(id);
   }
 }, {threshold:[0.35, 0.6]});
-['services','roster','work','about','contact'].forEach(id=>{
+['our-people','services','about','contact'].forEach(id=>{
   const el = document.getElementById(id);
   if (el) stopObs.observe(el);
 });
@@ -1446,6 +2047,446 @@ window.addEventListener('mousemove', e => {
 })();
 
 /* ============================================================
+   5b. v2.14 · ISHANT CAROUSEL (no-friction headline)
+   Same scroll-snap pattern as the roster carousel — own selectors.
+   ============================================================ */
+
+(function initIshantCarousel(){
+  const rail  = document.getElementById('ic-rail');
+  const dots  = document.getElementById('ic-dots');
+  const prev  = document.querySelector('.ic-nav .ic-prev');
+  const next  = document.querySelector('.ic-nav .ic-next');
+  if (!rail || !dots || !prev || !next) return;
+
+  const slides = [...rail.querySelectorAll('.ic-slide')];
+  if (!slides.length) return;
+
+  dots.innerHTML = slides.map((_,i) => `<button type="button" class="dot" data-i="${i}" aria-label="Go to slide ${i+1}"></button>`).join('');
+  const dotEls = [...dots.querySelectorAll('.dot')];
+
+  function activeIndex(){
+    const railRect = rail.getBoundingClientRect();
+    const railCenter = railRect.left + railRect.width / 2;
+    let best = 0, bestDist = Infinity;
+    slides.forEach((s, i) => {
+      const r = s.getBoundingClientRect();
+      const c = r.left + r.width / 2;
+      const d = Math.abs(c - railCenter);
+      if (d < bestDist) { bestDist = d; best = i; }
+    });
+    return best;
+  }
+  function syncState(){
+    const i = activeIndex();
+    dotEls.forEach((d, di) => d.classList.toggle('active', di === i));
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  }
+  function goTo(i){
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    const target = slides[i];
+    const railRect = rail.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const delta = (targetRect.left + targetRect.width/2) - (railRect.left + railRect.width/2);
+    rail.scrollBy({left: delta, behavior: 'smooth'});
+  }
+  // Scroll-lock-aware navigation. When .scroll-lock-active is on the wrapper,
+  // prev/next scroll the page (which advances the locked rail); otherwise
+  // they scroll the rail directly.
+  function pageJump(direction){
+    const wrapper = document.getElementById('ishant-scroll-lock');
+    if (!wrapper) return false;
+    if (!wrapper.classList.contains('scroll-lock-active')) return false;
+    const stepPx = (wrapper.offsetHeight - window.innerHeight) / (slides.length - 1);
+    window.scrollBy({top: direction * stepPx, behavior:'smooth'});
+    return true;
+  }
+  function jumpToSlide(i){
+    const wrapper = document.getElementById('ishant-scroll-lock');
+    if (!wrapper || !wrapper.classList.contains('scroll-lock-active')) {
+      goTo(i);
+      return;
+    }
+    const wrapperTop = wrapper.getBoundingClientRect().top + window.scrollY;
+    const total = wrapper.offsetHeight - window.innerHeight;
+    const targetY = wrapperTop + (i / (slides.length - 1)) * total;
+    window.scrollTo({top: targetY, behavior:'smooth'});
+  }
+  prev.addEventListener('click', () => { if (!pageJump(-1)) goTo(activeIndex() - 1); });
+  next.addEventListener('click', () => { if (!pageJump( 1)) goTo(activeIndex() + 1); });
+  dotEls.forEach(d => d.addEventListener('click', () => jumpToSlide(+d.dataset.i)));
+  rail.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); if (!pageJump( 1)) goTo(activeIndex() + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); if (!pageJump(-1)) goTo(activeIndex() - 1); }
+  });
+  let q = false;
+  rail.addEventListener('scroll', () => {
+    if (q) return;
+    q = true;
+    requestAnimationFrame(() => { q = false; syncState(); });
+  }, {passive:true});
+  syncState();
+})();
+
+/* ============================================================
+   5c. v2.15 · ISHANT SCROLL-LOCK (Apple-style pin & advance)
+   Pins the carousel and converts vertical scroll into horizontal
+   slide advance. Only on ≥1080px viewports with no reduced-motion
+   preference — mobile + a11y users still get native swipe.
+   ============================================================ */
+
+(function initIshantScrollLock(){
+  const wrapper = document.getElementById('ishant-scroll-lock');
+  const rail    = document.getElementById('ic-rail');
+  if (!wrapper || !rail) return;
+
+  const slides = rail.querySelectorAll('.ic-slide');
+  if (slides.length < 2) return;
+
+  const mqW = window.matchMedia('(min-width: 1080px)');
+  const mqM = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  let active = false;
+  let scheduled = false;
+
+  function setProgress(p){
+    wrapper.style.setProperty('--lock-progress', (p * 100).toFixed(2) + '%');
+  }
+  function update(){
+    if (!active) return;
+    const rect = wrapper.getBoundingClientRect();
+    const wrapperHeight = wrapper.offsetHeight;
+    const viewport = window.innerHeight;
+    const total = wrapperHeight - viewport;
+    if (total <= 0) return;
+    const scrolled = Math.max(0, Math.min(total, -rect.top));
+    const progress = scrolled / total;
+    const railMax = rail.scrollWidth - rail.clientWidth;
+    rail.scrollLeft = progress * railMax;
+    setProgress(progress);
+  }
+  function onScroll(){
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => { scheduled = false; update(); });
+  }
+  function activate(){
+    if (active) return;
+    active = true;
+    wrapper.classList.add('scroll-lock-active');
+    window.addEventListener('scroll', onScroll, {passive:true});
+    update();
+  }
+  function deactivate(){
+    if (!active) return;
+    active = false;
+    wrapper.classList.remove('scroll-lock-active');
+    window.removeEventListener('scroll', onScroll);
+    rail.scrollLeft = 0;
+    setProgress(0);
+  }
+  function evaluate(){
+    if (mqW.matches && !mqM.matches) activate();
+    else deactivate();
+  }
+
+  evaluate();
+  // Re-evaluate on viewport changes
+  if (mqW.addEventListener) {
+    mqW.addEventListener('change', evaluate);
+    mqM.addEventListener('change', evaluate);
+  } else if (mqW.addListener) {
+    mqW.addListener(evaluate);
+    mqM.addListener(evaluate);
+  }
+  window.addEventListener('resize', () => { if (active) update(); }, {passive:true});
+})();
+
+/* Magnet form stub — captures email locally, then swaps the form for
+   a stamped subway-ticket reveal. Hook to a real endpoint (Mailchimp,
+   ConvertKit, ActiveCampaign, or your own /api/leads) by replacing
+   the // TODO line below. */
+(function initMagnetForm(){
+  document.querySelectorAll('form.ic-form').forEach(form => {
+    const slide = form.closest('.ic-slide');
+    const ticket = slide ? slide.querySelector('.ic-ticket') : null;
+    const input = form.querySelector('input[type="email"]');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = (input.value || '').trim();
+      if (!email) return;
+      // TODO: POST email to your real endpoint here.
+      console.log('[magnet] capture', form.dataset.magnet, email);
+
+      // animate the form out
+      form.classList.add('ic-form-out');
+      setTimeout(() => { form.style.display = 'none'; }, 260);
+
+      // populate + reveal the ticket
+      if (ticket) {
+        const emailEl = ticket.querySelector('.ic-ticket-email');
+        const numEl   = ticket.querySelector('.ic-ticket-num');
+        const whenEl  = ticket.querySelector('.ic-ticket-when');
+        if (emailEl) emailEl.textContent = email;
+        if (numEl) {
+          // pseudo-ticket-number based on time + a short hash of email
+          const seed = (Date.now() % 9000) + 1000;
+          numEl.textContent = '#' + seed;
+        }
+        if (whenEl) {
+          const d = new Date();
+          const hh = String(d.getHours()).padStart(2,'0');
+          const mm = String(d.getMinutes()).padStart(2,'0');
+          whenEl.textContent = `${hh}:${mm} · today`;
+        }
+        ticket.hidden = false;
+        ticket.removeAttribute('aria-hidden');
+        // gentle attention pull on first reveal
+        ticket.scrollIntoView({behavior:'smooth', block:'nearest'});
+      }
+    });
+  });
+})();
+
+/* ============================================================
+   5d. v2.20 · TRAIN — scroll-driven motion
+   The strip has a long visible window. As the user scrolls past
+   it, the train's left position is mapped from scroll progress —
+   so direction follows scroll, speed follows scroll velocity.
+   Auto-loop kept as CSS fallback if JS doesn't init in time.
+   ============================================================ */
+
+(function initTrainScrollDrive(){
+  const strip = document.getElementById('train-strip');
+  if (!strip) return;
+  const train = strip.querySelector('.train-img');
+  if (!train) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Mark the strip — CSS rule disables the auto-loop animation when this attr is present
+  strip.setAttribute('data-scroll-driven', 'true');
+
+  let scheduled = false;
+  function update(){
+    const rect = strip.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // v2.25 · slow + extended: tracking window covers strip + 150% of next viewport,
+    // so the train keeps moving after the strip has exited and only fully clears the
+    // screen once the next section is well into view.
+    const extra = vh * 1.5;
+    const windowH = vh + rect.height + extra;
+    const currentDist = vh - rect.top;
+    const progress = Math.max(0, Math.min(1, currentDist / windowH));
+    const startX = window.innerWidth + 600;   // longer entrance ramp
+    const endX   = -2600;                     // longer exit ramp
+    const x = startX + (endX - startX) * progress;
+    train.style.left = x + 'px';
+  }
+
+  window.addEventListener('scroll', () => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => { scheduled = false; update(); });
+  }, {passive: true});
+  window.addEventListener('resize', update, {passive: true});
+
+  update();
+})();
+
+/* ============================================================
+   5e2. v2.25 · LOGO-LETTER EASTER EGG
+   Clicking any of the colored letters of NINETY EIGHT in the
+   hero cascades a thread twang down through every section's
+   thread-canvas — "pull the logo, the strings ripple."
+   ============================================================ */
+
+(function initLetterCascade(){
+  const letters = document.querySelectorAll('.mark .l');
+  if (!letters.length) return;
+  letters.forEach(letter => {
+    letter.style.cursor = 'pointer';
+    letter.setAttribute('role', 'button');
+    letter.setAttribute('tabindex', '0');
+    letter.setAttribute('aria-label', 'Pull logo letter');
+    function ripple(){
+      const canvases = document.querySelectorAll('.thread-canvas');
+      canvases.forEach((c, i) => {
+        setTimeout(() => {
+          c.classList.add('threads-twang');
+          setTimeout(() => c.classList.remove('threads-twang'), 900);
+        }, i * 130);
+      });
+      // bounce the clicked letter briefly
+      letter.style.transition = 'transform .25s cubic-bezier(.34,1.56,.64,1)';
+      letter.style.transform = 'translateY(-8px) scale(1.06)';
+      setTimeout(() => { letter.style.transform = ''; }, 280);
+    }
+    letter.addEventListener('click', ripple);
+    letter.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); ripple(); }
+    });
+  });
+})();
+
+/* ============================================================
+   5e. v2.20 · PULLABLE THREADS — click a section heading to
+   "twang" the colored threads emanating from the logo through
+   that section. The strings the user actually meant.
+   ============================================================ */
+
+(function initThreadTwang(){
+  function twang(canvas){
+    if (!canvas) return;
+    canvas.classList.add('threads-twang');
+    setTimeout(() => canvas.classList.remove('threads-twang'), 900);
+  }
+  function findCanvasFor(el){
+    const container = el.closest('section, header, footer, aside');
+    if (!container) return null;
+    return container.querySelector('.thread-canvas');
+  }
+  // section headings as pull-handles
+  [
+    ...document.querySelectorAll('.sec-head h2'),
+    ...document.querySelectorAll('.timeline h3'),
+    ...document.querySelectorAll('.terminus h2'),
+  ].forEach(h => {
+    h.addEventListener('click', e => {
+      if (e.target.closest('a, button')) return;
+      twang(findCanvasFor(h));
+    });
+  });
+})();
+
+/* ============================================================
+   5f. v2.22 · FOUNDER PINS — Three.js floating GLBs
+   v2.24 · Both ISB and Georgia Tech pins, diagonal placement
+   around the avatar with independent rotation + bobbing phases.
+   Lazy-loads Three.js + GLTFLoader from CDN. Graceful fallback:
+   if either GLB is missing, that pin just doesn't appear; if
+   neither loads, the canvas hides itself.
+   ============================================================ */
+
+(function initFounderPin(){
+  const canvas = document.getElementById('founder-pin-canvas');
+  if (!canvas) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    canvas.style.display = 'none';
+    return;
+  }
+
+  function loadScript(src){
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = () => reject(new Error('failed: ' + src));
+      document.head.appendChild(s);
+    });
+  }
+
+  (async () => {
+    try {
+      if (typeof THREE === 'undefined'){
+        await loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js');
+      }
+      if (typeof THREE.GLTFLoader === 'undefined'){
+        await loadScript('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js');
+      }
+    } catch (err){
+      console.warn('[founder-pin] three.js failed to load — hiding canvas', err);
+      canvas.style.display = 'none';
+      return;
+    }
+
+    const W = 220, H = 220;
+    canvas.width = W * (window.devicePixelRatio || 1);
+    canvas.height = H * (window.devicePixelRatio || 1);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, W/H, 0.1, 100);
+    camera.position.set(0, 0, 4.2);
+
+    const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
+    renderer.setSize(W, H, false);
+    renderer.setPixelRatio(window.devicePixelRatio || 1);
+    renderer.setClearColor(0x000000, 0); // transparent — no dark box
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+    const key = new THREE.DirectionalLight(0xffffff, 0.7);
+    key.position.set(2, 3, 4);
+    scene.add(key);
+    const rim = new THREE.DirectionalLight(0xfff7d6, 0.45);
+    rim.position.set(-3, 1, -2);
+    scene.add(rim);
+
+    // Two pins, diagonal: ISB top-right, Georgia Tech bottom-left.
+    const pinDefs = [
+      { src: 'highlights/founder/isb-pin.glb',    baseX:  1.25, baseY:  0.95, phase: 0,             targetSize: 0.95 },
+      { src: 'highlights/founder/gatech-pin.glb', baseX: -1.25, baseY: -0.95, phase: Math.PI * 0.7,  targetSize: 0.95 }
+    ];
+
+    const pins = [];
+    let loadedCount = 0;
+    const loader = new THREE.GLTFLoader();
+
+    pinDefs.forEach(def => {
+      loader.load(
+        def.src,
+        (gltf) => {
+          const pin = gltf.scene;
+          // auto-fit: compute bounding box, scale to targetSize
+          const box = new THREE.Box3().setFromObject(pin);
+          const size = box.getSize(new THREE.Vector3());
+          const maxDim = Math.max(size.x, size.y, size.z) || 1;
+          const scale = def.targetSize / maxDim;
+          pin.scale.setScalar(scale);
+          // recenter to origin
+          const center = box.getCenter(new THREE.Vector3());
+          pin.position.sub(center.multiplyScalar(scale));
+          // store rest-position metadata
+          pin.userData.baseX = def.baseX;
+          pin.userData.baseY = def.baseY;
+          pin.userData.phase = def.phase;
+          scene.add(pin);
+          pins.push(pin);
+          loadedCount++;
+        },
+        undefined,
+        (err) => {
+          console.warn('[founder-pin] failed to load', def.src, err);
+          // if both fail, hide the canvas
+          if (loadedCount === 0 && pins.length === 0){
+            // wait briefly to see if the other one loads
+            setTimeout(() => {
+              if (pins.length === 0) canvas.style.display = 'none';
+            }, 600);
+          }
+        }
+      );
+    });
+
+    let t = 0;
+    function tick(){
+      t += 0.012;
+      pins.forEach(pin => {
+        const ph = pin.userData.phase || 0;
+        pin.rotation.y = t * 0.55 + ph;
+        pin.rotation.x = Math.sin(t * 0.5 + ph) * 0.16;
+        pin.position.x = pin.userData.baseX + Math.cos(t * 0.7 + ph) * 0.07;
+        pin.position.y = pin.userData.baseY + Math.sin(t + ph) * 0.09;
+      });
+      renderer.render(scene, camera);
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+})();
+
+/* ============================================================
    6. v2.9 · FOUNDER DIALOG (click-to-open bio)
    ============================================================ */
 
@@ -1464,6 +2505,66 @@ window.addEventListener('mousemove', e => {
   dlg.addEventListener('click', e => {
     if (e.target === dlg) dlg.close();
   });
+})();
+
+/* ============================================================
+   v2.13 · CASE DIALOGS — generic open/close machinery
+   Any element with [data-case="name"] opens <dialog id="case-name">.
+   Any [.cd-close] inside a case dialog closes it. Backdrop click
+   also closes. Hash-based deep links (#case-name) auto-open on load.
+   ============================================================ */
+
+(function initCaseDialogs(){
+  function openCase(name){
+    const dlg = document.getElementById('case-' + name);
+    if (!dlg) return false;
+    if (typeof dlg.showModal === 'function') dlg.showModal();
+    else dlg.setAttribute('open', '');
+    // scroll the modal body to top (in case of re-open)
+    const body = dlg.querySelector('.cd-body');
+    if (body) body.scrollTop = 0;
+    return true;
+  }
+
+  // Wire every [data-case] trigger
+  document.querySelectorAll('[data-case]').forEach(el => {
+    el.addEventListener('click', e => {
+      const name = el.getAttribute('data-case');
+      if (openCase(name)) e.preventDefault();
+    });
+    // Keyboard support for non-button triggers (e.g., the roster <article>)
+    if (el.tagName !== 'A' && el.tagName !== 'BUTTON') {
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openCase(el.getAttribute('data-case'));
+        }
+      });
+    }
+  });
+
+  // Wire close + backdrop on every case-dialog
+  document.querySelectorAll('.case-dialog').forEach(dlg => {
+    const close = dlg.querySelector('.cd-close');
+    if (close) close.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', e => {
+      if (e.target === dlg) dlg.close();
+    });
+  });
+
+  // Deep link: #case-ishant in the URL auto-opens the dialog on load
+  function maybeOpenFromHash(){
+    const h = window.location.hash;
+    if (h && h.startsWith('#case-')) {
+      const name = h.replace('#case-', '');
+      openCase(name);
+    }
+  }
+  window.addEventListener('hashchange', maybeOpenFromHash);
+  // run after DOM settles
+  setTimeout(maybeOpenFromHash, 50);
 })();
 </script>
 </body>
