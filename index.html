@@ -61,8 +61,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav{position:fixed;top:18px;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:10px 28px;transition:all .3s var(--ease)}
 .nav.scrolled{top:0;padding:12px 28px;background:rgba(244,239,224,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(14,14,16,.08)}
 .logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:14px;line-height:1.05}
-.logo-mark{width:32px;height:32px;display:inline-grid;place-items:center;background:var(--carbon);color:var(--paper);border-radius:4px}
-.logo-mark svg{width:20px;height:20px}
+/* v2.27 · Real 98 badge — two colored circles (red 9, green 8) per brand deck */
+.logo-mark{display:inline-flex;align-items:center;gap:2px;background:transparent}
+.logo-mark svg{width:auto;height:30px;display:block}
 .logo small{display:block;font:500 10px/1.1 var(--mono);letter-spacing:.16em;color:var(--slate);text-transform:uppercase;margin-top:2px}
 .nav ul{display:flex;gap:28px;list-style:none;font:600 13px/1 var(--display);letter-spacing:-.005em}
 .nav ul a{position:relative;padding:4px 0;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
@@ -321,8 +322,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 }
 
 /* ---------- v2.7 · APPROACH CHIP (now-approaching MTA banner) ---------- */
-/* v2.25 · Approach chip moved from bottom-right to TOP-CENTER (slides down from above the nav).
-   Reads as a real "Now approaching" platform announcement. */
+/* v2.27 · Approach chip restored (top-center). Gold-glow pulse on sec-tag removed. */
 .approach-chip{position:fixed;top:84px;left:50%;z-index:60;display:flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;background:rgba(14,14,16,.94);color:var(--paper);border-radius:999px;font:600 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;box-shadow:0 12px 32px rgba(0,0,0,.32),0 0 0 1px rgba(255,255,255,.04) inset;transform:translate(-50%,-180%);opacity:0;transition:transform .55s var(--ease), opacity .35s ease;pointer-events:none;backdrop-filter:blur(8px)}
 .approach-chip.in{transform:translate(-50%, 0);opacity:1}
 .approach-chip .ac-bullet{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 9px/1 var(--mono);letter-spacing:.04em;color:#fff;flex:0 0 26px}
@@ -351,24 +351,72 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 /* ---------- v2.9 · FOUNDER DIALOG (click-to-expand bio) ---------- */
 .founder-open{margin-top:18px;display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--carbon);color:var(--carbon);padding:10px 16px;border-radius:999px;font:600 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .25s var(--ease), color .25s var(--ease)}
 .founder-open:hover{background:var(--carbon);color:var(--paper)}
-.founder-dialog{border:none;padding:0;max-width:720px;width:calc(100% - 36px);max-height:88vh;border-radius:14px;background:var(--paper);color:var(--carbon);box-shadow:0 30px 80px -10px rgba(0,0,0,.45);overflow:hidden}
-.founder-dialog::backdrop{background:rgba(14,14,16,.62);backdrop-filter:blur(4px)}
-.founder-dialog .fd-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid rgba(14,14,16,.1);background:var(--paper);z-index:2}
-.founder-dialog .fd-head .fd-tag{font:500 10px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--slate);display:flex;align-items:center;gap:8px}
-.founder-dialog .fd-head .fd-tag::before{content:"";width:18px;height:1px;background:var(--red)}
+/* v2.26 · Founder dialog — editorial Vignelli-tribute spread.
+   v2.27 · Bio · Timeline · Voices + Pokémon stats. Centered explicitly. */
+.founder-dialog{border:none;padding:0;max-width:1040px;width:calc(100% - 36px);max-height:92vh;border-radius:6px;background:var(--paper);color:var(--carbon);box-shadow:0 40px 100px -20px rgba(0,0,0,.55), 0 0 0 1px rgba(14,14,16,.08);overflow:hidden;margin:auto;inset:0}
+.founder-dialog::backdrop{background:rgba(14,14,16,.72);backdrop-filter:blur(8px)}
+.founder-dialog .fd-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-bottom:1px solid rgba(14,14,16,.1);background:var(--paper);z-index:2}
+.founder-dialog .fd-head .fd-tag{font:500 10px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--slate);display:flex;align-items:center;gap:10px}
+.founder-dialog .fd-head .fd-tag::before{content:"";width:24px;height:1px;background:var(--red)}
 .founder-dialog .fd-close{width:34px;height:34px;border-radius:50%;border:1px solid rgba(14,14,16,.18);background:transparent;cursor:pointer;font:400 22px/1 var(--display);color:var(--carbon);display:grid;place-items:center;transition:all .2s var(--ease)}
 .founder-dialog .fd-close:hover{background:var(--carbon);color:var(--paper);border-color:var(--carbon)}
-.founder-dialog .fd-body{padding:32px 36px 44px;overflow-y:auto;max-height:calc(88vh - 72px)}
-.founder-dialog h2{font:800 clamp(28px,3vw,42px)/1.05 var(--display);letter-spacing:-.025em;margin-bottom:6px}
-.founder-dialog .fd-byline{font:500 11px/1.4 var(--mono);color:var(--red);letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;display:block}
-.founder-dialog h3{font:700 16px/1.3 var(--display);letter-spacing:-.01em;margin:30px 0 10px;display:flex;align-items:center;gap:10px}
-.founder-dialog h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--gold);flex:0 0 14px}
-.founder-dialog h3:nth-of-type(2)::before{background:var(--purple)}
-.founder-dialog h3:nth-of-type(3)::before{background:var(--royal)}
-.founder-dialog h3:nth-of-type(4)::before{background:var(--green)}
-.founder-dialog p{font:500 14.5px/1.65 var(--display);color:var(--ink);margin-bottom:14px;max-width:62ch}
-.founder-dialog .fd-creds{display:flex;flex-direction:column;gap:6px;margin-top:8px;padding:14px 16px;background:rgba(14,14,16,.04);border-radius:10px;font:500 12.5px/1.4 var(--mono);color:var(--slate)}
-@media (max-width:680px){.founder-dialog .fd-body{padding:24px 22px 36px}.founder-dialog h2{font-size:26px}}
+.founder-dialog .fd-body{padding:48px 56px 56px;overflow-y:auto;max-height:calc(92vh - 60px)}
+
+/* Hero block: byline · big name · lead paragraph */
+.founder-dialog .fd-hero{margin-bottom:48px;border-bottom:1px solid rgba(14,14,16,.18);padding-bottom:36px}
+.founder-dialog .fd-byline{font:500 10px/1.4 var(--mono);color:var(--red);letter-spacing:.28em;text-transform:uppercase;margin-bottom:14px;display:block}
+.founder-dialog h2{font:800 clamp(36px,5.4vw,68px)/1 var(--display);letter-spacing:-.035em;margin-bottom:22px}
+.founder-dialog .fd-lead{font:400 italic clamp(17px,1.7vw,21px)/1.55 var(--serif);color:var(--ink);max-width:54ch;margin:0}
+
+/* 3-column body — Bio · Achievements · Voices */
+.founder-dialog .fd-cols{display:grid;grid-template-columns:repeat(3, 1fr);gap:32px;margin-bottom:48px}
+.founder-dialog .fd-col h3{font:700 16px/1.2 var(--display);letter-spacing:-.005em;margin-bottom:14px;padding-bottom:8px;border-bottom:1.5px solid var(--carbon);display:inline-block}
+.founder-dialog .fd-col p{font:500 13px/1.6 var(--display);color:var(--ink);margin-bottom:12px;max-width:none}
+.founder-dialog .fd-col p strong{font-weight:600;color:var(--carbon)}
+.founder-dialog .fd-col ul{list-style:none;font:500 12.5px/1.6 var(--display);color:var(--ink);padding:0}
+.founder-dialog .fd-col ul li{padding:5px 0;border-bottom:1px dashed rgba(14,14,16,.12);display:flex;justify-content:space-between;gap:10px}
+.founder-dialog .fd-col ul li:last-child{border-bottom:none}
+.founder-dialog .fd-col ul li small{font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--slate);text-transform:uppercase;flex-shrink:0;align-self:center}
+.founder-dialog .fd-col blockquote{font:400 italic 13.5px/1.55 var(--serif);color:var(--ink);margin:0 0 18px 0;padding-left:14px;border-left:2px solid var(--gold);max-width:none}
+.founder-dialog .fd-col blockquote cite{display:block;margin-top:6px;font:500 10px/1.3 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate);font-style:normal}
+.founder-dialog .fd-col a{color:var(--royal);text-decoration:underline;text-underline-offset:3px}
+
+/* v2.27 · Timeline list inside Timeline column */
+.founder-dialog .fd-timeline{list-style:none;padding:0;margin:0}
+.founder-dialog .fd-timeline li{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:10px 0;border-bottom:1px dashed rgba(14,14,16,.14);align-items:start}
+.founder-dialog .fd-timeline li:last-child{border-bottom:none}
+.founder-dialog .fd-timeline li small{font:600 11px/1.2 var(--mono);letter-spacing:.12em;color:var(--red);text-transform:uppercase;align-self:start;margin-top:2px}
+.founder-dialog .fd-timeline li span{font:500 12.5px/1.55 var(--display);color:var(--ink)}
+.founder-dialog .fd-timeline li span em{font-family:var(--serif);font-style:italic;color:var(--slate);font-weight:400}
+
+/* Small intro note inside a column */
+.founder-dialog .fd-col-note{font:500 italic 12px/1.45 var(--serif);color:var(--slate);margin-bottom:14px;max-width:none}
+
+/* Pokémon-card stats — full-width grid below the 3-col body */
+.founder-dialog .fd-stats{margin-top:36px;padding-top:32px;border-top:1px solid rgba(14,14,16,.18)}
+.founder-dialog .fd-stats h3{font:700 16px/1.2 var(--display);letter-spacing:-.005em;margin-bottom:18px;padding-bottom:8px;border-bottom:1.5px solid var(--carbon);display:inline-block}
+.founder-dialog .fd-stat-grid{display:grid;grid-template-columns:repeat(8, 1fr);gap:10px;margin-bottom:14px}
+.founder-dialog .fd-stat-card{padding:14px 12px;background:rgba(255,255,255,.5);border:1px solid rgba(14,14,16,.16);border-radius:8px;display:flex;flex-direction:column;gap:6px;min-height:90px;transition:transform .25s var(--ease), box-shadow .25s var(--ease)}
+.founder-dialog .fd-stat-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px -10px rgba(14,14,16,.25)}
+.founder-dialog .fd-stat-card .n{font:800 22px/1 var(--display);letter-spacing:-.02em;color:var(--carbon)}
+.founder-dialog .fd-stat-card .l{font:500 9px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-top:auto}
+.founder-dialog .fd-stats-note{font:500 11px/1.4 var(--mono);letter-spacing:.04em;color:var(--slate);font-style:italic;display:block;margin-top:4px}
+@media (max-width:880px){
+  .founder-dialog .fd-stat-grid{grid-template-columns:repeat(4, 1fr)}
+}
+@media (max-width:520px){
+  .founder-dialog .fd-stat-grid{grid-template-columns:repeat(2, 1fr)}
+}
+
+@media (max-width:880px){
+  .founder-dialog .fd-body{padding:36px 28px 44px}
+  .founder-dialog .fd-cols{grid-template-columns:1fr;gap:36px}
+  .founder-dialog .fd-col h3{font-size:18px}
+}
+@media (max-width:520px){
+  .founder-dialog h2{font-size:32px}
+  .founder-dialog .fd-body{padding:28px 20px 36px}
+}
 
 /* ---------- v2.9 · ROSTER CAROUSEL (scroll-snap, native trackpad) ---------- */
 .roster-stage{position:relative}
@@ -465,12 +513,13 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 .ic-longform a:hover{color:var(--carbon);text-decoration-color:var(--carbon)}
 
 /* v2.18 · TRAIN STRIP — divider between sections.
-   v2.23 · transparent strip (no paper bg, no borders), bigger train again. */
-.train-strip{position:relative;background:transparent;height:720px;overflow:hidden}
+   v2.26 · trimmed top space (was 720px → 580px). Train still bottom-anchored. */
+.train-strip{position:relative;background:transparent;height:580px;overflow:hidden}
 .train-strip-tag{position:absolute;top:24px;left:28px;font:500 11px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--slate);z-index:3;display:inline-flex;align-items:center;gap:10px}
 .train-strip-tag::before{content:"";width:30px;height:1px;background:var(--carbon)}
-/* v2.25 · bottom-anchored to match the .mov reference (train sits at the bottom of the strip) */
-.train-img{position:absolute;bottom:-30px;height:600px;width:auto;will-change:left;z-index:2;filter:drop-shadow(0 40px 50px rgba(14,14,16,.18));left:50vw;transition:left .15s linear}
+/* v2.25 · bottom-anchored to match the .mov reference (train sits at the bottom of the strip)
+   v2.26 · trimmed train height to match smaller strip */
+.train-img{position:absolute;bottom:-25px;height:520px;width:auto;will-change:left;z-index:2;filter:drop-shadow(0 36px 46px rgba(14,14,16,.18));left:50vw;transition:left .15s linear}
 /* Auto-loop fallback if JS scroll-drive hasn't initialised */
 .train-strip:not([data-scroll-driven]) .train-img{
   animation: train-pass 36s linear infinite;
@@ -568,10 +617,28 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   .ic-slide h3{font-size:32px}
 }
 
-/* v2.15 · SCROLL LOCK — Apple-style pin & advance */
+/* v2.15 · SCROLL LOCK — Apple-style pin & advance
+   v2.30 · paper-texture backdrop removed (didn't read right). Replaced with a
+   scroll-driven cricket-ball delivery — bowling action from top-right to
+   bottom-left as the carousel advances. Story-narrating, on-brand. */
 .scroll-lock-wrapper{position:relative}
 .scroll-lock-sticky{position:relative}
+.ishant-carousel{position:relative;z-index:2}
+/* Quiet the section's threads inside this zone so the ball + carousel pop */
+#our-people .thread-canvas{opacity:.32}
 .scroll-lock-skip{display:none}
+
+/* Cricket-ball delivery layer */
+.cricket-delivery{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.cricket-ball{position:absolute;width:44px;height:44px;left:88%;top:6%;transform:translate(-50%,-50%) rotate(0deg);will-change:left,top,transform;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5));transition:left .12s linear, top .12s linear}
+.cricket-ball-trail{position:absolute;left:88%;top:6%;width:3px;height:140px;background:linear-gradient(to bottom, rgba(221,61,56,.5), rgba(221,61,56,0));transform:translate(-50%,-100%) rotate(45deg);transform-origin:top center;opacity:.55;transition:left .12s linear, top .12s linear, transform .25s var(--ease)}
+@media (max-width:980px){
+  .cricket-ball{width:32px;height:32px}
+  .cricket-ball-trail{height:90px}
+}
+@media (prefers-reduced-motion: reduce){
+  .cricket-ball,.cricket-ball-trail{display:none}
+}
 @media (min-width:1080px) and (prefers-reduced-motion: no-preference){
   .scroll-lock-wrapper.scroll-lock-active{height:600vh}
   .scroll-lock-wrapper.scroll-lock-active .scroll-lock-sticky{
@@ -622,16 +689,28 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
    Pattern reused by every Tier 1 case (Ishant first; Slay,
    YYC, Andreas, Ophelia, Rooh, Khubani, Arista Vault to follow).
    ============================================================ */
-.case-dialog{border:none;padding:0;width:calc(100% - 32px);max-width:920px;max-height:92vh;border-radius:14px;background:var(--paper);color:var(--carbon);box-shadow:0 30px 80px -10px rgba(0,0,0,.5);overflow:hidden}
+/* v2.29 · case-dialog matched to founder-dialog look — same dimensions, padding, frame.
+   Editorial Vignelli-tribute spread, just for case studies. */
+.case-dialog{border:none;padding:0;width:calc(100% - 36px);max-width:1040px;max-height:92vh;border-radius:6px;background:var(--paper);color:var(--carbon);box-shadow:0 40px 100px -20px rgba(0,0,0,.55), 0 0 0 1px rgba(14,14,16,.08);overflow:hidden;margin:auto;inset:0}
 .case-dialog::backdrop{background:rgba(14,14,16,.72);backdrop-filter:blur(6px)}
-.case-dialog .cd-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;background:var(--paper);border-bottom:1px solid rgba(14,14,16,.1);z-index:5}
+.case-dialog .cd-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:16px 28px;background:var(--paper);border-bottom:1px solid rgba(14,14,16,.1);z-index:5}
 .case-dialog .cd-tag{font:500 10px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--slate);display:flex;align-items:center;gap:8px}
 .case-dialog .cd-tag::before{content:"";width:18px;height:1px;background:var(--royal)}
 .case-dialog .cd-close{width:34px;height:34px;border-radius:50%;border:1px solid rgba(14,14,16,.18);background:transparent;cursor:pointer;font:400 22px/1 var(--display);color:var(--carbon);display:grid;place-items:center;transition:all .2s var(--ease)}
 .case-dialog .cd-close:hover{background:var(--carbon);color:var(--paper);border-color:var(--carbon)}
 .case-dialog .cd-body{overflow-y:auto;max-height:calc(92vh - 60px)}
 
-/* Hero · banner with cut-out talent on color bg */
+/* v2.29 · COLLAGE HERO — replaces single-portrait covers with a collage of
+   creator circles (bg-removed PNGs at varied scales when available). On a
+   dark gradient base; reads as a magazine cover. */
+.cd-hero-collage{position:relative;overflow:hidden;aspect-ratio:5/3;min-height:340px;max-height:60vh;display:flex;align-items:flex-end;background:linear-gradient(135deg,#1f4d8c 0%,#0e0e10 50%,#dd3d38 100%)}
+.cd-hero-collage::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(245,176,21,.18) 0%,transparent 60%);z-index:1;pointer-events:none}
+.cdh-creator{position:absolute;z-index:2;display:grid;place-items:center;border-radius:50%;aspect-ratio:1;color:#fff;font:600 10px/1.2 var(--mono);letter-spacing:.04em;text-align:center;padding:10%;box-shadow:0 12px 24px -8px rgba(0,0,0,.45),0 0 0 2px rgba(244,239,224,.15) inset;transition:transform .5s var(--ease);overflow:hidden}
+.cdh-creator img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
+.cdh-creator:hover{transform:translateY(-6px) scale(1.04)}
+.cd-hero-collage .cd-hero-text{position:relative;z-index:3;padding:32px 36px;color:#fff;max-width:62%;background:linear-gradient(to right,rgba(14,14,16,.8) 0%,rgba(14,14,16,.4) 80%,transparent 100%)}
+
+/* Hero · banner with cut-out talent on color bg (existing pattern, used by Ishant) */
 .cd-hero{position:relative;background:var(--royal);overflow:hidden;aspect-ratio:5/3;min-height:280px;max-height:60vh;display:flex;align-items:flex-end}
 .cd-hero img{position:absolute;right:0;top:0;bottom:0;height:100%;width:auto;max-width:60%;object-fit:contain;object-position:right bottom;display:block}
 .cd-hero .cd-hero-text{position:relative;z-index:2;padding:36px 36px 32px;color:#fff;max-width:60%}
@@ -673,7 +752,20 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 .cd-sister .cd-sister-arrow{font:400 22px/1 var(--display);opacity:.8}
 
 /* Closing hero · "End of the line" */
-.cd-close-hero{margin-top:40px;padding:48px 36px;background:var(--carbon);color:var(--paper);text-align:center;position:relative;overflow:hidden}
+/* v2.29 · MAGNET FORM at end of every case modal — newsletter / consultation funnel */
+.cd-magnet{margin-top:24px;display:flex;flex-direction:column;gap:10px;align-items:center;max-width:540px;margin-left:auto;margin-right:auto}
+.cd-magnet form{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:100%}
+.cd-magnet input{flex:1 1 240px;min-width:0;padding:12px 18px;font:500 14px/1.2 var(--display);background:rgba(244,239,224,.08);border:1.5px solid rgba(244,239,224,.32);border-radius:999px;color:var(--paper);outline:none;transition:all .25s var(--ease)}
+.cd-magnet input::placeholder{color:rgba(244,239,224,.45)}
+.cd-magnet input:focus{border-color:var(--gold);background:rgba(244,239,224,.14)}
+.cd-magnet button{padding:12px 22px;font:600 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--carbon);border:1.5px solid var(--gold);border-radius:999px;cursor:pointer;transition:all .25s var(--ease)}
+.cd-magnet button:hover{background:transparent;color:var(--gold)}
+.cd-magnet button:disabled{opacity:.5;cursor:not-allowed}
+.cd-magnet-alt{font:500 11px/1.4 var(--mono);letter-spacing:.04em;color:rgba(244,239,224,.62);margin-top:4px}
+.cd-magnet-alt a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.cd-magnet-msg{font:500 11px/1.4 var(--mono);color:var(--gold);min-height:14px;text-align:center}
+
+.cd-close-hero{margin-top:40px;padding:48px 36px 56px;background:var(--carbon);color:var(--paper);text-align:center;position:relative;overflow:hidden}
 .cd-close-hero::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(to right,var(--royal),var(--gold),var(--red),var(--green))}
 .cd-close-hero .cd-close-tag{font:500 10px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:rgba(244,239,224,.6);margin-bottom:14px;display:block}
 .cd-close-hero h4{font:800 clamp(20px,2.4vw,28px)/1.25 var(--display);letter-spacing:-.02em;max-width:36ch;margin:0 auto 14px;color:#fff}
@@ -761,13 +853,21 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 <!-- =================== NAV =================== -->
 <nav class="nav" id="nav">
   <a class="logo" href="#top">
-    <span class="logo-mark" aria-hidden="true" title="placeholder — drop your real logo into website-v2/ as logo.svg or logo.png">
-      <svg viewBox="0 0 24 24"><text x="12" y="17.5" text-anchor="middle" font-family="Instrument Serif, serif" font-style="italic" font-weight="400" font-size="18" fill="currentColor">98</text></svg>
+    <span class="logo-mark" aria-hidden="true" title="98 · Ninety-Eight Entertainment">
+      <svg viewBox="0 0 56 28" xmlns="http://www.w3.org/2000/svg" aria-label="98 logo">
+        <circle cx="14" cy="14" r="13" fill="#DD3D38"/>
+        <text x="14" y="20" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="900" font-size="17" fill="#fff">9</text>
+        <circle cx="42" cy="14" r="13" fill="#2F9E5E"/>
+        <text x="42" y="20" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="900" font-size="17" fill="#fff">8</text>
+      </svg>
     </span>
     <span>Ninety-Eight<br><small>Entertainment · since 2020</small></span>
   </a>
   <ul>
-    <li><a href="#our-people" class="active">Our People</a></li>
+    <li><a href="#our-people" class="active">Roster</a></li>
+    <li><a href="#featured-cases">Cases</a></li>
+    <li><a href="#selected-clients">Clients</a></li>
+    <li><a href="#brand-partners">Brands</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
   </ul>
@@ -888,18 +988,21 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       </div>
     </div>
 
-    <aside class="timeline" aria-label="Studio timeline">
-      <h3>Studio · Notes</h3>
+    <!-- v2.27 · Studio Notes replaced: timeline moved into the founder dialog;
+         hero sidebar now lists what we move daily — 7 service lines. -->
+    <aside class="timeline" aria-label="Services">
+      <h3>Studio · Lines</h3>
       <p class="quote">
-        "If you can design one thing, you can design everything."
-        <small>— MASSIMO VIGNELLI, OUR PATRON SAINT</small>
+        Seven lines out of the station. Each one gets your business somewhere it couldn't get on its own.
+        <small>// 98 · WHAT WE MOVE</small>
       </p>
-      <div class="tl-row" data-reveal><div class="yr">2020</div><div class="ev">Founded in Delhi NCR. The practice takes shape around restaurants and direct-to-consumer brands.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2021</div><div class="ev">Sports practice opens. Pratima Singh — captain of the Indian basketball side — joins as the first talent client.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2022</div><div class="ev">Ishant Sharma signs as exclusive talent. Roster expands across Delhi NCR, Bombay, Bangalore.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2023</div><div class="ev">55+ brands on the book. Studio paused.</div></div>
-      <div class="tl-row" data-reveal><div class="yr">2024–25</div><div class="ev">ISB MBA. New tools — corporate finance, strategy, market research, organisation design. <em>Frameworks before scale.</em></div></div>
-      <div class="tl-row" data-reveal><div class="yr">2026</div><div class="ev">98 v2.0 — a creative powerhouse. <em>Same conviction. Sharper craft. Broader services.</em></div></div>
+      <div class="tl-row" data-reveal><div class="yr">01</div><div class="ev">Strategy</div></div>
+      <div class="tl-row" data-reveal><div class="yr">02</div><div class="ev">Consulting</div></div>
+      <div class="tl-row" data-reveal><div class="yr">03</div><div class="ev">Marketing</div></div>
+      <div class="tl-row" data-reveal><div class="yr">04</div><div class="ev">Advertising</div></div>
+      <div class="tl-row" data-reveal><div class="yr">05</div><div class="ev">Execution</div></div>
+      <div class="tl-row" data-reveal><div class="yr">06</div><div class="ev">Financial Modeling</div></div>
+      <div class="tl-row" data-reveal><div class="yr">07</div><div class="ev">Market Research</div></div>
     </aside>
   </div>
 
@@ -924,7 +1027,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag"><span class="bullet" style="background:var(--royal)">RP</span> Our roster · Tier 1 cases</span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--royal)">RP</span> Our Roster</span>
         <h2>People that we have <em>spoken for.</em></h2>
       </div>
       <p class="note">One athlete at the centre. Six restaurants on the line. Seventeen brands in the book. The rest is below — a logo wall of selected clients, none of whom got there because we were cheap.</p>
@@ -935,6 +1038,26 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
          and converts vertical scroll into horizontal slide advance, Apple-style.
          Mobile + reduced-motion fall through to native swipe. -->
     <div class="scroll-lock-wrapper" id="ishant-scroll-lock">
+
+    <!-- v2.30 · Cricket ball delivery — scroll-driven from top-right to bottom-left
+         as the user moves through the Ishant carousel. Subtle motion-blur trail. -->
+    <div class="cricket-delivery" aria-hidden="true">
+      <span class="cricket-ball-trail" id="cricket-ball-trail"></span>
+      <svg class="cricket-ball" id="cricket-ball" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="ballGrad" cx="35%" cy="32%" r="65%">
+            <stop offset="0%" stop-color="#dd5852"/>
+            <stop offset="55%" stop-color="#a8231e"/>
+            <stop offset="100%" stop-color="#6e1410"/>
+          </radialGradient>
+        </defs>
+        <circle cx="22" cy="22" r="20" fill="url(#ballGrad)" stroke="#4a0c08" stroke-width="0.6"/>
+        <path d="M 4 22 Q 22 14 40 22" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="2.4 1.6" opacity="0.85"/>
+        <path d="M 4 22 Q 22 30 40 22" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="2.4 1.6" opacity="0.85"/>
+        <ellipse cx="14" cy="14" rx="4" ry="2.2" fill="rgba(255,255,255,.18)"/>
+      </svg>
+    </div>
+
     <a class="scroll-lock-skip" id="scroll-lock-skip" href="#featured-cases" aria-label="Skip the Ishant case and continue to Featured Cases">
       <span class="slp" aria-hidden="true"></span>
       Skip to next case ↓
@@ -1069,7 +1192,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
             </div>
           </a>
 
-          <a class="fc-card" href="#case-yyc-group" aria-label="YYC Group — TBSP, Pot Pot, Wheaty — case study coming soon">
+          <a class="fc-card" href="#case-yyc-group" data-case="yyc-group" aria-label="YYC Group — TBSP, Pot Pot, Wheaty — open case study">
             <span class="fc-stripe" style="background:var(--green)"></span>
             <span class="fc-cover is-text"><span class="fc-mark">YYC</span><span class="fc-marksub">TBSP · Pot Pot · Wheaty</span></span>
             <div class="fc-body">
@@ -1080,7 +1203,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
             </div>
           </a>
 
-          <a class="fc-card" href="#case-andreas" aria-label="Andreas — case study coming soon">
+          <a class="fc-card" href="#case-andreas" data-case="andreas" aria-label="Andreas — open case study">
             <span class="fc-stripe" style="background:var(--royal)"></span>
             <span class="fc-cover"><img loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span>
             <div class="fc-body">
@@ -1127,7 +1250,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
         </div>
       </div>
 
-      <div class="ws-block reveal">
+      <div class="ws-block reveal" id="selected-clients">
         <div class="ws-head">
           <h3>Hospitality · Selected Clients</h3>
           <span class="ws-count">51 restaurants, cafes &amp; bars · 43 with cover work shown · including the 6 featured above</span>
@@ -1187,7 +1310,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
         </div>
       </div>
 
-      <div class="ws-block reveal" style="margin-top:48px">
+      <div class="ws-block reveal" id="brand-partners" style="margin-top:48px">
         <div class="ws-head">
           <h3>Brand Partners</h3>
           <span class="ws-count">17 brands across D2C, FMCG, ed-tech, gaming &amp; equity collabs · 3 with cover work shown</span>
@@ -1222,7 +1345,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag"><span class="bullet" style="background:var(--red)">SV</span> Services · SV Line</span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--red)">SV</span> Services</span>
         <h2>What we move. <em>Daily.</em></h2>
       </div>
       <p class="note">Seven lines out of the station. Each one gets your business somewhere it couldn't get on its own. We don't do operational consulting — that's not our thing.</p>
@@ -1283,7 +1406,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag"><span class="bullet" style="background:var(--pink)">AU</span> About · AU Line</span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--pink)">AU</span> About</span>
         <h2>A small studio with <em>a big timetable.</em></h2>
       </div>
       <p class="note">Process-based, integrated, impact-oriented. Mostly, punctual.</p>
@@ -1348,9 +1471,9 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
           <span class="ps-pub">Josh Talk</span>
           <span class="ps-meta">Stage · Founder Story</span>
         </a>
-        <a class="ps-card" href="#" data-podcast-url="" aria-label="Podcast appearance — to be linked">
-          <span class="ps-img is-text" style="background:var(--royal);color:var(--paper)"><em>Podcast<br>·</em></span>
-          <span class="ps-pub">Podcast · TBD</span>
+        <a class="ps-card" href="https://youtu.be/2VKot2RhlbM" target="_blank" rel="noopener" aria-label="Podcast appearance — Harsh Arya on YouTube">
+          <span class="ps-img"><img loading="lazy" src="https://img.youtube.com/vi/2VKot2RhlbM/hqdefault.jpg" alt="Podcast appearance thumbnail"></span>
+          <span class="ps-pub">YouTube · Podcast</span>
           <span class="ps-meta">Long-form · Conversation</span>
         </a>
         <a class="ps-card" href="#" data-podcast-url="" aria-label="Podcast appearance — to be linked">
@@ -1435,28 +1558,77 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     <button type="button" class="fd-close" aria-label="Close">×</button>
   </header>
   <div class="fd-body">
-    <h2 id="fd-title">Harsh Arya</h2>
-    <span class="fd-byline">Founder · Ninety-Eight</span>
+    <!-- Hero block: byline · name · lead -->
+    <div class="fd-hero">
+      <span class="fd-byline">Founder · Ninety-Eight Entertainment</span>
+      <h2 id="fd-title">Harsh Arya</h2>
+      <p class="fd-lead">Engineer by training, operator by trade. Built and ran 98 from a 250-sq-ft Greater Noida office between 2020 and 2023 — first pitch made on the very first day of the decade, in a midnight conversation at a nightclub. Paused in 2024 for an ISB MBA, came back with a partner. Now running v2.0 as a creative powerhouse — on its own terms. <em>The agency is me. The agency is also a collective for the culture.</em></p>
+    </div>
 
-    <p>Engineer by training, operator by trade. Started 98 on the very first day of the decade — a 20-year-old turning a midnight conversation at a Greater Noida nightclub into a contract for social, design and branding. Built and ran the practice from 2020 to 2023, scaling out of a 250-sq-ft office to 55+ active brands across sports, hospitality and D2C, and signing Indian Test bowler Ishant Sharma as exclusive talent in February 2022. Paused for the ISB MBA in 2024, met a partner who's now co-founding the v2.0 chapter — a creative powerhouse, on its own terms.</p>
+    <!-- Three-column body — Bio · Timeline · Voices -->
+    <div class="fd-cols">
 
-    <h3>Background</h3>
-    <p>Engineering undergrad with research time at Georgia Institute of Technology. Equal-parts artist before any of this — photography, filmmaking, design — with the visual sensibility that still anchors how 98 looks. MBA from the Indian School of Business. Reads widely across economics, design history and culture; travels often. Brings the equal halves of art and science to client work — equally at home in a brand-launch room and a three-statement model.</p>
+      <section class="fd-col">
+        <h3>Bio.</h3>
+        <p>Engineering undergrad with research time at <strong>Georgia Institute of Technology</strong>. Equal-parts artist before any of this — photography, filmmaking, design — the visual sensibility that still anchors how 98 looks.</p>
+        <p>MBA from the <strong>Indian School of Business</strong>. Reads widely across economics, design history and culture; travels often. Brings the equal halves of art and science to client work — equally at home in a brand-launch room and a three-statement model.</p>
+        <p><strong>The name 98 — three stories.</strong> The honest one: shooting a YouTube video with a friend (a dancer, now a YouTuber), we spotted "98" painted in white on a grey wall in Delhi. I told him: whenever I start something, I'm calling it 98. The shorthand one: <strong>1997</strong>, the cusp year — anyone born after is part of the same Gen&nbsp;Z generational frame. The third stays internal, for clients who ask in person.</p>
+        <p><strong>Beyond 98.</strong> Founded <a href="https://genz-economics.com/" target="_blank" rel="noopener">Gen&nbsp;Z Economics</a> — a research-led blog given back to ISB's Centre for Finance, with Professor Tantri and the Finance Club taking over stewardship. VP at <strong>DEWS</strong>, a family-led education organisation. Authored a documentary on influencer culture; working on a playbook for early-career founders.</p>
+      </section>
 
-    <h3>Writing &amp; thought leadership</h3>
-    <p>Founded <a href="https://genz-economics.com/" target="_blank" rel="noopener"><strong>Gen Z Economics</strong></a>, a research-led blog given back to ISB's Centre for Finance — Professor Tantri and the Finance Club take over stewardship as the practice grows. Authored a documentary on influencer culture and the creator economy. Working on a forthcoming playbook for early-career founders.</p>
+      <section class="fd-col">
+        <h3>Timeline.</h3>
+        <ul class="fd-timeline">
+          <li><small>2020</small><span>Founded in Delhi NCR. The practice takes shape around restaurants and direct-to-consumer brands.</span></li>
+          <li><small>2021</small><span>Sports practice opens. Pratima Singh — captain of the Indian basketball side — joins as the first talent client.</span></li>
+          <li><small>2022</small><span>Ishant Sharma signs as exclusive talent. RuPay × IPL lead campaign. Roster expands across Delhi NCR, Bombay, Bangalore.</span></li>
+          <li><small>2023</small><span>55+ brands on the book. Studio paused.</span></li>
+          <li><small>2024–25</small><span>ISB MBA. New tools — corporate finance, strategy, market research, organisation design. <em>Frameworks before scale.</em></span></li>
+          <li><small>2026</small><span>98 v2.0 — a creative powerhouse. <em>Same conviction. Sharper craft. Broader services.</em></span></li>
+        </ul>
+      </section>
 
-    <h3>Beyond 98</h3>
-    <p>VP at <strong>DEWS</strong> — a family-led education organisation that runs a school and a college. Education has always been the long game in the family; this is the operating end of it.</p>
+      <section class="fd-col">
+        <h3>Voices.</h3>
+        <p class="fd-col-note">Words from clients, mentors, and people who've sat on the other side of the table.</p>
+        <blockquote>
+          [Placeholder — quote from <strong>Suryan Chagarwal</strong>, Director, Hashtag Group]
+          <cite>— Suryan Chagarwal · Director, Hashtag Group</cite>
+        </blockquote>
+        <blockquote>
+          [Placeholder — quote from <strong>Ishant Sharma</strong>]
+          <cite>— Ishant Sharma · Indian Test Bowler</cite>
+        </blockquote>
+        <blockquote>
+          [Placeholder — quote from <strong>Pratima Singh</strong>]
+          <cite>— Pratima Singh · Captain, Indian Basketball</cite>
+        </blockquote>
+        <blockquote>
+          [Placeholder — quote from <strong>Manish Pandey Bhaiya</strong>]
+          <cite>— Manish Pandey · Mentor</cite>
+        </blockquote>
+        <blockquote>
+          [Placeholder — quote from <strong>Professor Tantri</strong>]
+          <cite>— Prof. Tantri · ISB Centre for Finance</cite>
+        </blockquote>
+      </section>
 
-    <h3>The name "98"</h3>
-    <p>Three stories, one name. The honest one: shooting a YouTube video with a friend — a dancer, now a YouTuber, both of us hooked on hip-hop, arts and music — when we spotted "98" painted in white on a grey wall, somewhere in Delhi. I told him: whenever I start something, I'm calling it 98. The shorthand one: <strong>1997</strong>, the cusp year — anyone born after is part of the same Gen Z generational frame, and I am one. We have a unique voice, we inherit a chaotic but unprecedentedly stable world, and our generation has the resources, sensitivity and information to do a lot of good. The third stays internal, for clients who ask in person.</p>
+    </div>
 
-    <div class="fd-creds">
-      Indian School of Business · MBA<br>
-      Georgia Institute of Technology · Engineering &amp; Research<br>
-      Founder · Gen Z Economics<br>
-      VP · DEWS (Education)
+    <!-- Pokémon-card stats — absurd metrics on the operator -->
+    <div class="fd-stats">
+      <h3>The Operator · Stats.</h3>
+      <div class="fd-stat-grid">
+        <div class="fd-stat-card"><span class="n" data-source="goodreads">—</span><span class="l">Books on Goodreads</span></div>
+        <div class="fd-stat-card"><span class="n" data-source="letterboxd">—</span><span class="l">Films tracked</span></div>
+        <div class="fd-stat-card"><span class="n">22</span><span class="l">Cities visited</span></div>
+        <div class="fd-stat-card"><span class="n">5,400+</span><span class="l">Cups of coffee</span></div>
+        <div class="fd-stat-card"><span class="n">3</span><span class="l">Studios opened</span></div>
+        <div class="fd-stat-card"><span class="n">55+</span><span class="l">Brands shipped</span></div>
+        <div class="fd-stat-card"><span class="n">1</span><span class="l">Patron saint</span></div>
+        <div class="fd-stat-card"><span class="n">∞</span><span class="l">Trains caught</span></div>
+      </div>
+      <small class="fd-stats-note">Goodreads + Letterboxd numbers update by hand for now — a small cron is on the roadmap.</small>
     </div>
   </div>
 </dialog>
@@ -1591,11 +1763,252 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       </a>
     </section>
 
-    <!-- Closing hero -->
+    <!-- Closing hero — magnet -->
     <div class="cd-close-hero">
       <span class="cd-close-tag">Terminus · End of the v1 chapter</span>
       <h4>We didn't manage Ishant's calendar. We built and ran his personal brand as a product.</h4>
       <p>The numbers above are the receipts. The ones we don't show — equity participation, deal value, structural learning — are what we brought into v2.0.</p>
+      <div class="cd-magnet">
+        <form data-magnet="case-ishant-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+
+  </div>
+</dialog>
+
+<!-- ====================================================================
+     v2.28 · CASE STUDY · YUM YUM CHA GROUP — TBSP + Pot Pot + Wheaty
+     2023 awards year. Two posts confirm: TBSP won Best Italian Casual Dining
+     (Times Food Awards 2023, March '23). YYC parent won Best Asian Casual
+     Dining (Delhi) + Best Pan Asian Restaurant in India (UNLIMIT 2023, Apr '23).
+     Plus Ishant's Delhi Capitals podcast shoutout — talent activation.
+     ==================================================================== -->
+<dialog id="case-yyc-group" class="case-dialog" aria-labelledby="cd-yyc-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · YYC Group</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <!-- v2.30 · Collage hero — three sister brands as the central circles +
+         real creator handles mined from each brand's IG highlight. -->
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:8%;width:128px;background:#2f9e5e;font-size:13px">TBSP</span>
+      <span class="cdh-creator" style="bottom:24%;right:22%;width:96px;background:#dd3d38;font-size:12px">Pot Pot</span>
+      <span class="cdh-creator" style="bottom:5%;right:36%;width:118px;background:#f5b015;color:#0e0e10;font-size:13px">Wheaty</span>
+      <span class="cdh-creator" style="bottom:22%;right:50%;width:96px;background:#1f4d8c">@shabostoc</span>
+      <span class="cdh-creator" style="bottom:6%;right:64%;width:108px;background:#b933ad">@nanditamiglani</span>
+      <span class="cdh-creator" style="bottom:24%;right:78%;width:88px;background:#ff6319">@ningladheer</span>
+      <span class="cdh-creator" style="bottom:8%;right:88%;width:78px;background:#46286a">@soumyapuri</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Restaurant Group · 2022–23</span>
+        <h2 id="cd-yyc-title">Yum Yum Cha Group</h2>
+        <p class="cd-hero-sub">Three brands. One operating playbook. Two national awards in a single year.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 01 · The Group -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--green)"></span>The Group</h3>
+      <p class="cd-lead">Yum Yum Cha isn't a restaurant. It's a <em>restaurant group</em> — three distinct brands under one operator, each a different cuisine, each with its own room and audience.</p>
+      <div class="cd-stats">
+        <div class="cd-stat"><span class="n">TBSP</span><span class="l">Italian</span><span class="d">Tablespoon — casual fine dining</span></div>
+        <div class="cd-stat"><span class="n">Pot Pot</span><span class="l">Asian</span><span class="d">Pan-Asian, contemporary</span></div>
+        <div class="cd-stat"><span class="n">Wheaty</span><span class="l">Pizza · Bakery</span><span class="d">All-day, bread-led</span></div>
+      </div>
+      <p>The marketing problem when you run three brands: you can't speak in one voice. Each has its own audience, its own dish hero, its own night-out occasion. We treated them as three independent brand assignments under a single retainer — share the calendar, share the creator pool, but never share the voice.</p>
+    </section>
+
+    <!-- Chapter 02 · The Awards Year -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>The Awards Year</h3>
+      <p>2023 was the year the group's positioning paid off in industry validation.</p>
+      <div class="cd-stats">
+        <div class="cd-stat"><span class="n">TBSP</span><span class="l">Best Italian · Casual Dining (Delhi)</span><span class="d">Times Food Awards 2023</span></div>
+        <div class="cd-stat"><span class="n">YYC</span><span class="l">Best Asian · Casual Dining (Delhi)</span><span class="d">Times Food Awards 2023</span></div>
+        <div class="cd-stat"><span class="n">YYC</span><span class="l">Best Pan-Asian Restaurant in India</span><span class="d">UNLIMIT Awards 2023 · @zeezest</span></div>
+        <div class="cd-stat"><span class="n">3</span><span class="l">National awards</span><span class="d">in a single year</span></div>
+      </div>
+      <p>Two prestigious panels — Times Food Awards and UNLIMIT (zeezest) — recognised the group across two cuisines. Casual Italian and Casual Asian, both Delhi. Plus a national-best for Pan-Asian. <em>Awards aren't earned overnight; they're earned in the year of small consistent moves before the panel meets.</em> We were running social, PR and the deal-flow in the lead-up.</p>
+      <div class="cd-cite">
+        Press: <a href="https://www.instagram.com/p/CtE3hW0J2vt/" target="_blank" rel="noopener">YYC group congratulations post (Apr '23)</a> · <a href="https://www.instagram.com/p/Csbqx8Xp8Au/" target="_blank" rel="noopener">Tablespoon congratulations post (Mar '23)</a>
+      </div>
+    </section>
+
+    <!-- Chapter 03 · The Talent Activation -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--royal)"></span>The Talent Activation</h3>
+      <p>Awards do half the work. Talent activation does the other half. We engineered a moment where <strong>Ishant Sharma gave the YYC brands a shoutout on a Delhi Capitals podcast</strong> — earned media inside cricket-fan attention, the highest-trust channel for the audience the group's premium positioning was after.</p>
+      <p>This is the cross-pollination thesis behind 98: an exclusive talent contract isn't a single-property campaign asset. It's a relationship that opens doors for every other client on the book. Ishant didn't get a brief; he got a recommendation he was happy to make.</p>
+      <blockquote class="cd-pull">A restaurant doesn't need to advertise. It needs to be the place people who already have an audience naturally talk about.</blockquote>
+    </section>
+
+    <!-- Chapter 04 · The Playbook -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--red)"></span>The Playbook</h3>
+      <p class="cd-lead">If you operate a multi-brand restaurant group, here's how we ran YYC — replicable for any operator with three or more sister brands.</p>
+      <p><strong>One retainer, three voices.</strong> Don't merge the social pages. Each brand keeps its own handle, its own grid aesthetic, its own dish vocabulary. The retainer is shared; the voice is not.</p>
+      <p><strong>Share the creator pool.</strong> A food blogger who liked TBSP's burrata is a warm lead for Pot Pot's bao and Wheaty's sourdough. We logged every creator visit centrally so the next round was 30% cheaper to coordinate. <em>@shabostoc, for example, posted across all three brands inside a single quarter — the trust travelled with them.</em></p>
+      <p><strong>Stack the calendar.</strong> Run launches and seasonal pushes across brands so press conversations stay current — but never compete with each other in the same week.</p>
+      <p><strong>Position for awards from day one.</strong> Industry recognition is a cumulative argument. Document everything; the panel will read its way back through 12 months of work when nominations open.</p>
+      <p><strong>Cross-pollinate talent.</strong> A talent contract held by the agency is leverage for every brand client on the book — don't wall it off to the brand that's paying the talent fee.</p>
+    </section>
+
+    <!-- Chapter 05 · The Roster — real creator handles per brand, mined from IG -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">05</span><span class="cd-bullet" style="background:var(--orange)"></span>The Roster</h3>
+      <p>The shared creator pool, in practice. Each name below posted to their own audience, in their own voice, tagged to the brand's own handle — no scripted captions, no paid disclosures.</p>
+      <div class="cd-cite">
+        <strong>TBSP <a href="https://www.instagram.com/tbsp.tablespoon/" target="_blank" rel="noopener">@tbsp.tablespoon</a></strong> ·
+        <a href="https://www.instagram.com/jhalli_bypriasethi/" target="_blank" rel="noopener">@jhalli_bypriasethi</a> ·
+        <a href="https://www.instagram.com/whaaatislife/" target="_blank" rel="noopener">@whaaatislife</a> ·
+        <a href="https://www.instagram.com/sanagrover/" target="_blank" rel="noopener">@sanagrover</a> ·
+        <a href="https://www.instagram.com/nanditamiglani/" target="_blank" rel="noopener">@nanditamiglani</a> ·
+        <a href="https://www.instagram.com/varunverrma/" target="_blank" rel="noopener">@varunverrma</a> ·
+        <a href="https://www.instagram.com/shabostoc/" target="_blank" rel="noopener">@shabostoc</a>
+      </div>
+      <div class="cd-cite">
+        <strong>Pot Pot <a href="https://www.instagram.com/potpot.in/" target="_blank" rel="noopener">@potpot.in</a></strong> ·
+        <a href="https://www.instagram.com/ningladheer/" target="_blank" rel="noopener">@ningladheer</a> ·
+        <a href="https://www.instagram.com/ishitaaroraaa/" target="_blank" rel="noopener">@ishitaaroraaa</a> ·
+        <a href="https://www.instagram.com/shabostoc/" target="_blank" rel="noopener">@shabostoc</a>
+      </div>
+      <div class="cd-cite">
+        <strong>Wheaty <a href="https://www.instagram.com/wheaty.in/" target="_blank" rel="noopener">@wheaty.in</a></strong> ·
+        <a href="https://www.instagram.com/anushkamehra7/" target="_blank" rel="noopener">@anushkamehra7</a> ·
+        <a href="https://www.instagram.com/raneechopra/" target="_blank" rel="noopener">@raneechopra</a> ·
+        <a href="https://www.instagram.com/soumyapuri/" target="_blank" rel="noopener">@soumyapuri</a>
+      </div>
+      <blockquote class="cd-pull">"The jumbo prawns are a great option for sea food lovers. Juicy, full of flavours and baked to perfection." <em>— @jhalli_bypriasethi · TBSP</em></blockquote>
+      <blockquote class="cd-pull">"Pot pot makes me happy happy." <em>— @ishitaaroraaa · Pot Pot</em></blockquote>
+      <blockquote class="cd-pull">"What's better than a Lotus Biscoff Croissant from @wheaty.in on Croissant Day." <em>— @raneechopra · Wheaty</em></blockquote>
+    </section>
+
+    <!-- Chapter 06 · Receipts -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">06</span><span class="cd-bullet" style="background:var(--purple)"></span>The Receipts</h3>
+      <p>The 2023 awards are still in the group's marketing copy. The recommendation engine — creators who first visited TBSP and now bring their friends to Pot Pot, talent shoutouts that opened doors with reviewers — is still compounding. <em>The retainer ended; the awareness didn't.</em></p>
+    </section>
+
+    <!-- Closing hero — magnet -->
+    <div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · YYC Group</span>
+      <h4>Three brands. One playbook. Two awards. The system, not the campaign.</h4>
+      <p>Multi-brand restaurant groups don't need three agencies. They need one operator who knows where the brands are different and where they share economics.</p>
+      <div class="cd-magnet">
+        <form data-magnet="case-yyc-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+
+  </div>
+</dialog>
+
+<!-- ====================================================================
+     v2.28 · CASE STUDY · ANDREA'S EATERY — first hospitality case modal
+     Sourced from the IG aesthetic ingestion (Andreas story highlight).
+     ==================================================================== -->
+<dialog id="case-andreas" class="case-dialog" aria-labelledby="cd-andreas-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Andrea's Eatery</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <!-- v2.29 · Collage hero — 6 creator circles at varied scales.
+         Drop bg-removed PNGs at highlights/creators/{handle}.png to upgrade
+         each circle from a coloured placeholder to a real cut-out portrait. -->
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:6%;right:6%;width:124px;background:#dd3d38">@nanditamiglani</span>
+      <span class="cdh-creator" style="bottom:16%;right:23%;width:96px;background:#2f9e5e">@muskaanmakol</span>
+      <span class="cdh-creator" style="bottom:4%;right:36%;width:138px;background:#f5b015;color:#0e0e10">@ishitanand</span>
+      <span class="cdh-creator" style="bottom:18%;right:54%;width:88px;background:#1f4d8c">@harnoor.kapoor</span>
+      <span class="cdh-creator" style="bottom:8%;right:67%;width:108px;background:#b933ad">@unnatimalik</span>
+      <span class="cdh-creator" style="bottom:22%;right:82%;width:90px;background:#ff6319">@thedemodakudi</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Restaurant Launch · 2022</span>
+        <h2 id="cd-andreas-title">Andrea's Eatery</h2>
+        <p class="cd-hero-sub">Saket. Revamped launch. Creator-led discovery — without buying a single ad.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 01 · Launch -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--royal)"></span>The Launch</h3>
+      <p class="cd-lead">Andrea's Eatery in Saket was reopening with a revamped concept — elevated dining, Asian-leaning menu, a new interior with the kind of warm wood and clock-wall that stays on Instagram.</p>
+      <p>The standard launch playbook is press release plus paid social. We argued for something different: <em>let Delhi's food creators discover the restaurant on their own time, in their own voice, and build the launch arc out of their stories.</em> Authority over reach. Trust over impressions.</p>
+      <blockquote class="cd-pull">A new restaurant doesn't need followers. It needs a few of the right people seen there in the first month.</blockquote>
+    </section>
+
+    <!-- Chapter 02 · Curation -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>The Curation</h3>
+      <p>Built a hit-list of creators across food, lifestyle and luxury categories — not just the biggest accounts, but the ones whose audience overlapped with Andrea's actual target diner: 25–40, eating-out-as-experience, Delhi NCR.</p>
+      <p>Coordinated visits across two-week windows. Spaced them out — never two big creators on the same weekend. Hosted on arrival; comped the meal; suggested the dishes worth shooting (Korean Bao as the hero, dim-sum spread as the proof of range). No scripted captions. No paid disclosures.</p>
+    </section>
+
+    <!-- Chapter 03 · Content -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--red)"></span>The Content</h3>
+      <p>Six creators visited within the launch window. Each posted to their own stories tagged <a href="https://www.instagram.com/andreasdining/" target="_blank" rel="noopener">@andreasdining</a>. We captured every story, curated, and reposted to 98's grid as a single highlight reel — turning UGC into an owned brand asset.</p>
+      <div class="cd-stats">
+        <div class="cd-stat"><span class="n">6+</span><span class="l">Creators visited</span><span class="d">launch window</span></div>
+        <div class="cd-stat"><span class="n">10+</span><span class="l">Stories captured</span><span class="d">curated reel</span></div>
+        <div class="cd-stat"><span class="n">0</span><span class="l">Paid placements</span><span class="d">authority over reach</span></div>
+        <div class="cd-stat"><span class="n">Saket</span><span class="l">Location</span><span class="d">Andrea's Dining</span></div>
+      </div>
+      <div class="cd-cite">
+        Featured creators (selected):
+        <a href="https://www.instagram.com/nanditamiglani/" target="_blank" rel="noopener">@nanditamiglani</a> ·
+        <a href="https://www.instagram.com/muskaanmakol/" target="_blank" rel="noopener">@muskaanmakol</a> ·
+        <a href="https://www.instagram.com/ishitanand/" target="_blank" rel="noopener">@ishitanand</a> ·
+        <a href="https://www.instagram.com/harnoor.kapoor/" target="_blank" rel="noopener">@harnoor.kapoor</a> ·
+        <a href="https://www.instagram.com/unnatimalik/" target="_blank" rel="noopener">@unnatimalik</a> ·
+        <a href="https://www.instagram.com/thedemodakudi/" target="_blank" rel="noopener">@thedemodakudi</a>
+      </div>
+    </section>
+
+    <!-- Chapter 04 · Playbook -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--green)"></span>The Playbook</h3>
+      <p class="cd-lead">If you're launching a restaurant, here's the system underneath the Andrea's case — replicable for any hospitality brand.</p>
+      <p><strong>Hit-list (Week −2)</strong> · Identify 8–12 creators whose audience overlaps your target diner. Aim for 6 confirmed visits. Optimise for fit, not follower count.</p>
+      <p><strong>Brief (Week −1)</strong> · One page. Restaurant story (the why), location, top 5 dishes to try, suggested visit window. No scripted captions. No paid disclosures.</p>
+      <p><strong>Logistics (Launch week)</strong> · Spread visits across 14 days; never two creators on the same weekend. Host on arrival; comp the meal; offer a guided tour of the new space.</p>
+      <p><strong>Capture (Live)</strong> · 98 attends 2–3 of the visits to capture B-roll for the agency repost. Creators handle their own posts in their own voice.</p>
+      <p><strong>Repost (Week +1)</strong> · Stories repost same-week to the brand's grid; curated 1–2 weeks later into a permanent story highlight reel. UGC becomes an owned asset.</p>
+      <p><strong>Track (Week +4)</strong> · Tag mentions, story reach, location-tag traffic, reservation lift. Most of the value isn't measurable in a single dashboard — it's in the *room being seen*.</p>
+    </section>
+
+    <!-- Chapter 05 · Receipts -->
+    <section class="cd-chapter">
+      <h3><span class="cd-num">05</span><span class="cd-bullet" style="background:var(--purple)"></span>The Receipts</h3>
+      <p>The Andrea's launch highlight reel still sits on 98's Instagram three years later — a compounding asset rather than a one-time campaign. The dishes that ranked across creator posts (Korean Bao, dim-sum spread, the Asian-food range) are the ones that became signature on the menu.</p>
+      <a class="cd-cite" href="https://www.instagram.com/stories/highlights/18042720553398299/" target="_blank" rel="noopener">View the Andrea's launch highlight on Instagram ↗</a>
+    </section>
+
+    <!-- Closing hero — with newsletter / consultation magnet -->
+    <div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Andrea's Eatery</span>
+      <h4>The work is in the curation. Not the content.</h4>
+      <p>Creator-led launches stop being a one-off campaign and start being a system. We've run versions of it for restaurants across Delhi NCR, Bombay and Bangalore — different palettes, same spine.</p>
+      <div class="cd-magnet">
+        <form data-magnet="case-andreas-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
     </div>
 
   </div>
@@ -1679,7 +2092,7 @@ window.addEventListener('resize', queueTick);
 // run once so the initial state is correct
 scrollTick();
 
-const sectionIds = ['our-people','services','about','contact'];
+const sectionIds = ['our-people','featured-cases','selected-clients','brand-partners','services','about','contact'];
 const links = document.querySelectorAll('.nav ul a');
 const navObs = new IntersectionObserver((entries)=>{
   entries.forEach(en=>{
@@ -1855,17 +2268,20 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
    ============================================================ */
 
 const stopMeta = {
-  'our-people': { code:'RP', name:'Our People', color:'var(--royal)',  sub:'RP Line' },
-  services:    { code:'SV', name:'Services',   color:'var(--red)',    sub:'SV Line' },
-  about:       { code:'AU', name:'About',      color:'var(--pink)',   sub:'AU Line' },
-  contact:     { code:'TR', name:'Terminus',   color:'var(--carbon)', sub:'End of Line' }
+  'our-people':       { code:'RS', name:'Roster',         color:'var(--royal)'  },
+  'featured-cases':   { code:'CS', name:'Featured Cases', color:'var(--gold)'   },
+  'selected-clients': { code:'HC', name:'Hospitality',    color:'var(--green)'  },
+  'brand-partners':   { code:'BP', name:'Brand Partners', color:'var(--purple)' },
+  services:           { code:'SV', name:'Services',       color:'var(--red)'    },
+  about:              { code:'AU', name:'About',          color:'var(--pink)'   },
+  contact:            { code:'TR', name:'Terminus',       color:'var(--carbon)' }
 };
 
 // build station rail dynamically from stopMeta (skip contact for the rail —
 // it's the terminus, the rail represents en-route stops)
 const railEl = document.getElementById('station-rail');
 if (railEl) {
-  const railOrder = ['our-people','services','about'];
+  const railOrder = ['our-people','featured-cases','selected-clients','brand-partners','services','about'];
   railEl.innerHTML = '<span class="rail-track"></span>' + railOrder.map(id => {
     const m = stopMeta[id];
     return `<a class="rail-stop" data-section="${id}" href="#${id}" aria-label="Jump to ${m.name}">
@@ -1910,7 +2326,7 @@ const stopObs = new IntersectionObserver((entries)=>{
     announceStop(id);
   }
 }, {threshold:[0.35, 0.6]});
-['our-people','services','about','contact'].forEach(id=>{
+['our-people','featured-cases','selected-clients','brand-partners','services','about','contact'].forEach(id=>{
   const el = document.getElementById(id);
   if (el) stopObs.observe(el);
 });
@@ -2135,6 +2551,50 @@ window.addEventListener('mousemove', e => {
    preference — mobile + a11y users still get native swipe.
    ============================================================ */
 
+/* v2.30 · Cricket-ball delivery — scroll-progress through the Ishant wrapper
+   maps a cricket ball from top-right to bottom-left with a trailing motion-blur
+   line behind it. Works on all screens (independent of the Apple scroll-lock). */
+(function initCricketBall(){
+  const wrapper = document.getElementById('ishant-scroll-lock');
+  const ball = document.getElementById('cricket-ball');
+  const trail = document.getElementById('cricket-ball-trail');
+  if (!wrapper || !ball) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let scheduled = false;
+  function update(){
+    const rect = wrapper.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const wrapperH = wrapper.offsetHeight;
+    const total = vh + wrapperH;
+    const current = vh - rect.top;
+    const progress = Math.max(0, Math.min(1, current / total));
+
+    // Ball starts upper-right (88%, 6%), arcs to lower-left (12%, 92%)
+    const startX = 88, endX = 12;
+    const startY = 6, endY = 92;
+    const x = startX + (endX - startX) * progress;
+    const y = startY + (endY - startY) * progress;
+    const rot = progress * 720; // two full spins across the journey
+
+    ball.style.left = x + '%';
+    ball.style.top = y + '%';
+    ball.style.transform = `translate(-50%, -50%) rotate(${rot}deg)`;
+    if (trail){
+      trail.style.left = x + '%';
+      trail.style.top = y + '%';
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => { scheduled = false; update(); });
+  }, {passive: true});
+  window.addEventListener('resize', update, {passive: true});
+  update();
+})();
+
 (function initIshantScrollLock(){
   const wrapper = document.getElementById('ishant-scroll-lock');
   const rail    = document.getElementById('ic-rail');
@@ -2244,6 +2704,28 @@ window.addEventListener('mousemove', e => {
         // gentle attention pull on first reveal
         ticket.scrollIntoView({behavior:'smooth', block:'nearest'});
       }
+    });
+  });
+})();
+
+/* v2.29 · Case-modal magnet forms (newsletter / consultation funnel).
+   Lives at the closing of every case-dialog. Hooks into same TODO endpoint. */
+(function initCaseMagnetForms(){
+  document.querySelectorAll('.cd-magnet form').forEach(form => {
+    const input = form.querySelector('input[type="email"]');
+    const button = form.querySelector('button[type="submit"]');
+    const msg = form.querySelector('.cd-magnet-msg');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = (input.value || '').trim();
+      if (!email) return;
+      // TODO: POST email to your real endpoint here.
+      console.log('[case-magnet] capture', form.dataset.magnet, email);
+      input.value = '';
+      input.disabled = true;
+      button.disabled = true;
+      button.textContent = 'On the list ✓';
+      if (msg) msg.textContent = 'Welcome aboard. Check your inbox in a minute.';
     });
   });
 })();
@@ -2437,33 +2919,34 @@ window.addEventListener('mousemove', e => {
       loader.load(
         def.src,
         (gltf) => {
-          const pin = gltf.scene;
-          // auto-fit: compute bounding box, scale to targetSize
-          const box = new THREE.Box3().setFromObject(pin);
+          // wrap pin in a Group so we can recenter the geometry inside it
+          // and orbit/rotate the GROUP without losing the recenter offset.
+          const inner = gltf.scene;
+          const box = new THREE.Box3().setFromObject(inner);
           const size = box.getSize(new THREE.Vector3());
           const maxDim = Math.max(size.x, size.y, size.z) || 1;
           const scale = def.targetSize / maxDim;
-          pin.scale.setScalar(scale);
-          // recenter to origin
-          const center = box.getCenter(new THREE.Vector3());
-          pin.position.sub(center.multiplyScalar(scale));
-          // store rest-position metadata
+          inner.scale.setScalar(scale);
+          // recompute box AFTER scaling (more reliable)
+          const box2 = new THREE.Box3().setFromObject(inner);
+          const center = box2.getCenter(new THREE.Vector3());
+          inner.position.sub(center); // now inner is centered at origin
+
+          const pin = new THREE.Group();
+          pin.add(inner);
           pin.userData.baseX = def.baseX;
           pin.userData.baseY = def.baseY;
           pin.userData.phase = def.phase;
           scene.add(pin);
           pins.push(pin);
           loadedCount++;
+          console.log('[founder-pin] loaded', def.src, 'scale', scale.toFixed(2));
         },
         undefined,
         (err) => {
           console.warn('[founder-pin] failed to load', def.src, err);
-          // if both fail, hide the canvas
           if (loadedCount === 0 && pins.length === 0){
-            // wait briefly to see if the other one loads
-            setTimeout(() => {
-              if (pins.length === 0) canvas.style.display = 'none';
-            }, 600);
+            setTimeout(() => { if (pins.length === 0) canvas.style.display = 'none'; }, 600);
           }
         }
       );
