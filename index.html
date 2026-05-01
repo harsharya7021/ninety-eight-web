@@ -889,6 +889,23 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 /* Train-strip itself: stop any post-strip margin/padding hand-off */
 .train-strip{margin-bottom:0 !important; padding:0 !important}
 
+
+/* v2.38 · Surgical train spacing */
+.hero{padding-bottom:0}
+.train-strip{height:200px;margin:0}
+.train-img{height:300px;bottom:-12px}
+#our-people{padding-top:32px}
+@media (max-width:980px){
+  .train-strip{height:170px}
+  .train-img{height:260px;bottom:-10px}
+  #our-people{padding-top:24px}
+}
+@media (max-width:780px){
+  .train-strip{height:140px}
+  .train-img{height:220px;bottom:-8px}
+  #our-people{padding-top:16px}
+}
+
 </style>
 </head>
 <body>
