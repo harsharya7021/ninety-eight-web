@@ -893,9 +893,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 
 
 
-/* v2.39 · Train as overlay straddling the section seam */
-/* Hero ends right at content — no padding floor */
-.hero{padding-bottom:0}
+
 
 /* Strip is now a 0-height anchor; overflow:visible lets the train extend out */
 .train-strip{
@@ -935,6 +933,58 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 
 /* Quick-escape state for the Ishant scroll-lock zone */
 .scroll-lock-wrapper.quick-escape{transition:height .25s ease}
+
+
+/* v2.40 · Scroll-driven train moment */
+/* Hero ends right at content */
+.hero{padding-bottom:0}
+
+/* Train-strip is now a 0-height anchor + sticky wrapper for the train img.
+   Sticky keeps the train pinned in viewport-center for a scroll runway,
+   during which the JS fades it in/out. */
+.train-strip{
+  height:80vh;             /* runway: train is centered for ~80vh of scroll */
+  margin:-40vh 0;          /* pull the runway equally into hero & next section */
+  position:relative;
+  overflow:visible;
+  z-index:5;
+  background:transparent;
+  pointer-events:none;
+}
+
+.train-img{
+  position:sticky;
+  top:50%;                 /* center vertically in viewport */
+  display:block;
+  margin:0 auto;
+  height:min(82vh, 720px); /* dominant — fills most of the viewport at peak */
+  width:auto;
+  transform:translateY(-50%) translateX(0) scale(.95);
+  opacity:0;
+  will-change:opacity, transform;
+  filter:drop-shadow(0 28px 42px rgba(14,14,16,.24));
+  transition:opacity .15s linear, transform .25s var(--ease, cubic-bezier(.4,0,.2,1));
+}
+
+/* SCROLL cue from the hero hides when the train moment is active */
+.scroll-cue{transition:opacity .35s ease}
+body.train-active .scroll-cue{opacity:0; pointer-events:none}
+
+/* Section that follows: padding-top minimal — the train runway eats the gap */
+#our-people{padding-top:24px}
+
+@media (max-width:980px){
+  .train-strip{height:70vh; margin:-35vh 0}
+  .train-img{height:min(70vh, 520px)}
+}
+@media (max-width:780px){
+  .train-strip{height:60vh; margin:-30vh 0}
+  .train-img{height:min(58vh, 380px)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .train-img{opacity:1; transform:translateY(-50%) translateX(0) scale(.95)}
+}
 
 </style>
 </head>
@@ -4040,32 +4090,56 @@ window.addEventListener('mousemove', e => {
 </dialog>
 
 
+
+
+
 <script>
-/* v2.39 · Scroll-lock quick-escape on up-scroll */
-(function ishantQuickEscape(){
-  const wrapper = document.getElementById('ishant-scroll-lock');
-  if (!wrapper) return;
+/* v2.40 · scroll-driven train fade + scale */
+(function trainScrollDrive(){
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let lastY = window.scrollY;
-  let animating = false;
-  function onScroll(){
-    if (animating) return;
-    const y = window.scrollY;
-    const dir = y > lastY ? 'down' : 'up';
-    const r = wrapper.getBoundingClientRect();
+  const strip = document.getElementById('train-strip');
+  const img   = strip && strip.querySelector('.train-img');
+  if (!strip || !img) return;
+
+  let raf = null;
+  function update(){
+    raf = null;
+    const r = strip.getBoundingClientRect();
     const vh = window.innerHeight;
-    // Inside lock: top above viewport, bottom still below the upper half
-    const insideLock = r.top <= 0 && r.bottom >= vh * 0.5;
-    if (dir === 'up' && insideLock) {
-      animating = true;
-      const targetY = window.scrollY + r.top - 80; // 80px breathing room
-      window.scrollTo({top: Math.max(0, targetY), behavior: 'smooth'});
-      setTimeout(()=>{ animating = false; lastY = window.scrollY; }, 720);
-      return;
-    }
-    lastY = y;
+    // Train-strip is `position:relative` with negative margins — its top edge
+    // approaches viewport center as the seam approaches center too.
+    // We measure the seam's offset from the viewport's vertical centre.
+    const seamY = r.top + r.height * 0.5;
+    const fromCenter = seamY - vh * 0.5;        // 0 = at center
+    const norm = Math.abs(fromCenter) / (vh * 0.55); // 0 at center, 1 at vh*0.55 away
+
+    // Clamp 0..1, invert so 0 = away, 1 = at center
+    const closeness = Math.max(0, Math.min(1, 1 - norm));
+
+    // Easing curve — feels intentional (slow in, snap, slow out)
+    const eased = closeness < 0.5
+      ? 2 * closeness * closeness
+      : 1 - Math.pow(-2 * closeness + 2, 2) / 2;
+
+    // Slight horizontal parallax so the train still feels like it's moving
+    // along its rail. Amount in pixels.
+    const parallax = (fromCenter / vh) * 80;     // -40 to +40 across the runway
+
+    img.style.opacity   = eased.toFixed(3);
+    img.style.transform = `translateY(-50%) translateX(${(-parallax).toFixed(1)}px) scale(${(.92 + .08*eased).toFixed(3)})`;
+
+    // Toggle body class so the SCROLL cue hides while train is moving in
+    if (eased > 0.05) document.body.classList.add('train-active');
+    else document.body.classList.remove('train-active');
+  }
+
+  function onScroll(){
+    if (raf) return;
+    raf = requestAnimationFrame(update);
   }
   window.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll, {passive: true});
+  update();
 })();
 </script>
 
