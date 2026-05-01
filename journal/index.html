@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Journal — Ninety-Eight Entertainment</title>
+<meta name="description" content="Long-form notes from the studio — pop-culture, brand, generation. By Ninety-Eight Entertainment.">
+
+<style>
+:root{
+  --paper:#f3eddd; --paper-deep:#eae2c9; --carbon:#0e0e10; --ink:#1b1b1f;
+  --ink-soft:#3a3a3c; --slate:#4a5568; --rule:#c9bfa3;
+  --royal:#1f4d8c; --gold:#f5b015; --red:#dd3d38; --green:#2f9e5e;
+  --pink:#db5074; --orange:#ff6319; --purple:#46286a; --magenta:#b933ad;
+  --display:'Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Times New Roman',serif;
+  --mono:ui-monospace,'SF Mono','Cascadia Mono',monospace;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--carbon);font-family:var(--display);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+body{padding-bottom:80px}
+
+/* Subway-stripe band */
+.stripe-band{display:flex;height:6px;width:100%}
+.stripe-band span{flex:1}
+
+/* Top nav */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 36px;border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:10}
+.nav .logo{display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.nav .logo .b{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;color:#fff;font-family:var(--display);font-weight:900;font-size:18px}
+.nav .logo .nine{background:var(--red)}
+.nav .logo .eight{background:var(--green)}
+.nav .logo span.wm{font-weight:700;letter-spacing:.06em;font-size:13px;margin-left:10px;text-transform:uppercase}
+.nav ul{display:flex;list-style:none;gap:28px;margin:0;padding:0;font:600 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
+.nav ul a{text-decoration:none;transition:color .2s}
+.nav ul a:hover{color:var(--carbon)}
+.nav ul a.is-active{color:var(--red)}
+@media (max-width:780px){.nav ul{display:none}}
+
+/* Page header */
+.j-head{padding:80px 36px 40px;max-width:1200px;margin:0 auto;border-bottom:2px solid var(--carbon)}
+.j-eyebrow{font:600 11px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin:0 0 18px}
+.j-eyebrow::before{content:"";display:inline-block;width:24px;height:1px;background:var(--red);vertical-align:middle;margin-right:14px;transform:translateY(-2px)}
+.j-title{font:400 clamp(48px,8vw,108px)/.96 var(--serif);font-style:italic;letter-spacing:-.02em;color:var(--carbon);margin:0 0 24px}
+.j-dek{font:400 clamp(16px,1.6vw,19px)/1.5 var(--display);color:var(--ink-soft);max-width:62ch;margin:0 0 8px}
+.j-meta{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:18px;display:flex;gap:18px;flex-wrap:wrap}
+.j-meta span::before{content:"·";margin-right:18px;color:var(--rule)}
+.j-meta span:first-child::before{display:none}
+
+/* Article list */
+.j-list{padding:48px 36px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px 56px}
+@media (max-width:780px){.j-list{grid-template-columns:1fr;gap:36px}}
+
+.j-card{display:flex;flex-direction:column;gap:14px;padding:28px 0 32px;border-top:2px solid var(--carbon);text-decoration:none;color:var(--carbon);transition:transform .25s var(--ease)}
+.j-card:hover{transform:translateY(-3px)}
+.j-card .kicker{font:700 10px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.j-card h3{font:700 clamp(22px,2.4vw,30px)/1.18 var(--serif);font-style:italic;letter-spacing:-.015em;color:var(--carbon);margin:6px 0 8px}
+.j-card .dek{font:400 14.5px/1.55 var(--display);color:var(--slate);font-style:italic;max-width:50ch;margin:0}
+.j-card .foot{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:center;font:600 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
+.j-card .foot .read{color:var(--red)}
+
+/* Magnet */
+.j-magnet{margin:60px 36px;max-width:1200px;margin-left:auto;margin-right:auto;background:var(--carbon);color:var(--paper);padding:48px 56px;border-radius:18px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+@media (max-width:780px){.j-magnet{grid-template-columns:1fr;padding:36px 28px}}
+.j-magnet h2{font:400 clamp(28px,4vw,44px)/1.05 var(--serif);font-style:italic;margin:0 0 12px;color:var(--paper)}
+.j-magnet p{font:400 15px/1.5 var(--display);color:rgba(244,239,224,.78);margin:0 0 20px;max-width:48ch}
+.j-magnet form{display:flex;gap:0;background:rgba(255,255,255,.08);border-radius:8px;padding:0;overflow:hidden;max-width:520px}
+.j-magnet input{flex:1;border:0;background:transparent;color:var(--paper);font:500 14px/1 var(--display);padding:16px 18px;outline:none}
+.j-magnet input::placeholder{color:rgba(244,239,224,.5)}
+.j-magnet button{border:0;background:var(--gold);color:var(--carbon);font:700 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;padding:0 22px;cursor:pointer;transition:background .2s}
+.j-magnet button:hover{background:#ffc738}
+.j-magnet small{display:block;margin-top:14px;font:500 11px/1.4 var(--mono);letter-spacing:.12em;color:rgba(244,239,224,.55);text-transform:uppercase}
+.j-magnet .magnet-aside{font:400 13px/1.55 var(--display);color:rgba(244,239,224,.65);font-style:italic;border-left:2px solid var(--gold);padding-left:18px}
+
+/* Footer */
+.j-foot{padding:32px 36px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font:500 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--slate);border-top:1px solid var(--rule)}
+@media (max-width:600px){.j-foot{flex-direction:column;gap:12px;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- Subway-stripe band -->
+<div class="stripe-band">
+  <span style="background:var(--royal)"></span>
+  <span style="background:var(--gold)"></span>
+  <span style="background:var(--red)"></span>
+  <span style="background:var(--green)"></span>
+  <span style="background:var(--purple)"></span>
+  <span style="background:var(--orange)"></span>
+</div>
+
+<nav class="nav" aria-label="Primary">
+  <a class="logo" href="../index.html" aria-label="98 Entertainment — back to home">
+    <span class="b nine">9</span><span class="b eight">8</span>
+    <span class="wm">Ninety-Eight</span>
+  </a>
+  <ul role="list">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#our-people">Cases</a></li>
+    <li><a href="../index.html#services">Services</a></li>
+    <li><a href="./index.html" class="is-active">Journal</a></li>
+    <li><a href="../index.html#contact">Connect</a></li>
+  </ul>
+</nav>
+
+<header class="j-head">
+  <p class="j-eyebrow">The Journal · Issue 01</p>
+  <h1 class="j-title">Long-form notes<br>from the studio.</h1>
+  <p class="j-dek">A column where the studio writes about pop culture, brand, generation — the things that move the work, even when the work isn't the subject.</p>
+  <div class="j-meta">
+    <span>Editorial · Harsh Arya</span>
+    <span>Helvetica · Georgia · NYC subway tribute</span>
+    <span>Published when the writing is ready, not when the calendar says</span>
+  </div>
+</header>
+
+<section class="j-list" aria-label="Articles">
+
+  <a class="j-card" href="don-draper.html">
+    <span class="kicker">Brand · Archetypes</span>
+    <h3>[ Placeholder title — Don Draper as a Gen-Z brand brief. ]</h3>
+    <p class="dek">[ Placeholder dek — what an ad agency on Madison Avenue circa 1965 still gets right about culture, and where it falls short. ]</p>
+    <div class="foot"><span>Read · 8 min</span><span class="read">Open ↗</span></div>
+  </a>
+
+  <a class="j-card" href="2001-space-odyssey.html">
+    <span class="kicker">Film · Future</span>
+    <h3>[ Placeholder title — 2001: A Space Odyssey for the marketer who has lost the plot. ]</h3>
+    <p class="dek">[ Placeholder dek — Kubrick's silence as brief. The monolith as KPI. ]</p>
+    <div class="foot"><span>Read · 6 min</span><span class="read">Open ↗</span></div>
+  </a>
+
+  <a class="j-card" href="adidas-yeezy.html">
+    <span class="kicker">Fashion · Collab</span>
+    <h3>[ Placeholder title — Adidas × YEEZY and what brand–talent equity actually looks like. ]</h3>
+    <p class="dek">[ Placeholder dek — when a partnership stops being a campaign and becomes a balance sheet. ]</p>
+    <div class="foot"><span>Read · 9 min</span><span class="read">Open ↗</span></div>
+  </a>
+
+  <a class="j-card" href="ferragamo.html">
+    <span class="kicker">Heritage · Reset</span>
+    <h3>[ Placeholder title — The Ferragamo reset and the patience of luxury. ]</h3>
+    <p class="dek">[ Placeholder dek — what a 100-year-old house teaches a six-month-old D2C. ]</p>
+    <div class="foot"><span>Read · 7 min</span><span class="read">Open ↗</span></div>
+  </a>
+
+</section>
+
+<aside class="j-magnet" aria-label="Newsletter">
+  <div>
+    <h2>The studio's column,<br>in your inbox.</h2>
+    <p>Long-form pieces, every now and then. Brand-thinking notes, half-baked theses, occasional case-study spillovers. Sent only when the writing's ready.</p>
+    <form data-magnet="journal-newsletter">
+      <input type="email" placeholder="you@brand.com" required aria-label="Email">
+      <button type="submit">Subscribe ↗</button>
+    </form>
+    <small>One unsubscribe click · we read every reply</small>
+  </div>
+  <p class="magnet-aside">If you're reading a case study and the journal piece next to it nudges you on a tangent — that's by design. The case is the proof. The journal is the room the proof was written in.</p>
+</aside>
+
+<footer class="j-foot">
+  <span>© Ninety-Eight Entertainment · Journal · Issue 01</span>
+  <span>ninety-eight.in · harsh@ninety-eight.in</span>
+</footer>
+
+</body>
+</html>

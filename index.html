@@ -521,11 +521,11 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 /* v2.18 · TRAIN STRIP — divider between sections.
    v2.31 · bigger train, tighter surroundings, bottom-anchored. Strip is just
    tall enough to hold the train; less empty whitespace above. */
-.train-strip{position:relative;background:transparent;height:520px;overflow:hidden}
-.train-strip-tag{position:absolute;top:18px;left:28px;font:500 11px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--slate);z-index:3;display:inline-flex;align-items:center;gap:10px}
+.train-strip{position:relative;background:transparent;height:480px;overflow:hidden}
+.train-strip-tag{position:absolute;top:14px;left:28px;font:500 11px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--slate);z-index:3;display:inline-flex;align-items:center;gap:10px}
 .train-strip-tag::before{content:"";width:30px;height:1px;background:var(--carbon)}
-/* Bottom-anchored, larger silhouette. Sits flush at the bottom edge. */
-.train-img{position:absolute;bottom:-12px;height:580px;width:auto;will-change:left;z-index:2;filter:drop-shadow(0 36px 46px rgba(14,14,16,.18));left:50vw;transition:left .15s linear}
+/* v2.33 · Bigger again, tighter strip — train sits flush at the bottom edge. */
+.train-img{position:absolute;bottom:-8px;height:680px;width:auto;will-change:left;z-index:2;filter:drop-shadow(0 36px 46px rgba(14,14,16,.18));left:50vw;transition:left .15s linear}
 /* Auto-loop fallback if JS scroll-drive hasn't initialised */
 .train-strip:not([data-scroll-driven]) .train-img{
   animation: train-pass 36s linear infinite;
@@ -536,16 +536,16 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   100% { left: -2400px; }
 }
 @media (prefers-reduced-motion: reduce){
-  .train-img{animation:none;transition:none;left:50%;bottom:-12px}
+  .train-img{animation:none;transition:none;left:50%;bottom:-8px}
 }
 @media (max-width:980px){
-  .train-strip{height:420px}
-  .train-img{height:460px;bottom:-10px}
+  .train-strip{height:380px}
+  .train-img{height:520px;bottom:-8px}
 }
 @media (max-width:780px){
-  .train-strip{height:300px}
-  .train-img{height:330px;bottom:-8px}
-  .train-strip-tag{font-size:9px;letter-spacing:.18em;left:18px;top:14px}
+  .train-strip{height:260px}
+  .train-img{height:360px;bottom:-6px}
+  .train-strip-tag{font-size:9px;letter-spacing:.18em;left:18px;top:12px}
 }
 
 /* v2.20 · PULLABLE THREADS — clicking a section heading "twangs" the
@@ -851,6 +851,18 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   .ps-img{width:200px;height:266px}
   .ps-head{flex-direction:column;align-items:flex-start;gap:6px}
 }
+
+/* v2.33 · Read-next rail at the close of every case modal */
+.cd-readnext{margin-top:48px;padding-top:36px;border-top:2px solid var(--carbon)}
+.cd-rn-label{font:600 11px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin:0 0 24px}
+.cd-rn-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+@media (max-width:780px){.cd-rn-grid{grid-template-columns:1fr;gap:16px}}
+.cd-rn-card{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--carbon);padding:18px 0;border-top:1px solid var(--rule);transition:transform .25s var(--ease)}
+.cd-rn-card:hover{transform:translateY(-2px)}
+.cd-rn-card .kk{font:700 9.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.cd-rn-card .tt{font:700 16px/1.25 var(--serif);font-style:italic;color:var(--carbon);margin:6px 0 4px}
+.cd-rn-card .mm{font:500 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:auto}
+
 </style>
 </head>
 <body>
@@ -1810,7 +1822,17 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     </section>
 
     <!-- Closing hero — magnet -->
-    <div class="cd-close-hero">
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
       <span class="cd-close-tag">Terminus · End of the v1 chapter</span>
       <h4>We didn't manage Ishant's calendar. We built and ran his personal brand as a product.</h4>
       <p>The numbers above are the receipts. The ones we don't show — equity participation, deal value, structural learning — are what we brought into v2.0.</p>
@@ -1968,7 +1990,17 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     </section>
 
     <!-- Closing hero — magnet -->
-    <div class="cd-close-hero">
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
       <span class="cd-close-tag">Terminus · Borges India</span>
       <h4>Borrow the emotional permission. Earn the kitchen seat.</h4>
       <p>We've run this dedication-led playbook for a heritage European pantry house. The same operating system adapts cleanly to a challenger oil, a D2C SKU, an FMCG launch — anywhere a brand needs to feel like family rather than inventory.</p>
@@ -2042,7 +2074,17 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       <p><strong>Co-packs as content.</strong> The Slay × Causeways frame — partnering brands inside a single creator's reel — is replicable architecture for any pantry/QSR D2C looking to extend reach across friend-brands without renting a campaign window twice.</p>
     </section>
 
-    <div class="cd-close-hero">
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
       <span class="cd-close-tag">Terminus · Slay Coffee</span>
       <h4>The cup-shot is the door. The app is the room.</h4>
       <p>If you sell anything that fits inside a cup or a wrap — coffee, smoothies, breakfast bars, pre-mixes — this playbook adapts cleanly. Cup-shot UGC, BIT.LY-direct to checkout, partner co-packs to share creator economics.</p>
@@ -2129,7 +2171,17 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
       <p><strong>The room as the menu.</strong> Rooh's brand is the courtyard, the bar, the lighting, the plate — not a slogan. Every reel we shipped showed those four, in that order.</p>
     </section>
 
-    <div class="cd-close-hero">
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
       <span class="cd-close-tag">Terminus · Rooh</span>
       <h4>Premium dining is an occasion. We sell the occasion.</h4>
       <p>If you operate a premium restaurant, hotel restaurant, supper-club or chef-led concept, this playbook is yours: build the calendar around occasions, source creators who've already paid for premium, and let the room do the talking.</p>
@@ -2255,7 +2307,17 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     </section>
 
     <!-- Closing hero — magnet -->
-    <div class="cd-close-hero">
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
       <span class="cd-close-tag">Terminus · YYC Group</span>
       <h4>Three brands. One playbook. Two awards. The system, not the campaign.</h4>
       <p>Multi-brand restaurant groups don't need three agencies. They need one operator who knows where the brands are different and where they share economics.</p>
@@ -2356,7 +2418,17 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
     </section>
 
     <!-- Closing hero — with newsletter / consultation magnet -->
-    <div class="cd-close-hero">
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
       <span class="cd-close-tag">Terminus · Andrea's Eatery</span>
       <h4>The work is in the curation. Not the content.</h4>
       <p>Creator-led launches stop being a one-off campaign and start being a system. We've run versions of it for restaurants across Delhi NCR, Bombay and Bangalore — different palettes, same spine.</p>
@@ -3368,5 +3440,543 @@ window.addEventListener('mousemove', e => {
   setTimeout(maybeOpenFromHash, 50);
 })();
 </script>
+<!-- ====================================================================
+     v2.33 · EIGHT NEW CASE MODALS · drafts for user review
+     ====================================================================
+     Source mix:
+       · One8 Commune + Punjab Grill — disk content (creator folders in 00 DONE)
+       · Tickled Pink · Khubani · Ophelia · Daryaganj · Hard Rock · Roseate
+         — frame + placeholder copy. Real material when IG/disk surfaces.
+     Each modal uses the existing .case-dialog shape. Tagged with the
+     `is-draft` class on the cd-tag so the user can see at a glance which
+     ones are still placeholder-led.
+     ==================================================================== -->
+
+
+<!-- =====================================================================
+     CASE STUDY · ONE8 COMMUNE
+     Real disk content: 7 creators (Bhavna Monga · Palak Tanna · Saanya Khatter
+     · Shruti Malik · Shruti · Vrinda Singh · Unnati Malik). Multiple repeat
+     visits flagged in folder structure. Virat Kohli's restaurant brand —
+     premium Delhi/Bombay nightlife.
+     ===================================================================== -->
+<dialog id="case-one8-commune" class="case-dialog" aria-labelledby="cd-one8-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · One8 Commune</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:8%;width:128px;background:#1f4d8c;font-size:13px">One8</span>
+      <span class="cdh-creator" style="bottom:24%;right:22%;width:104px;background:#dd3d38">@palak.tanna</span>
+      <span class="cdh-creator" style="bottom:6%;right:36%;width:108px;background:#2f9e5e">@saanyakhatter</span>
+      <span class="cdh-creator" style="bottom:24%;right:50%;width:96px;background:#f5b015;color:#0e0e10">@shruti.malik</span>
+      <span class="cdh-creator" style="bottom:8%;right:62%;width:96px;background:#46286a">@bhavnamonga</span>
+      <span class="cdh-creator" style="bottom:24%;right:74%;width:92px;background:#b933ad">@unnatimalik</span>
+      <span class="cdh-creator" style="bottom:8%;right:86%;width:88px;background:#ff6319">@vrinda.singh</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Celebrity-led Premium</span>
+        <h2 id="cd-one8-title">One8 Commune</h2>
+        <p class="cd-hero-sub">Virat Kohli's restaurant brand — celebrity-anchored premium dining, run as a creator-roster magnet.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--royal)"></span>The Snapshot</h3>
+      <p class="cd-lead">One8 Commune is the F&amp;B brand attached to Virat Kohli's "One8" line — a celebrity-magnet hospitality property that didn't need awareness, only the right faces in the right rooms. 98 ran an ongoing creator activation playbook, with deliberately repeat creator visits to anchor the room as a destination across the social calendar.</p>
+      <div class="cd-stats">
+        <div class="cd-stat"><span class="n">7</span><span class="l">Creators captured on disk</span><span class="d">multiple repeat visits</span></div>
+        <div class="cd-stat"><span class="n">Repeat</span><span class="l">Cadence</span><span class="d">Saanya · Shruti · Unnati visited multiple times</span></div>
+        <div class="cd-stat"><span class="n">Premium</span><span class="l">Positioning</span><span class="d">celebrity-anchored, not celebrity-dependent</span></div>
+        <div class="cd-stat"><span class="n">Delhi NCR</span><span class="l">Footprint</span><span class="d">flagship venue</span></div>
+      </div>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>The Strategic Move</h3>
+      <blockquote class="cd-pull">A celebrity venue gets the first wave for free. The job is the second wave.</blockquote>
+      <p>Anybody can book a table at One8. The harder job is making the right people post about it more than once. We engineered a roster of food and lifestyle creators who became regulars — the kind of creators whose audience doesn't react to "I went to Virat's restaurant" but does react to "this is my third time, here's why."</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--green)"></span>The Roster (from disk)</h3>
+      <p>Creators captured across multiple visits — the mark of a venue that becomes a habit, not a one-time post. The repeat-visit pattern is the case-study payload.</p>
+      <div class="cd-cite">
+        <strong>Repeat regulars:</strong>
+        <a href="https://www.instagram.com/saanyakhatter/" target="_blank" rel="noopener">Saanya Khatter</a> ·
+        <a href="https://www.instagram.com/shruti.malik/" target="_blank" rel="noopener">Shruti Malik</a> ·
+        <a href="https://www.instagram.com/unnatimalik/" target="_blank" rel="noopener">Unnati Malik</a>
+      </div>
+      <div class="cd-cite">
+        <strong>Single-visit features:</strong>
+        <a href="https://www.instagram.com/palak.tanna/" target="_blank" rel="noopener">Palak Tanna</a> ·
+        <a href="https://www.instagram.com/bhavnamonga/" target="_blank" rel="noopener">Bhavna Monga</a> ·
+        <a href="https://www.instagram.com/vrinda.singh/" target="_blank" rel="noopener">Vrinda Singh</a>
+      </div>
+      <p class="cd-foot-note"><em>Handles drawn from disk folder names. If any handle is wrong, flag it and we'll correct.</em></p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--red)"></span>What This Proves</h3>
+      <p><strong>Repeat-visit cadence beats reach.</strong> A creator on her third visit is producing more genuine content than a creator on her first. We optimised the roster for who'd come back, not who'd be loudest the first time.</p>
+      <p><strong>Celebrity-anchor needs an anti-celebrity layer.</strong> The Kohli name brings the door. The food creators bring the recommendation engine.</p>
+      <p><strong>Cross-roster discoverability.</strong> Several One8 creators (Saanya Khatter, Shruti Malik, Unnati Malik) appear in other 98 cases — proving the cross-brand pool economics.</p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · One8 Commune</span>
+      <h4>Bring the door, build the regulars.</h4>
+      <p>If you operate a celebrity-led F&amp;B brand or a flagship-format restaurant, the One8 playbook adapts cleanly: identify the 5–8 creators worth turning into regulars, build a calendar around their cadence, and let the celebrity halo handle the awareness.</p>
+      <div class="cd-magnet">
+        <form data-magnet="case-one8-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
+<!-- =====================================================================
+     CASE STUDY · PUNJAB GRILL
+     Disk content: 1 creator (Prakriti Agarwal). Established premium-Indian
+     chain — multi-outlet, banqueting-led brand. Original 2022 brief listed
+     Punjab Grill among restaurant clients.
+     ===================================================================== -->
+<dialog id="case-punjab-grill" class="case-dialog" aria-labelledby="cd-pgrill-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Punjab Grill</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:10%;width:140px;background:#dd3d38;font-size:13px">Punjab Grill</span>
+      <span class="cdh-creator" style="bottom:24%;right:32%;width:120px;background:#f5b015;color:#0e0e10">@prakriti.agarwal</span>
+      <span class="cdh-creator" style="bottom:6%;right:50%;width:88px;background:#1f4d8c">Banqueting</span>
+      <span class="cdh-creator" style="bottom:22%;right:68%;width:78px;background:#2f9e5e">Multi-outlet</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Premium Indian · Multi-outlet</span>
+        <h2 id="cd-pgrill-title">Punjab Grill</h2>
+        <p class="cd-hero-sub">An established premium Indian chain — banqueting-grade kitchens, the kind of brand a creator post has to land squarely in occasion-context.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--red)"></span>The Brief</h3>
+      <p class="cd-lead">Punjab Grill is the established premium-Indian play — banqueting-credible, multi-outlet, the kind of name diners remember from every important family dinner. The creator brief: stop the brand from reading "older" by anchoring it in occasion-led content rather than category-led content.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>The Strategic Move</h3>
+      <p>Don't sell "north Indian food." Sell the room your family last booked for an occasion. We worked the brand into a creator's life-event content — date night, family dinner, anniversary, post-engagement bite — letting the brand become the implicit answer when the audience asks <em>where</em>.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--green)"></span>The Roster (from disk)</h3>
+      <p>Disk content captured a hosted visit by <strong><a href="https://www.instagram.com/prakriti.agarwal/" target="_blank" rel="noopener">Prakriti Agarwal</a></strong>. Additional creator activations and the hosted-visit cadence will populate as we expand the roster.</p>
+      <p class="cd-foot-note"><em>This is a draft case modal. Real material is one creator deep — we'd ordinarily mine more before publishing.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Punjab Grill</span>
+      <h4>The brand the family already trusts. The post the daughter does.</h4>
+      <p>If you run an established premium-Indian or heritage-cuisine chain, the playbook for younger-skewed creator content without losing the brand's authority is the work we've already started here. Tell us your outlet, we'll tell you which 5 creators belong on the calendar.</p>
+      <div class="cd-magnet">
+        <form data-magnet="case-pgrill-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
+<!-- =====================================================================
+     CASE STUDY · DARYAGANJ
+     Heritage Indian, butter-chicken-origin claim. Multi-outlet Delhi NCR + travel.
+     IG mining surfaced highlight; full content TBD pending mining.
+     ===================================================================== -->
+<dialog id="case-daryaganj" class="case-dialog" aria-labelledby="cd-daryaganj-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Daryaganj · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:10%;width:140px;background:#f5b015;color:#0e0e10;font-size:13px">Daryaganj</span>
+      <span class="cdh-creator" style="bottom:22%;right:36%;width:104px;background:#dd3d38">Heritage</span>
+      <span class="cdh-creator" style="bottom:6%;right:54%;width:108px;background:#1f4d8c">Origin claim</span>
+      <span class="cdh-creator" style="bottom:24%;right:72%;width:96px;background:#2f9e5e">Multi-outlet</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Heritage Indian · Origin Story</span>
+        <h2 id="cd-daryaganj-title">Daryaganj</h2>
+        <p class="cd-hero-sub">The brand that claims the butter-chicken-origin story — a heritage Indian house anchored in a single dish nobody else can credibly own.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--gold)"></span>The Brief</h3>
+      <p class="cd-lead">Daryaganj built its brand around the strongest origin claim in Indian-restaurant marketing: <em>this is where butter chicken comes from</em>. Our job was to keep that story alive on social — without ever leaning on it so hard the brand felt like a museum piece.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--red)"></span>The Strategic Move</h3>
+      <p>Origin claims are credibility on credit. They earn you the first read; they don't earn you the second post. We built creator content that spent the credibility on adjacency — modern dishes around the heritage anchor, multi-outlet expansion, festival menus, special-occasion frames.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--royal)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>This is a draft modal — case content is in production. Once we surface the IG highlight + tagged creator posts (second-pass mining), this case will be repopulated with real creator handles and quotes.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Daryaganj</span>
+      <h4>Heritage is a credit line. Spend it carefully.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-daryaganj-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
+<!-- =====================================================================
+     CASE STUDY · TICKLED PINK · DRAFT
+     Bar / lounge — visible on the @98.entertainment IG highlights rail.
+     Content TBD pending IG mining.
+     ===================================================================== -->
+<dialog id="case-tickled-pink" class="case-dialog" aria-labelledby="cd-tpink-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Tickled Pink · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:14%;width:150px;background:#db5074;font-size:13px">Tickled Pink</span>
+      <span class="cdh-creator" style="bottom:24%;right:38%;width:108px;background:#f5b015;color:#0e0e10">Bar · Lounge</span>
+      <span class="cdh-creator" style="bottom:6%;right:60%;width:100px;background:#1f4d8c">Delhi NCR</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Bar · Lounge</span>
+        <h2 id="cd-tpink-title">Tickled Pink</h2>
+        <p class="cd-hero-sub">A pink-themed bar brand built for the social-photo grammar of its own audience.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--pink)"></span>The Brief</h3>
+      <p class="cd-lead">Tickled Pink is a bar brand that makes the brand colour the entire vibe — the audience signs up because the place looks the same in every creator's reel. The job is to keep that recognisability fresh while the audience's idea of "pink" keeps moving.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal. Once we mine the Tickled Pink IG highlight + tagged-only posts, this case will be repopulated with real creator handles, the activation calendar, and the brand's positioning notes.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Tickled Pink</span>
+      <h4>The colour is the brand. Keep the colour breathing.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-tpink-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
+<!-- =====================================================================
+     CASE STUDY · KHUBANI · DRAFT
+     Heritage cuisine with modern pulse. From the original Featured Cases
+     hospitality grid. Content TBD pending mining.
+     ===================================================================== -->
+<dialog id="case-khubani" class="case-dialog" aria-labelledby="cd-khubani-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Khubani · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:14%;width:140px;background:#ff6319;font-size:13px">Khubani</span>
+      <span class="cdh-creator" style="bottom:22%;right:36%;width:118px;background:#dd3d38">Heritage</span>
+      <span class="cdh-creator" style="bottom:6%;right:54%;width:100px;background:#46286a">Modern Pulse</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Heritage Cuisine · Modern Frame</span>
+        <h2 id="cd-khubani-title">Khubani</h2>
+        <p class="cd-hero-sub">Heritage menus told in a modern voice — the rare brand that has to fight nostalgia, not lean on it.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--orange)"></span>The Brief</h3>
+      <p class="cd-lead">Khubani's product is a heritage cuisine, but its target diner is a Gen-Z one. The brief: brand the menu so it reads "modern Indian" first and "heritage Indian" second — without losing what the heritage actually adds.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal. Real creator material will follow IG + disk mining for this client.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Khubani</span>
+      <h4>Heritage is the spice, not the menu.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-khubani-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
+<!-- =====================================================================
+     CASE STUDY · OPHELIA · DRAFT
+     Lounge / lifestyle — Featured Cases legacy entry. Content TBD pending mining.
+     ===================================================================== -->
+<dialog id="case-ophelia" class="case-dialog" aria-labelledby="cd-ophelia-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Ophelia · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:14%;width:140px;background:#46286a;font-size:13px">Ophelia</span>
+      <span class="cdh-creator" style="bottom:22%;right:38%;width:108px;background:#db5074">Lounge</span>
+      <span class="cdh-creator" style="bottom:6%;right:56%;width:108px;background:#f5b015;color:#0e0e10">Lifestyle</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Lounge · Lifestyle</span>
+        <h2 id="cd-ophelia-title">Ophelia</h2>
+        <p class="cd-hero-sub">A new chapter for a familiar address — the lounge play built around a brand reset.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--purple)"></span>The Brief</h3>
+      <p class="cd-lead">Ophelia inherited an address with history. The brief: relaunch the room without contradicting what the audience already knew about the building.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal — IG + disk mining will populate the creator roster, opening-night content, and the relaunch arc.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Ophelia</span>
+      <h4>Inherit the address. Don't inherit the script.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-ophelia-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
+<!-- =====================================================================
+     CASE STUDY · HARD ROCK CAFE · DRAFT
+     Global music-led F&B chain. India franchise. Content TBD pending mining.
+     ===================================================================== -->
+<dialog id="case-hard-rock" class="case-dialog" aria-labelledby="cd-hrc-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Hard Rock Cafe · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:10%;width:148px;background:#dd3d38;font-size:13px">Hard Rock</span>
+      <span class="cdh-creator" style="bottom:22%;right:32%;width:110px;background:#0e0e10;color:#f3eddd">Global IP</span>
+      <span class="cdh-creator" style="bottom:6%;right:50%;width:104px;background:#1f4d8c">Live Music</span>
+      <span class="cdh-creator" style="bottom:24%;right:66%;width:96px;background:#f5b015;color:#0e0e10">India</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Global Music IP · India Franchise</span>
+        <h2 id="cd-hrc-title">Hard Rock Cafe</h2>
+        <p class="cd-hero-sub">A globally famous IP franchised in India — where the brief is to translate global brand language into local cultural moments.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--red)"></span>The Brief</h3>
+      <p class="cd-lead">Hard Rock is one of the strongest brand IPs in F&amp;B globally. The Indian franchisee's job isn't awareness — it's translation. Local music nights, local creator activations, local festival programming, all without breaking the brand's global voice.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal — content will be populated from IG mining + the hosted-creator activations during music nights and festival programming.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Hard Rock Cafe</span>
+      <h4>Global IP. Local stage.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-hrc-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+
+<!-- =====================================================================
+     CASE STUDY · ROSEATE · DRAFT
+     Roseate Hotels — luxury hospitality property. Multi-property F&B + accommodation.
+     Highest premium tier in the portfolio.
+     ===================================================================== -->
+<dialog id="case-roseate" class="case-dialog" aria-labelledby="cd-roseate-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Roseate · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
+
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:10%;width:140px;background:#46286a;font-size:13px">Roseate</span>
+      <span class="cdh-creator" style="bottom:24%;right:34%;width:118px;background:#f5b015;color:#0e0e10">Luxury Hotel</span>
+      <span class="cdh-creator" style="bottom:6%;right:56%;width:96px;background:#db5074">F&amp;B + Stays</span>
+      <span class="cdh-creator" style="bottom:24%;right:72%;width:88px;background:#1f4d8c">Multi-property</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Luxury Hotel · F&amp;B + Stays</span>
+        <h2 id="cd-roseate-title">Roseate</h2>
+        <p class="cd-hero-sub">Luxury hospitality at the top of 98's portfolio premium-tier — F&amp;B and stays under one brand house.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--purple)"></span>The Brief</h3>
+      <p class="cd-lead">Roseate is the rare hospitality client where every social touchpoint has to clear a luxury bar — the room, the plate, the lighting, the typography on the menu. There's no room for "good enough." We worked the brand inside that constraint.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal — the property visits, weekend brunches, F&amp;B chef collaborations, and luxury-creator features will populate this case once we mine the Roseate IG highlight and the disk content.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Roseate</span>
+      <h4>Luxury is what doesn't make the post — the bar is so high you don't notice it.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-roseate-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
+
 </body>
 </html>
