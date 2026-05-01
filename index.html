@@ -987,6 +987,42 @@ body.train-active .scroll-cue{opacity:0; pointer-events:none}
   .train-img{height:260px;bottom:-8px}
 }
 
+
+/* v2.42 · Section banner spans container width */
+/* The station-tile section tag — was a content-width pill, now a full-
+   width banner that sits as a band above the heading. Children stay flush
+   left so the chip + badges read the same. */
+.sec-tag{
+  display:flex;
+  width:100%;
+  align-items:center;
+  box-sizing:border-box;
+  align-self:stretch;
+}
+/* The .lead column hosts the .sec-tag + heading + sub-text. Make it
+   block-flow with full column width so the banner has room to span. */
+.sec-head .lead{display:block; width:100%}
+.sec-head .lead > *{margin-top:14px}
+.sec-head .lead > *:first-child{margin-top:0}
+
+/* Any .ws-head / .ps-head / .fc-head tags get the same banner treatment */
+.ws-head .ws-tag,
+.ps-head .ps-tag,
+.fc-head .fc-tag{
+  display:flex;
+  width:100%;
+  align-items:center;
+  box-sizing:border-box;
+}
+
+/* Case-modal tag at the top of dialogs — same treatment for consistency */
+.cd-head .cd-tag{
+  display:flex;
+  flex:1 1 auto;
+  align-items:center;
+  box-sizing:border-box;
+}
+
 </style>
 </head>
 <body>
