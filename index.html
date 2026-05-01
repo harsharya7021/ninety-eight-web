@@ -863,6 +863,26 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 .cd-rn-card .tt{font:700 16px/1.25 var(--serif);font-style:italic;color:var(--carbon);margin:6px 0 4px}
 .cd-rn-card .mm{font:500 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:auto}
 
+
+/* v2.34 · sec-head flex repair — was crushing .note into a 75px column */
+#our-people .sec-head{
+  display:grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap:32px 56px;
+  align-items:end;
+  width:100%;
+}
+#our-people .sec-head .lead{ min-width:0; max-width:none; }
+#our-people .sec-head .note{
+  min-width:0;
+  max-width:54ch;
+  font-size:15px;
+  line-height:1.55;
+}
+@media (max-width:780px){
+  #our-people .sec-head{ grid-template-columns: 1fr; gap:18px }
+}
+
 </style>
 </head>
 <body>
