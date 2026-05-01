@@ -987,8 +987,6 @@ body.train-active .scroll-cue{opacity:0; pointer-events:none}
   .train-img{height:260px;bottom:-8px}
 }
 
-
-
 /* The station-tile section tag — was a content-width pill, now a full-
    width banner that sits as a band above the heading. Children stay flush
    left so the chip + badges read the same. */
@@ -1023,8 +1021,6 @@ body.train-active .scroll-cue{opacity:0; pointer-events:none}
   box-sizing:border-box;
 }
 
-
-/* v2.43 · Proportional signboard — width = heading text, height = cap-height */
 /* Design notes (the rationale you asked for):
    · Width — collapse the .lead column to fit-content so the signboard tracks
      the heading's actual rendered width. Cap the heading's measure at 14ch
@@ -4352,6 +4348,65 @@ window.addEventListener('mousemove', e => {
     </div>
   </div>
 </dialog>
+
+
+<script>
+/* v2.44 · Robust up-scroll bypass for the Ishant scroll-lock */
+(function ishantUpScrollBypass(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const wrapper = document.getElementById('ishant-scroll-lock');
+  if (!wrapper) return;
+
+  let escaping = false;
+
+  function isInsideLock(){
+    const r = wrapper.getBoundingClientRect();
+    const vh = window.innerHeight;
+    return r.top <= 0 && r.bottom >= vh * 0.5;
+  }
+
+  // Wheel event — non-passive so we can preventDefault during the smooth scroll
+  function onWheel(e){
+    // While the smooth scroll is running, swallow input so the user can't
+    // fight it (this is what was making the previous version feel glitchy)
+    if (escaping){
+      e.preventDefault();
+      return;
+    }
+    // User wheels UP (negative deltaY) while inside the lock → escape
+    if (e.deltaY < 0 && isInsideLock()){
+      e.preventDefault();
+      escaping = true;
+      const r = wrapper.getBoundingClientRect();
+      const targetY = window.scrollY + r.top - 80;
+      window.scrollTo({top: Math.max(0, targetY), behavior: 'smooth'});
+      // Smooth scroll typically takes ~600-700ms. Release input after.
+      setTimeout(function(){ escaping = false; }, 800);
+    }
+  }
+
+  // Touch fallback for mobile — same logic on swipe-down (which scrolls up)
+  let touchStartY = null;
+  function onTouchStart(e){ touchStartY = e.touches[0].clientY; }
+  function onTouchMove(e){
+    if (escaping){ e.preventDefault(); return; }
+    if (touchStartY == null) return;
+    const dy = e.touches[0].clientY - touchStartY;
+    if (dy > 30 && isInsideLock()){
+      e.preventDefault();
+      escaping = true;
+      const r = wrapper.getBoundingClientRect();
+      const targetY = window.scrollY + r.top - 80;
+      window.scrollTo({top: Math.max(0, targetY), behavior: 'smooth'});
+      setTimeout(function(){ escaping = false; touchStartY = null; }, 800);
+    }
+  }
+
+  window.addEventListener('wheel', onWheel, {passive: false});
+  window.addEventListener('touchstart', onTouchStart, {passive: true});
+  window.addEventListener('touchmove', onTouchMove, {passive: false});
+})();
+</script>
 
 </body>
 </html>
