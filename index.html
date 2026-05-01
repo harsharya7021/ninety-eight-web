@@ -890,21 +890,51 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 .train-strip{margin-bottom:0 !important; padding:0 !important}
 
 
-/* v2.38 · Surgical train spacing */
+
+
+
+/* v2.39 · Train as overlay straddling the section seam */
+/* Hero ends right at content — no padding floor */
 .hero{padding-bottom:0}
-.train-strip{height:200px;margin:0}
-.train-img{height:300px;bottom:-12px}
-#our-people{padding-top:32px}
+
+/* Strip is now a 0-height anchor; overflow:visible lets the train extend out */
+.train-strip{
+  height:0;
+  margin:0;
+  position:relative;
+  overflow:visible;
+  z-index:5;
+  background:transparent;
+}
+
+/* Big train, bottom-anchored well below the strip's baseline so it visibly
+   hangs into the next section. Negative `bottom` controls how far it sinks. */
+.train-img{
+  position:absolute;
+  bottom:-280px;
+  height:640px;
+  width:auto;
+  left:50vw;
+  will-change:left;
+  transition:left .15s linear;
+  filter:drop-shadow(0 24px 36px rgba(14,14,16,.22));
+  pointer-events:none;
+}
+
+/* Next section: pad the top so the OUR ROSTER chip clears the train overhang */
+#our-people{padding-top:240px}
+
 @media (max-width:980px){
-  .train-strip{height:170px}
-  .train-img{height:260px;bottom:-10px}
-  #our-people{padding-top:24px}
+  .train-img{height:480px;bottom:-210px}
+  #our-people{padding-top:170px}
 }
 @media (max-width:780px){
-  .train-strip{height:140px}
-  .train-img{height:220px;bottom:-8px}
-  #our-people{padding-top:16px}
+  .train-img{height:340px;bottom:-150px}
+  #our-people{padding-top:120px}
 }
+
+/* Quick-escape state for the Ishant scroll-lock zone */
+.scroll-lock-wrapper.quick-escape{transition:height .25s ease}
 
 </style>
 </head>
@@ -4008,6 +4038,36 @@ window.addEventListener('mousemove', e => {
     </div>
   </div>
 </dialog>
+
+
+<script>
+/* v2.39 · Scroll-lock quick-escape on up-scroll */
+(function ishantQuickEscape(){
+  const wrapper = document.getElementById('ishant-scroll-lock');
+  if (!wrapper) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let lastY = window.scrollY;
+  let animating = false;
+  function onScroll(){
+    if (animating) return;
+    const y = window.scrollY;
+    const dir = y > lastY ? 'down' : 'up';
+    const r = wrapper.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // Inside lock: top above viewport, bottom still below the upper half
+    const insideLock = r.top <= 0 && r.bottom >= vh * 0.5;
+    if (dir === 'up' && insideLock) {
+      animating = true;
+      const targetY = window.scrollY + r.top - 80; // 80px breathing room
+      window.scrollTo({top: Math.max(0, targetY), behavior: 'smooth'});
+      setTimeout(()=>{ animating = false; lastY = window.scrollY; }, 720);
+      return;
+    }
+    lastY = y;
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+})();
+</script>
 
 </body>
 </html>
