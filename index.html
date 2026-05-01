@@ -975,6 +975,18 @@ body.train-active .scroll-cue{opacity:0; pointer-events:none}
   .train-img{opacity:1; transform:translateY(-50%) translateX(0) scale(.95)}
 }
 
+/* v2.41 · Clean train baseline */
+.train-strip{position:relative;background:transparent;height:260px;overflow:hidden;margin:0}
+.train-img{position:absolute;bottom:-12px;height:380px;width:auto;will-change:left;z-index:2;filter:drop-shadow(0 24px 36px rgba(14,14,16,.20));left:50vw;transition:left .15s linear;display:block}
+@media (max-width:980px){
+  .train-strip{height:220px}
+  .train-img{height:320px;bottom:-10px}
+}
+@media (max-width:780px){
+  .train-strip{height:180px}
+  .train-img{height:260px;bottom:-8px}
+}
+
 </style>
 </head>
 <body>
@@ -2391,7 +2403,6 @@ body.train-active .scroll-cue{opacity:0; pointer-events:none}
     </div>
   </div>
 </dialog>
-
 
 <!-- ====================================================================
      v2.41 · CASE STUDY · ARISTA VAULT — Equity, not retainer
