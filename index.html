@@ -988,7 +988,7 @@ body.train-active .scroll-cue{opacity:0; pointer-events:none}
 }
 
 
-/* v2.42 · Section banner spans container width */
+
 /* The station-tile section tag — was a content-width pill, now a full-
    width banner that sits as a band above the heading. Children stay flush
    left so the chip + badges read the same. */
@@ -1021,6 +1021,65 @@ body.train-active .scroll-cue{opacity:0; pointer-events:none}
   flex:1 1 auto;
   align-items:center;
   box-sizing:border-box;
+}
+
+
+/* v2.43 · Proportional signboard — width = heading text, height = cap-height */
+/* Design notes (the rationale you asked for):
+   · Width — collapse the .lead column to fit-content so the signboard tracks
+     the heading's actual rendered width. Cap the heading's measure at 14ch
+     so headings of any length wrap consistently.
+   · Height — set to ≈0.72 × heading font-size, which approximates cap-height
+     for Inter / Helvetica families. Heading line-height : signboard height
+     ends up near golden (φ ≈ 1.618). This makes the pair read as a typographic
+     unit, not a chip floating above a wall.
+   · Children (arrow, RP badge, text) stay flush-left and align-center inside
+     the new height. */
+
+.sec-head{align-items:flex-start}
+
+.sec-head .lead{
+  display:inline-flex;
+  flex-direction:column;
+  width:fit-content;
+  max-width:100%;
+  align-items:stretch;
+  gap:14px;
+}
+
+/* Cap the heading measure so the column shrinks to a tight, predictable
+   wrapping width regardless of how long the title is. Adjust 14ch to taste
+   (12 = chunkier columns, 18 = more flowing). */
+.sec-head .lead h2,
+.sec-head .lead .h2{
+  max-width:14ch;
+}
+
+/* Signboard fills the .lead column (which itself is = heading width) and
+   stands at the heading's cap-height. */
+.sec-head .lead .sec-tag{
+  display:flex;
+  width:100%;
+  align-items:center;
+  box-sizing:border-box;
+  /* Use the heading's own font-size as the proportional anchor. The h2 in
+     this codebase is roughly clamp(34px, 4.4vw, 56px); cap-height ≈ 0.72×.
+     We hard-floor at 36px so the chip's text + badge stay legible on small
+     viewports. */
+  height:clamp(36px, 3.2vw, 44px);
+  padding:0 14px;
+  font:600 12px/1 var(--mono, ui-monospace, 'SF Mono', monospace);
+  letter-spacing:.18em;
+}
+
+/* The little down-arrow + colored "RP" / "AU" badge inside the chip:
+   keep their dimensions; vertical-center within the new height. */
+.sec-head .lead .sec-tag > *{flex:0 0 auto}
+
+@media (max-width:780px){
+  .sec-head .lead h2,
+  .sec-head .lead .h2{max-width:18ch}   /* slightly wider on narrow screens */
+  .sec-head .lead .sec-tag{height:34px}
 }
 
 </style>
