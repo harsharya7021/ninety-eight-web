@@ -38,53 +38,6 @@
   --mono:'IBM Plex Mono', ui-monospace, monospace;
 
   --ease:cubic-bezier(.2,.7,.1,1);
-
-  /* v2.46 · DESIGN-SYSTEM TOKENS — START */
-  /* Sourced from Ninety-Eight Design System · colors_and_type.css            */
-  /* Purely additive — does not touch the brand palette / fonts / ease above. */
-
-  /* ----- semantic color tokens (map base → role) ----- */
-  --bg:               var(--paper);
-  --bg-dark:          var(--carbon);
-  --fg:               var(--ink);
-  --fg-on-dark:       var(--paper);
-  --fg-mute:          var(--slate);
-  --fg-faint:         var(--mute);
-  --accent:           var(--gold);   /* primary  · highlights, CTAs            */
-  --accent-warm:      var(--red);    /* secondary · kicker dots, alerts        */
-  --accent-cool:      var(--royal);  /* tertiary · links                       */
-  --line:             rgba(14,14,16,.12);
-  --line-strong:      rgba(14,14,16,.18);
-  --line-dark:        rgba(244,239,224,.18);
-
-  /* ----- motion durations (the --ease curve already exists above) ----- */
-  --dur-fast:         .25s;
-  --dur:              .35s;
-  --dur-slow:         .8s;
-
-  /* ----- radii ----- */
-  --r-sm:             6px;    /* subway-tile sec-tags          */
-  --r-md:             10px;
-  --r-lg:             14px;   /* card                          */
-  --r-xl:             18px;
-  --r-pill:           999px;
-
-  /* ----- shadows (soft, dark, low-y; never tight) ----- */
-  --sh-sm:            0 6px 14px -8px rgba(0,0,0,.45);
-  --sh-md:            0 12px 28px -14px rgba(0,0,0,.4);
-  --sh-lg:            0 30px 60px -30px rgba(0,0,0,.35);
-  --sh-xl:            0 40px 100px -20px rgba(0,0,0,.55);
-
-  /* ----- spacing (8pt-ish; brand favors 14/22/28) ----- */
-  --s-1:              4px;
-  --s-2:              8px;
-  --s-3:              14px;
-  --s-4:              22px;
-  --s-5:              28px;
-  --s-6:              40px;
-  --s-7:              60px;
-  --s-8:              120px;
-  /* v2.46 · DESIGN-SYSTEM TOKENS — END */
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -975,199 +928,56 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 /* Quick-escape state for the Ishant scroll-lock zone */
 .scroll-lock-wrapper.quick-escape{transition:height .25s ease}
 
-/* v2.46 · TYPE HELPERS — START */
-/* Drop-in semantic type classes from the design system. None of these */
-/* are referenced by existing markup; they're for new sections / copy. */
-.t-mark{
-  font-family:var(--display);font-weight:900;line-height:.82;
-  letter-spacing:-.05em;font-size:clamp(58px,11.8vw,196px);
-}
-.t-h1{
-  font-family:var(--display);font-weight:800;line-height:.92;
-  letter-spacing:-.025em;font-size:clamp(44px,6vw,80px);
-}
-.t-h2{
-  font-family:var(--display);font-weight:700;line-height:1.05;
-  letter-spacing:-.015em;font-size:clamp(32px,4vw,52px);
-}
-.t-h3{
-  font-family:var(--display);font-weight:600;line-height:1.15;
-  letter-spacing:-.005em;font-size:clamp(22px,2.4vw,30px);
-}
-.t-em{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-}
-.t-kicker{
-  font-family:var(--mono);font-weight:500;font-size:11px;line-height:1;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--fg-mute);
-}
-.t-lead{
-  font-family:var(--display);font-weight:400;line-height:1.45;
-  font-size:clamp(17px,1.4vw,20px);color:var(--fg);
-}
-.t-body{
-  font-family:var(--display);font-weight:400;font-size:14px;line-height:1.55;
-  color:var(--fg);
-}
-.t-mono{
-  font-family:var(--mono);font-weight:500;font-size:12px;line-height:1.4;
-  letter-spacing:.06em;
-}
-.t-mute{ color:var(--fg-mute) }
-.t-faint{ color:var(--fg-faint) }
-/* v2.46 · TYPE HELPERS — END */
-
-
-
-/* v2.47 · DESIGN-SYSTEM v3.0 — START */
-.train-strip{height:0;margin:0;position:relative;overflow:visible;z-index:5;background:transparent}
-.train-img{position:absolute;bottom:-280px;height:640px;width:auto;left:50vw;will-change:left;transition:left .15s linear;filter:drop-shadow(0 24px 36px rgba(14,14,16,.22));pointer-events:none;opacity:1;transform:none}
-#our-people{padding-top:240px}
-@media (max-width:980px){.train-img{height:480px;bottom:-210px}#our-people{padding-top:170px}}
-@media (max-width:780px){.train-img{height:340px;bottom:-150px}#our-people{padding-top:120px}}
-@media (prefers-reduced-motion: reduce){.train-img{transition:none;left:50%}}
-.sec-head{align-items:flex-start}
-.sec-head .lead{display:inline-flex;flex-direction:column;width:fit-content;max-width:100%;align-items:stretch;gap:14px}
-.sec-head .lead h2,.sec-head .lead .h2{max-width:14ch}
-.sec-head .lead .sec-tag{display:flex;width:auto;align-items:center;gap:14px;box-sizing:border-box;height:auto;padding:10px 14px 10px 12px;background:var(--paper);color:var(--carbon);border:1px solid var(--carbon);border-left:6px solid var(--carbon);border-radius:0;font:600 13px/1 var(--display);letter-spacing:.01em;text-transform:none;position:relative;margin-bottom:18px;transition:transform .35s var(--ease),border-left-color .35s var(--ease),background .35s var(--ease)}
-.sec-head .lead .sec-tag::before{content:"";display:none}
-.sec-head .lead .sec-tag::after{content:none}
-.sec-head .lead .sec-tag .bullet{width:28px;height:28px;border-radius:50%;font:800 12px/1 var(--display);letter-spacing:.01em;color:#fff;box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--carbon);flex:0 0 auto;display:inline-grid;place-items:center}
-.sec-head .lead .sec-tag .name{display:inline-flex;align-items:baseline;gap:10px;font-weight:700;letter-spacing:.005em}
-.sec-head .lead .sec-tag .name::before{content:"";width:14px;height:2px;background:var(--carbon);margin-right:2px;flex:0 0 auto}
-.sec-head .lead .sec-tag .stop{margin-left:auto;padding-left:14px;font:500 10px/1 var(--mono);letter-spacing:.22em;color:var(--slate);text-transform:uppercase;border-left:1px solid rgba(14,14,16,.16);white-space:nowrap}
-.sec-head .lead .sec-tag:hover{transform:translateX(2px);border-left-color:var(--accent,var(--gold))}
-@media (max-width:780px){.sec-head .lead h2,.sec-head .lead .h2{max-width:18ch}.sec-head .lead .sec-tag{padding:8px 12px 8px 10px;font-size:12px}.sec-head .lead .sec-tag .bullet{width:24px;height:24px;font-size:11px}.sec-head .lead .sec-tag .name::before{width:10px}}
-/* v2.47 · DESIGN-SYSTEM v3.0 — END */
-
-/* v2.48 · FLAP — START */
-/* Activated by `body[data-sectag="flap"]`. Black slab, mono off-white type, */
-/* horizontal seam, hover-swap to a yellow data-flip tagline. */
-body[data-sectag="flap"] .sec-head .lead .sec-tag{
-  background:#0a0a0c;
-  color:#F0E9D2;
-  border:1px solid #1a1a1e;
-  border-left:0;
-  border-radius:2px;
-  padding:0;
-  height:52px;
-  gap:0;
-  align-items:stretch;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,.06) inset,
-    0 -1px 0 rgba(0,0,0,.6) inset,
-    0 8px 18px -8px rgba(0,0,0,.5);
-  overflow:hidden;
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag::before{
-  /* the split-flap seam */
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  top:50%;
-  height:1px;
-  background:rgba(0,0,0,.85);
-  box-shadow:0 -1px 0 rgba(255,255,255,.04);
+/* Train-strip is now a 0-height anchor + sticky wrapper for the train img.
+   Sticky keeps the train pinned in viewport-center for a scroll runway,
+   during which the JS fades it in/out. */
+.train-strip{
+  height:80vh;             /* runway: train is centered for ~80vh of scroll */
+  margin:-40vh 0;          /* pull the runway equally into hero & next section */
+  position:relative;
+  overflow:visible;
+  z-index:5;
+  background:transparent;
   pointer-events:none;
-  z-index:2;
+}
+
+.train-img{
+  position:sticky;
+  top:50%;                 /* center vertically in viewport */
   display:block;
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag::after{content:none}
-
-/* Bullet → flat destination code rail (RP / SV / AU), no disc */
-body[data-sectag="flap"] .sec-head .lead .sec-tag .bullet{
-  width:auto; height:auto; border-radius:0;
-  background:transparent !important;
-  color:#F0E9D2 !important;
-  box-shadow:none;
-  padding:0 14px;
-  align-self:stretch;
-  display:flex; align-items:center;
-  font:800 14px/1 var(--mono);
-  letter-spacing:.06em;
-  border-right:1px solid #1a1a1e;
-  position:relative;
-  z-index:1;
-}
-
-/* Name — mono uppercase, fills middle. Tick-pin hidden in flap mode. */
-body[data-sectag="flap"] .sec-head .lead .sec-tag .name{
-  display:flex; align-items:center;
-  padding:0 18px;
-  font:800 22px/1 var(--mono);
-  letter-spacing:-.005em;
-  text-transform:uppercase;
-  gap:0;
-  position:relative;
-  overflow:hidden;
-  flex:1 1 auto;
-  transition:opacity .35s ease, transform .35s ease;
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag .name::before{display:none}
-body[data-sectag="flap"] .sec-head .lead .sec-tag .name::after{
-  content:attr(data-flip);
-  position:absolute;
-  inset:0;
-  display:flex; align-items:center;
-  padding:0 18px;
-  background:#0a0a0c;
-  color:#F5D400;
-  font:700 13px/1 var(--mono);
-  letter-spacing:.14em;
-  text-transform:uppercase;
+  margin:0 auto;
+  height:min(82vh, 720px); /* dominant — fills most of the viewport at peak */
+  width:auto;
+  transform:translateY(-50%) translateX(0) scale(.95);
   opacity:0;
-  transform:translateY(40%);
-  transition:opacity .35s ease, transform .45s cubic-bezier(.7,.0,.2,1);
-  pointer-events:none;
-  z-index:1;
+  will-change:opacity, transform;
+  filter:drop-shadow(0 28px 42px rgba(14,14,16,.24));
+  transition:opacity .15s linear, transform .25s var(--ease, cubic-bezier(.4,0,.2,1));
 }
 
-/* Hover: kill the v3.0 nudge; flip to data-flip */
-body[data-sectag="flap"] .sec-head .lead .sec-tag:hover{
-  transform:none;
-  border-left-color:transparent;
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .name{
-  opacity:0;
-  transform:translateY(-40%);
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .name::after{
-  opacity:1;
-  transform:translateY(0);
-}
+/* SCROLL cue from the hero hides when the train moment is active */
+.scroll-cue{transition:opacity .35s ease}
+body.train-active .scroll-cue{opacity:0; pointer-events:none}
 
-/* Stop → trip counter, two-tone gradient like enamel signage */
-body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
-  display:flex; align-items:center;
-  padding:0 14px;
-  margin-left:0;
-  border-left:1px solid #1a1a1e;
-  color:#8a8470;
-  font:600 10px/1 var(--mono);
-  letter-spacing:.2em;
-  background:linear-gradient(180deg, #111114 0 50%, #08080a 50% 100%);
-  position:relative; z-index:1;
-}
+/* Section that follows: padding-top minimal — the train runway eats the gap */
+#our-people{padding-top:24px}
 
-/* prefers-reduced-motion: skip the flip animation entirely */
-@media (prefers-reduced-motion: reduce){
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .name,
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .name::after{
-    transition:none;
-  }
+@media (max-width:980px){
+  .train-strip{height:70vh; margin:-35vh 0}
+  .train-img{height:min(70vh, 520px)}
 }
-
-/* Mobile: shrink the slab + type so it doesn't dominate */
 @media (max-width:780px){
-  body[data-sectag="flap"] .sec-head .lead .sec-tag{height:44px}
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .bullet{font-size:12px;padding:0 10px}
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .name{font-size:17px;padding:0 12px}
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{padding:0 10px;font-size:9px}
+  .train-strip{height:60vh; margin:-30vh 0}
+  .train-img{height:min(58vh, 380px)}
 }
-/* v2.48 · FLAP — END */
+
+@media (prefers-reduced-motion: reduce){
+  .train-img{opacity:1; transform:translateY(-50%) translateX(0) scale(.95)}
+}
+
 </style>
 </head>
-<body data-sectag="flap">
+<body>
 
 <div id="progress"></div>
 <div class="cursor-ring"></div>
@@ -1348,7 +1158,7 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--royal)"><span class="bullet" style="background:var(--royal)">RP</span><span class="name" data-flip="WE'VE SPOKEN FOR">Our Roster</span><span class="stop">LINE 04 · STOP 02</span></span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--royal)">RP</span> Our Roster</span>
         <h2>People that we have <em>spoken for.</em></h2>
       </div>
       <p class="note">One athlete at the centre. Six restaurants on the line. Seventeen brands in the book. The rest is below — a logo wall of selected clients, none of whom got there because we were cheap.</p>
@@ -1704,7 +1514,7 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--red)"><span class="bullet" style="background:var(--red)">SV</span><span class="name" data-flip="WHAT WE MOVE · DAILY">Services</span><span class="stop">LINE 02 · STOP 03</span></span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--red)">SV</span> Services</span>
         <h2>What we move. <em>Daily.</em></h2>
       </div>
       <p class="note">Seven lines out of the station. Each one gets your business somewhere it couldn't get on its own. We don't do operational consulting — that's not our thing.</p>
@@ -1765,7 +1575,7 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--pink)"><span class="bullet" style="background:var(--pink)">AU</span><span class="name" data-flip="MOSTLY PUNCTUAL">About</span><span class="stop">LINE 06 · STOP 04</span></span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--pink)">AU</span> About</span>
         <h2>A small studio with <em>a big timetable.</em></h2>
       </div>
       <p class="note">Process-based, integrated, impact-oriented. Mostly, punctual.</p>
@@ -2497,157 +2307,6 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   </div>
 </dialog>
 
-<!-- ====================================================================
-     v2.41 · CASE STUDY · LIMITLESS — Multi-outlet lounge brand
-     Disk-sourced creators: 5 across two outlets (Ansal Plaza + Vasant Kunj).
-     ==================================================================== -->
-<dialog id="case-limitless" class="case-dialog" aria-labelledby="cd-limitless-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · Hospitality · Limitless</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:140px;background:#dd3d38;font-size:13px">Limitless</span>
-      <span class="cdh-creator" style="bottom:24%;right:24%;width:108px;background:#1f4d8c">@anjali.jha</span>
-      <span class="cdh-creator" style="bottom:6%;right:40%;width:108px;background:#2f9e5e">@divija.sikka</span>
-      <span class="cdh-creator" style="bottom:24%;right:54%;width:108px;background:#f5b015;color:#0e0e10">@ishika.sahni</span>
-      <span class="cdh-creator" style="bottom:8%;right:68%;width:108px;background:#46286a">@nikita.mallik</span>
-      <span class="cdh-creator" style="bottom:24%;right:82%;width:108px;background:#b933ad">@unnati.tomar</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">Hospitality · Lounge · Multi-outlet</span>
-        <h2 id="cd-limitless-title">Limitless</h2>
-        <p class="cd-hero-sub">A multi-outlet Delhi lounge brand. Two locations on the calendar — one creator playbook running across both.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--red)"></span>The Snapshot</h3>
-      <p class="cd-lead">Limitless operates across multiple Delhi addresses — Ansal Plaza and Vasant Kunj surfaced through our roster. The brief: build the brand the same way regulars find a bar — one credible creator at a time, one neighbourhood at a time.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">5</span><span class="l">Creators captured on disk</span><span class="d">across two outlets</span></div>
-        <div class="cd-stat"><span class="n">2</span><span class="l">Outlets activated</span><span class="d">Ansal Plaza · Vasant Kunj</span></div>
-        <div class="cd-stat"><span class="n">Multi-night</span><span class="l">Cadence</span><span class="d">repeat creator visits across the calendar</span></div>
-        <div class="cd-stat"><span class="n">Delhi NCR</span><span class="l">Footprint</span><span class="d">premium nightlife addresses</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">A multi-outlet lounge brand sells the room, not the chain.</blockquote>
-      <p>Lounge audiences don't react well to "we have three locations." They react to the photo of a friend at this specific bar tonight. We split the activation by outlet — the Ansal Plaza creator pool and the Vasant Kunj creator pool stayed largely separate so each room read as a singular destination, not a franchise stop.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--green)"></span>The Roster (from disk)</h3>
-      <p>Five creators across two outlets, captured during the activation window. Each visit produced a story-set; some converted into reels and grid posts. Disk-sourced — handles below approximate from creator-folder names; correct any that read off.</p>
-      <div class="cd-cite">
-        <strong>Ansal Plaza outlet:</strong>
-        <a href="https://www.instagram.com/anjali.jha/" target="_blank" rel="noopener">Anjali Jha</a>
-      </div>
-      <div class="cd-cite">
-        <strong>Vasant Kunj outlet:</strong>
-        <a href="https://www.instagram.com/nikita.mallik/" target="_blank" rel="noopener">Nikita Mallik</a>
-      </div>
-      <div class="cd-cite">
-        <strong>Activated either outlet:</strong>
-        <a href="https://www.instagram.com/divija.sikka/" target="_blank" rel="noopener">Divija Sikka</a> ·
-        <a href="https://www.instagram.com/ishika.sahni/" target="_blank" rel="noopener">Ishika Sahni</a> ·
-        <a href="https://www.instagram.com/unnati.tomar/" target="_blank" rel="noopener">Unnati Tomar</a>
-      </div>
-      <p class="cd-foot-note"><em>Handles drawn from disk folder names. Send corrections, we'll fix in the next pass.</em></p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--royal)"></span>What This Proves</h3>
-      <p><strong>Multi-outlet hospitality needs separate stories per address.</strong> Treating the chain as one brand is correct on paper and wrong on Instagram. Each outlet earns its own creator visit cadence.</p>
-      <p><strong>Photographer bias matters.</strong> The lounge audience scrolls for the look of the room, the lighting, the corner table. We optimised the creator pool for who'd shoot the room well, not who had the biggest follower count.</p>
-      <p><strong>Repeat visits are the moat.</strong> A creator who's been to Limitless three times posts content with a kind of casual familiarity that paid placements can't buy.</p>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Limitless</span>
-      <h4>Multi-outlet hospitality, one neighbourhood at a time.</h4>
-      <p>If you operate a lounge or club with multiple addresses, the playbook above adapts cleanly: one creator pool per outlet, repeat visits, room-first photography. Tell us which address opens next and we'll tell you the five creators worth flying in.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-limitless-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.41 · CASE STUDY · ARISTA VAULT — Equity, not retainer
-     Sister case to Ishant. Luggage-tech founder, Shark-Tank-bound, equity deal.
-     ==================================================================== -->
-<dialog id="case-arista-vault" class="case-dialog" aria-labelledby="cd-arista-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · Brand · Arista Vault · Equity, not retainer</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:148px;background:#f5b015;color:#0e0e10;font-size:13px">Arista Vault</span>
-      <span class="cdh-creator" style="bottom:24%;right:30%;width:104px;background:#dd3d38">Equity Deal</span>
-      <span class="cdh-creator" style="bottom:6%;right:48%;width:104px;background:#1f4d8c">Shark Tank</span>
-      <span class="cdh-creator" style="bottom:24%;right:64%;width:104px;background:#2f9e5e">Luggage-Tech</span>
-      <span class="cdh-creator" style="bottom:8%;right:80%;width:96px;background:#46286a">All Upside</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">Brand · D2C · Equity Partnership</span>
-        <h2 id="cd-arista-title">Arista Vault.</h2>
-        <p class="cd-hero-sub">A luggage-tech founder we partnered with on equity terms instead of fees — because we knew the deck was Shark-Tank-bound.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--gold)"></span>The Bet</h3>
-      <p class="cd-lead">Arista Vault is a luggage-tech brand built around smart hardware. The founder came to 98 with a small budget and a big appointment in his calendar: he was Shark-Tank-bound, and the brand needed to look ready before the cameras rolled.</p>
-      <p>We knew two things: (a) the product was good, (b) the moment was real. Standard agency arithmetic — bill hours, ship deliverables, walk away — would have undersold what the work was actually worth. So we proposed a different shape.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--red)"></span>The Deal</h3>
-      <blockquote class="cd-pull">Equity, not retainer. When we believe, we own the upside.</blockquote>
-      <p>Instead of a flat fee, we negotiated an equity-based partnership. The founder kept cash; 98 took a stake. If the brand went up, we went up with it. If it didn't, we'd have spent our time anyway. <em>Same operating system. Different asset class.</em></p>
-      <p>This isn't how most agencies price. Most agencies price as if every brief has the same expected value. The Arista bet was a lesson — for some deals, the right model is alignment, not invoicing.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--royal)"></span>The Work</h3>
-      <p>Pre-Shark-Tank, the work was about getting the brand camera-ready. Sharper visual identity. A storyline the founder could tell in 90 seconds. Social cadence dialled up so the audience that arrived after the TV moment wouldn't land on a dead grid.</p>
-      <p>Post-show, the work shifted to capacity — turning attention into orders, orders into reorders, reorders into a real brand conversation. The TV moment is the door. The brand has to be the room.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--green)"></span>What This Proves</h3>
-      <p><strong>Pricing as alignment.</strong> An equity-based agency engagement only works when both sides actually believe in the brand. We didn't propose this to every client. We propose it to the ones we'd put our own money behind.</p>
-      <p><strong>Pre-show prep matters more than the show.</strong> Founders prepare the pitch. Brands prepare the surface. The brand surface — the grid, the website, the founder's social — is what the audience inspects after the cameras stop.</p>
-      <p><strong>Cross-pollination, again.</strong> Like the Ishant talent contract opens doors for brand clients, the Arista equity deal teaches the agency a different muscle: how to make brand decisions when fee structure isn't the constraint.</p>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Arista Vault</span>
-      <h4>The TV moment is the door. The brand is the room.</h4>
-      <p>If you're a founder approaching a high-attention moment — Shark Tank, a category-defining launch, an investor day — and the budget is tight but the upside is real, the equity model can be the right shape. We don't propose this to every brief. But for the brands we'd back ourselves, we keep the option open.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-arista-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
 <dialog id="case-yyc-group" class="case-dialog" aria-labelledby="cd-yyc-title">
   <header class="cd-head">
     <span class="cd-tag">Case Study · Hospitality · YYC Group</span>
@@ -2731,13 +2390,6 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
         <a href="https://www.instagram.com/nanditamiglani/" target="_blank" rel="noopener">@nanditamiglani</a> ·
         <a href="https://www.instagram.com/varunverrma/" target="_blank" rel="noopener">@varunverrma</a> ·
         <a href="https://www.instagram.com/shabostoc/" target="_blank" rel="noopener">@shabostoc</a>
-      
-        <span class="tbsp-disk-pass" style="display:block; margin-top:6px; font-style:italic">
-          <!-- v2.41 · TBSP roster · disk-pass extension -->
-          + disk-pass:
-          <a href="https://www.instagram.com/anushabangia/" target="_blank" rel="noopener">@anushabangia</a> ·
-          <a href="https://www.instagram.com/saanyakhatter/" target="_blank" rel="noopener">@saanyakhatter</a>
-        </span>
       </div>
       <div class="cd-cite">
         <strong>Pot Pot <a href="https://www.instagram.com/potpot.in/" target="_blank" rel="noopener">@potpot.in</a></strong> ·
@@ -2852,16 +2504,6 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
         <a href="https://www.instagram.com/unnatimalik/" target="_blank" rel="noopener">@unnatimalik</a> ·
         <a href="https://www.instagram.com/thedemodakudi/" target="_blank" rel="noopener">@thedemodakudi</a>
       </div>
-      <!-- v2.41 · Andreas roster · disk-pass extension -->
-      <div class="cd-cite" style="margin-top:8px">
-        <strong>Disk-pass additions (creators 98 hosted at Andreas, sourced from internal archive):</strong>
-        <a href="https://www.instagram.com/akshita/" target="_blank" rel="noopener">@akshita</a> ·
-        <a href="https://www.instagram.com/saanyakhatter/" target="_blank" rel="noopener">@saanyakhatter</a> ·
-        <a href="https://www.instagram.com/rashmichawla/" target="_blank" rel="noopener">@rashmichawla</a> ·
-        <a href="https://www.instagram.com/shruti.malik/" target="_blank" rel="noopener">@shruti.malik</a> ·
-        <a href="https://www.instagram.com/tanyasharmabajaj/" target="_blank" rel="noopener">@tanyasharmabajaj</a>
-      </div>
-
     </section>
 
     <!-- Chapter 04 · Playbook -->
@@ -3905,88 +3547,6 @@ window.addEventListener('mousemove', e => {
   // run after DOM settles
   setTimeout(maybeOpenFromHash, 50);
 })();
-
-/* v2.49 · UP-SCROLL BYPASS — START */
-/* Designed fresh — does NOT patch wheel handlers. Uses IntersectionObserver
-   on a bottom sentinel to detect "user scrolled past lock zone", then
-   disarms the lock for the rest of the session, with a scroll-anchor
-   compensation so the height collapse is visually invisible. */
-(function initIshantUpScrollBypass(){
-  const wrapper = document.getElementById('ishant-scroll-lock');
-  if (!wrapper) return;
-
-  let armed = false;        // sentinel IO is attached
-  let completed = false;    // user has scrolled past — lock disarmed permanently
-  let sentinel = null;
-  let io = null;
-
-  function arm(){
-    if (armed || completed) return;
-    armed = true;
-    sentinel = document.createElement('div');
-    sentinel.setAttribute('aria-hidden', 'true');
-    sentinel.style.cssText =
-      'position:absolute;left:0;right:0;bottom:0;height:1px;' +
-      'pointer-events:none;visibility:hidden';
-    wrapper.appendChild(sentinel);
-
-    io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        // sentinel has scrolled OUT THE TOP of the viewport — user is past wrapper bottom
-        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-          disarm();
-        }
-      });
-    }, { threshold: 0 });
-    io.observe(sentinel);
-  }
-
-  function clearArm(){
-    if (io) { io.disconnect(); io = null; }
-    if (sentinel) { sentinel.remove(); sentinel = null; }
-    armed = false;
-  }
-
-  function disarm(){
-    if (completed) return;
-    completed = true;
-
-    const beforeHeight = wrapper.offsetHeight;
-    const beforeScroll = window.scrollY;
-
-    // Drop the lock: 600vh → auto, sticky → relative, etc.
-    wrapper.classList.remove('scroll-lock-active');
-    wrapper.classList.add('scroll-lock-completed');
-
-    // Force a reflow read for accurate post-shrink height.
-    const afterHeight = wrapper.offsetHeight;
-    const delta = beforeHeight - afterHeight;
-
-    // Anchor: page is now shorter by `delta`. Scroll the user up by `delta`
-    // so the content currently in their viewport stays in place visually.
-    if (delta > 0) {
-      window.scrollTo({ top: Math.max(0, beforeScroll - delta), behavior: 'auto' });
-    }
-
-    clearArm();
-    if (classObs) { classObs.disconnect(); }
-  }
-
-  // Observe class changes on the wrapper. The existing initIshantScrollLock()
-  // IIFE adds .scroll-lock-active when activate() runs, and removes it when
-  // viewport drops below 1080px or reduced-motion turns on. Mirror that.
-  const classObs = new MutationObserver(() => {
-    if (completed) return;
-    const isActive = wrapper.classList.contains('scroll-lock-active');
-    if (isActive && !armed) arm();
-    else if (!isActive && armed) clearArm();
-  });
-  classObs.observe(wrapper, { attributes: true, attributeFilter: ['class'] });
-
-  // Initial state: lock may already be active when this IIFE runs.
-  if (wrapper.classList.contains('scroll-lock-active')) arm();
-})();
-/* v2.49 · UP-SCROLL BYPASS — END */
 </script>
 <!-- ====================================================================
      v2.33 · EIGHT NEW CASE MODALS · drafts for user review

@@ -38,53 +38,6 @@
   --mono:'IBM Plex Mono', ui-monospace, monospace;
 
   --ease:cubic-bezier(.2,.7,.1,1);
-
-  /* v2.46 · DESIGN-SYSTEM TOKENS — START */
-  /* Sourced from Ninety-Eight Design System · colors_and_type.css            */
-  /* Purely additive — does not touch the brand palette / fonts / ease above. */
-
-  /* ----- semantic color tokens (map base → role) ----- */
-  --bg:               var(--paper);
-  --bg-dark:          var(--carbon);
-  --fg:               var(--ink);
-  --fg-on-dark:       var(--paper);
-  --fg-mute:          var(--slate);
-  --fg-faint:         var(--mute);
-  --accent:           var(--gold);   /* primary  · highlights, CTAs            */
-  --accent-warm:      var(--red);    /* secondary · kicker dots, alerts        */
-  --accent-cool:      var(--royal);  /* tertiary · links                       */
-  --line:             rgba(14,14,16,.12);
-  --line-strong:      rgba(14,14,16,.18);
-  --line-dark:        rgba(244,239,224,.18);
-
-  /* ----- motion durations (the --ease curve already exists above) ----- */
-  --dur-fast:         .25s;
-  --dur:              .35s;
-  --dur-slow:         .8s;
-
-  /* ----- radii ----- */
-  --r-sm:             6px;    /* subway-tile sec-tags          */
-  --r-md:             10px;
-  --r-lg:             14px;   /* card                          */
-  --r-xl:             18px;
-  --r-pill:           999px;
-
-  /* ----- shadows (soft, dark, low-y; never tight) ----- */
-  --sh-sm:            0 6px 14px -8px rgba(0,0,0,.45);
-  --sh-md:            0 12px 28px -14px rgba(0,0,0,.4);
-  --sh-lg:            0 30px 60px -30px rgba(0,0,0,.35);
-  --sh-xl:            0 40px 100px -20px rgba(0,0,0,.55);
-
-  /* ----- spacing (8pt-ish; brand favors 14/22/28) ----- */
-  --s-1:              4px;
-  --s-2:              8px;
-  --s-3:              14px;
-  --s-4:              22px;
-  --s-5:              28px;
-  --s-6:              40px;
-  --s-7:              60px;
-  --s-8:              120px;
-  /* v2.46 · DESIGN-SYSTEM TOKENS — END */
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -975,199 +928,68 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 /* Quick-escape state for the Ishant scroll-lock zone */
 .scroll-lock-wrapper.quick-escape{transition:height .25s ease}
 
-/* v2.46 · TYPE HELPERS — START */
-/* Drop-in semantic type classes from the design system. None of these */
-/* are referenced by existing markup; they're for new sections / copy. */
-.t-mark{
-  font-family:var(--display);font-weight:900;line-height:.82;
-  letter-spacing:-.05em;font-size:clamp(58px,11.8vw,196px);
-}
-.t-h1{
-  font-family:var(--display);font-weight:800;line-height:.92;
-  letter-spacing:-.025em;font-size:clamp(44px,6vw,80px);
-}
-.t-h2{
-  font-family:var(--display);font-weight:700;line-height:1.05;
-  letter-spacing:-.015em;font-size:clamp(32px,4vw,52px);
-}
-.t-h3{
-  font-family:var(--display);font-weight:600;line-height:1.15;
-  letter-spacing:-.005em;font-size:clamp(22px,2.4vw,30px);
-}
-.t-em{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-}
-.t-kicker{
-  font-family:var(--mono);font-weight:500;font-size:11px;line-height:1;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--fg-mute);
-}
-.t-lead{
-  font-family:var(--display);font-weight:400;line-height:1.45;
-  font-size:clamp(17px,1.4vw,20px);color:var(--fg);
-}
-.t-body{
-  font-family:var(--display);font-weight:400;font-size:14px;line-height:1.55;
-  color:var(--fg);
-}
-.t-mono{
-  font-family:var(--mono);font-weight:500;font-size:12px;line-height:1.4;
-  letter-spacing:.06em;
-}
-.t-mute{ color:var(--fg-mute) }
-.t-faint{ color:var(--fg-faint) }
-/* v2.46 · TYPE HELPERS — END */
-
-
-
-/* v2.47 · DESIGN-SYSTEM v3.0 — START */
-.train-strip{height:0;margin:0;position:relative;overflow:visible;z-index:5;background:transparent}
-.train-img{position:absolute;bottom:-280px;height:640px;width:auto;left:50vw;will-change:left;transition:left .15s linear;filter:drop-shadow(0 24px 36px rgba(14,14,16,.22));pointer-events:none;opacity:1;transform:none}
-#our-people{padding-top:240px}
-@media (max-width:980px){.train-img{height:480px;bottom:-210px}#our-people{padding-top:170px}}
-@media (max-width:780px){.train-img{height:340px;bottom:-150px}#our-people{padding-top:120px}}
-@media (prefers-reduced-motion: reduce){.train-img{transition:none;left:50%}}
-.sec-head{align-items:flex-start}
-.sec-head .lead{display:inline-flex;flex-direction:column;width:fit-content;max-width:100%;align-items:stretch;gap:14px}
-.sec-head .lead h2,.sec-head .lead .h2{max-width:14ch}
-.sec-head .lead .sec-tag{display:flex;width:auto;align-items:center;gap:14px;box-sizing:border-box;height:auto;padding:10px 14px 10px 12px;background:var(--paper);color:var(--carbon);border:1px solid var(--carbon);border-left:6px solid var(--carbon);border-radius:0;font:600 13px/1 var(--display);letter-spacing:.01em;text-transform:none;position:relative;margin-bottom:18px;transition:transform .35s var(--ease),border-left-color .35s var(--ease),background .35s var(--ease)}
-.sec-head .lead .sec-tag::before{content:"";display:none}
-.sec-head .lead .sec-tag::after{content:none}
-.sec-head .lead .sec-tag .bullet{width:28px;height:28px;border-radius:50%;font:800 12px/1 var(--display);letter-spacing:.01em;color:#fff;box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--carbon);flex:0 0 auto;display:inline-grid;place-items:center}
-.sec-head .lead .sec-tag .name{display:inline-flex;align-items:baseline;gap:10px;font-weight:700;letter-spacing:.005em}
-.sec-head .lead .sec-tag .name::before{content:"";width:14px;height:2px;background:var(--carbon);margin-right:2px;flex:0 0 auto}
-.sec-head .lead .sec-tag .stop{margin-left:auto;padding-left:14px;font:500 10px/1 var(--mono);letter-spacing:.22em;color:var(--slate);text-transform:uppercase;border-left:1px solid rgba(14,14,16,.16);white-space:nowrap}
-.sec-head .lead .sec-tag:hover{transform:translateX(2px);border-left-color:var(--accent,var(--gold))}
-@media (max-width:780px){.sec-head .lead h2,.sec-head .lead .h2{max-width:18ch}.sec-head .lead .sec-tag{padding:8px 12px 8px 10px;font-size:12px}.sec-head .lead .sec-tag .bullet{width:24px;height:24px;font-size:11px}.sec-head .lead .sec-tag .name::before{width:10px}}
-/* v2.47 · DESIGN-SYSTEM v3.0 — END */
-
-/* v2.48 · FLAP — START */
-/* Activated by `body[data-sectag="flap"]`. Black slab, mono off-white type, */
-/* horizontal seam, hover-swap to a yellow data-flip tagline. */
-body[data-sectag="flap"] .sec-head .lead .sec-tag{
-  background:#0a0a0c;
-  color:#F0E9D2;
-  border:1px solid #1a1a1e;
-  border-left:0;
-  border-radius:2px;
-  padding:0;
-  height:52px;
-  gap:0;
-  align-items:stretch;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,.06) inset,
-    0 -1px 0 rgba(0,0,0,.6) inset,
-    0 8px 18px -8px rgba(0,0,0,.5);
-  overflow:hidden;
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag::before{
-  /* the split-flap seam */
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  top:50%;
-  height:1px;
-  background:rgba(0,0,0,.85);
-  box-shadow:0 -1px 0 rgba(255,255,255,.04);
+/* Train-strip is now a 0-height anchor + sticky wrapper for the train img.
+   Sticky keeps the train pinned in viewport-center for a scroll runway,
+   during which the JS fades it in/out. */
+.train-strip{
+  height:80vh;             /* runway: train is centered for ~80vh of scroll */
+  margin:-40vh 0;          /* pull the runway equally into hero & next section */
+  position:relative;
+  overflow:visible;
+  z-index:5;
+  background:transparent;
   pointer-events:none;
-  z-index:2;
+}
+
+.train-img{
+  position:sticky;
+  top:50%;                 /* center vertically in viewport */
   display:block;
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag::after{content:none}
-
-/* Bullet → flat destination code rail (RP / SV / AU), no disc */
-body[data-sectag="flap"] .sec-head .lead .sec-tag .bullet{
-  width:auto; height:auto; border-radius:0;
-  background:transparent !important;
-  color:#F0E9D2 !important;
-  box-shadow:none;
-  padding:0 14px;
-  align-self:stretch;
-  display:flex; align-items:center;
-  font:800 14px/1 var(--mono);
-  letter-spacing:.06em;
-  border-right:1px solid #1a1a1e;
-  position:relative;
-  z-index:1;
-}
-
-/* Name — mono uppercase, fills middle. Tick-pin hidden in flap mode. */
-body[data-sectag="flap"] .sec-head .lead .sec-tag .name{
-  display:flex; align-items:center;
-  padding:0 18px;
-  font:800 22px/1 var(--mono);
-  letter-spacing:-.005em;
-  text-transform:uppercase;
-  gap:0;
-  position:relative;
-  overflow:hidden;
-  flex:1 1 auto;
-  transition:opacity .35s ease, transform .35s ease;
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag .name::before{display:none}
-body[data-sectag="flap"] .sec-head .lead .sec-tag .name::after{
-  content:attr(data-flip);
-  position:absolute;
-  inset:0;
-  display:flex; align-items:center;
-  padding:0 18px;
-  background:#0a0a0c;
-  color:#F5D400;
-  font:700 13px/1 var(--mono);
-  letter-spacing:.14em;
-  text-transform:uppercase;
+  margin:0 auto;
+  height:min(82vh, 720px); /* dominant — fills most of the viewport at peak */
+  width:auto;
+  transform:translateY(-50%) translateX(0) scale(.95);
   opacity:0;
-  transform:translateY(40%);
-  transition:opacity .35s ease, transform .45s cubic-bezier(.7,.0,.2,1);
-  pointer-events:none;
-  z-index:1;
+  will-change:opacity, transform;
+  filter:drop-shadow(0 28px 42px rgba(14,14,16,.24));
+  transition:opacity .15s linear, transform .25s var(--ease, cubic-bezier(.4,0,.2,1));
 }
 
-/* Hover: kill the v3.0 nudge; flip to data-flip */
-body[data-sectag="flap"] .sec-head .lead .sec-tag:hover{
-  transform:none;
-  border-left-color:transparent;
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .name{
-  opacity:0;
-  transform:translateY(-40%);
-}
-body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .name::after{
-  opacity:1;
-  transform:translateY(0);
-}
+/* SCROLL cue from the hero hides when the train moment is active */
+.scroll-cue{transition:opacity .35s ease}
+body.train-active .scroll-cue{opacity:0; pointer-events:none}
 
-/* Stop → trip counter, two-tone gradient like enamel signage */
-body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
-  display:flex; align-items:center;
-  padding:0 14px;
-  margin-left:0;
-  border-left:1px solid #1a1a1e;
-  color:#8a8470;
-  font:600 10px/1 var(--mono);
-  letter-spacing:.2em;
-  background:linear-gradient(180deg, #111114 0 50%, #08080a 50% 100%);
-  position:relative; z-index:1;
-}
+/* Section that follows: padding-top minimal — the train runway eats the gap */
+#our-people{padding-top:24px}
 
-/* prefers-reduced-motion: skip the flip animation entirely */
-@media (prefers-reduced-motion: reduce){
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .name,
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .name::after{
-    transition:none;
-  }
+@media (max-width:980px){
+  .train-strip{height:70vh; margin:-35vh 0}
+  .train-img{height:min(70vh, 520px)}
 }
-
-/* Mobile: shrink the slab + type so it doesn't dominate */
 @media (max-width:780px){
-  body[data-sectag="flap"] .sec-head .lead .sec-tag{height:44px}
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .bullet{font-size:12px;padding:0 10px}
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .name{font-size:17px;padding:0 12px}
-  body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{padding:0 10px;font-size:9px}
+  .train-strip{height:60vh; margin:-30vh 0}
+  .train-img{height:min(58vh, 380px)}
 }
-/* v2.48 · FLAP — END */
+
+@media (prefers-reduced-motion: reduce){
+  .train-img{opacity:1; transform:translateY(-50%) translateX(0) scale(.95)}
+}
+
+/* v2.41 · Clean train baseline */
+.train-strip{position:relative;background:transparent;height:260px;overflow:hidden;margin:0}
+.train-img{position:absolute;bottom:-12px;height:380px;width:auto;will-change:left;z-index:2;filter:drop-shadow(0 24px 36px rgba(14,14,16,.20));left:50vw;transition:left .15s linear;display:block}
+@media (max-width:980px){
+  .train-strip{height:220px}
+  .train-img{height:320px;bottom:-10px}
+}
+@media (max-width:780px){
+  .train-strip{height:180px}
+  .train-img{height:260px;bottom:-8px}
+}
+
 </style>
 </head>
-<body data-sectag="flap">
+<body>
 
 <div id="progress"></div>
 <div class="cursor-ring"></div>
@@ -1348,7 +1170,7 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--royal)"><span class="bullet" style="background:var(--royal)">RP</span><span class="name" data-flip="WE'VE SPOKEN FOR">Our Roster</span><span class="stop">LINE 04 · STOP 02</span></span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--royal)">RP</span> Our Roster</span>
         <h2>People that we have <em>spoken for.</em></h2>
       </div>
       <p class="note">One athlete at the centre. Six restaurants on the line. Seventeen brands in the book. The rest is below — a logo wall of selected clients, none of whom got there because we were cheap.</p>
@@ -1704,7 +1526,7 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--red)"><span class="bullet" style="background:var(--red)">SV</span><span class="name" data-flip="WHAT WE MOVE · DAILY">Services</span><span class="stop">LINE 02 · STOP 03</span></span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--red)">SV</span> Services</span>
         <h2>What we move. <em>Daily.</em></h2>
       </div>
       <p class="note">Seven lines out of the station. Each one gets your business somewhere it couldn't get on its own. We don't do operational consulting — that's not our thing.</p>
@@ -1765,7 +1587,7 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--pink)"><span class="bullet" style="background:var(--pink)">AU</span><span class="name" data-flip="MOSTLY PUNCTUAL">About</span><span class="stop">LINE 06 · STOP 04</span></span>
+        <span class="sec-tag"><span class="bullet" style="background:var(--pink)">AU</span> About</span>
         <h2>A small studio with <em>a big timetable.</em></h2>
       </div>
       <p class="note">Process-based, integrated, impact-oriented. Mostly, punctual.</p>
@@ -3905,88 +3727,6 @@ window.addEventListener('mousemove', e => {
   // run after DOM settles
   setTimeout(maybeOpenFromHash, 50);
 })();
-
-/* v2.49 · UP-SCROLL BYPASS — START */
-/* Designed fresh — does NOT patch wheel handlers. Uses IntersectionObserver
-   on a bottom sentinel to detect "user scrolled past lock zone", then
-   disarms the lock for the rest of the session, with a scroll-anchor
-   compensation so the height collapse is visually invisible. */
-(function initIshantUpScrollBypass(){
-  const wrapper = document.getElementById('ishant-scroll-lock');
-  if (!wrapper) return;
-
-  let armed = false;        // sentinel IO is attached
-  let completed = false;    // user has scrolled past — lock disarmed permanently
-  let sentinel = null;
-  let io = null;
-
-  function arm(){
-    if (armed || completed) return;
-    armed = true;
-    sentinel = document.createElement('div');
-    sentinel.setAttribute('aria-hidden', 'true');
-    sentinel.style.cssText =
-      'position:absolute;left:0;right:0;bottom:0;height:1px;' +
-      'pointer-events:none;visibility:hidden';
-    wrapper.appendChild(sentinel);
-
-    io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        // sentinel has scrolled OUT THE TOP of the viewport — user is past wrapper bottom
-        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-          disarm();
-        }
-      });
-    }, { threshold: 0 });
-    io.observe(sentinel);
-  }
-
-  function clearArm(){
-    if (io) { io.disconnect(); io = null; }
-    if (sentinel) { sentinel.remove(); sentinel = null; }
-    armed = false;
-  }
-
-  function disarm(){
-    if (completed) return;
-    completed = true;
-
-    const beforeHeight = wrapper.offsetHeight;
-    const beforeScroll = window.scrollY;
-
-    // Drop the lock: 600vh → auto, sticky → relative, etc.
-    wrapper.classList.remove('scroll-lock-active');
-    wrapper.classList.add('scroll-lock-completed');
-
-    // Force a reflow read for accurate post-shrink height.
-    const afterHeight = wrapper.offsetHeight;
-    const delta = beforeHeight - afterHeight;
-
-    // Anchor: page is now shorter by `delta`. Scroll the user up by `delta`
-    // so the content currently in their viewport stays in place visually.
-    if (delta > 0) {
-      window.scrollTo({ top: Math.max(0, beforeScroll - delta), behavior: 'auto' });
-    }
-
-    clearArm();
-    if (classObs) { classObs.disconnect(); }
-  }
-
-  // Observe class changes on the wrapper. The existing initIshantScrollLock()
-  // IIFE adds .scroll-lock-active when activate() runs, and removes it when
-  // viewport drops below 1080px or reduced-motion turns on. Mirror that.
-  const classObs = new MutationObserver(() => {
-    if (completed) return;
-    const isActive = wrapper.classList.contains('scroll-lock-active');
-    if (isActive && !armed) arm();
-    else if (!isActive && armed) clearArm();
-  });
-  classObs.observe(wrapper, { attributes: true, attributeFilter: ['class'] });
-
-  // Initial state: lock may already be active when this IIFE runs.
-  if (wrapper.classList.contains('scroll-lock-active')) arm();
-})();
-/* v2.49 · UP-SCROLL BYPASS — END */
 </script>
 <!-- ====================================================================
      v2.33 · EIGHT NEW CASE MODALS · drafts for user review
