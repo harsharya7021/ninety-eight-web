@@ -2067,24 +2067,11 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
       <p>Outcome for Spinny: a sustained share-of-voice in cricket-fan circles that no single-window IPL slot could buy.</p>
     </section>
 
-
-    <!-- v2.52 · ISHANT MAINSTREET CRED — START -->
-    <!-- Chapter 5b · Mainstreet × CRED -->
-    <section class="cd-chapter">
-      <h3><span class="cd-num">5b</span><span class="cd-bullet" style="background:var(--orange)"></span>Mainstreet × CRED — sneakers as content</h3>
-      <p>A streetwear-shopping spree at Mainstreet Marketplace, sponsored by CRED — turned into a content piece. Ishant walked the floor, picked a haul, talked sneaker stories on camera. The reel was a swipe-able behind-the-scenes of a brand placement that didn't read as a brand placement.</p>
-      <p>The angle: streetwear is a Gen-Z signal a 35-year-old Test bowler doesn't usually own. We engineered the room where he could own it credibly — and let CRED ride alongside as the sponsor of the visit, not the subject of the post.</p>
-      <p class="cd-foot-note"><em>Brands extending the playbook in this window: CRED, RuPay, WinZO, Spinny — each with a different content envelope, all routed through the same operating system.</em></p>
-    </section>
-    <!-- v2.52 · ISHANT MAINSTREET CRED — END -->
     <!-- Chapter 06 · Ranveer × Ishant -->
     <section class="cd-chapter">
       <h3><span class="cd-num">06</span><span class="cd-bullet" style="background:var(--red)"></span>Ranveer × Ishant</h3>
       <p>Cross-talent collaborations between cinema's biggest livewire and cricket's quiet veteran — engineered, not coincidental. Joint content windows, cross-posted reels, brand-aligned moments.</p>
       <p>The 2023 social-media report named these collaborations as the <em>primary driver</em> of the year's engagement lift. Two cultural circles, one bridge — that's the deal-making muscle.</p>
-      <!-- v2.52 · ISHANT GENZ BRIDGES — START -->
-      <p>Beyond Beer Biceps, the bridge work extended to <strong>Sanyam Sharma</strong> and <strong>Rajesh Yadav</strong> — separate creator audiences, separate cultural rooms, the same engineered cross-over: a podcast appearance, a co-shot reel, an aligned brand moment. The thesis is the bridge, not the host.</p>
-      <!-- v2.52 · ISHANT GENZ BRIDGES — END -->
     </section>
 
     <!-- Chapter 07 · RD Accessories -->
@@ -4077,20 +4064,6 @@ window.addEventListener('mousemove', e => {
       <p class="cd-foot-note"><em>Handles drawn from disk folder names. If any handle is wrong, flag it and we'll correct.</em></p>
     </section>
 
-
-    <!-- v2.52 · ONE8 MENU LAUNCH — START -->
-    <section class="cd-chapter">
-      <h3><span class="cd-num">3b</span><span class="cd-bullet" style="background:var(--orange)"></span>The Menu-Launch Brunch</h3>
-      <p>One8 Commune unveiled an exquisite new menu — and we ran the launch as a brunch event with the regulars roster on the guest list. Not a soft-soft press preview; a real meal with the creators who'd already turned the venue into a habit. Each plate became a story told by someone who'd eaten it firsthand.</p>
-      <p>The format mattered: brunch, not dinner. Daytime light photographs cleaner; the audience reads daytime content as personal, evening content as PR.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">3c</span><span class="cd-bullet" style="background:var(--purple)"></span>The High-Tea Shoot</h3>
-      <p>For the High-Tea menu launch, 98 took charge of the production end-to-end — model casting, concept direction, scene-by-scene shoot direction. The output: a brand-asset library One8 could deploy across the launch window without a separate agency call.</p>
-      <p>Same thesis as the creator roster — the venue is the brand; the work is making the venue look like itself, in every frame.</p>
-    </section>
-    <!-- v2.52 · ONE8 MENU LAUNCH — END -->
     <section class="cd-chapter">
       <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--red)"></span>What This Proves</h3>
       <p><strong>Repeat-visit cadence beats reach.</strong> A creator on her third visit is producing more genuine content than a creator on her first. We optimised the roster for who'd come back, not who'd be loudest the first time.</p>
@@ -4130,885 +4103,6 @@ window.addEventListener('mousemove', e => {
      chain — multi-outlet, banqueting-led brand. Original 2022 brief listed
      Punjab Grill among restaurant clients.
      ===================================================================== -->
-
-<!-- ====================================================================
-     v2.50 · CASE STUDY · DARYAGANJ — heritage Indian, butter-chicken origin
-     ==================================================================== -->
-<dialog id="case-daryaganj" class="case-dialog" aria-labelledby="cd-daryaganj-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · F&amp;B · Daryaganj</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:10%;width:140px;background:#f5b015;color:#0e0e10;font-size:13px">Daryaganj</span>
-      <span class="cdh-creator" style="bottom:22%;right:34%;width:120px;background:#dd3d38">@kavyaakapur</span>
-      <span class="cdh-creator" style="bottom:6%;right:54%;width:118px;background:#1f4d8c">@shrutimalikk</span>
-      <span class="cdh-creator" style="bottom:24%;right:74%;width:100px;background:#2f9e5e">Heritage</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">F&amp;B · Heritage Indian · Butter-Chicken Origin</span>
-        <h2 id="cd-daryaganj-title">Daryaganj.</h2>
-        <p class="cd-hero-sub">"Inventors of butter chicken &amp; dal makhani" — a heritage Indian house with the strongest origin claim in Indian-restaurant marketing.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--gold)"></span>The Snapshot</h3>
-      <p class="cd-lead">Daryaganj built its brand around the strongest origin claim on an Indian restaurant menu: <em>this is where butter chicken comes from</em>. Our job was to keep that story alive on social — without ever leaning on it so hard the brand felt like a museum piece.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">2</span><span class="l">Hero creators</span><span class="d">food + lifestyle, public-speaker tier</span></div>
-        <div class="cd-stat"><span class="n">6</span><span class="l">Frames in highlight</span><span class="d">two staggered story takeovers</span></div>
-        <div class="cd-stat"><span class="n">~48K</span><span class="l">Combined reach</span><span class="d">@kavyaakapur 19.3K · @shrutimalikk 28.6K</span></div>
-        <div class="cd-stat"><span class="n">Saket</span><span class="l">Hospitality address</span><span class="d">heritage Indian, multi-outlet</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--red)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">Origin claims are credibility on credit. They earn the first read; not the second post.</blockquote>
-      <p>We built creator content that <em>spent</em> the credibility on adjacency — modern dishes around the heritage anchor, drinks photography that didn't lean on the kebab platter, two creators with audiences in different rooms. The brand walks in as the inventor; the post walks in as a meal.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--royal)"></span>Activation 01 · The Walkthrough</h3>
-      <p>Hero creator: <strong><a href="https://www.instagram.com/kavyaakapur/" target="_blank" rel="noopener">@kavyaakapur</a></strong> — Toronto/Delhi digital creator, lifestyle &amp; food. Four-frame restaurant takeover: warm wood-paneled interior with hanging spotlights → two-glass refresh shot ("Refresh") → seekh-kebab + tikki platter ("FOOD COMA") → the hero plate of butter chicken, dal makhani and naan ("yummy ❤️"). The chronology reads as an editorial walkthrough, not a sponsored grid.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--green)"></span>Activation 02 · The Tandoor + Drinks Pass</h3>
-      <p>Hero creator: <strong><a href="https://www.instagram.com/shrutimalikk/" target="_blank" rel="noopener">@shrutimalikk</a></strong> — author, TED speaker, social activist. Two-frame focused drop: top-down tandoori platter ("Got a thing for tikkas 😋") and a three-glass cocktail-and-mocktail shot ("Drinks over food anyday!"). Different aesthetic, different audience tier — cleanly complementary to the first activation.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">05</span><span class="cd-bullet" style="background:var(--purple)"></span>What This Proved</h3>
-      <p><strong>An origin claim is a brand asset, not a brand strategy.</strong> Daryaganj already <em>has</em> the butter-chicken story. The campaign job is what to do with the credit line — not how to repeat it.</p>
-      <p><strong>Two creators in different rooms beat five in the same room.</strong> A lifestyle creator and a public-speaker can sell the same dish to two non-overlapping audiences. The cost of the second creator is the same as another five frames from the first — but the reach is genuinely additive.</p>
-      <p><strong>The plate is enough.</strong> No event, no influencer trip, no chef tasting. Two creators, two visits, six frames — and the heritage stays alive on the feed.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Daryaganj</span>
-      <h4>Heritage is a credit line. Spend it carefully.</h4>
-      <p>If your brand has a single dish nobody else can credibly own, this playbook is yours. Treat the origin claim as a budget — and post the rest of the menu.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-daryaganj-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.50 · CASE STUDY · TICKLED PINK — Saket destination dining
-     ==================================================================== -->
-<dialog id="case-tickled-pink" class="case-dialog" aria-labelledby="cd-tpink-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · F&amp;B · Tickled Pink</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:140px;background:#e7497c;color:#fff;font-size:13px">Tickled Pink</span>
-      <span class="cdh-creator" style="bottom:24%;right:30%;width:128px;background:#1f4d8c">@samikshamalikk</span>
-      <span class="cdh-creator" style="bottom:6%;right:50%;width:128px;background:#dd3d38">@anushkamehra7</span>
-      <span class="cdh-creator" style="bottom:24%;right:70%;width:118px;background:#7e4da5">@aavya.duggal</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">F&amp;B · Destination Dining · Saket</span>
-        <h2 id="cd-tpink-title">Tickled Pink.</h2>
-        <p class="cd-hero-sub">A Saket destination room where the dinner is the photoshoot — pink, polka-dot, Wonderland-coded, designed to be photographed.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--pink)"></span>The Snapshot</h3>
-      <p class="cd-lead">Tickled Pink is a destination-dining room in Saket, Delhi — a venue built for pictures. White-and-gold carousel unicorns. Polka-dot mushroom sculptures. Peach walls with ornate ceilings. Pink umbrellas on the terrace at golden hour. The product isn't dinner; it's the feed.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">3</span><span class="l">Hero creators</span><span class="d">travel/safari · fashion · lifestyle</span></div>
-        <div class="cd-stat"><span class="n">9</span><span class="l">Frames in highlight</span><span class="d">three staggered takeovers, 15-week window</span></div>
-        <div class="cd-stat"><span class="n">266K+</span><span class="l">Combined reach</span><span class="d">live handles only · 56.4K · 210K</span></div>
-        <div class="cd-stat"><span class="n">Saket</span><span class="l">Delhi address</span><span class="d">@tickledpink.saket</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--royal)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">When the room is the menu, dress the visitor the way the room dresses itself.</blockquote>
-      <p>The brief wasn't "review the food." The brief was: "show up dressed for the room, and let your audience watch you walk it." Three creators, three takeovers spread across a season — not a single push. Each pass added a fresh outfit, a fresh frame, a fresh reason to revisit a venue that already photographs itself.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--gold)"></span>Activation 01 · The Establishing Shot</h3>
-      <p>Hero creator: <strong><a href="https://www.instagram.com/samikshamalikk/" target="_blank" rel="noopener">@samikshamalikk</a></strong> ✓ — verified · 56.4K · travel/safari niche, works with @bharatsafaris. Three frames: exterior at night with the neon "TICKLED PINK" sign ("today's dinner at @tickledpink.saket") → carousel-unicorn interior with red-velvet mirror → modern Indian fusion plates on a pink table.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--red)"></span>Activation 02 · The Food-Forward Pass</h3>
-      <p>Hero creator: <strong><a href="https://www.instagram.com/anushkamehra7/" target="_blank" rel="noopener">@anushkamehra7</a></strong> · 210K · fashion / lifestyle, Delhi. Three frames: Wonderland interior with red-and-white polka-dot mushroom sculptures and pop-art framed walls ("dinner") → 4-image food collage with a now-meme-tier line ("gajar ka halwa on caramelised toast was sooo gooooddd") → a second food collage with rave caption ("EVERY DISH HAD SUCH AMAZING FLAVOURS"). The food review without the food-review template.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">05</span><span class="cd-bullet" style="background:var(--purple)"></span>Activation 03 · The Lifestyle Layer</h3>
-      <p>Hero creator: <strong>@aavya.duggal</strong> · lifestyle / fashion. Three frames: peach-walled dining room with marble checkered floor → daylit table view with a pink umbrella visible outside the window → 4-image fashion collage of her at the venue (white halter, blue dress, mirror selfies, terrace shots).</p>
-      <p class="cd-foot-note"><em>Note: @aavya.duggal's handle is no longer reachable as of 2026. Credited here as the historical handle she used during the campaign.</em></p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">06</span><span class="cd-bullet" style="background:var(--green)"></span>What This Proved</h3>
-      <p><strong>If the room is photogenic, the room is the strategy.</strong> Tickled Pink is engineered to photograph. The campaign task is to multiply visit-frames in different lights, different outfits, different days. The dishes are the pretext.</p>
-      <p><strong>Three takeovers across a season beat one influencer night.</strong> A season-long arc keeps the venue in the algorithm — without ever asking one audience to see the same room twice.</p>
-      <p><strong>Three different niches, one venue.</strong> Travel-safari, fashion-lifestyle, lifestyle-editorial. Same room, three audience tiers — the brand reads as ambient, not promoted.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Tickled Pink</span>
-      <h4>Built for cameras. Treated like art.</h4>
-      <p>If your venue is a photoshoot before it's a meal, this playbook is yours. Spread your creators across a season; build the look book, not the launch.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-tickled-pink-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.50 · CASE STUDY · OPHELIA — modern European brunch, Delhi
-     ==================================================================== -->
-<dialog id="case-ophelia" class="case-dialog" aria-labelledby="cd-ophelia-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · F&amp;B · Ophelia</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:10%;right:10%;width:140px;background:#e87722;color:#fff;font-size:13px">Ophelia</span>
-      <span class="cdh-creator" style="bottom:24%;right:34%;width:130px;background:#dd3d38">@anushkamehra7</span>
-      <span class="cdh-creator" style="bottom:8%;right:58%;width:108px;background:#1f4d8c">Brunch</span>
-      <span class="cdh-creator" style="bottom:24%;right:78%;width:96px;background:#2f9e5e">Editorial</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">F&amp;B · Modern European · Delhi Brunch</span>
-        <h2 id="cd-ophelia-title">Ophelia.</h2>
-        <p class="cd-hero-sub">A modern-European brunch room in Delhi where the menu reads like an editorial — blue tufted velvet, peach walls, marigolds on the pasta.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--orange)"></span>The Snapshot</h3>
-      <p class="cd-lead">Ophelia is a refined-European brunch venue in Delhi — peach walls, ornate ceilings, blue tufted velvet booths, marble checkered floors. The kind of room that's already 80% of the campaign before you order. We ran a single-creator deep dive: one trusted lifestyle voice, five frames, full-meal chronology — arrival cocktails through to the signature drink and the social atmosphere.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">5</span><span class="l">Frames in highlight</span><span class="d">single-thread story chronology</span></div>
-        <div class="cd-stat"><span class="n">1</span><span class="l">Hero creator</span><span class="d">full-meal takeover</span></div>
-        <div class="cd-stat"><span class="n">210K</span><span class="l">Reach</span><span class="d">@anushkamehra7</span></div>
-        <div class="cd-stat"><span class="n">@opheliadelhi</span><span class="l">Brand IG</span><span class="d">Delhi brunch room</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--royal)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">For brunch rooms that look like editorial spreads, hire a creator who already shoots editorially.</blockquote>
-      <p>Ophelia's product is a meal that reads like a magazine page — a marigold-topped pasta, a violet cocktail, a Mediterranean kebab platter on slate. We chose a single creator whose feed already lives in that aesthetic and asked her to chronicle one full meal — not produce a "review."</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--gold)"></span>The Activation</h3>
-      <p>Hero creator: <strong><a href="https://www.instagram.com/anushkamehra7/" target="_blank" rel="noopener">@anushkamehra7</a></strong> · 210K · "things i do, fits i wear, pics i take" · Delhi.</p>
-      <p>Five-frame story chronology: arrival cocktails on marble (champagne flute and a violet flower-topped coupe — <em>"Sunday brunchin'"</em>) → fine-plated pasta with edible marigolds and a charred pesto bread → Mediterranean kebab platter with avocado-feta-flower bruschetta → close-up signature cocktail (<em>"BLUEBERRY SOMETHING — literally the best cocktail ever had"</em>) → the social atmosphere with a male subject and the brunch-table tableau (<em>"how many are too many"</em>).</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--red)"></span>What This Proved</h3>
-      <p><strong>Aesthetic match beats follower-count.</strong> A creator whose feed already looks like the venue makes the post invisible-as-an-ad. That's the point.</p>
-      <p><strong>Single-thread storytelling at boutique tiers.</strong> Not every brand needs a multi-creator wave. A boutique room with one editorial pass converts the same audience as a five-creator activation — at a fraction of the production cost.</p>
-      <p><strong>The chronology is the campaign.</strong> Drink one, plate two, plate three, hero drink, social — the sequence of frames is the brief. Not the dish.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Ophelia</span>
-      <h4>Boutique rooms deserve boutique storytellers.</h4>
-      <p>If your room photographs itself, hire one creator who already shoots that way — and ship the chronology, not the headline.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-ophelia-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.50 · CASE STUDY · KHUBANI — afternoon spa-lunch destination + sister
-     concept Habibi by Khubani.
-     ==================================================================== -->
-<dialog id="case-khubani" class="case-dialog" aria-labelledby="cd-khubani-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · F&amp;B · Khubani</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:140px;background:#dd3d38;color:#fff;font-size:13px">Khubani</span>
-      <span class="cdh-creator" style="bottom:24%;right:28%;width:118px;background:#7e4da5">@priakhanna</span>
-      <span class="cdh-creator" style="bottom:6%;right:46%;width:112px;background:#1f4d8c">@missnidss</span>
-      <span class="cdh-creator" style="bottom:24%;right:62%;width:128px;background:#2f9e5e">@anchalbhardwajj</span>
-      <span class="cdh-creator" style="bottom:6%;right:80%;width:128px;background:#f5b015;color:#0e0e10">@harteerathsingh</span>
-      <span class="cdh-creator" style="bottom:24%;right:96%;width:96px;background:#e87722">@lekshasethi</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">F&amp;B · Spa Lunch · Levantine Sister Concept</span>
-        <h2 id="cd-khubani-title">Khubani.</h2>
-        <p class="cd-hero-sub">Afternoon "spa lunch" — manicures while you eat. Plus a Levantine night-vibe sister concept, Habibi by Khubani.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--red)"></span>The Snapshot</h3>
-      <p class="cd-lead">Khubani is a multi-level Delhi venue with ornate chandeliers, a glass-bottle wall, a glass roof, and an unusual product: <em>spa lunch</em>. Get a manicure while you eat. Sister concept Habibi by Khubani opens at night for sheesha + Levantine plates. We ran the biggest campaign of any brand in our book — five creators across five different audience tiers in a single season.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">5</span><span class="l">Hero creators</span><span class="d">fashion · fitness · beauty · social-impact · micro</span></div>
-        <div class="cd-stat"><span class="n">17+</span><span class="l">Frames in highlight</span><span class="d">long-form, multi-creator wave</span></div>
-        <div class="cd-stat"><span class="n">~888K</span><span class="l">Combined reach</span><span class="d">129K · 254K · 191K · 297K · 17.2K</span></div>
-        <div class="cd-stat"><span class="n">2 concepts</span><span class="l">Khubani + Habibi</span><span class="d">afternoon spa-lunch · evening sheesha</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">"Gossip &amp; Glam-Up. Everyday 1:00 PM to 6:00 PM." Sell the afternoon — that's the only product nobody else is selling.</blockquote>
-      <p>Lunch is the loneliest slot on a Delhi F&amp;B calendar. Khubani's product wasn't dinner; it was the afternoon. We anchored the creative around the spa-lunch hook — <em>"Who knows better to pamper and party if not Khubani?"</em> — and put creators inside it. Manicures, mocktails, group photos, salt-cellars-of-mezze. The audience learned a new occasion: brunch's quieter, glossier sibling.</p>
-      <!-- v2.52 · KHUBANI SPA LUNCH ATTRIBUTION — START -->
-      <p class="cd-foot-note"><em>For the record: the spa-lunch programme at Khubani was introduced by 98 in collaboration with the venue. The hashtag set (#SpaLunch, #GossipAndGlamUp) and the 1:00–6:00 PM occasion-frame were both authored as part of the activation.</em></p>
-      <!-- v2.52 · KHUBANI SPA LUNCH ATTRIBUTION — END -->
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--royal)"></span>The Wave</h3>
-      <p><strong><a href="https://www.instagram.com/priakhanna/" target="_blank" rel="noopener">@priakhanna</a></strong> ✓ · 129K · fashion / lifestyle. The opener — glowing "khubani" sign, banquette + plants ("Finally here! Let's see what's all the hype is about").</p>
-      <p><strong><a href="https://www.instagram.com/missnidss/" target="_blank" rel="noopener">@missnidss</a></strong> ✓ · 254K · fitness, State Bench Press champion. Three frames — multi-level interior with chandeliers + glass ceiling, banquette portrait ("Who knows better to pamper and party if not Khubani?").</p>
-      <p><strong><a href="https://www.instagram.com/anchalbhardwajj/" target="_blank" rel="noopener">@anchalbhardwajj</a></strong> ✓ · 191K · beauty / lifestyle / mom life · L'Oréal partner. Nine frames — the full spa-lunch reveal: glass-bottle-wall entrance, the manicure-and-mezze ("an extraordinary spa lunch"), Aperol clinks, signature plates, the Hindi-script captions and the ornate-mirror selfies.</p>
-      <p><strong><a href="https://www.instagram.com/harteerathsingh/" target="_blank" rel="noopener">@harteerathsingh</a></strong> ✓ · 297K · social entrepreneur · Hemkunt Foundation founder · HarperCollins author. Two frames — fine-dining sushi-and-pizza spread, glazed pork-rib hero plate. The credibility-tier creator on the roster.</p>
-      <p><strong><a href="https://www.instagram.com/lekshasethi/" target="_blank" rel="noopener">@lekshasethi</a></strong> · 17.2K · lifestyle micro. Two frames — and the only creator who took on the sister concept Habibi by Khubani: candlelit "habibi" neon, Levantine sheesha-and-kebab platter.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--purple)"></span>The Sister-Concept Layer · Habibi by Khubani</h3>
-      <p>Habibi is Khubani's night side — sheesha bar, Levantine menu, candlelit. Same address, different daypart, different audience. We wrapped Habibi into the same campaign window with the youngest creator on the roster — letting the discovery feel like an "after-hours" extension of the spa-lunch story.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">05</span><span class="cd-bullet" style="background:var(--green)"></span>What This Proved</h3>
-      <p><strong>Daypart is product.</strong> Most F&amp;B brands sell dinner. The wins are in the slots nobody else is selling — afternoon, late-night, brunch's middle hour.</p>
-      <p><strong>Audience-tier diversification beats audience-size.</strong> Five creators in five different rooms (fashion, fitness, beauty, social-impact, lifestyle-micro) reach more <em>distinct</em> followers than five creators in the same room reach total. We picked for non-overlap, not headcount.</p>
-      <p><strong>Sister concepts ride the parent's wave for free.</strong> Habibi got campaign equity by piggy-backing on the Khubani window. One brief, two openings.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/ferragamo.html"><span class="kk">Fashion · Heritage</span><span class="tt">Ferragamo — heritage as a brand asset, not a brand strategy.</span><span class="mm">Read · 7 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Khubani</span>
-      <h4>Daypart is product. Sell the afternoon nobody else is selling.</h4>
-      <p>If your venue has an underutilised slot — afternoon, late-night, weekday brunch — this playbook is yours. Find the daypart, name the occasion, cast across audience tiers.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-khubani-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.50 · CASE STUDY · HARD ROCK CAFE NEW DELHI — live music night-out
-     ==================================================================== -->
-<dialog id="case-hard-rock" class="case-dialog" aria-labelledby="cd-hrc-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · Hospitality · Hard Rock Cafe</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:160px;background:#0e0e10;color:#fff;font-size:12px">Hard Rock Cafe</span>
-      <span class="cdh-creator" style="bottom:24%;right:32%;width:130px;background:#dd3d38">@urnishaswargari</span>
-      <span class="cdh-creator" style="bottom:6%;right:54%;width:118px;background:#1f4d8c">@tanejakashish</span>
-      <span class="cdh-creator" style="bottom:24%;right:74%;width:140px;background:#f5b015;color:#0e0e10">@harteerathsingh</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">Hospitality · Live Music · New Delhi</span>
-        <h2 id="cd-hrc-title">Hard Rock Cafe.</h2>
-        <p class="cd-hero-sub">A live-music night-out at Hard Rock Cafe New Delhi — band on stage, fishbowl cocktails, memorabilia walls, classic American bar food.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--carbon)"></span>The Snapshot</h3>
-      <p class="cd-lead">Hard Rock Cafe New Delhi is a global brand with a specific local product: a Delhi night out. Live band on stage, the iconic Hard Rock signage lit behind, memorabilia walls (Jacksons, Bobby Brown), fishbowl cocktails, loaded nachos. Our brief was the night-out — not the brand book.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">4</span><span class="l">Hero creators</span><span class="d">fashion · brand-strategy · social-impact · anonymous*</span></div>
-        <div class="cd-stat"><span class="n">7</span><span class="l">Frames in highlight</span><span class="d">single-night activation</span></div>
-        <div class="cd-stat"><span class="n">~393K</span><span class="l">Combined reach</span><span class="d">live handles only · 57.3K · 39.2K · 297K</span></div>
-        <div class="cd-stat"><span class="n">@hardrockcafenewdelhi</span><span class="l">Brand IG</span><span class="d">global brand, local franchise</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--red)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">For a global brand with local franchise, the campaign is the night — not the menu.</blockquote>
-      <p>Hard Rock's brand book is fixed. The thing that's not fixed is what a Friday night at this specific venue feels like. We cast for energy, not aesthetic — band-shot, crowd-shot, fishbowl-shot, memorabilia-shot — the four moves that turn a global brand into a local destination.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--gold)"></span>The Night</h3>
-      <p><strong><a href="https://www.instagram.com/urnishaswargari/" target="_blank" rel="noopener">@urnishaswargari</a></strong> ✓ · 57.3K · brand strategist + creative director (@saffronstays). Live-band concert shot from the floor; later a fashion-style portrait at the Hard Rock backdrop with a fishbowl cocktail (<em>"You can find me here anytime ;)"</em>).</p>
-      <p><strong><a href="https://www.instagram.com/tanejakashish/" target="_blank" rel="noopener">@tanejakashish</a></strong> · 39.2K · fashion · Delhi. Stage shot with drum kit; editorial portrait drinking from a goblet — fashion frame inside the music venue.</p>
-      <p><strong>@howwyouudoinnnn</strong> · the memorabilia-wall pass: Jacksons + Bobby Brown displays, then a crowd shot in front of the Hard Rock signage. Captures the museum-meets-club character of the room.</p>
-      <p><strong><a href="https://www.instagram.com/harteerathsingh/" target="_blank" rel="noopener">@harteerathsingh</a></strong> ✓ · 297K · social entrepreneur, Hemkunt Foundation, HarperCollins author. The food frame: loaded nachos with Heinz on the table — <em>"@hardrockcafenewdelhi has seriously rocked my world 🤩"</em>.</p>
-      <p class="cd-foot-note"><em>* @howwyouudoinnnn's handle is no longer reachable as of 2026. Credited here as the historical handle used during the campaign.</em></p>
-    </section>
-
-
-    <!-- v2.52 · HRC CP RELAUNCH — START -->
-    <section class="cd-chapter">
-      <h3><span class="cd-num">3b</span><span class="cd-bullet" style="background:var(--gold)"></span>The CP Relaunch Night</h3>
-      <p>Beyond the on-going night-out activations, we ran the brand's full Connaught Place relaunch — a single-night event that put the iconic CP venue back on the Delhi nightlife map. The guest list was deliberately mixed: creator roster on one side, high-net-worth-individual room on the other. Both audiences were photographed at the same bar, the same stage, the same drink.</p>
-      <p>The point of putting them in the same room: a relaunch party that's only creators looks promotional; a relaunch party that's only HNIs looks closed. One frame with both, and the venue reads as <em>arrived</em>.</p>
-    </section>
-    <!-- v2.52 · HRC CP RELAUNCH — END -->
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--green)"></span>What This Proved</h3>
-      <p><strong>For franchises, the activation is the venue, not the brand.</strong> The brand book sells itself. The local night doesn't.</p>
-      <p><strong>Cover the four moves: band, crowd, drink, food.</strong> Not three. Not five. Four — and let four creators each take one.</p>
-      <p><strong>Energy beats aesthetic at music-led venues.</strong> A blurry stage shot with the right caption outperforms a styled portrait. Hard Rock's audience expects the night to look messy; sanitised content reads as PR.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Hard Rock Cafe</span>
-      <h4>Live music is a destination. We sold it that way.</h4>
-      <p>If you operate a global-brand franchise with a local product (a venue, a night, an event series), this playbook is yours. The brand book sells itself; we sell the night.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-hard-rock-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.50 · CASE STUDY · iSKATE BY ROSEATE — luxury hotel ice rink
-     ==================================================================== -->
-<dialog id="case-roseate" class="case-dialog" aria-labelledby="cd-roseate-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · Hospitality · iSKATE by Roseate</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:170px;background:#f5b015;color:#0e0e10;font-size:13px">iSKATE by Roseate</span>
-      <span class="cdh-creator" style="bottom:24%;right:34%;width:128px;background:#dd3d38">@amy_chhabra</span>
-      <span class="cdh-creator" style="bottom:6%;right:54%;width:108px;background:#1f4d8c">@shreyxa</span>
-      <span class="cdh-creator" style="bottom:24%;right:72%;width:130px;background:#7e4da5">@snehaarora197</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">Hospitality · Indoor Ice Rink · Luxury Hotel Amenity</span>
-        <h2 id="cd-roseate-title">iSKATE by Roseate.</h2>
-        <p class="cd-hero-sub">An indoor ice rink anchored at a Roseate Hotels property — a luxury-hotel amenity venue that turns "Delhi summer" into "skate season."</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--gold)"></span>The Snapshot</h3>
-      <p class="cd-lead">iSKATE is the indoor ice rink at a Roseate Hotels property — an unusual product, a luxury-hotel amenity that doubles as a destination. Our brief was to turn the rink into a content occasion three creators would compete to post about. The campaign hashtags were a ready-made: <strong>#roastedbyroseate</strong>, <strong>#iskatebyroseate</strong>, <strong>#coolnotcold</strong>.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">3</span><span class="l">Hero creators</span><span class="d">two M+ followers, one mid-tier</span></div>
-        <div class="cd-stat"><span class="n">8</span><span class="l">Frames in highlight</span><span class="d">rink + lounge + restaurant chronology</span></div>
-        <div class="cd-stat"><span class="n">~2.58M</span><span class="l">Combined reach</span><span class="d">1M · 480K · 1.1M · highest of any 98 case</span></div>
-        <div class="cd-stat"><span class="n">@iskateindia</span><span class="l">Brand IG</span><span class="d">parent: Roseate Hotels</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--royal)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">An ice rink in Delhi summer is a luxury moment. Cast it that way.</blockquote>
-      <p>The rink is the product. The rink at a luxury hotel is the angle. We cast two million-plus-follower public figures — Forbes-listed luxury influencer Ammy Arora and lifestyle-hospitality creator Sneha Arora — alongside a mid-tier fashion creator who could shoot the candid layer. The audience doesn't see "ice rink"; they see "luxury hotel amenity."</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--red)"></span>The Roster</h3>
-      <p><strong><a href="https://www.instagram.com/amy_chhabra/" target="_blank" rel="noopener">@amy_chhabra</a></strong> ✓ · <strong>1M followers</strong> · Forbes-listed Luxury Influencer of the Year 2025 · #SephoraSquad APAC · brand partnerships include YSL, Prada, Dyson, Michael Kors, Armani Beauty and Vogue × Accor. The opener — wide ice-rink shot with the campaign hashtag set.</p>
-      <p><strong><a href="https://www.instagram.com/shreyxa/" target="_blank" rel="noopener">@shreyxa</a></strong> · <strong>480K</strong> · Mumbai-based fashion / beauty / lifestyle / travel. The candid arc — solo skating, "Stages of me" 4-image collage, post-skating dinner spread (<em>"The khaana"</em>: paella + kebabs + naan), a sweet candid of her companion @aaronkoul at the cafe. Five frames covering the full visit.</p>
-      <p><strong><a href="https://www.instagram.com/snehaarora197/" target="_blank" rel="noopener">@snehaarora197</a></strong> ✓ · <strong>1.1M followers</strong> · public figure · lifestyle / beauty / travel / hospitality · #Creator #Guestlister #Influencer · Delhi+Chandigarh+Punjab. The hospitality-credibility close — Reel: <em>"Must visit @iskateindia for an amazing ice skating experience ✨"</em> + the host hotel's lounge interior.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--green)"></span>What This Proved</h3>
-      <p><strong>Unusual product, M+ creators.</strong> When the venue itself is unfamiliar (an ice rink in Delhi), the audience needs a credible voice to underwrite it. Two million-plus public figures were the trust layer — the candid mid-tier creator was the texture.</p>
-      <p><strong>Amenity venues are a brand category nobody campaigns for.</strong> Most hotel amenity content lives in the hotel's own grid. Treating iSKATE as a standalone destination — with its own hashtag set, its own roster, its own arc — pulled it out of "amenity" and into "occasion."</p>
-      <p><strong>Hashtags as creative grammar.</strong> #roastedbyroseate, #coolnotcold — the hashtags were the brief. Every frame in the highlight uses them. The set is the campaign's signature.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/ferragamo.html"><span class="kk">Fashion · Heritage</span><span class="tt">Ferragamo — heritage as a brand asset, not a brand strategy.</span><span class="mm">Read · 7 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · iSKATE by Roseate</span>
-      <h4>Amenity venues are an unworked category. We work them.</h4>
-      <p>If your hotel has a rooftop, a rink, a spa, a private cinema — anything that's listed as an amenity but could be a destination — this playbook is yours.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-roseate-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-
-<!-- ====================================================================
-     v2.53 · CASE STUDY · FAST & UP — 6th-milestone influencer event
-     ==================================================================== -->
-<dialog id="case-fast-up" class="case-dialog" aria-labelledby="cd-fastup-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · Lifestyle · Fast &amp; Up</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:140px;background:#dd3d38;color:#fff;font-size:13px">Fast &amp; Up</span>
-      <span class="cdh-creator" style="bottom:24%;right:30%;width:128px;background:#1f4d8c">@nitibhakaul</span>
-      <span class="cdh-creator" style="bottom:6%;right:50%;width:128px;background:#f5b015;color:#0e0e10">@thatbohogirl</span>
-      <span class="cdh-creator" style="bottom:24%;right:70%;width:96px;background:#2f9e5e">+ 18 more</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">Lifestyle · Health &amp; Wellness · Milestone Activation</span>
-        <h2 id="cd-fastup-title">Fast &amp; Up.</h2>
-        <p class="cd-hero-sub">Sixth-anniversary milestone event for a health-and-wellness brand — a curated celebration that married brand essence with twenty creator voices.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--red)"></span>The Snapshot</h3>
-      <p class="cd-lead">Fast &amp; Up reached its sixth milestone, and the brief was unambiguous: amplify the achievement, build social-media buzz, and re-anchor the brand in the health-and-wellness conversation. We curated a single dynamic event that braided Fast &amp; Up's brand essence with twenty individual creator styles into one stage.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">20+</span><span class="l">Creators on the night</span><span class="d">incl. Nitibha Kaul, Kritika Khurana</span></div>
-        <div class="cd-stat"><span class="n">6</span><span class="l">Years milestone</span><span class="d">brand anniversary anchor</span></div>
-        <div class="cd-stat"><span class="n">1 event</span><span class="l">Format</span><span class="d">curated celebration + social amplification</span></div>
-        <div class="cd-stat"><span class="n">Health &amp; Wellness</span><span class="l">Sector</span><span class="d">supplements / nutrition / lifestyle</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--royal)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">An anniversary is a calendar item. We turned it into a content calendar.</blockquote>
-      <p>Most brand anniversaries pass as a single post. We built one event that gave twenty creators a personal frame to use, then let each one route the brand through their own audience tier — fitness, wellness, fashion, lifestyle. The brand anniversary became <em>twenty different anniversary posts</em>, each carrying Fast &amp; Up's brand essence inside the creator's existing voice.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--gold)"></span>The Roster</h3>
-      <p>Twenty-plus creators across health, wellness, fashion and lifestyle audiences. Hero creators on the night included <strong><a href="https://www.instagram.com/nitibhakaul/" target="_blank" rel="noopener">Nitibha Kaul</a></strong> and <strong><a href="https://www.instagram.com/thatbohogirl/" target="_blank" rel="noopener">Kritika Khurana</a></strong> — each routed Fast &amp; Up's milestone into a distinct audience pocket on the same night.</p>
-      <p class="cd-foot-note"><em>Full roster captured on disk. The cross-niche mix was deliberate — health-and-wellness brands win when the brand shows up <em>outside</em> the wellness niche.</em></p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--green)"></span>What This Proved</h3>
-      <p><strong>An anniversary is creative collateral, not a press release.</strong> Treat the milestone as a brief twenty creators can each interpret — get twenty assets, twenty audiences, one story.</p>
-      <p><strong>Cross-niche distribution beats sector concentration.</strong> Fast &amp; Up wins by leaving the wellness room. Boho-fashion audiences and lifestyle audiences buy supplements too — and their feed reads cleaner without a "supplement-influencer" pitch.</p>
-      <p><strong>Event + amplification is one product, not two.</strong> The night and the social rollout shared a brief. Every creator left with assets the brand could re-use for weeks after the cake was cut.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/ferragamo.html"><span class="kk">Fashion · Heritage</span><span class="tt">Ferragamo — heritage as a brand asset, not a brand strategy.</span><span class="mm">Read · 7 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Fast &amp; Up</span>
-      <h4>Anniversaries are briefs in disguise.</h4>
-      <p>If you're a wellness, FMCG or lifestyle brand sitting on a milestone, this playbook is yours: cast across niches, give each creator the same brief in their own voice, and let the cake do the heavy lifting.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-fast-up-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.53 · CASE STUDY · UNACADEMY — YouTube-educator activation
-     ==================================================================== -->
-<dialog id="case-unacademy" class="case-dialog" aria-labelledby="cd-unacademy-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · Education · Unacademy</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:140px;background:#2f9e5e;color:#fff;font-size:13px">Unacademy</span>
-      <span class="cdh-creator" style="bottom:24%;right:30%;width:140px;background:#dd3d38">YouTube educators</span>
-      <span class="cdh-creator" style="bottom:6%;right:54%;width:120px;background:#1f4d8c">Live sessions</span>
-      <span class="cdh-creator" style="bottom:24%;right:74%;width:96px;background:#f5b015;color:#0e0e10">Edu-Tech</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">Education · Edu-Tech · Cross-Platform Talent</span>
-        <h2 id="cd-unacademy-title">Unacademy.</h2>
-        <p class="cd-hero-sub">Importing YouTube's best educators onto Unacademy's live-class platform — turning open-internet teachers into platform talent.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--green)"></span>The Snapshot</h3>
-      <p class="cd-lead">Unacademy's reach is its product. Our brief was to extend it by harnessing educators already thriving on YouTube — and routing them onto Unacademy as live-session hosts. The play: bring the audience that already trusts a teacher onto the platform that wants to formalise the learning.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">YouTube → Unacademy</span><span class="l">Talent migration</span><span class="d">audience-first sourcing</span></div>
-        <div class="cd-stat"><span class="n">Live sessions</span><span class="l">Format</span><span class="d">on the Unacademy platform</span></div>
-        <div class="cd-stat"><span class="n">Edu-Tech</span><span class="l">Sector</span><span class="d">competitive exam + skills + general edu</span></div>
-        <div class="cd-stat"><span class="n">Platform growth</span><span class="l">Outcome lever</span><span class="d">access + engagement</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--royal)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">If a teacher's audience already exists, the platform's job is to host the class — not the casting call.</blockquote>
-      <p>Edu-tech competes on access. The fastest way to give a learner access to a teacher they already trust is to bring that teacher inside your live-session product. We sourced YouTube educators with proven audience signal, brokered the platform-side terms, and produced the first live windows — the teacher's audience followed them in.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--gold)"></span>The Activation</h3>
-      <p>Identification → outreach → onboarding → first live class. We picked educators whose YouTube audiences were the cleanest match for Unacademy's verticals, set up the live cadence, and sat in the production loop until the format was repeatable for the platform team.</p>
-      <p>The play wasn't "hire YouTubers." The play was "let the teacher's existing class find them on a platform that can scale them." Different unit economics, different roster filter.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--orange)"></span>What This Proved</h3>
-      <p><strong>Cross-platform talent migration is a product, not a campaign.</strong> The work isn't a sponsored post; it's a structured pathway from one audience graph (YouTube) to another (Unacademy live).</p>
-      <p><strong>Audience-first sourcing beats fame-first sourcing.</strong> Big-name educators are expensive and noisy; the right-sized educator with a bonded audience converts to a live class better.</p>
-      <p><strong>Education brands win on familiarity.</strong> A learner clicking into a live class with a face they already know completes more sessions than the same class fronted by a stranger. Familiarity is the platform's growth lever.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
-        <a class="cd-rn-card" href="journal/ferragamo.html"><span class="kk">Fashion · Heritage</span><span class="tt">Ferragamo — heritage as a brand asset, not a brand strategy.</span><span class="mm">Read · 7 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Unacademy</span>
-      <h4>Edu-tech wins on familiarity. We brought the familiar inside.</h4>
-      <p>If you operate a content platform — edu, audio, fitness, finance — and your growth depends on who's teaching the room, this playbook is yours.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-unacademy-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.53 · CASE STUDY · META CREATOR ENABLEMENT — 6-month, 30+ creators
-     ==================================================================== -->
-<dialog id="case-meta-creator" class="case-dialog" aria-labelledby="cd-meta-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · Platform · Meta Creator Enablement</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:160px;background:#1f4d8c;color:#fff;font-size:12px">Meta Creator Programme</span>
-      <span class="cdh-creator" style="bottom:24%;right:34%;width:118px;background:#dd3d38">30+ creators</span>
-      <span class="cdh-creator" style="bottom:6%;right:54%;width:108px;background:#2f9e5e">6 months</span>
-      <span class="cdh-creator" style="bottom:24%;right:72%;width:128px;background:#f5b015;color:#0e0e10">FB video library</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">Platform · Creator Enablement · Cross-Platform</span>
-        <h2 id="cd-meta-title">Meta Creator Enablement Programme.</h2>
-        <p class="cd-hero-sub">A six-month programme bringing thirty-plus YouTube creators onto Facebook's video surface — directly enriching the platform's library.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--royal)"></span>The Snapshot</h3>
-      <p class="cd-lead">98 spearheaded the Meta Creator Enablement Programme — a six-month engagement with thirty-plus creators already thriving on YouTube, designed to enrich Facebook's video library with native, original content. The work was strategic: we ran the creator side of a platform's growth engine.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">30+</span><span class="l">Creators enrolled</span><span class="d">YouTube-proven, FB-native output</span></div>
-        <div class="cd-stat"><span class="n">6</span><span class="l">Months programme</span><span class="d">structured cadence, multi-cycle</span></div>
-        <div class="cd-stat"><span class="n">Facebook</span><span class="l">Target surface</span><span class="d">video library + creator engagement</span></div>
-        <div class="cd-stat"><span class="n">Platform-led</span><span class="l">Brief origin</span><span class="d">Meta as direct client</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">A platform's library only grows as fast as the creators it hosts. We hosted the creators.</blockquote>
-      <p>Meta knows what its library needs. The harder question is the production capacity to make it happen at scale. We took on the creator-side operations — sourcing, briefing, output cadence, quality control, payment ops — for thirty-plus YouTubers across six months. The deliverable: a video library Facebook could grow without standing up its own creator-ops desk.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--red)"></span>The Programme Mechanics</h3>
-      <p>YouTube as a casting filter — the platform already does the audience-validation work. From there: roster shortlisting, monthly content cadences, FB-native format guidance (vertical reels, longer-form watch-windows, captioning), and the back-office work of running thirty-plus creator contracts in parallel.</p>
-      <p>The work is invisible when it's working. Meta sees a steady library; the creators see consistent monthly output without the back-and-forth.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--orange)"></span>What This Proved</h3>
-      <p><strong>Platform clients are operations clients.</strong> Meta isn't buying creative; it's buying creator-ops at scale. Different sales motion, different pricing, different KPI.</p>
-      <p><strong>Cross-platform creator routing is the unlock.</strong> The same creator on YouTube and Facebook costs the platform less than two unique creators. Library growth is cheaper through migration than through fresh casting.</p>
-      <p><strong>30+ creators × 6 months is one ops product.</strong> The right number isn't ten or a hundred; it's the number an ops desk can run without dropping a contract — that's why this programme worked.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Meta Creator Enablement</span>
-      <h4>Platform growth is creator-ops at scale. We run creator-ops.</h4>
-      <p>If you operate a video, audio, or social platform that needs library growth without standing up an internal creator-ops desk, this playbook is yours.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-meta-creator-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.53 · CASE STUDY · HAPPYDENT — Sparkling Smile, 6-week campaign
-     ==================================================================== -->
-<dialog id="case-happy-dent" class="case-dialog" aria-labelledby="cd-happydent-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · FMCG · Happydent</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:140px;background:#dd3d38;color:#fff;font-size:13px">Happydent</span>
-      <span class="cdh-creator" style="bottom:24%;right:30%;width:148px;background:#f5b015;color:#0e0e10">#SparklingSmileChallenge</span>
-      <span class="cdh-creator" style="bottom:6%;right:56%;width:96px;background:#1f4d8c">6 weeks</span>
-      <span class="cdh-creator" style="bottom:24%;right:74%;width:108px;background:#2f9e5e">Organic PR</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">FMCG · Brand Campaign · Influencer-Driven</span>
-        <h2 id="cd-happydent-title">Happydent · Sparkling Smile.</h2>
-        <p class="cd-hero-sub">A six-week influencer-driven campaign for a chewing-gum brand, built around freshness, confidence, and the smile that follows.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--red)"></span>The Snapshot</h3>
-      <p class="cd-lead">Happydent's brief was clear: enhance brand awareness, engage a wider audience, and reposition the gum as the go-to choice for a refreshing, confidence-boosting chew. We built a six-week influencer-driven campaign anchored around video content and a single audience-participation hashtag.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">6</span><span class="l">Weeks</span><span class="d">campaign window</span></div>
-        <div class="cd-stat"><span class="n">Sparkling Smile</span><span class="l">Theme</span><span class="d">freshness · confidence · oral care</span></div>
-        <div class="cd-stat"><span class="n">#SparklingSmileChallenge</span><span class="l">Hashtag set</span><span class="d">audience-participation prompt</span></div>
-        <div class="cd-stat"><span class="n">Organic PR</span><span class="l">Coverage tier</span><span class="d">marketing publications + Marketing Minds nod</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">Don't pitch the product. Pitch the moment the product produces.</blockquote>
-      <p>Chewing gum is a small unit of consumption with a small unit of attention. We anchored the campaign on the <em>moment after the chew</em> — the smile, the breath, the closer-than-usual photograph. Influencers integrated Happydent into their daily lives and dedicated the screen-time to the smile, not the wrapper.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--royal)"></span>The Activation</h3>
-      <p><strong>The hero films.</strong> Influencers crafted authentic, creative videos integrating Happydent into their routine — gym, work, after-coffee, before-the-photo — each one demonstrating freshness and the post-chew smile.</p>
-      <p><strong>The participation layer.</strong> The <strong>#SparklingSmileChallenge</strong> hashtag invited audiences to share their own Happydent moments. Influencers actively engaged in the comments and reposts, creating a community ripple.</p>
-      <p><strong>The PR tail.</strong> The campaign caught the attention of marketing publications and was featured in <em>Marketing Minds</em> — earned coverage, not paid PR. That validation lasted longer than the original window.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--green)"></span>What This Proved</h3>
-      <p><strong>For low-attention products, lead with the moment after.</strong> Gum, mints, lozenges — the consumer doesn't think about the product; they think about the breath and the smile. Sell that moment, not the foil.</p>
-      <p><strong>A hashtag that's a question, not an instruction.</strong> #SparklingSmileChallenge worked because the prompt was a personal moment, not a brand statement.</p>
-      <p><strong>Earned coverage extends the budget.</strong> When the campaign earns a Marketing Minds feature, the next quarter's pitch deck writes itself.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/ferragamo.html"><span class="kk">Fashion · Heritage</span><span class="tt">Ferragamo — heritage as a brand asset, not a brand strategy.</span><span class="mm">Read · 7 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · Happydent</span>
-      <h4>Sell the moment, not the wrapper.</h4>
-      <p>If your product is small, fast, and ambient — gum, breath spray, energy chew, mint, micro-FMCG — this playbook is yours. Anchor on the moment, not the SKU.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-happy-dent-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ====================================================================
-     v2.53 · CASE STUDY · TGISF — The Great Indian Sneaker Fest
-     ==================================================================== -->
-<dialog id="case-tgisf" class="case-dialog" aria-labelledby="cd-tgisf-title">
-  <header class="cd-head">
-    <span class="cd-tag">Case Study · Pop-Culture · The Great Indian Sneaker Fest</span>
-    <button type="button" class="cd-close" aria-label="Close">×</button>
-  </header>
-  <div class="cd-body">
-    <div class="cd-hero-collage">
-      <span class="cdh-creator" style="bottom:8%;right:8%;width:140px;background:#0e0e10;color:#fff;font-size:13px">TGISF</span>
-      <span class="cdh-creator" style="bottom:24%;right:30%;width:128px;background:#dd3d38">40+ creators</span>
-      <span class="cdh-creator" style="bottom:6%;right:50%;width:152px;background:#f5b015;color:#0e0e10">India's biggest sneaker fest</span>
-      <span class="cdh-creator" style="bottom:24%;right:74%;width:108px;background:#1f4d8c">Streetwear</span>
-      <div class="cd-hero-text">
-        <span class="cd-hero-meta">Pop-Culture · Streetwear · Festival Activation</span>
-        <h2 id="cd-tgisf-title">The Great Indian Sneaker Fest.</h2>
-        <p class="cd-hero-sub">India's biggest sneaker fest — a streetwear-and-culture festival anchored on forty-plus creators, one stage, one weekend.</p>
-      </div>
-    </div>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--carbon)"></span>The Snapshot</h3>
-      <p class="cd-lead">TGISF — The Great Indian Sneaker Fest — is the country's biggest sneakers-and-streetwear festival. We ran the influencer engine: forty-plus creators across streetwear, sport, hip-hop, fashion and pop-culture, all routed through a single weekend on one stage.</p>
-      <div class="cd-stats">
-        <div class="cd-stat"><span class="n">40+</span><span class="l">Influencers activated</span><span class="d">streetwear · sport · hip-hop · fashion</span></div>
-        <div class="cd-stat"><span class="n">India's biggest</span><span class="l">Sneaker fest</span><span class="d">festival positioning</span></div>
-        <div class="cd-stat"><span class="n">1 weekend</span><span class="l">Window</span><span class="d">multi-creator wave, single venue</span></div>
-        <div class="cd-stat"><span class="n">Pop-Culture</span><span class="l">Category</span><span class="d">streetwear-as-lifestyle</span></div>
-      </div>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--red)"></span>The Strategic Move</h3>
-      <blockquote class="cd-pull">A festival's product is the room. Forty creators IN the room is the campaign.</blockquote>
-      <p>TGISF doesn't sell sneakers — it sells the day you spent inside the room with the people who made the sneakers matter. We cast for the room, not the post: forty-plus creators whose presence MADE the festival the festival. The reach was a side effect of the right people being there.</p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--orange)"></span>The Roster</h3>
-      <p>Forty-plus creators across streetwear, sport, hip-hop, fashion and lifestyle audiences. Each creator brought a distinct cultural pocket onto the stage — the festival was the cross-pollination, not the product.</p>
-      <p class="cd-foot-note"><em>Full roster captured on disk. The casting principle was breadth across cultural niches — a sneaker fest where only sneaker creators show up reads as a trade show, not a festival.</em></p>
-    </section>
-
-    <section class="cd-chapter">
-      <h3><span class="cd-num">04</span><span class="cd-bullet" style="background:var(--gold)"></span>What This Proved</h3>
-      <p><strong>Festivals are a casting exercise, not a marketing exercise.</strong> The work happens in the months before the gates open — picking the people who'd MAKE the day legible to forty different audiences.</p>
-      <p><strong>Streetwear is a connective tissue.</strong> Sneakers cross hip-hop, fashion, sport and lifestyle. The cross-niche cast turned a category fest into a culture fest.</p>
-      <p><strong>One weekend, multi-year asset library.</strong> Forty creators × one event = hundreds of original assets. The fest's social grid, the brand's PR pull-quotes, the next year's lineup proof — all written on the same weekend.</p>
-    </section>
-
-    <section class="cd-readnext" aria-label="Read next from the journal">
-      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
-      <div class="cd-rn-grid">
-        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
-        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
-        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
-      </div>
-    </section>
-
-    <div class="cd-close-hero">
-      <span class="cd-close-tag">Terminus · The Great Indian Sneaker Fest</span>
-      <h4>Festivals are casting exercises. We cast for the room.</h4>
-      <p>If you're staging a category festival — sneakers, watches, vinyl, whisky, design — this playbook is yours: cast across cultural niches, not category niches.</p>
-      <div class="cd-magnet">
-        <form data-magnet="case-tgisf-newsletter">
-          <input type="email" placeholder="you@brand.com" required aria-label="Email">
-          <button type="submit">Join the list ↗</button>
-          <span class="cd-magnet-msg" aria-live="polite"></span>
-        </form>
-        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
-      </div>
-    </div>
-  </div>
-</dialog>
-
 <dialog id="case-punjab-grill" class="case-dialog" aria-labelledby="cd-pgrill-title">
   <header class="cd-head">
     <span class="cd-tag">Case Study · Hospitality · Punjab Grill</span>
@@ -5075,40 +4169,354 @@ window.addEventListener('mousemove', e => {
      Heritage Indian, butter-chicken-origin claim. Multi-outlet Delhi NCR + travel.
      IG mining surfaced highlight; full content TBD pending mining.
      ===================================================================== -->
+<dialog id="case-daryaganj" class="case-dialog" aria-labelledby="cd-daryaganj-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Daryaganj · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
 
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:10%;width:140px;background:#f5b015;color:#0e0e10;font-size:13px">Daryaganj</span>
+      <span class="cdh-creator" style="bottom:22%;right:36%;width:104px;background:#dd3d38">Heritage</span>
+      <span class="cdh-creator" style="bottom:6%;right:54%;width:108px;background:#1f4d8c">Origin claim</span>
+      <span class="cdh-creator" style="bottom:24%;right:72%;width:96px;background:#2f9e5e">Multi-outlet</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Heritage Indian · Origin Story</span>
+        <h2 id="cd-daryaganj-title">Daryaganj</h2>
+        <p class="cd-hero-sub">The brand that claims the butter-chicken-origin story — a heritage Indian house anchored in a single dish nobody else can credibly own.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--gold)"></span>The Brief</h3>
+      <p class="cd-lead">Daryaganj built its brand around the strongest origin claim in Indian-restaurant marketing: <em>this is where butter chicken comes from</em>. Our job was to keep that story alive on social — without ever leaning on it so hard the brand felt like a museum piece.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--red)"></span>The Strategic Move</h3>
+      <p>Origin claims are credibility on credit. They earn you the first read; they don't earn you the second post. We built creator content that spent the credibility on adjacency — modern dishes around the heritage anchor, multi-outlet expansion, festival menus, special-occasion frames.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">03</span><span class="cd-bullet" style="background:var(--royal)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>This is a draft modal — case content is in production. Once we surface the IG highlight + tagged creator posts (second-pass mining), this case will be repopulated with real creator handles and quotes.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Daryaganj</span>
+      <h4>Heritage is a credit line. Spend it carefully.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-daryaganj-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <!-- =====================================================================
      CASE STUDY · TICKLED PINK · DRAFT
      Bar / lounge — visible on the @98.entertainment IG highlights rail.
      Content TBD pending IG mining.
      ===================================================================== -->
+<dialog id="case-tickled-pink" class="case-dialog" aria-labelledby="cd-tpink-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Tickled Pink · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
 
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:14%;width:150px;background:#db5074;font-size:13px">Tickled Pink</span>
+      <span class="cdh-creator" style="bottom:24%;right:38%;width:108px;background:#f5b015;color:#0e0e10">Bar · Lounge</span>
+      <span class="cdh-creator" style="bottom:6%;right:60%;width:100px;background:#1f4d8c">Delhi NCR</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Bar · Lounge</span>
+        <h2 id="cd-tpink-title">Tickled Pink</h2>
+        <p class="cd-hero-sub">A pink-themed bar brand built for the social-photo grammar of its own audience.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--pink)"></span>The Brief</h3>
+      <p class="cd-lead">Tickled Pink is a bar brand that makes the brand colour the entire vibe — the audience signs up because the place looks the same in every creator's reel. The job is to keep that recognisability fresh while the audience's idea of "pink" keeps moving.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal. Once we mine the Tickled Pink IG highlight + tagged-only posts, this case will be repopulated with real creator handles, the activation calendar, and the brand's positioning notes.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Tickled Pink</span>
+      <h4>The colour is the brand. Keep the colour breathing.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-tpink-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <!-- =====================================================================
      CASE STUDY · KHUBANI · DRAFT
      Heritage cuisine with modern pulse. From the original Featured Cases
      hospitality grid. Content TBD pending mining.
      ===================================================================== -->
+<dialog id="case-khubani" class="case-dialog" aria-labelledby="cd-khubani-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Khubani · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
 
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:14%;width:140px;background:#ff6319;font-size:13px">Khubani</span>
+      <span class="cdh-creator" style="bottom:22%;right:36%;width:118px;background:#dd3d38">Heritage</span>
+      <span class="cdh-creator" style="bottom:6%;right:54%;width:100px;background:#46286a">Modern Pulse</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Heritage Cuisine · Modern Frame</span>
+        <h2 id="cd-khubani-title">Khubani</h2>
+        <p class="cd-hero-sub">Heritage menus told in a modern voice — the rare brand that has to fight nostalgia, not lean on it.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--orange)"></span>The Brief</h3>
+      <p class="cd-lead">Khubani's product is a heritage cuisine, but its target diner is a Gen-Z one. The brief: brand the menu so it reads "modern Indian" first and "heritage Indian" second — without losing what the heritage actually adds.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal. Real creator material will follow IG + disk mining for this client.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Khubani</span>
+      <h4>Heritage is the spice, not the menu.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-khubani-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <!-- =====================================================================
      CASE STUDY · OPHELIA · DRAFT
      Lounge / lifestyle — Featured Cases legacy entry. Content TBD pending mining.
      ===================================================================== -->
+<dialog id="case-ophelia" class="case-dialog" aria-labelledby="cd-ophelia-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Ophelia · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
 
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:14%;width:140px;background:#46286a;font-size:13px">Ophelia</span>
+      <span class="cdh-creator" style="bottom:22%;right:38%;width:108px;background:#db5074">Lounge</span>
+      <span class="cdh-creator" style="bottom:6%;right:56%;width:108px;background:#f5b015;color:#0e0e10">Lifestyle</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Lounge · Lifestyle</span>
+        <h2 id="cd-ophelia-title">Ophelia</h2>
+        <p class="cd-hero-sub">A new chapter for a familiar address — the lounge play built around a brand reset.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--purple)"></span>The Brief</h3>
+      <p class="cd-lead">Ophelia inherited an address with history. The brief: relaunch the room without contradicting what the audience already knew about the building.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal — IG + disk mining will populate the creator roster, opening-night content, and the relaunch arc.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Ophelia</span>
+      <h4>Inherit the address. Don't inherit the script.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-ophelia-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <!-- =====================================================================
      CASE STUDY · HARD ROCK CAFE · DRAFT
      Global music-led F&B chain. India franchise. Content TBD pending mining.
      ===================================================================== -->
+<dialog id="case-hard-rock" class="case-dialog" aria-labelledby="cd-hrc-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Hard Rock Cafe · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
 
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:10%;width:148px;background:#dd3d38;font-size:13px">Hard Rock</span>
+      <span class="cdh-creator" style="bottom:22%;right:32%;width:110px;background:#0e0e10;color:#f3eddd">Global IP</span>
+      <span class="cdh-creator" style="bottom:6%;right:50%;width:104px;background:#1f4d8c">Live Music</span>
+      <span class="cdh-creator" style="bottom:24%;right:66%;width:96px;background:#f5b015;color:#0e0e10">India</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Global Music IP · India Franchise</span>
+        <h2 id="cd-hrc-title">Hard Rock Cafe</h2>
+        <p class="cd-hero-sub">A globally famous IP franchised in India — where the brief is to translate global brand language into local cultural moments.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--red)"></span>The Brief</h3>
+      <p class="cd-lead">Hard Rock is one of the strongest brand IPs in F&amp;B globally. The Indian franchisee's job isn't awareness — it's translation. Local music nights, local creator activations, local festival programming, all without breaking the brand's global voice.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal — content will be populated from IG mining + the hosted-creator activations during music nights and festival programming.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Hard Rock Cafe</span>
+      <h4>Global IP. Local stage.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-hrc-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <!-- =====================================================================
      CASE STUDY · ROSEATE · DRAFT
      Roseate Hotels — luxury hospitality property. Multi-property F&B + accommodation.
      Highest premium tier in the portfolio.
      ===================================================================== -->
+<dialog id="case-roseate" class="case-dialog" aria-labelledby="cd-roseate-title">
+  <header class="cd-head">
+    <span class="cd-tag">Case Study · Hospitality · Roseate · DRAFT</span>
+    <button type="button" class="cd-close" aria-label="Close">×</button>
+  </header>
+  <div class="cd-body">
 
+    <div class="cd-hero-collage">
+      <span class="cdh-creator" style="bottom:8%;right:10%;width:140px;background:#46286a;font-size:13px">Roseate</span>
+      <span class="cdh-creator" style="bottom:24%;right:34%;width:118px;background:#f5b015;color:#0e0e10">Luxury Hotel</span>
+      <span class="cdh-creator" style="bottom:6%;right:56%;width:96px;background:#db5074">F&amp;B + Stays</span>
+      <span class="cdh-creator" style="bottom:24%;right:72%;width:88px;background:#1f4d8c">Multi-property</span>
+      <div class="cd-hero-text">
+        <span class="cd-hero-meta">Hospitality · Luxury Hotel · F&amp;B + Stays</span>
+        <h2 id="cd-roseate-title">Roseate</h2>
+        <p class="cd-hero-sub">Luxury hospitality at the top of 98's portfolio premium-tier — F&amp;B and stays under one brand house.</p>
+      </div>
+    </div>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">01</span><span class="cd-bullet" style="background:var(--purple)"></span>The Brief</h3>
+      <p class="cd-lead">Roseate is the rare hospitality client where every social touchpoint has to clear a luxury bar — the room, the plate, the lighting, the typography on the menu. There's no room for "good enough." We worked the brand inside that constraint.</p>
+    </section>
+
+    <section class="cd-chapter">
+      <h3><span class="cd-num">02</span><span class="cd-bullet" style="background:var(--gold)"></span>What's Pending</h3>
+      <p class="cd-foot-note"><em>Draft modal — the property visits, weekend brunches, F&amp;B chef collaborations, and luxury-creator features will populate this case once we mine the Roseate IG highlight and the disk content.</em></p>
+    </section>
+
+        <!-- v2.33 · Read next · journal pieces recommended at the close of every case modal -->
+    <section class="cd-readnext" aria-label="Read next from the journal">
+      <h3 class="cd-rn-label">From the Journal · Read next →</h3>
+      <div class="cd-rn-grid">
+        <a class="cd-rn-card" href="journal/don-draper.html"><span class="kk">Brand · Archetypes</span><span class="tt">Don Draper as a Gen-Z brand brief.</span><span class="mm">Read · 8 min</span></a>
+        <a class="cd-rn-card" href="journal/adidas-yeezy.html"><span class="kk">Fashion · Collab</span><span class="tt">Adidas × YEEZY and what brand–talent equity actually looks like.</span><span class="mm">Read · 9 min</span></a>
+        <a class="cd-rn-card" href="journal/2001-space-odyssey.html"><span class="kk">Film · Future</span><span class="tt">2001: A Space Odyssey for the marketer who has lost the plot.</span><span class="mm">Read · 6 min</span></a>
+      </div>
+    </section>
+
+<div class="cd-close-hero">
+      <span class="cd-close-tag">Terminus · Roseate</span>
+      <h4>Luxury is what doesn't make the post — the bar is so high you don't notice it.</h4>
+      <div class="cd-magnet">
+        <form data-magnet="case-roseate-newsletter">
+          <input type="email" placeholder="you@brand.com" required aria-label="Email">
+          <button type="submit">Join the list ↗</button>
+          <span class="cd-magnet-msg" aria-live="polite"></span>
+        </form>
+        <small class="cd-magnet-alt">Or <a href="#contact">book a 30-min consultation</a> · we read every reply.</small>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 </body>
 </html>
