@@ -503,7 +503,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 
 /* ============================================================
    v2.14 · ISHANT CAROUSEL — no-friction headline carousel
-   Lives at the top of #our-people. Six visual slides, swipeable.
+   Lives at the top of #cases. Six visual slides, swipeable.
    Ends with a magnet (email capture). Long-form modal still
    available as a "Read the playbook" toggle below the carousel.
    ============================================================ */
@@ -676,7 +676,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 .scroll-lock-wrapper{position:relative}
 .scroll-lock-sticky{position:relative}
 .ishant-carousel{position:relative;z-index:2}
-#our-people .thread-canvas{opacity:.32}
+#cases .thread-canvas{opacity:.32}
 .scroll-lock-skip{display:none}
 @media (min-width:1080px) and (prefers-reduced-motion: no-preference){
   .scroll-lock-wrapper.scroll-lock-active{height:600vh}
@@ -911,15 +911,15 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 .cd-rn-card .mm{font:500 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:auto}
 
 /* Sec-head: lock to two columns at desktop, sensible gap, no excess margin */
-#our-people .sec-head{
+#cases .sec-head{
   display:grid !important;
   grid-template-columns: minmax(420px, 1.05fr) minmax(320px, 1fr) !important;
   gap:24px 56px !important;
   align-items:end;
   margin-bottom:32px !important;
 }
-#our-people .sec-head .lead{ min-width:0; max-width:none; }
-#our-people .sec-head .note{
+#cases .sec-head .lead{ min-width:0; max-width:none; }
+#cases .sec-head .note{
   min-width:0;
   max-width:54ch;
   font-size:16px;
@@ -927,7 +927,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
   align-self:end;
 }
 @media (max-width:980px){
-  #our-people .sec-head{ grid-template-columns:1fr !important; gap:14px !important }
+  #cases .sec-head{ grid-template-columns:1fr !important; gap:14px !important }
 }
 
 /* Work-showcase: trim its top so the carousel and the cards don't push down */
@@ -961,15 +961,15 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 }
 
 /* Next section: pad the top so the OUR ROSTER chip clears the train overhang */
-#our-people{padding-top:240px}
+#cases{padding-top:240px}
 
 @media (max-width:980px){
   .train-img{height:480px;bottom:-210px}
-  #our-people{padding-top:170px}
+  #cases{padding-top:170px}
 }
 @media (max-width:780px){
   .train-img{height:340px;bottom:-150px}
-  #our-people{padding-top:120px}
+  #cases{padding-top:120px}
 }
 
 /* Quick-escape state for the Ishant scroll-lock zone */
@@ -1022,9 +1022,9 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(c
 /* v2.47 · DESIGN-SYSTEM v3.0 — START */
 .train-strip{height:0;margin:0;position:relative;overflow:visible;z-index:5;background:transparent}
 .train-img{position:absolute;bottom:-280px;height:640px;width:auto;left:50vw;will-change:left;transition:left .15s linear;filter:drop-shadow(0 24px 36px rgba(14,14,16,.22));pointer-events:none;opacity:1;transform:none}
-#our-people{padding-top:240px}
-@media (max-width:980px){.train-img{height:480px;bottom:-210px}#our-people{padding-top:170px}}
-@media (max-width:780px){.train-img{height:340px;bottom:-150px}#our-people{padding-top:120px}}
+#cases{padding-top:240px}
+@media (max-width:980px){.train-img{height:480px;bottom:-210px}#cases{padding-top:170px}}
+@media (max-width:780px){.train-img{height:340px;bottom:-150px}#cases{padding-top:120px}}
 @media (prefers-reduced-motion: reduce){.train-img{transition:none;left:50%}}
 .sec-head{align-items:flex-start}
 .sec-head .lead{display:inline-flex;flex-direction:column;width:fit-content;max-width:100%;align-items:stretch;gap:14px}
@@ -1179,9 +1179,2096 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
 @media (max-width:980px){ .train-img{ bottom:-240px } }
 @media (max-width:780px){ .train-img{ bottom:-170px } }
 /* v2.55a · TRAIN STRIPE ALIGN — END */
+
+/* v2.57 · DESIGN MERGE — START */
+/* Imported from the Claude Design ZIP (v2.51-v2.53 divergent branch).
+   Contains: hero-aside CSS (7 variants) + terminus CSS (4 modes).
+   Locks via body[data-hero-aside="montage"] + body[data-terminus="spaghetti"]. */
+
+/* v2.33 · HERO RECEIPTS · rotating "billing block" of flagship work.
+   This is the right column of the hero — replaces the static service-line list with
+   a rotating credit card per flagship client. Premium-cinema-credit treatment. */
+.hero-receipts{position:relative;background:#0E0E10;color:var(--paper);border-radius:14px;padding:0;overflow:hidden;box-shadow:0 24px 48px -24px rgba(14,14,16,.45),0 0 0 1px rgba(244,239,224,.06)}
+.hero-receipts::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%,var(--accent-c,rgba(245,176,21,.18)) 0%,transparent 60%);opacity:.7;transition:background .6s var(--ease);pointer-events:none}
+
+.hr-head{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:18px 20px 14px;border-bottom:1px solid rgba(244,239,224,.1)}
+.hr-tag{font:600 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,224,.62);display:inline-flex;align-items:center;gap:10px}
+.hr-pulse{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(221,61,56,.22);animation:hrPulse 1.6s var(--ease) infinite}
+@keyframes hrPulse{0%,100%{box-shadow:0 0 0 3px rgba(221,61,56,.22)}50%{box-shadow:0 0 0 7px rgba(221,61,56,0)}}
+.hr-counter{font:500 11px/1 var(--mono);letter-spacing:.12em;color:rgba(244,239,224,.5);display:inline-flex;align-items:baseline;gap:2px}
+.hr-counter b{color:var(--gold);font-weight:700;font-variant-numeric:tabular-nums}
+.hr-counter i{font-style:normal;opacity:.4;margin:0 2px}
+
+/* stage holds all cards stacked; only .is-active is shown */
+.hr-stage{position:relative;z-index:2;min-height:300px}
+.hr-card{position:absolute;inset:0;padding:24px 24px 22px;display:flex;flex-direction:column;gap:18px;opacity:0;transform:translateY(8px);transition:opacity .6s var(--ease), transform .6s var(--ease);pointer-events:none}
+.hr-card.is-active{position:relative;opacity:1;transform:none;pointer-events:auto}
+
+.hr-credit{display:flex;justify-content:space-between;font:500 9px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:rgba(244,239,224,.42)}
+.hr-credit span:last-child{color:rgba(245,176,21,.7)}
+
+.hr-body{display:flex;align-items:center;gap:18px}
+.hr-mark{width:74px;height:74px;border-radius:14px;display:grid;place-items:center;font:800 26px/1 var(--display);letter-spacing:-.04em;color:#fff;flex:0 0 74px;box-shadow:0 12px 24px -8px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.12)}
+.hr-meta{flex:1;min-width:0}
+.hr-brand{display:block;font:800 28px/1.05 var(--display);letter-spacing:-.025em;color:var(--paper)}
+.hr-line{display:block;margin-top:6px;font:500 12px/1.4 var(--mono);letter-spacing:.04em;color:rgba(244,239,224,.55);text-transform:uppercase}
+
+.hr-stat{display:flex;align-items:baseline;gap:14px;padding:18px 0;border-top:1px solid rgba(244,239,224,.1);border-bottom:1px solid rgba(244,239,224,.1)}
+.hr-stat b{font:800 clamp(40px,4.6vw,56px)/.9 var(--display);letter-spacing:-.04em;color:var(--gold);font-variant-numeric:tabular-nums}
+.hr-stat i{font-style:normal;font:500 11px/1.3 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,239,224,.55);max-width:22ch}
+
+.hr-quote{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.45;color:rgba(244,239,224,.78);padding-left:14px;border-left:2px solid var(--gold);margin-top:auto}
+
+.hr-foot{position:relative;z-index:2;padding:14px 20px 18px;border-top:1px solid rgba(244,239,224,.1);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.hr-dots{display:flex;gap:6px}
+.hr-dots button{width:22px;height:4px;border-radius:2px;background:rgba(244,239,224,.18);border:0;padding:0;cursor:pointer;transition:background .3s var(--ease), width .3s var(--ease)}
+.hr-dots button.is-active{background:var(--gold);width:34px}
+.hr-dots button:hover{background:rgba(244,239,224,.4)}
+.hr-receipts-stat{font:500 10px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(244,239,224,.45);text-align:right}
+.hr-receipts-stat b{color:var(--gold);font-weight:700}
+
+@media (max-width:1080px){.hero-receipts{margin-top:24px}.hr-stage{min-height:280px}}
+@media (max-width:540px){.hr-brand{font-size:24px}.hr-mark{width:62px;height:62px;flex-basis:62px;font-size:22px}.hr-stat b{font-size:36px}}
+
+/* v2.34 · HERO ASIDE VARIANTS · pick one via Tweaks → "Hero sidebar".
+   Default = billing (the receipts component above). */
+.hero-aside{display:none}
+body[data-hero-aside="billing"]   .hero-aside[data-aside="billing"],
+body[data-hero-aside="logos"]     .hero-aside[data-aside="logos"],
+body[data-hero-aside="press"]     .hero-aside[data-aside="press"],
+body[data-hero-aside="manifesto"] .hero-aside[data-aside="manifesto"],
+body[data-hero-aside="index"]     .hero-aside[data-aside="index"],
+body[data-hero-aside="ticker"]    .hero-aside[data-aside="ticker"]{display:block}
+body[data-hero-aside="montage"]   .hero-aside[data-aside="montage"]{display:block}
+body:not([data-hero-aside]) .hero-aside[data-aside="billing"]{display:block}
+
+/* shared chrome for the non-billing variants — display set via active-variant rule below */
+.ha-logos,.ha-press,.ha-manifesto,.ha-index,.ha-ticker{
+  position:relative;background:#0E0E10;color:var(--paper);border-radius:14px;overflow:hidden;
+  box-shadow:0 24px 48px -24px rgba(14,14,16,.45),0 0 0 1px rgba(244,239,224,.06);
+  flex-direction:column
+}
+/* only the active variant becomes flex */
+body[data-hero-aside="logos"]     .hero-aside[data-aside="logos"],
+body[data-hero-aside="press"]     .hero-aside[data-aside="press"],
+body[data-hero-aside="manifesto"] .hero-aside[data-aside="manifesto"],
+body[data-hero-aside="index"]     .hero-aside[data-aside="index"],
+body[data-hero-aside="ticker"]    .hero-aside[data-aside="ticker"]{display:flex}
+
+/* v2.47 · MONTAGE · stop-motion paper-craft loop on transparent bg.
+   Placeholder for a real ~20s alpha-channel WebM montage of the studio's range.
+   ~10fps choppy timing via steps() to read as stop-motion, not video. */
+.ha-montage{
+  position:relative;background:transparent;
+  min-height:560px;display:flex;flex-direction:column;
+  /* subtle paper-edge frame so it sits on the cream without floating in space */
+  padding:0;
+}
+.ha-montage .hm-label{
+  position:absolute;left:0;right:0;top:-22px;display:flex;justify-content:space-between;
+  font:600 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate);
+  z-index:5;pointer-events:none;
+}
+.ha-montage .hm-label .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:8px;vertical-align:middle;animation:hm-blink 1s steps(2,end) infinite}
+@keyframes hm-blink{50%{opacity:0}}
+.ha-montage .hm-stage{
+  position:relative;flex:1;min-height:520px;
+  /* faint hand-drawn frame, no fill — keeps bg transparent */
+  border:1.5px dashed rgba(14,14,16,.14);border-radius:6px;
+  overflow:hidden;
+}
+/* Each frame is a stop-motion beat. ~16 beats × 1.25s = 20s total loop.
+   We use steps(1) so frames cut, not crossfade. */
+.hm-frame{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  opacity:0;animation:hm-cycle 20s steps(1,end) infinite;
+}
+.hm-frame:nth-of-type(1) {animation-delay:0s}
+.hm-frame:nth-of-type(2) {animation-delay:-1.25s}
+.hm-frame:nth-of-type(3) {animation-delay:-2.5s}
+.hm-frame:nth-of-type(4) {animation-delay:-3.75s}
+.hm-frame:nth-of-type(5) {animation-delay:-5s}
+.hm-frame:nth-of-type(6) {animation-delay:-6.25s}
+.hm-frame:nth-of-type(7) {animation-delay:-7.5s}
+.hm-frame:nth-of-type(8) {animation-delay:-8.75s}
+.hm-frame:nth-of-type(9) {animation-delay:-10s}
+.hm-frame:nth-of-type(10){animation-delay:-11.25s}
+.hm-frame:nth-of-type(11){animation-delay:-12.5s}
+.hm-frame:nth-of-type(12){animation-delay:-13.75s}
+.hm-frame:nth-of-type(13){animation-delay:-15s}
+.hm-frame:nth-of-type(14){animation-delay:-16.25s}
+.hm-frame:nth-of-type(15){animation-delay:-17.5s}
+.hm-frame:nth-of-type(16){animation-delay:-18.75s}
+@keyframes hm-cycle{
+  0%, 6.25% {opacity:1}     /* visible 1.25s of the 20s cycle */
+  6.26%, 100% {opacity:0}
+}
+/* per-frame inner motion — choppy, 8fps feel via steps */
+.hm-frame .hm-art{position:relative;width:78%;max-width:300px;animation:hm-jitter .3s steps(2,end) infinite}
+@keyframes hm-jitter{
+  0%  {transform:translate(0,0) rotate(0deg)}
+  50% {transform:translate(1px,-1px) rotate(.4deg)}
+  100%{transform:translate(-1px,1px) rotate(-.3deg)}
+}
+.hm-caption{
+  position:absolute;left:18px;bottom:14px;right:18px;display:flex;justify-content:space-between;align-items:baseline;
+  font:600 9px/1.2 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--slate);
+  z-index:3;
+}
+.hm-caption b{font:600 11px/1 var(--display);color:var(--ink);letter-spacing:.05em}
+/* discipline counter scrubs through 16 frames in lock step */
+.hm-counter{
+  position:absolute;right:18px;top:14px;
+  font:700 10px/1 var(--mono);letter-spacing:.18em;color:var(--slate);
+  z-index:3;
+}
+.hm-counter::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--red);margin-right:7px;vertical-align:middle;animation:hm-blink 1s steps(2,end) infinite}
+.ha-montage .hm-foot{
+  font:600 10px/1.4 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--slate);
+  padding:14px 4px 0;display:flex;justify-content:space-between;align-items:center;border-top:1px dashed rgba(14,14,16,.14);margin-top:14px;
+}
+.ha-montage .hm-foot b{color:var(--ink);font-family:var(--display);font-weight:700}
+
+/* v2.47 · paper-craft frame artwork — pure CSS, no DOM bloat */
+.hm-paper{position:absolute;background:#0E0E10;color:#F4EFE0;font-family:var(--display);font-weight:800;
+  box-shadow:2px 2px 0 rgba(0,0,0,.12);transform-origin:center}
+.hm-paper.flat{background:transparent;color:var(--ink);box-shadow:none}
+.hm-paper.cream{background:#F4EFE0;color:#0E0E10;border:1.5px solid #0E0E10}
+.hm-paper.gold{background:#F5B015;color:#0E0E10}
+.hm-paper.red{background:#DD3D38;color:#F4EFE0}
+.hm-paper.royal{background:#1F4D8C;color:#F4EFE0}
+.hm-paper.green{background:#2F9E5E;color:#F4EFE0}
+.hm-paper.purple{background:#7E4DA5;color:#F4EFE0}
+.hm-paper.pink{background:#E7497C;color:#F4EFE0}
+.hm-paper.orange{background:#E87722;color:#F4EFE0}
+
+/* per-beat layouts */
+/* 01 packaging unboxing — stacked boxes */
+.hmf-pack .b1{width:120px;height:90px;left:50%;top:50%;transform:translate(-50%,-65%) rotate(-3deg)}
+.hmf-pack .b2{width:140px;height:60px;left:50%;top:50%;transform:translate(-50%,5%) rotate(2deg)}
+.hmf-pack .b3{width:90px;height:50px;left:50%;top:50%;transform:translate(-55%,55%) rotate(-1deg)}
+.hmf-pack .lid{position:absolute;width:120px;height:14px;background:#F5B015;left:50%;top:50%;transform:translate(-50%,-95%) rotate(-3deg);animation:hm-lid .6s steps(3,end) infinite alternate}
+@keyframes hm-lid{0%{transform:translate(-50%,-95%) rotate(-3deg)}100%{transform:translate(-50%,-130%) rotate(-12deg)}}
+
+/* 02 menu page turn */
+.hmf-menu .pg{width:160px;height:200px;left:50%;top:50%;transform:translate(-50%,-50%);background:#F4EFE0;color:#0E0E10;border:1.5px solid #0E0E10;padding:14px 16px;font:700 14px/1.3 var(--serif);text-align:left}
+.hmf-menu .pg::before{content:"MENU";display:block;font:800 9px/1 var(--mono);letter-spacing:.2em;color:#DD3D38;margin-bottom:10px}
+.hmf-menu .pg .ln{display:block;border-bottom:1px dotted #0E0E10;padding:4px 0;font:600 10px/1 var(--mono);letter-spacing:.05em;display:flex;justify-content:space-between}
+.hmf-menu .turn{position:absolute;width:80px;height:200px;right:calc(50% - 80px);top:50%;transform:translateY(-50%);background:#F4EFE0;border-left:1.5px solid #0E0E10;border-top:1.5px solid #0E0E10;border-bottom:1.5px solid #0E0E10;transform-origin:left center;animation:hm-turn .6s steps(4,end) infinite alternate}
+@keyframes hm-turn{0%{transform:translateY(-50%) rotateY(0deg)}100%{transform:translateY(-50%) rotateY(-160deg)}}
+
+/* 03 logo stamp */
+.hmf-stamp .stamp{width:130px;height:130px;left:50%;top:50%;transform:translate(-50%,-50%);background:#DD3D38;color:#F4EFE0;border-radius:50%;display:flex;align-items:center;justify-content:center;font:900 38px/1 var(--display);letter-spacing:-.04em;animation:hm-stamp .6s steps(2,end) infinite alternate}
+@keyframes hm-stamp{0%{transform:translate(-50%,-50%) scale(1) rotate(-4deg)}100%{transform:translate(-50%,-50%) scale(1.06) rotate(-2deg)}}
+.hmf-stamp .ink{position:absolute;width:160px;height:160px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:rgba(221,61,56,.18);filter:blur(8px)}
+
+/* 04 social post */
+.hmf-post .post{width:170px;height:200px;left:50%;top:50%;transform:translate(-50%,-50%);background:#F4EFE0;border:1.5px solid #0E0E10;display:flex;flex-direction:column}
+.hmf-post .post .img{flex:1;background:linear-gradient(135deg,#1F4D8C 0%,#7E4DA5 100%)}
+.hmf-post .post .meta{font:700 9px/1 var(--mono);letter-spacing:.18em;padding:8px 10px;color:#0E0E10;border-top:1.5px solid #0E0E10;display:flex;justify-content:space-between}
+.hmf-post .heart{position:absolute;left:50%;top:50%;transform:translate(20%,30%);font-size:28px;color:#DD3D38;animation:hm-heart .4s steps(2,end) infinite alternate}
+@keyframes hm-heart{0%{transform:translate(20%,30%) scale(.9)}100%{transform:translate(20%,30%) scale(1.15)}}
+
+/* 05 polaroid shoot */
+.hmf-shoot .poly{width:140px;height:170px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-4deg);background:#F4EFE0;border:1.5px solid #0E0E10;padding:10px 10px 30px}
+.hmf-shoot .poly .frame{width:100%;height:100%;background:linear-gradient(135deg,#F5B015 0%,#E87722 100%)}
+.hmf-shoot .poly2{width:140px;height:170px;left:50%;top:50%;transform:translate(-30%,-40%) rotate(6deg);background:#F4EFE0;border:1.5px solid #0E0E10;padding:10px 10px 30px;opacity:.9}
+.hmf-shoot .poly2 .frame{width:100%;height:100%;background:linear-gradient(135deg,#2F9E5E 0%,#1F4D8C 100%)}
+.hmf-shoot .flash{position:absolute;inset:0;background:#F4EFE0;animation:hm-flash 1.25s steps(1,end) infinite;opacity:0}
+@keyframes hm-flash{0%,2%{opacity:.85}3%,100%{opacity:0}}
+
+/* 06 strategy doc */
+.hmf-strategy .doc{width:170px;height:210px;left:50%;top:50%;transform:translate(-50%,-50%);background:#F4EFE0;border:1.5px solid #0E0E10;padding:14px 14px;text-align:left}
+.hmf-strategy .doc h{display:block;font:800 9px/1 var(--mono);letter-spacing:.2em;color:#1F4D8C;margin-bottom:10px}
+.hmf-strategy .doc .l{display:block;height:5px;background:#0E0E10;margin-bottom:6px;width:100%}
+.hmf-strategy .doc .l.s{width:60%}
+.hmf-strategy .doc .l.m{width:80%}
+.hmf-strategy .arrow{position:absolute;right:8%;top:50%;transform:translateY(-50%);font:900 50px/1 var(--display);color:#DD3D38;animation:hm-arrow .4s steps(2,end) infinite alternate}
+@keyframes hm-arrow{0%{transform:translate(0,-50%)}100%{transform:translate(8px,-50%)}}
+
+/* 07 wall mural */
+.hmf-mural .wall{width:80%;height:170px;left:10%;top:50%;transform:translateY(-50%);background:repeating-linear-gradient(0deg,#F4EFE0 0 22px,#EAE3CE 22px 24px);border:1.5px solid #0E0E10}
+.hmf-mural .paint1{position:absolute;width:60px;height:60px;left:20%;top:50%;transform:translate(-50%,-80%);background:#DD3D38;border-radius:50%}
+.hmf-mural .paint2{position:absolute;width:90px;height:30px;left:50%;top:50%;transform:translate(-50%,30%);background:#F5B015}
+.hmf-mural .paint3{position:absolute;width:40px;height:40px;right:20%;top:50%;transform:translate(50%,-50%) rotate(45deg);background:#1F4D8C}
+
+/* 08 trophy */
+.hmf-award .cup{width:90px;height:130px;left:50%;top:50%;transform:translate(-50%,-50%);background:#F5B015;color:#0E0E10;display:flex;align-items:center;justify-content:center;font:900 56px/1 var(--display);clip-path:polygon(20% 0%, 80% 0%, 90% 30%, 70% 65%, 70% 85%, 90% 100%, 10% 100%, 30% 85%, 30% 65%, 10% 30%);animation:hm-shine .6s steps(2,end) infinite alternate}
+@keyframes hm-shine{0%{filter:brightness(1)}100%{filter:brightness(1.3)}}
+.hmf-award .ribbon{position:absolute;width:160px;height:24px;left:50%;top:50%;transform:translate(-50%,150%);background:#DD3D38;color:#F4EFE0;display:flex;align-items:center;justify-content:center;font:800 10px/1 var(--mono);letter-spacing:.2em}
+
+/* 09 phone reel */
+.hmf-phone .ph{width:110px;height:200px;left:50%;top:50%;transform:translate(-50%,-50%);background:#0E0E10;border-radius:18px;padding:8px;display:flex;flex-direction:column}
+.hmf-phone .ph .scr{flex:1;background:linear-gradient(180deg,#E7497C 0%,#7E4DA5 50%,#1F4D8C 100%);border-radius:10px;position:relative;overflow:hidden}
+.hmf-phone .ph .scr::before{content:"";position:absolute;left:50%;top:50%;width:0;height:0;transform:translate(-50%,-50%);border-left:14px solid #F4EFE0;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.hmf-phone .swipe{position:absolute;width:30px;height:3px;background:#F4EFE0;left:50%;bottom:18px;transform:translateX(-50%);animation:hm-swipe .5s steps(2,end) infinite alternate;opacity:.7}
+@keyframes hm-swipe{0%{transform:translate(-50%,0)}100%{transform:translate(-50%,-12px)}}
+
+/* 10 chart growth */
+.hmf-chart .axis{position:absolute;left:14%;right:14%;bottom:18%;height:1.5px;background:#0E0E10}
+.hmf-chart .axis2{position:absolute;left:14%;bottom:18%;top:14%;width:1.5px;background:#0E0E10}
+.hmf-chart .bar{position:absolute;bottom:18%;width:14%;background:#1F4D8C;animation:hm-bar 1.25s steps(5,end) infinite}
+.hmf-chart .bar.b1{left:18%;height:30%;background:#1F4D8C;animation-delay:0s}
+.hmf-chart .bar.b2{left:34%;height:50%;background:#2F9E5E;animation-delay:.1s}
+.hmf-chart .bar.b3{left:50%;height:65%;background:#F5B015;animation-delay:.2s}
+.hmf-chart .bar.b4{left:66%;height:80%;background:#DD3D38;animation-delay:.3s}
+@keyframes hm-bar{0%{transform:scaleY(.2);transform-origin:bottom}100%{transform:scaleY(1);transform-origin:bottom}}
+.hmf-chart .arrow{position:absolute;right:10%;top:18%;font:900 36px/1 var(--display);color:#2F9E5E}
+
+/* 11 invoice */
+.hmf-invoice .inv{width:170px;height:200px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-2deg);background:#F4EFE0;border:1.5px solid #0E0E10;padding:14px;text-align:left;font:600 10px/1.4 var(--mono);color:#0E0E10}
+.hmf-invoice .inv h{display:block;font:800 11px/1 var(--mono);letter-spacing:.18em;color:#0E0E10;margin-bottom:8px;border-bottom:1px solid #0E0E10;padding-bottom:6px}
+.hmf-invoice .inv .row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted #0E0E10}
+.hmf-invoice .stamp{position:absolute;right:8%;bottom:14%;width:90px;height:90px;border:3px solid #2F9E5E;color:#2F9E5E;border-radius:50%;display:flex;align-items:center;justify-content:center;font:900 14px/1 var(--display);letter-spacing:.05em;transform:rotate(-12deg);animation:hm-stamp2 .4s steps(2,end) infinite alternate}
+@keyframes hm-stamp2{0%{transform:rotate(-12deg) scale(1)}100%{transform:rotate(-10deg) scale(1.04)}}
+
+/* 12 booth/store */
+.hmf-booth .booth{width:80%;height:150px;left:10%;top:30%;background:#DD3D38;color:#F4EFE0;display:flex;align-items:center;justify-content:center;font:900 26px/1 var(--display);letter-spacing:-.02em}
+.hmf-booth .legs{position:absolute;left:10%;right:10%;bottom:20%;height:30%;border-left:3px solid #0E0E10;border-right:3px solid #0E0E10}
+.hmf-booth .crowd{position:absolute;left:0;right:0;bottom:8%;height:10%;background:repeating-linear-gradient(90deg,#0E0E10 0 6px,transparent 6px 12px)}
+
+/* 13 typography */
+.hmf-type .big{font:900 110px/.85 var(--display);color:#0E0E10;letter-spacing:-.06em;text-align:center;animation:hm-type .6s steps(3,end) infinite alternate}
+.hmf-type .big i{color:#DD3D38;font-style:normal}
+@keyframes hm-type{0%{letter-spacing:-.06em}100%{letter-spacing:-.02em}}
+.hmf-type .sub{position:absolute;left:18px;bottom:50px;right:18px;font:600 10px/1 var(--mono);letter-spacing:.2em;color:var(--slate)}
+
+/* 14 video play */
+.hmf-video .scr{width:80%;height:170px;left:10%;top:50%;transform:translateY(-50%);background:#0E0E10;display:flex;align-items:center;justify-content:center;border:3px solid #F5B015}
+.hmf-video .play{width:0;height:0;border-left:34px solid #F5B015;border-top:24px solid transparent;border-bottom:24px solid transparent;animation:hm-pulse .6s steps(2,end) infinite alternate}
+@keyframes hm-pulse{0%{opacity:.85;transform:scale(1)}100%{opacity:1;transform:scale(1.1)}}
+.hmf-video .bars{position:absolute;left:14%;right:14%;bottom:14%;display:flex;gap:3px;height:8px}
+.hmf-video .bars span{flex:1;background:#F5B015;animation:hm-eq .3s steps(3,end) infinite alternate}
+.hmf-video .bars span:nth-child(2){animation-delay:.1s}
+.hmf-video .bars span:nth-child(3){animation-delay:.2s}
+.hmf-video .bars span:nth-child(4){animation-delay:.05s}
+.hmf-video .bars span:nth-child(5){animation-delay:.15s}
+@keyframes hm-eq{0%{transform:scaleY(.3);transform-origin:bottom}100%{transform:scaleY(1);transform-origin:bottom}}
+
+/* 15 partner shake */
+.hmf-shake .h1{position:absolute;width:90px;height:50px;left:30%;top:50%;transform:translate(-50%,-50%) rotate(-15deg);background:#F5B015;clip-path:polygon(0 30%, 30% 0, 70% 0, 100% 30%, 100% 100%, 0 100%)}
+.hmf-shake .h2{position:absolute;width:90px;height:50px;left:70%;top:50%;transform:translate(-50%,-50%) rotate(15deg);background:#1F4D8C;clip-path:polygon(0 30%, 30% 0, 70% 0, 100% 30%, 100% 100%, 0 100%)}
+.hmf-shake .spark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:900 30px/1 var(--display);color:#DD3D38;animation:hm-spark .3s steps(2,end) infinite alternate}
+@keyframes hm-spark{0%{transform:translate(-50%,-50%) scale(.8) rotate(0deg)}100%{transform:translate(-50%,-50%) scale(1.2) rotate(20deg)}}
+
+/* 16 SHIP — closer */
+.hmf-ship .word{font:900 130px/.85 var(--display);color:#0E0E10;letter-spacing:-.07em;text-align:center;animation:hm-ship .6s steps(3,end) infinite alternate}
+@keyframes hm-ship{0%{transform:scale(1)}100%{transform:scale(1.04)}}
+.hmf-ship .stamp{position:absolute;right:8%;bottom:14%;width:80px;height:80px;border:3px solid #DD3D38;color:#DD3D38;border-radius:50%;display:flex;align-items:center;justify-content:center;font:900 11px/1 var(--mono);letter-spacing:.1em;transform:rotate(-12deg)}
+.ha-head{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:18px 20px 14px;border-bottom:1px solid rgba(244,239,224,.1)}
+.ha-tag{font:600 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,224,.62);display:inline-flex;align-items:center;gap:10px}
+.ha-meta{font:500 10px/1 var(--mono);letter-spacing:.16em;color:rgba(245,176,21,.7);text-transform:uppercase}
+.ha-foot{margin-top:auto;padding:14px 20px 18px;border-top:1px solid rgba(244,239,224,.1);font:500 10px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(244,239,224,.5)}
+.ha-foot b{color:var(--gold);font-weight:700;margin-right:2px}
+
+/* ── LOGO WALL ── */
+.ha-logo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(244,239,224,.08);padding:1px;flex:1}
+.ha-logo-grid span{position:relative;background:#0E0E10;aspect-ratio:1;display:grid;place-items:center;font:800 18px/1 var(--display);letter-spacing:-.04em;color:var(--paper);transition:transform .35s var(--ease), background .35s var(--ease)}
+.ha-logo-grid span::before{content:"";position:absolute;inset:0;background:var(--c,transparent);opacity:0;transition:opacity .35s var(--ease)}
+.ha-logo-grid span:hover{transform:scale(1.04);z-index:2}
+.ha-logo-grid span:hover::before{opacity:1}
+.ha-logo-grid span:hover{color:#fff}
+.ha-logo-grid span.dark:hover{color:var(--carbon)}
+.ha-logo-grid span[data-c]{--c:attr(data-c)}
+/* attr() for non-color is shaky; fallback: use inline custom prop in JS, or a few classes. We instead set --c inline in JS. */
+
+/* ── PRESS ── */
+.ha-press-stack{padding:18px 20px;display:flex;flex-direction:column;gap:14px;flex:1}
+.ha-press-card{background:rgba(244,239,224,.04);border:1px solid rgba(244,239,224,.08);border-radius:10px;padding:14px 16px;transition:background .3s var(--ease), border-color .3s var(--ease)}
+.ha-press-card:hover{background:rgba(245,176,21,.06);border-color:rgba(245,176,21,.32)}
+.ha-press-pub{display:flex;justify-content:space-between;align-items:baseline;font:600 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.ha-press-pub span{color:var(--gold)}
+.ha-press-pub small{color:rgba(244,239,224,.4);font-size:9px;letter-spacing:.18em}
+.ha-press-pull{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.45;color:rgba(244,239,224,.85)}
+
+/* ── MANIFESTO ── */
+.ha-manifesto-body{padding:32px 28px 28px;flex:1;display:flex;flex-direction:column;gap:22px;position:relative}
+.ha-manifesto-marks{position:absolute;top:0;left:18px;font-family:var(--serif);font-style:italic;font-size:140px;line-height:.8;color:rgba(245,176,21,.18);pointer-events:none}
+.ha-manifesto-line{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(24px,2.4vw,30px);line-height:1.25;color:var(--paper);letter-spacing:-.01em;position:relative;z-index:2}
+.ha-manifesto-line em{color:var(--gold);font-style:italic}
+.ha-manifesto-sig{display:flex;flex-direction:column;border-top:1px solid rgba(244,239,224,.12);padding-top:14px}
+.ha-sig-name{font:700 14px/1 var(--display);letter-spacing:-.01em;color:var(--paper)}
+.ha-sig-role{margin-top:5px;font:500 10px/1 var(--mono);letter-spacing:.18em;color:rgba(244,239,224,.5);text-transform:uppercase}
+.ha-manifesto-proof{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:18px;border-top:1px solid rgba(244,239,224,.12)}
+.ha-manifesto-proof span{display:flex;flex-direction:column;gap:4px}
+.ha-manifesto-proof b{font:800 30px/1 var(--display);letter-spacing:-.03em;color:var(--gold)}
+.ha-manifesto-proof i{font-style:normal;font:500 10px/1.3 var(--mono);letter-spacing:.16em;color:rgba(244,239,224,.5);text-transform:uppercase}
+
+/* ── INDEX ── */
+.ha-index-list{list-style:none;margin:0;padding:8px 0;flex:1}
+.ha-index-list li{display:grid;grid-template-columns:38px 1fr 48px;align-items:baseline;gap:14px;padding:14px 20px;border-bottom:1px solid rgba(244,239,224,.06);transition:background .3s var(--ease)}
+.ha-index-list li:last-child{border-bottom:0}
+.ha-index-list li:hover{background:rgba(245,176,21,.05)}
+.hi-n{font:600 10px/1 var(--mono);letter-spacing:.18em;color:rgba(245,176,21,.7)}
+.hi-cat{font:700 16px/1.2 var(--display);letter-spacing:-.01em;color:var(--paper)}
+.hi-c{font:800 18px/1 var(--display);letter-spacing:-.02em;color:var(--gold);text-align:right;font-variant-numeric:tabular-nums}
+
+/* ── TICKER ── */
+.ha-ticker-frame{position:relative;flex:1;overflow:hidden;padding:8px 0;mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 88%,transparent 100%)}
+.ha-ticker-rail{display:flex;flex-direction:column;gap:0;animation:hatScroll 22s linear infinite;will-change:transform}
+.ha-ticker-frame:hover .ha-ticker-rail{animation-play-state:paused}
+.ha-tick{display:flex;align-items:center;gap:14px;padding:13px 20px;border-bottom:1px solid rgba(244,239,224,.06)}
+.hat-c{width:8px;height:8px;border-radius:50%;flex:0 0 8px;box-shadow:0 0 0 2px rgba(14,14,16,.6), 0 0 8px currentColor}
+.hat-line{font:500 13px/1.35 var(--display);color:rgba(244,239,224,.85);letter-spacing:-.005em}
+.hat-line b{color:var(--paper);font-weight:700;letter-spacing:-.01em}
+.hat-line i{font-style:normal;font:500 11px/1 var(--mono);letter-spacing:.04em;color:var(--gold);margin-left:6px;text-transform:uppercase}
+@keyframes hatScroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+
+/* (3D train + section-breaker styles removed in v2.6) */
+
+/* scroll cue */
+.scroll-cue{position:absolute;left:50%;transform:translateX(-50%);bottom:22px;z-index:4;font:500 10px/1 var(--mono);letter-spacing:.3em;color:var(--slate);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-cue .bar{width:1.5px;height:26px;background:var(--slate);animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+/* ---------- section shell ---------- */
+section{position:relative;padding:120px 28px;z-index:2}
+.wrap{max-width:1400px;margin:0 auto;position:relative}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:52px;flex-wrap:wrap}
+.sec-head .lead{max-width:640px}
+/* v2.25 · sec-tag styled as a subway-station hanging tile.
+   Black bg, white text, down-arrow on the left, colored circle badge on the right.
+   Sits ABOVE the section heading like a real subway-station sign. */
+.sec-tag{display:inline-flex;align-items:center;gap:14px;font:600 11px/1 var(--mono);letter-spacing:.22em;color:#fff;text-transform:uppercase;margin-bottom:24px;background:var(--carbon);padding:11px 14px 11px 12px;border-radius:6px;box-shadow:0 8px 20px -10px rgba(14,14,16,.35);position:relative}
+.sec-tag::before{content:"↓";display:inline-block;font:700 14px/1 var(--display);color:var(--gold);margin-right:-4px}
+.sec-tag::after{content:"";position:absolute;top:-12px;left:18%;right:18%;height:12px;background:linear-gradient(to bottom, transparent, transparent 50%, rgba(14,14,16,.18) 50%, rgba(14,14,16,.18) 60%, transparent 60%);background-size:1px 12px;background-repeat:repeat-x;opacity:.7}
+.bullet{width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;color:#fff;font:800 10px/1 var(--display);letter-spacing:0;flex-shrink:0}
+.sec-head h2{font:800 clamp(44px,6vw,80px)/.95 var(--display);letter-spacing:-.035em}
+.sec-head h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--slate)}
+.sec-head .note{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--slate);max-width:320px}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease), transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- services ---------- */
+#services{background:var(--paper)}
+.svc-list{border-top:1.5px solid var(--carbon);position:relative;z-index:3}
+.svc-row{display:grid;grid-template-columns:80px 1fr 2.2fr 120px;gap:24px;align-items:center;padding:28px 8px;border-bottom:1.5px solid var(--carbon);position:relative;overflow:hidden;transition:padding .35s var(--ease)}
+.svc-row::before{content:"";position:absolute;inset:0;background:var(--carbon);transform:translateY(100%);transition:transform .45s var(--ease);z-index:-1}
+.svc-row:hover{padding-left:24px;color:var(--paper)}
+.svc-row:hover::before{transform:translateY(0)}
+.svc-row .num{font:500 12px/1 var(--mono);letter-spacing:.22em;color:var(--slate)}
+.svc-row:hover .num{color:var(--gold)}
+.svc-row h3{font:800 clamp(22px,2.6vw,36px)/1 var(--display);letter-spacing:-.02em}
+.svc-row p{font:500 14px/1.5 var(--display);color:var(--slate);max-width:520px}
+.svc-row:hover p{color:#d8d1ba}
+.svc-row .arrow{justify-self:end;font:600 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;color:var(--slate)}
+.svc-row:hover .arrow{color:var(--paper)}
+@media (max-width:820px){.svc-row{grid-template-columns:60px 1fr;gap:12px}.svc-row p,.svc-row .arrow{grid-column:1 / -1}}
+
+/* ---------- roster ---------- */
+#roster{background:linear-gradient(180deg,var(--paper) 0%,#eee6cf 100%);color:var(--carbon)}
+.roster-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;position:relative;z-index:3}
+@media (max-width:1080px){.roster-grid{grid-template-columns:1fr}}
+.talent-card{display:flex;gap:18px;align-items:flex-start;padding:20px;border:1px solid rgba(14,14,16,.12);border-radius:14px;background:rgba(255,255,255,.45);backdrop-filter:blur(6px);transition:transform .4s var(--ease), box-shadow .4s var(--ease)}
+.talent-card:hover{transform:translateY(-4px);box-shadow:0 30px 50px -30px rgba(0,0,0,.25)}
+.talent-card .init{width:58px;height:58px;flex:0 0 58px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 16px/1 var(--display)}
+.talent-card h4{font:700 17px/1.1 var(--display);letter-spacing:-.01em}
+.talent-card p{font:500 12px/1.5 var(--mono);color:var(--slate);margin-top:4px;letter-spacing:.03em}
+.talent-card .tag{display:inline-block;margin-top:6px;margin-right:6px;font:500 10px/1 var(--mono);letter-spacing:.18em;color:var(--slate);text-transform:uppercase;padding:5px 9px;border:1px solid rgba(14,14,16,.15);border-radius:999px}
+.talent-col{display:grid;gap:14px}
+.brands-col{display:flex;flex-direction:column;gap:14px}
+.brands-block{display:grid;grid-template-columns:1fr 1fr;gap:32px;position:relative;z-index:3}
+.brands-block h3{font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+@media (max-width:820px){.brands-block{grid-template-columns:1fr}}
+
+/* ---------- v2.10 · WORK SHOWCASE (real Insta highlight covers + placeholders) ---------- */
+.work-showcase{position:relative;z-index:3}
+.ws-backdrop{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.ws-watermark{position:absolute;right:-3vw;top:50%;transform:translateY(-50%);font:900 clamp(280px, 36vw, 520px)/.85 var(--display);color:rgba(14,14,16,.04);letter-spacing:-.06em;user-select:none;pointer-events:none}
+.work-showcase > .ws-block{position:relative;z-index:1}
+@media (max-width:780px){
+  .ws-watermark{font-size:200px;right:-30px}
+}
+.ws-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(14,14,16,.12)}
+.ws-head h3{font:800 clamp(20px,2vw,28px)/1 var(--display);letter-spacing:-.02em;color:var(--carbon)}
+.ws-count{font:500 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);text-align:right}
+.bt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:18px 12px}
+.bt{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--carbon);transition:transform .25s var(--ease)}
+.bt:hover{transform:translateY(-3px)}
+.bt-img{width:78px;height:78px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#0E0E10;color:#fff;font:800 14px/1 var(--display);letter-spacing:-.01em;box-shadow:0 6px 14px -8px rgba(0,0,0,.45),0 0 0 1px rgba(14,14,16,.06) inset;position:relative;transition:box-shadow .3s var(--ease), transform .3s var(--ease)}
+.bt:hover .bt-img{box-shadow:0 14px 24px -10px rgba(0,0,0,.55),0 0 0 2px var(--gold) inset}
+.bt-img img{width:100%;height:100%;object-fit:cover;display:block}
+.bt-name{font:500 11px/1.25 var(--mono);letter-spacing:.05em;color:var(--slate);text-align:center;max-width:100px;text-transform:uppercase;transition:color .25s var(--ease)}
+.bt:hover .bt-name{color:var(--carbon)}
+.bt.is-placeholder .bt-img{font-size:13px}
+@media (max-width:600px){
+  .bt-grid{grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:14px 10px}
+  .bt-img{width:64px;height:64px}
+  .bt-name{font-size:10px;max-width:84px}
+  .ws-head{flex-direction:column;align-items:flex-start;gap:6px}
+  .ws-count{text-align:left}
+}
+.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.brand-pill{padding:12px 14px;border:1px solid rgba(14,14,16,.18);border-radius:10px;font:700 13px/1.2 var(--display);text-align:center;background:rgba(255,255,255,.55);transition:all .3s var(--ease);letter-spacing:-.005em}
+.brand-pill:hover{background:var(--carbon);color:var(--paper);transform:translateY(-2px)}
+
+/* ---------- work ---------- */
+#work{background:var(--paper)}
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;position:relative;z-index:3}
+.work-tile{grid-column:span 4;position:relative;overflow:hidden;border-radius:14px;aspect-ratio:4/3;background:var(--carbon);color:var(--paper);padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .45s var(--ease);isolation:isolate}
+.work-tile:hover{transform:translateY(-6px)}
+.work-tile::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.9;background:linear-gradient(135deg,var(--c1,var(--royal)) 0%,var(--c2,var(--red)) 100%)}
+.work-tile.big{grid-column:span 8;aspect-ratio:16/9}
+.work-tile .meta{font:500 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+.work-tile h3{font:800 clamp(22px,2.4vw,30px)/1.05 var(--display);letter-spacing:-.02em;max-width:80%}
+.work-tile .foot{display:flex;justify-content:space-between;align-items:flex-end;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+@media (max-width:980px){.work-tile{grid-column:span 6}.work-tile.big{grid-column:span 12}}
+@media (max-width:600px){.work-tile,.work-tile.big{grid-column:span 12}}
+
+/* ---------- culture ---------- */
+.culture{background:var(--carbon);color:var(--paper);padding:44px 0;overflow:hidden;position:relative;z-index:2}
+.marquee{display:flex;gap:56px;white-space:nowrap;font-family:var(--serif);font-style:italic;font-size:clamp(48px,8vw,120px);line-height:1;letter-spacing:-.02em;color:var(--gold);will-change:transform}
+.marquee span{display:inline-flex;align-items:center;gap:56px}
+.marquee i{font-family:var(--display);font-style:normal;color:var(--paper);font-weight:900;letter-spacing:-.03em}
+.marquee .star{color:var(--red);display:inline-block;transform:translateY(-8px)}
+
+/* ---------- about ---------- */
+#about{background:linear-gradient(180deg,var(--paper),#ebe2c8)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;z-index:3}
+@media (max-width:1080px){.about-grid{grid-template-columns:1fr}}
+.founder{display:flex;gap:22px;padding:22px;border:1px solid rgba(14,14,16,.14);border-radius:14px;background:rgba(255,255,255,.5)}
+/* v2.31 · 3D ISB / Georgia Tech pins hidden until we land on a treatment that
+   reads as part of the founder block (faded, intelligible orbit, not formless).
+   Keep the canvas in the DOM so the future treatment can re-enable in CSS only. */
+.founder-pin-canvas{display:none;position:absolute;top:-62px;left:-62px;width:220px;height:220px;pointer-events:none;z-index:5}
+.founder .avatar{position:relative;width:96px;height:96px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff;font:800 26px/1 var(--display);flex:0 0 96px;overflow:hidden;box-shadow:0 12px 28px -14px rgba(0,0,0,.4);z-index:1}
+.founder .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.founder .avatar .avatar-initials{position:relative;z-index:1;display:none}
+.founder .avatar.avatar-fallback{background:var(--green)}
+.founder .avatar.avatar-fallback .avatar-initials{display:block}
+.founder h4{font:700 18px/1.2 var(--display);letter-spacing:-.01em}
+.founder small{font:500 11px/1.4 var(--mono);color:var(--red);letter-spacing:.12em;text-transform:uppercase;margin-top:2px;display:block}
+.founder p{font:500 14px/1.55 var(--display);color:var(--slate);margin-top:10px}
+.founder .edu{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}
+.founder .edu span{font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--slate);text-transform:uppercase;padding:6px 10px;border:1px solid rgba(14,14,16,.15);border-radius:999px}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.stat{padding:26px 22px;border:1px solid rgba(14,14,16,.14);border-radius:14px;background:rgba(255,255,255,.5)}
+.stat .n{font:800 clamp(46px,6vw,84px)/.95 var(--display);letter-spacing:-.04em;display:flex;align-items:baseline;gap:4px;color:var(--carbon)}
+.stat .n b{font-size:.6em;color:var(--red);font-weight:800}
+.stat .n sub{font-size:.42em;color:var(--slate);font-weight:600;letter-spacing:0}
+.stat p{font:500 12px/1.35 var(--mono);letter-spacing:.12em;color:var(--slate);text-transform:uppercase;margin-top:6px}
+
+
+
+/* v2.31 · TERMINUS · all-lines-converge here.
+   The brand palette = the system map. Every colored line on the site (Board · People · Work ·
+   Services · About · Cases · Talent) sweeps in from the page edges and meets at one station marker.
+   The headline rises from the marker. No card. No box. Pure convergence. */
+.terminus{position:relative;margin:0 -28px 80px;padding:120px 28px 100px;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 50% 58%, #16161a 0%, #0E0E10 70%);min-height:min(720px,90vh)}
+.terminus .term-rails{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.terminus .term-rails path{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len,2000);stroke-dashoffset:var(--len,2000);transition:stroke-dashoffset 1.6s cubic-bezier(.22,.61,.36,1);filter:drop-shadow(0 0 8px var(--glow,rgba(255,255,255,.0)))}
+.terminus.in .term-rails path{stroke-dashoffset:0}
+.terminus .term-rails .rail-tick{fill:none;stroke-width:1;opacity:0;transition:opacity .8s ease 1.2s}
+.terminus.in .term-rails .rail-tick{opacity:.35}
+
+/* v2.32 · TERMINUS · multi-variant end-treatments.
+   Each .term-mode group is shown only when body[data-terminus] matches.
+   The bundle/fork/knot props fade up *after* the rails finish drawing. */
+.terminus .term-mode{display:none}
+body[data-terminus="station"]   .terminus .term-mode-station,
+body[data-terminus="spaghetti"] .terminus .term-mode-spaghetti,
+body[data-terminus="forked"]    .terminus .term-mode-forked,
+body[data-terminus="knot"]      .terminus .term-mode-knot{display:block}
+/* default = station if no attr set */
+body:not([data-terminus]) .terminus .term-mode-station{display:block}
+
+/* hide the HTML station marker for non-station modes */
+body:not([data-terminus="station"]):not(:not([data-terminus])) .terminus .term-station{display:none}
+body[data-terminus="spaghetti"] .terminus .term-station,
+body[data-terminus="forked"]    .terminus .term-station,
+body[data-terminus="knot"]      .terminus .term-station{display:none}
+
+/* prop reveals — bundle, fork, knot all fade + scale in once rails are drawn */
+.terminus .term-bundle,
+.terminus .term-fork,
+.terminus .term-knot,
+.terminus .term-flecks{opacity:0;transform-origin:800px 360px;transform:scale(.7);transition:opacity .7s ease 1.4s, transform .9s cubic-bezier(.34,1.56,.64,1) 1.4s}
+.terminus.in .term-bundle,
+.terminus.in .term-fork,
+.terminus.in .term-knot,
+.terminus.in .term-flecks{opacity:1;transform:scale(1)}
+.terminus .term-flecks{transition-delay:1.7s}
+.terminus .term-fork{transition-delay:1.6s}
+.terminus .term-station{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);z-index:3;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.terminus .term-marker{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle at 50% 45%, #fff 0%, #fff 38%, var(--gold) 39%, var(--gold) 100%);box-shadow:0 0 0 14px rgba(14,14,16,.92), 0 0 0 16px var(--gold), 0 0 60px 20px rgba(245,176,21,.18);position:relative;display:grid;place-items:center;animation:term-pulse 2.4s var(--ease) infinite;transform:scale(.4);opacity:0;transition:transform .9s cubic-bezier(.34,1.56,.64,1) .9s, opacity .6s ease .9s}
+.terminus.in .term-marker{transform:scale(1);opacity:1}
+.terminus .term-marker::after{content:"";position:absolute;width:34px;height:34px;border-radius:50%;background:var(--carbon);border:3px solid var(--gold)}
+.terminus .term-marker-label{position:absolute;top:-26px;font:700 9px/1 var(--mono);letter-spacing:.32em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+@keyframes term-pulse{0%,100%{box-shadow:0 0 0 14px rgba(14,14,16,.92), 0 0 0 16px var(--gold), 0 0 60px 20px rgba(245,176,21,.18)}50%{box-shadow:0 0 0 14px rgba(14,14,16,.92), 0 0 0 16px var(--gold), 0 0 90px 30px rgba(245,176,21,.32)}}
+
+.terminus .term-content{position:relative;z-index:4;max-width:1320px;margin:0 auto;padding-top:280px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.terminus .t-tag{font:500 10px/1.2 var(--mono);letter-spacing:.32em;text-transform:uppercase;opacity:.6;display:inline-flex;align-items:center;gap:14px}
+.terminus .t-tag b{color:var(--gold);font-weight:600}
+.terminus .t-tag::before,.terminus .t-tag::after{content:"";width:36px;height:1px;background:rgba(244,239,224,.3)}
+.terminus h2{margin-top:22px;font:800 clamp(48px,8vw,128px)/.9 var(--display);letter-spacing:-.04em;max-width:14ch;text-align:center}
+.terminus h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--gold)}
+.terminus .t-sub{margin-top:24px;font:500 15px/1.6 var(--display);color:rgba(244,239,224,.62);max-width:50ch;text-align:center}
+
+/* Line-legend strip — every converging line gets a label, in stop order */
+.terminus .t-stops{margin-top:48px;display:flex;flex-wrap:wrap;justify-content:center;gap:0;padding:14px 20px;border:1px solid rgba(244,239,224,.12);border-radius:999px;background:rgba(244,239,224,.03);backdrop-filter:blur(6px)}
+.terminus .t-stops span{font:600 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,224,.55);padding:8px 16px;display:inline-flex;align-items:center;gap:8px;position:relative;border:0;background:transparent}
+.terminus .t-stops span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c,var(--mute));box-shadow:0 0 0 2px rgba(14,14,16,.85), 0 0 8px var(--c,var(--mute))}
+.terminus .t-stops span+span::after{content:"";position:absolute;left:-1px;top:50%;transform:translateY(-50%);width:1px;height:14px;background:rgba(244,239,224,.12)}
+.terminus .t-stops span.now{color:var(--gold)}
+.terminus .t-stops span.now::before{background:var(--gold);box-shadow:0 0 0 2px rgba(14,14,16,.85), 0 0 12px var(--gold);animation:term-pulse-dot 1.6s var(--ease) infinite}
+@keyframes term-pulse-dot{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+
+@media(max-width:980px){
+  .terminus{padding:80px 24px 60px;min-height:560px}
+  .terminus .term-content{padding-top:200px}
+  .terminus .term-marker{width:80px;height:80px}
+  .terminus .term-marker::after{width:24px;height:24px}
+  .terminus .t-stops{flex-wrap:wrap;border-radius:18px}
+  .terminus .t-stops span+span::after{display:none}
+}
+@media(max-width:680px){
+  .terminus{margin:0 -22px 60px;padding:60px 22px 40px}
+  .terminus .term-rails{opacity:.5}
+}
+
+.contact{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:50px;border-top:1.5px solid rgba(244,239,224,.18);padding-top:56px}
+@media (max-width:980px){.contact{grid-template-columns:1fr}}
+.contact .title{font:500 11px/1 var(--mono);letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.contact h2{font:800 clamp(40px,5.5vw,72px)/.95 var(--display);letter-spacing:-.03em}
+.contact h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mute)}
+.contact .cta-big{margin-top:26px;display:inline-flex;align-items:center;gap:12px;padding:18px 24px;background:var(--gold);color:var(--carbon);border-radius:999px;font:800 14px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;transition:transform .3s var(--ease), background .3s var(--ease)}
+.contact .cta-big:hover{transform:translateY(-2px);background:#fff}
+.contact .cta-big svg{transition:transform .3s var(--ease)}
+.contact .cta-big:hover svg{transform:translate(3px,-3px)}
+.contact .block h5{font:500 11px/1 var(--mono);letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.contact .block a,.contact .block p{display:block;font:500 15px/1.6 var(--display);color:var(--paper);letter-spacing:-.005em}
+.contact .block a:hover{color:var(--gold)}
+.contact .block em{font-style:normal;color:var(--mute)}
+
+.meta-bar{margin-top:80px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(244,239,224,.15);font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.meta-bar .studios{display:flex;gap:30px;flex-wrap:wrap}
+.meta-bar .studios b{color:var(--paper);font-weight:600}
+.meta-bar .socials{display:flex;gap:18px}
+.meta-bar .socials a:hover{color:var(--gold)}
+
+
+/* v2.57 · DESIGN MERGE — END */
+
+/* v2.58 · ROSTER SPLIT — START */
+/* The Roster section gets the same sec-head treatment as #cases plus its own
+   padding-top scaling. CSS for #cases already exists (renamed from the
+   former kitchen-sink section); we mirror it here for #roster.              */
+#roster .thread-canvas{opacity:.32}
+#roster{padding-top:120px}
+@media (max-width:980px){ #roster{padding-top:90px} }
+@media (max-width:780px){ #roster{padding-top:70px} }
+
+#roster .sec-head{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:60px;
+  align-items:start;
+  margin-bottom:48px;
+}
+#roster .sec-head .lead{ min-width:0; max-width:none; }
+#roster .sec-head .note{
+  font:500 14px/1.55 var(--display);
+  color:var(--slate);
+  max-width:42ch;
+  margin-top:18px;
+}
+@media (max-width:980px){
+  #roster .sec-head{ grid-template-columns:1fr !important; gap:14px !important }
+}
+/* v2.58 · ROSTER SPLIT — END */
+
+/* v2.59 · DOSSIER + BROADSIDE — START */
+/* Imported from the Claude Design v2.51-v2.52 branch.
+   Two upgrades:
+     1. .cd-hero-collage — paper-on-paper broadside (replaces dark gradient)
+     2. .fc-card / .featured-cases — file-folder dossier (replaces SaaS cards)
+   The new selectors override the live versions by virtue of cascade order. */
+
+/* v2.51 · CASE HERO — editorial broadside.
+   Replaces the dark-gradient collage with a paper-on-paper film-slate spread:
+   a CMYK-style production strip up top, a giant ghosted "CASE / FILE NO."
+   numeral on the right, a left-anchored title block in carbon-on-paper, and
+   a single-row "ROSTER" rail at the bottom that converts the inline-positioned
+   creator circles into typeset chips — the chip backgrounds (set inline per
+   case) become the case's brand colour story, lined up like a station roll
+   instead of scattered dots. Functional: every chip is a click target on
+   hover. Artistic: typography + rules do the work, not avatars.
+   Inline position/size styles on .cdh-creator are overridden by !important;
+   only the chip's background colour survives — that's the design contract. */
+.cd-hero-collage{
+  position:relative; overflow:hidden;
+  background:var(--paper); color:var(--carbon);
+  border-bottom:1px solid rgba(14,14,16,.12);
+  display:grid;
+  grid-template-rows:6px 1fr auto;     /* rail · stage · roster */
+  min-height:360px;
+}
+/* Top production rail — 4 brand segments, Vignelli signage colour blocks */
+.cd-hero-collage::before{
+  content:""; grid-row:1; grid-column:1;
+  background:linear-gradient(to right,
+    var(--royal) 0 25%,
+    var(--gold)  25% 50%,
+    var(--red)   50% 75%,
+    var(--green) 75% 100%);
+  z-index:2;
+}
+/* Stage · title block + ghost numeral */
+.cd-hero-collage .cd-hero-text{
+  position:relative; grid-row:2; grid-column:1;
+  z-index:3; color:var(--carbon); background:transparent;
+  padding:48px 44px 28px; max-width:none;
+  display:flex; flex-direction:column; justify-content:flex-end; align-items:flex-start;
+  min-height:200px;
+}
+.cd-hero-collage .cd-hero-meta{
+  font:500 10px/1 var(--mono); letter-spacing:.26em; text-transform:uppercase;
+  color:var(--slate); margin-bottom:18px;
+  display:flex; align-items:center; gap:10px;
+}
+.cd-hero-collage .cd-hero-meta::before{
+  content:""; width:28px; height:1px; background:var(--royal);
+}
+.cd-hero-collage h2{
+  font:800 clamp(34px,4.4vw,60px)/.96 var(--display);
+  letter-spacing:-.035em; color:var(--carbon);
+  margin:0 0 12px; max-width:14ch;
+}
+.cd-hero-collage .cd-hero-sub{
+  font:500 clamp(15px,1.4vw,17.5px)/1.45 var(--display);
+  color:var(--ink); max-width:48ch; margin:0;
+  border-top:1px solid rgba(14,14,16,.18);
+  padding-top:14px; padding-right:24%; /* leave room for ghost numeral */
+}
+/* Ghost "FILE №" numeral, top-right of the stage row.
+   Counted at runtime by JS — see initCaseFileNumber(). Falls back to a
+   generic "—" if JS hasn't run yet. */
+.cd-hero-collage::after{
+  content:"FILE № " attr(data-file);
+  position:absolute; top:24px; right:36px; z-index:1;
+  font:900 clamp(56px,9vw,128px)/.85 var(--display);
+  letter-spacing:-.05em; color:rgba(14,14,16,.07);
+  pointer-events:none; white-space:nowrap;
+}
+
+/* Roster rail · the existing absolutely-positioned circles, recast as
+   typeset chips on a station-roll. CSS counter sets the numbering. */
+.cd-hero-collage{counter-reset:roster}
+.cdh-creator{
+  /* override inline position/size while preserving inline background */
+  position:static !important; right:auto !important; bottom:auto !important;
+  width:auto !important; aspect-ratio:auto !important; padding:0 !important;
+  border-radius:999px !important; box-shadow:none !important;
+  display:inline-flex; align-items:center; gap:8px;
+  font:600 11.5px/1 var(--mono); letter-spacing:.04em;
+  color:#fff; padding:8px 14px 8px 10px !important;
+  white-space:nowrap; flex:0 0 auto;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18) !important;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.cdh-creator::before{
+  counter-increment:roster;
+  content:counter(roster,decimal-leading-zero);
+  font:600 10px/1 var(--mono); letter-spacing:.12em;
+  background:rgba(255,255,255,.18); color:inherit;
+  padding:4px 6px; border-radius:999px;
+  flex:0 0 auto;
+}
+.cdh-creator img{
+  width:18px; height:18px; border-radius:50%; object-fit:cover; display:block;
+  margin-left:-4px;
+}
+.cdh-creator:hover{
+  transform:translateY(-2px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.32),
+             0 8px 18px -8px rgba(14,14,16,.4) !important;
+}
+/* Auto-darken chips that ship with light-on-light inline colour overrides */
+.cdh-creator[style*="color:#0e0e10"]::before,
+.cdh-creator[style*="color: #0e0e10"]::before{
+  background:rgba(14,14,16,.14);
+}
+
+/* Roster rail container — wraps the chips with a Vignelli "ROSTER" tag at left.
+   We can't add HTML, so use a flex grid that puts a synthetic label as a
+   pseudo-element on the rail, which is the .cd-hero-collage row 3. */
+.cd-hero-collage{
+  /* synthetic third row · the chip rail */
+}
+.cd-hero-collage > .cdh-creator:first-of-type{
+  margin-left:0;
+}
+/* Build the rail by selecting the run of .cdh-creator children that live as
+   direct kids of .cd-hero-collage (after .cd-hero-text). Wrap them in a
+   flex strip via a sibling pseudo-element trick: we pin the first .cdh-creator
+   to the start of grid-row 3 with a flex container of its own using `display:contents`. */
+.cd-hero-collage{
+  /* Promote direct .cdh-creator children to a single rail row (row 3).
+     Each chip individually places into row 3 col 1; we wrap the row with a
+     full-width flex band using a wrapper class added below. */
+}
+/* Roster wrapper — added by initCaseRosterRail() at runtime */
+.cdh-rail{
+  grid-row:3; grid-column:1;
+  display:flex; flex-wrap:nowrap; gap:8px;
+  align-items:center;
+  padding:14px 44px 18px; margin:0;
+  background:rgba(14,14,16,.045);
+  border-top:1px solid rgba(14,14,16,.1);
+  overflow-x:auto; overflow-y:hidden;
+  scrollbar-width:thin; scrollbar-color:rgba(14,14,16,.25) transparent;
+  -ms-overflow-style:none;
+}
+.cdh-rail::-webkit-scrollbar{height:6px}
+.cdh-rail::-webkit-scrollbar-thumb{background:rgba(14,14,16,.22); border-radius:3px}
+.cdh-rail::before{
+  content:"Roster ↓";
+  font:600 10px/1 var(--mono); letter-spacing:.22em; text-transform:uppercase;
+  color:var(--slate); flex:0 0 auto;
+  padding:8px 14px 8px 0; border-right:1px solid rgba(14,14,16,.18);
+  margin-right:6px;
+}
+@media (max-width:680px){
+  .cd-hero-collage .cd-hero-text{padding:32px 22px 22px}
+  .cd-hero-collage .cd-hero-sub{padding-right:0}
+  .cd-hero-collage::after{font-size:48px; top:16px; right:18px}
+  .cdh-rail{padding:12px 22px 14px}
+}
+
+
+
+/* ============================================================
+   v2.52 · FEATURED CASES — DOSSIER GRID
+   The old version was a generic SaaS card grid (cover + title + teaser
+   + arrow). Replaced with a typographic "case file / dossier" treatment
+   that earns its place on the site:
+
+   · Each card is a paper file folder. Big CASE 0X numeral runs vertically
+     down a left rail in mono. Stripe colour anchors the rail.
+   · The cover becomes a film-slate header — bold mark on a coloured field,
+     sector & year stamped in mono on a hairline rule grid. For image
+     covers it stays photographic but receives a "STILL FROM SET" caption.
+   · Body becomes a meta-ledger: kicker tag, name, headline-as-pull-quote,
+     and a 3-cell "intel chips" row that pulls 2–3 atomic facts from the
+     teaser (or shows IN PRODUCTION for placeholders).
+   · Foot becomes an MTA-style destination tile filled with the stripe
+     colour ("READ →"), matching the rest of the site's signage vocabulary.
+   · Placeholders get a diagonal "IN PRODUCTION" stamp at 8° rotation,
+     desaturated cover, and a stitched-line border to signal draft status.
+   · Hover lifts the whole folder up + right (3D tilt-style perspective)
+     and the stripe rail extends into a colour bleed across the bottom.
+   ============================================================ */
+.featured-cases{margin-bottom:60px}
+.fc-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--carbon)}
+.fc-head h3{font:800 clamp(22px,2.4vw,32px)/1 var(--display);letter-spacing:-.02em;color:var(--carbon)}
+.fc-head .fc-headmeta{font:500 11px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--slate);text-align:right}
+
+.fc-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  counter-reset:fcfile;
+}
+@media (max-width:980px){.fc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.fc-grid{grid-template-columns:1fr}}
+
+.fc-card{
+  position:relative; counter-increment:fcfile;
+  display:grid; grid-template-columns:38px 1fr; grid-template-rows:auto 1fr;
+  background:var(--paper);
+  border:1px solid rgba(14,14,16,.16);
+  border-radius:6px;       /* sharper, file-folder corners — not rounded SaaS */
+  text-decoration:none; color:var(--carbon);
+  overflow:hidden;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+  box-shadow:0 1px 0 rgba(14,14,16,.04);
+}
+.fc-card:hover{
+  transform:translate(2px,-3px);
+  border-color:rgba(14,14,16,.4);
+  box-shadow:-3px 6px 0 var(--carbon), 0 28px 50px -22px rgba(0,0,0,.35);
+}
+.fc-card:focus-visible{outline:2px solid var(--royal); outline-offset:4px}
+
+/* Stripe is a colour-field rail down the LEFT edge of the folder, with the
+   case file number set vertically in white-on-colour. Replaces the old top
+   stripe + ::before tab-flag. */
+.fc-card .fc-stripe{
+  grid-column:1; grid-row:1 / -1;
+  height:auto; width:auto;
+  position:relative;
+  display:flex; align-items:flex-start; justify-content:center;
+  padding:18px 0;
+  /* background is set inline per card via style="" — preserve it */
+}
+.fc-card .fc-stripe::before{
+  content:"CASE " counter(fcfile, decimal-leading-zero);
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%) rotate(-90deg);
+  transform-origin:center;
+  font:700 10px/1 var(--mono); letter-spacing:.32em;
+  color:#fff; white-space:nowrap;
+  text-shadow:0 1px 0 rgba(0,0,0,.18);
+  mix-blend-mode:normal;
+}
+.fc-card .fc-stripe::after{
+  /* Top + bottom registration ticks on the rail — like a strip of film */
+  content:"";
+  position:absolute; left:50%; transform:translateX(-50%);
+  top:8px; width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,.6);
+  box-shadow:0 calc(100% - 16px) 0 rgba(255,255,255,.6);
+}
+
+/* Cover · the slate. */
+.fc-card .fc-cover{
+  grid-column:2; grid-row:1;
+  width:100%; height:170px;
+  background:#fff;
+  display:grid; place-items:stretch;
+  overflow:hidden;
+  border-bottom:1px solid rgba(14,14,16,.12);
+  position:relative;
+}
+.fc-card .fc-cover img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s var(--ease), filter .35s var(--ease)}
+.fc-card:hover .fc-cover img{transform:scale(1.05)}
+/* "STILL FROM SET" caption stamped on photographic covers */
+.fc-card .fc-cover:not(.is-text)::after{
+  content:"Still from set";
+  position:absolute; left:14px; bottom:10px;
+  font:600 9.5px/1 var(--mono); letter-spacing:.22em; text-transform:uppercase;
+  color:#fff; padding:6px 9px;
+  background:rgba(14,14,16,.62); backdrop-filter:blur(4px);
+  border-radius:3px;
+}
+
+/* Text-cover (no image) — a film-slate w/ rule grid + boxed mark. */
+.fc-card .fc-cover.is-text{
+  background:var(--carbon); color:var(--paper);
+  display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end;
+  gap:6px; padding:18px 22px;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size:32px 32px;
+  background-position:center center;
+}
+.fc-card .fc-cover.is-text::before{
+  /* "PROD. CO. · NINETY-EIGHT" production-credit mono header */
+  content:"Prod. № " counter(fcfile, decimal-leading-zero) "  ·  Ninety-Eight";
+  position:absolute; top:14px; left:22px; right:22px;
+  font:600 9.5px/1 var(--mono); letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(244,239,224,.55);
+  display:flex; align-items:center; gap:10px;
+}
+.fc-card .fc-cover.is-text .fc-mark{
+  font:800 44px/1 var(--display); letter-spacing:-.025em;
+  color:inherit;
+  border:1.5px solid currentColor;
+  padding:10px 14px 12px;
+  background:rgba(255,255,255,.04);
+  align-self:flex-start;
+}
+.fc-card .fc-cover.is-text .fc-marksub{
+  font:500 10px/1.2 var(--mono); letter-spacing:.18em; text-transform:uppercase;
+  color:inherit; opacity:.78;
+  margin-top:2px;
+}
+
+/* Body · the meta ledger. Body fills grid-row:2 below the cover; foot is
+   a flex child pinned to the bottom of the body via margin-top:auto. */
+.fc-card .fc-body{
+  grid-column:2; grid-row:2;
+  padding:18px 22px 0;
+  display:flex; flex-direction:column; gap:8px;
+  background:
+    linear-gradient(to bottom, transparent 0, transparent calc(100% - 1px), rgba(14,14,16,.08) 100%),
+    repeating-linear-gradient(to bottom, transparent 0 31px, rgba(14,14,16,.025) 31px 32px);
+}
+.fc-card .fc-tag{
+  font:600 10px/1.2 var(--mono); letter-spacing:.2em; text-transform:uppercase;
+  color:var(--slate);
+  display:inline-flex; align-items:center; gap:8px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(14,14,16,.1);
+}
+.fc-card .fc-tag .fc-bullet{
+  width:8px; height:8px; border-radius:0;          /* square pip — Vignelli signage */
+  flex:0 0 8px;
+}
+.fc-card .fc-name{
+  font:800 clamp(22px,2.2vw,28px)/1.05 var(--display);
+  letter-spacing:-.025em;
+  color:var(--carbon);
+  margin-top:2px;
+}
+.fc-card .fc-teaser{
+  font:500 13.5px/1.5 var(--display); color:var(--ink);
+  max-width:42ch;
+  position:relative; padding-left:14px;
+  border-left:2px solid rgba(14,14,16,.12);
+  font-style:italic;
+}
+
+/* Foot · MTA destination tile filled with a dark band + signage tile.
+   Lives INSIDE .fc-body and is pulled to the bottom by margin-top:auto.
+   Negative margins extend it edge-to-edge of the body padding. */
+.fc-card .fc-foot{
+  margin-top:auto;
+  margin-left:-22px; margin-right:-22px;
+  display:grid; grid-template-columns:1fr auto;
+  align-items:stretch;
+  border-top:1px solid rgba(14,14,16,.14);
+  background:rgba(14,14,16,.02);
+  font:600 10.5px/1 var(--mono); letter-spacing:.22em; text-transform:uppercase;
+  color:var(--slate);
+}
+.fc-card .fc-status{
+  padding:14px 22px; align-self:center;
+  font-size:10px;
+}
+.fc-card .fc-link{
+  background:var(--carbon); color:var(--paper);
+  padding:14px 22px;
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:10.5px;
+  position:relative;
+  transition: padding-right .25s var(--ease), background .25s var(--ease);
+}
+.fc-card:hover .fc-link{
+  padding-right:30px;
+}
+
+/* Placeholder treatment — diagonal IN PRODUCTION stamp + draft border */
+.fc-card.is-placeholder{
+  border-style:dashed;
+  border-color:rgba(14,14,16,.32);
+}
+.fc-card.is-placeholder .fc-cover{
+  filter:saturate(.55) brightness(.96);
+}
+.fc-card.is-placeholder .fc-cover.is-text{
+  filter:none;             /* the cover already carries placeholder colour signal */
+}
+.fc-card.is-placeholder .fc-teaser{
+  font-style:italic; color:var(--slate);
+}
+.fc-card.is-placeholder::after{
+  content:"In production";
+  position:absolute;
+  top:18px; right:-30px;
+  transform:rotate(8deg);
+  font:700 10px/1 var(--mono); letter-spacing:.28em; text-transform:uppercase;
+  color:var(--paper);
+  background:var(--red);
+  padding:6px 36px;
+  border:1px solid rgba(255,255,255,.4);
+  outline:2px solid var(--red);
+  outline-offset:-4px;     /* inner double-line stamp effect */
+  box-shadow:0 6px 12px -4px rgba(221,61,56,.45);
+  z-index:4; pointer-events:none;
+}
+
+/* Reduced motion safety */
+@media (prefers-reduced-motion:reduce){
+  .fc-card, .fc-card .fc-cover img, .fc-card .fc-link{transition:none}
+  .fc-card:hover{transform:none}
+}
+
+
+/* v2.59 · DOSSIER + BROADSIDE — END */
+
+/* v2.60 · DOSSIER CAROUSEL — START */
+/* The featured-cases dossier grid is now a single-card stage. One card
+   visible at a time, slide-in from right / slide-out to left. The dossier
+   card identity (CASE 01 stripe, ledger lines, MTA foot tile, In production
+   stamp) is fully preserved — we only change PRESENTATION.                 */
+
+.fc-stage{
+  position:relative;
+  min-height:540px;
+  margin:0 auto;
+  padding:0 64px;             /* room for prev/next arrows */
+  overflow:visible;            /* let the In-production stamp poke out      */
+}
+
+/* The dossier .fc-grid was a 3-col grid; inside the stage it becomes a
+   stack of absolutely-positioned cards. */
+.fc-stage .fc-grid{
+  position:relative;
+  display:block;
+  grid-template-columns:none;
+  gap:0;
+  height:540px;
+  counter-reset:fcfile;        /* preserve counter for the CASE 0X stripe   */
+}
+
+.fc-stage .fc-grid .fc-card{
+  position:absolute;
+  top:0; left:50%;
+  transform:translate(-50%, 0) translateX(64px);
+  width:100%; max-width:880px;
+  height:100%;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .55s var(--ease), transform .7s var(--ease);
+  will-change:opacity, transform;
+}
+.fc-stage .fc-grid .fc-card.is-active{
+  opacity:1;
+  transform:translate(-50%, 0);
+  pointer-events:auto;
+  z-index:2;
+}
+.fc-stage .fc-grid .fc-card.is-leaving{
+  opacity:0;
+  transform:translate(-50%, 0) translateX(-64px);
+  pointer-events:none;
+}
+
+/* Re-enable the dossier hover lift only on the active card */
+.fc-stage .fc-grid .fc-card.is-active:hover{
+  transform:translate(calc(-50% + 2px), -3px);
+}
+
+/* prev / next arrow buttons */
+.fc-stage .fc-prev,
+.fc-stage .fc-next{
+  position:absolute;
+  top:50%; transform:translateY(-50%);
+  width:48px; height:48px;
+  border-radius:50%;
+  background:var(--paper);
+  border:1.5px solid rgba(14,14,16,.18);
+  color:var(--carbon);
+  cursor:pointer;
+  display:grid; place-items:center;
+  font:600 20px/1 var(--display);
+  z-index:5;
+  transition:transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+  box-shadow:0 6px 18px -10px rgba(14,14,16,.35);
+}
+.fc-stage .fc-prev{ left:8px }
+.fc-stage .fc-next{ right:8px }
+.fc-stage .fc-prev:hover,
+.fc-stage .fc-next:hover{
+  background:var(--carbon);
+  color:var(--paper);
+  border-color:var(--carbon);
+  transform:translateY(-50%) scale(1.08);
+}
+.fc-stage .fc-prev:focus-visible,
+.fc-stage .fc-next:focus-visible{
+  outline:2px solid var(--royal); outline-offset:3px;
+}
+
+/* controls row beneath the stage · counter · dots · view-all */
+.fc-controls{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  margin-top:28px;
+  padding-top:18px;
+  border-top:1px solid rgba(14,14,16,.14);
+}
+.fc-counter{
+  font:600 13px/1 var(--mono);
+  letter-spacing:.18em;
+  color:var(--slate);
+  display:inline-flex; align-items:baseline; gap:2px;
+  flex:0 0 auto;
+}
+.fc-counter b{
+  color:var(--carbon);
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+  font-size:14px;
+}
+.fc-counter i{font-style:normal; opacity:.5; margin:0 4px}
+.fc-dots{
+  display:flex; gap:8px;
+  flex:1 1 auto;
+  justify-content:center;
+}
+.fc-dots button{
+  width:22px; height:8px;
+  background:rgba(14,14,16,.15);
+  border:0; border-radius:0;     /* square pip — Vignelli signage          */
+  cursor:pointer;
+  transition:background .25s var(--ease), width .25s var(--ease);
+  padding:0;
+}
+.fc-dots button.is-active{
+  background:var(--carbon);
+  width:36px;
+}
+.fc-dots button:hover{ background:rgba(14,14,16,.42) }
+.fc-dots button:focus-visible{ outline:2px solid var(--royal); outline-offset:3px }
+
+.fc-viewall{
+  font:700 12px/1 var(--mono);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--paper);
+  background:var(--carbon);
+  padding:14px 22px;
+  text-decoration:none;
+  border:1.5px solid var(--carbon);
+  display:inline-flex; align-items:center; gap:10px;
+  flex:0 0 auto;
+  transition:padding-right .25s var(--ease), background .25s var(--ease), color .25s var(--ease);
+}
+.fc-viewall span{ transition:transform .25s var(--ease) }
+.fc-viewall:hover{
+  padding-right:30px;
+  background:var(--gold);
+  color:var(--carbon);
+  border-color:var(--gold);
+}
+.fc-viewall:hover span{ transform:translate(2px,-2px) }
+.fc-viewall:focus-visible{ outline:2px solid var(--royal); outline-offset:3px }
+
+/* Responsive · keep the carousel on mobile, just shrink the stage */
+@media (max-width:980px){
+  .fc-stage{ padding:0 48px; min-height:480px }
+  .fc-stage .fc-grid{ height:480px }
+  .fc-stage .fc-prev,
+  .fc-stage .fc-next{ width:40px; height:40px; font-size:18px }
+  .fc-controls{ flex-wrap:wrap; gap:18px }
+}
+@media (max-width:640px){
+  .fc-stage{ padding:0 8px; min-height:520px }
+  .fc-stage .fc-grid{ height:520px }
+  .fc-stage .fc-grid .fc-card{ max-width:none }
+  .fc-stage .fc-prev{ left:-4px }
+  .fc-stage .fc-next{ right:-4px }
+  .fc-controls{ flex-direction:column; align-items:stretch }
+  .fc-viewall{ justify-content:center }
+}
+
+/* Reduced motion · disable transitions, jump cuts */
+@media (prefers-reduced-motion:reduce){
+  .fc-stage .fc-grid .fc-card{ transition:none }
+  .fc-stage .fc-prev,
+  .fc-stage .fc-next{ transition:none }
+}
+/* v2.60 · DOSSIER CAROUSEL — END */
+
+/* v2.61 · SECTION AS STATION — START */
+/* Replaces the v2.48 flap form with a Vignelli signage-tile pattern.
+   The .sec-tag HTML markup is unchanged. The bullet becomes a 160px square,
+   the .name and .stop become rotated mono kickers running up the bullet's
+   left edge (writing-mode:vertical-rl), and the h2 sits beside the bullet
+   at destination-sign scale.
+
+   Targeting: body[data-sectag="station"] only. Flap rules remain in the
+   file but aren't applied because the activation attr is now "station". */
+
+body[data-sectag="station"] .sec-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(220px,300px);
+  gap:60px 56px;
+  align-items:start;
+  margin-bottom:64px;
+}
+body[data-sectag="station"] .sec-head .lead{
+  display:grid;
+  grid-template-columns:32px 160px minmax(0,1fr);
+  grid-template-rows:auto auto;
+  gap:18px 28px;
+  align-items:start;
+  width:100%;
+  max-width:none;
+}
+
+/* Sec-tag becomes display:contents so its children participate directly
+   in the .lead grid. The bullet and the name/stop kicker text settle in
+   columns 1-2; the h2 takes column 3. */
+body[data-sectag="station"] .sec-head .lead .sec-tag{
+  display:contents;
+  background:transparent;
+  padding:0; margin:0; border:0;
+  box-shadow:none;
+  font:inherit; letter-spacing:0; color:inherit;
+  text-transform:none;
+}
+body[data-sectag="station"] .sec-head .lead .sec-tag::before,
+body[data-sectag="station"] .sec-head .lead .sec-tag::after{
+  content:none; display:none;
+}
+
+/* The bullet · 160px square Vignelli signage tile.
+   Background colour is set inline per section (royal/gold/red/pink). */
+body[data-sectag="station"] .sec-head .lead .sec-tag .bullet{
+  grid-column:2; grid-row:1 / span 2;
+  width:160px; height:160px;
+  border-radius:0;
+  font:800 64px/1 var(--display);
+  letter-spacing:-.02em;
+  color:#fff;
+  display:grid; place-items:center;
+  margin:0;
+  box-shadow:0 18px 42px -22px rgba(14,14,16,.5),
+             0 0 0 1px rgba(14,14,16,.08) inset;
+  position:relative;
+  isolation:isolate;
+}
+/* Inner registration crosshairs at the corners — Vignelli-grade detail */
+body[data-sectag="station"] .sec-head .lead .sec-tag .bullet::before,
+body[data-sectag="station"] .sec-head .lead .sec-tag .bullet::after{
+  content:""; position:absolute;
+  width:14px; height:14px;
+  border:1.5px solid rgba(255,255,255,.42);
+  pointer-events:none;
+}
+body[data-sectag="station"] .sec-head .lead .sec-tag .bullet::before{
+  top:8px; left:8px;
+  border-right:0; border-bottom:0;
+}
+body[data-sectag="station"] .sec-head .lead .sec-tag .bullet::after{
+  bottom:8px; right:8px;
+  border-left:0; border-top:0;
+}
+
+/* Vertical kicker rail · column 1, spans both rows.
+   .name and .stop both sit here, stacked vertically as one mono caption. */
+body[data-sectag="station"] .sec-head .lead .sec-tag .name,
+body[data-sectag="station"] .sec-head .lead .sec-tag .stop{
+  grid-column:1; grid-row:1 / span 2;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font:600 10.5px/1 var(--mono);
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--slate);
+  white-space:nowrap;
+  align-self:end;
+  height:max-content;
+  margin:0;
+  padding:0;
+  background:transparent;
+  border:0;
+  display:inline-block;
+}
+body[data-sectag="station"] .sec-head .lead .sec-tag .name{
+  align-self:start;
+  font-size:11px;
+  color:var(--carbon);
+  letter-spacing:.24em;
+}
+body[data-sectag="station"] .sec-head .lead .sec-tag .name::before,
+body[data-sectag="station"] .sec-head .lead .sec-tag .name::after{
+  content:none; display:none;
+}
+body[data-sectag="station"] .sec-head .lead .sec-tag .stop{
+  align-self:end;
+  border-left:0;
+  padding:0;
+}
+
+/* h2 · destination-sign scale, column 3 of .lead, both rows.
+   Note we boost from clamp(44px,6vw,80px) to clamp(56px,7vw,120px). */
+body[data-sectag="station"] .sec-head .lead h2,
+body[data-sectag="station"] .sec-head .lead .h2{
+  grid-column:3; grid-row:1 / span 2;
+  margin:0;
+  align-self:start;
+  font:800 clamp(56px,7vw,120px)/.94 var(--display);
+  letter-spacing:-.04em;
+  color:var(--carbon);
+  max-width:none;
+}
+body[data-sectag="station"] .sec-head .lead h2 em{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  color:var(--slate);
+}
+
+/* Note · stays in column 2 of .sec-head, but reframed as a deck
+   anchored under a hairline rule. */
+body[data-sectag="station"] .sec-head .note{
+  font:500 14.5px/1.55 var(--display);
+  font-style:normal;
+  color:var(--slate);
+  max-width:none;
+  padding-top:18px;
+  border-top:2px solid var(--carbon);
+  align-self:start;
+  margin:0;
+}
+
+/* Reveal hover lift on the bullet */
+body[data-sectag="station"] .sec-head .lead .sec-tag .bullet{
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+body[data-sectag="station"] .sec-head .lead:hover .sec-tag .bullet{
+  transform:translate(2px,-3px);
+  box-shadow:-3px 6px 0 var(--carbon),
+             0 22px 50px -22px rgba(14,14,16,.45),
+             0 0 0 1px rgba(14,14,16,.08) inset;
+}
+
+/* Approach-chip / station-rail wayfinding · these reuse the .bullet
+   element pattern; they're untouched by the override above because their
+   selectors are .ac-bullet / .rs-bullet, not .sec-tag .bullet.            */
+
+/* Responsive · 980px · 2-col .sec-head collapses to 1-col, .lead grid
+   keeps the 32 / 160 / 1fr columns until 780px. */
+@media (max-width:980px){
+  body[data-sectag="station"] .sec-head{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+}
+@media (max-width:780px){
+  body[data-sectag="station"] .sec-head .lead{
+    grid-template-columns:24px 116px minmax(0,1fr);
+    gap:14px 22px;
+  }
+  body[data-sectag="station"] .sec-head .lead .sec-tag .bullet{
+    width:116px; height:116px;
+    font-size:46px;
+  }
+  body[data-sectag="station"] .sec-head .lead h2,
+  body[data-sectag="station"] .sec-head .lead .h2{
+    font-size:clamp(40px,9vw,72px);
+  }
+  body[data-sectag="station"] .sec-head .lead .sec-tag .name,
+  body[data-sectag="station"] .sec-head .lead .sec-tag .stop{
+    font-size:9.5px;
+    letter-spacing:.26em;
+  }
+}
+@media (max-width:640px){
+  body[data-sectag="station"] .sec-head .lead{
+    grid-template-columns:20px 92px minmax(0,1fr);
+    gap:12px 16px;
+  }
+  body[data-sectag="station"] .sec-head .lead .sec-tag .bullet{
+    width:92px; height:92px;
+    font-size:36px;
+  }
+  body[data-sectag="station"] .sec-head .lead h2,
+  body[data-sectag="station"] .sec-head .lead .h2{
+    font-size:clamp(34px,10vw,56px);
+  }
+}
+/* v2.61 · SECTION AS STATION — END */
+
+/* v2.62 · 3UP CAROUSEL — START */
+/* Three cards visible at once. Center is the focused dossier; the prev
+   and next cards flank it at reduced scale + opacity. Cards beyond ±1
+   are removed from layout (display:none) so they don't block clicks or
+   waste paint cycles. Click a side card → that card advances to center. */
+
+.fc-stage{
+  min-height:620px;
+  padding:0 32px;
+  overflow:hidden;
+  perspective:1400px;          /* very subtle 3D plane                    */
+}
+
+.fc-stage .fc-grid{
+  position:relative;
+  display:block;
+  height:560px;
+  max-width:1280px;
+  margin:0 auto;
+  overflow:visible;
+}
+
+/* By default cards are off-stage, invisible, non-interactive */
+.fc-stage .fc-grid .fc-card{
+  position:absolute;
+  top:0; left:50%;
+  width:520px; max-width:88vw;
+  height:560px;
+  transform:translate(-50%, 0) scale(0.6);
+  opacity:0;
+  pointer-events:none;
+  filter:saturate(0.55);
+  transition:transform .7s var(--ease),
+             opacity .55s var(--ease),
+             filter .55s var(--ease);
+  will-change:transform, opacity;
+  display:none;                /* off-stage cards don't render            */
+}
+
+/* The three on-stage cards are forced back to display */
+.fc-stage .fc-grid .fc-card.is-active,
+.fc-stage .fc-grid .fc-card.is-prev,
+.fc-stage .fc-grid .fc-card.is-next{
+  display:grid;                /* dossier card layout requires grid       */
+}
+
+/* Active card · center, full size */
+.fc-stage .fc-grid .fc-card.is-active{
+  transform:translate(-50%, 0) scale(1);
+  opacity:1;
+  filter:none;
+  pointer-events:auto;
+  z-index:3;
+}
+.fc-stage .fc-grid .fc-card.is-active:hover{
+  transform:translate(calc(-50% + 2px), -3px) scale(1);
+}
+
+/* Prev card · left, scaled down + dimmed */
+.fc-stage .fc-grid .fc-card.is-prev{
+  transform:translate(-128%, 0) scale(0.78);
+  opacity:0.46;
+  filter:saturate(0.6);
+  pointer-events:auto;
+  cursor:pointer;
+  z-index:2;
+}
+.fc-stage .fc-grid .fc-card.is-prev:hover{
+  opacity:0.78;
+  filter:saturate(0.85);
+  transform:translate(-126%, -3px) scale(0.79);
+}
+
+/* Next card · right, scaled down + dimmed (mirror of prev) */
+.fc-stage .fc-grid .fc-card.is-next{
+  transform:translate(28%, 0) scale(0.78);
+  opacity:0.46;
+  filter:saturate(0.6);
+  pointer-events:auto;
+  cursor:pointer;
+  z-index:2;
+}
+.fc-stage .fc-grid .fc-card.is-next:hover{
+  opacity:0.78;
+  filter:saturate(0.85);
+  transform:translate(26%, -3px) scale(0.79);
+}
+
+/* Side cards · subtle hint that they're advance buttons */
+.fc-stage .fc-grid .fc-card.is-prev::after,
+.fc-stage .fc-grid .fc-card.is-next::after{
+  /* Keep the v2.59 placeholder stamp working — its ::after is more specific
+     (.is-placeholder::after) so this rule only adds a hint on non-placeholder
+     side cards. We don't need anything here, so leave empty.              */
+}
+
+/* Responsive · below 980px collapse to 1-up */
+@media (max-width:980px){
+  .fc-stage{ padding:0 16px; min-height:560px }
+  .fc-stage .fc-grid{ height:520px }
+  .fc-stage .fc-grid .fc-card{ width:96%; max-width:560px; height:520px }
+
+  .fc-stage .fc-grid .fc-card.is-prev,
+  .fc-stage .fc-grid .fc-card.is-next{
+    /* Hide prev/next on mobile; only the active card shows */
+    display:none;
+  }
+}
+
+/* Reduced motion · jump cuts, no transitions */
+@media (prefers-reduced-motion:reduce){
+  .fc-stage .fc-grid .fc-card{ transition:none }
+  .fc-stage .fc-grid .fc-card.is-prev:hover,
+  .fc-stage .fc-grid .fc-card.is-next:hover,
+  .fc-stage .fc-grid .fc-card.is-active:hover{ transform:translate(-50%, 0) scale(1) }
+}
+/* v2.62 · 3UP CAROUSEL — END */
+
+/* v2.63 · CONSOLIDATION — START */
+/* PART A · minimal one-line sec-tag · activated by body[data-sectag="minimal"]. */
+
+body[data-sectag="minimal"] .sec-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:32px;
+  margin-bottom:56px;
+  flex-wrap:wrap;
+}
+body[data-sectag="minimal"] .sec-head .lead{
+  display:block;
+  max-width:720px;
+  width:auto;
+}
+body[data-sectag="minimal"] .sec-head .lead h2,
+body[data-sectag="minimal"] .sec-head .lead .h2{
+  font:800 clamp(48px,6vw,88px)/.96 var(--display);
+  letter-spacing:-.04em;
+  color:var(--carbon);
+  margin:0;
+  max-width:none;
+}
+body[data-sectag="minimal"] .sec-head .lead h2 em{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  color:var(--slate);
+}
+body[data-sectag="minimal"] .sec-head .note{
+  font:500 14.5px/1.55 var(--display);
+  font-style:normal;
+  color:var(--slate);
+  max-width:320px;
+  margin:0;
+  align-self:flex-end;
+  padding-bottom:14px;
+}
+
+/* The sec-tag · single-line kicker. Round dot · caps name · stop info. */
+body[data-sectag="minimal"] .sec-head .lead .sec-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:0;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  font:500 11px/1.2 var(--mono);
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--carbon);
+  margin-bottom:24px;
+  height:auto;
+  width:auto;
+  transform:none;
+}
+body[data-sectag="minimal"] .sec-head .lead .sec-tag::before,
+body[data-sectag="minimal"] .sec-head .lead .sec-tag::after{
+  content:none; display:none;
+}
+
+body[data-sectag="minimal"] .sec-head .lead .sec-tag .bullet{
+  width:10px; height:10px;
+  border-radius:50%;
+  font-size:0;            /* hide RT/CS/SV/AU text inside — visually a dot */
+  flex:0 0 10px;
+  align-self:center;
+  display:inline-block;
+  box-shadow:none;
+  padding:0;
+  /* background colour is set inline per section */
+}
+body[data-sectag="minimal"] .sec-head .lead .sec-tag .name{
+  color:var(--carbon);
+  font-weight:600;
+  letter-spacing:.22em;
+  display:inline;
+  padding:0;
+  background:transparent;
+}
+body[data-sectag="minimal"] .sec-head .lead .sec-tag .name::before,
+body[data-sectag="minimal"] .sec-head .lead .sec-tag .name::after{
+  content:none; display:none;
+}
+body[data-sectag="minimal"] .sec-head .lead .sec-tag .stop{
+  font-weight:400;
+  color:var(--slate);
+  border-left:1px solid rgba(14,14,16,.18);
+  padding:0 0 0 14px;
+  margin-left:2px;
+  letter-spacing:.22em;
+  background:transparent;
+}
+
+@media (max-width:780px){
+  body[data-sectag="minimal"] .sec-head{ gap:18px }
+  body[data-sectag="minimal"] .sec-head .note{ align-self:flex-start; padding-bottom:0 }
+}
+
+/* PART B · STATIC 3-UP CASES GRID
+   Resets v2.60 single-card stage + v2.62 3-up coverflow back to plain
+   3-column dossier grid. The v2.59 .fc-grid already does 3-up; we just
+   need to neutralise the carousel positioning rules. */
+
+.fc-stage{
+  position:static !important;
+  min-height:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+  perspective:none !important;
+  display:block !important;
+}
+.fc-stage .fc-prev,
+.fc-stage .fc-next{ display:none !important }
+.fc-stage .fc-grid{
+  position:relative !important;
+  display:grid !important;
+  grid-template-columns:repeat(3, 1fr) !important;
+  gap:24px !important;
+  height:auto !important;
+  max-width:none !important;
+  margin:0 !important;
+}
+@media (max-width:980px){
+  .fc-stage .fc-grid{ grid-template-columns:repeat(2, 1fr) !important }
+}
+@media (max-width:640px){
+  .fc-stage .fc-grid{ grid-template-columns:1fr !important }
+}
+
+.fc-stage .fc-grid .fc-card{
+  position:relative !important;
+  top:auto !important; left:auto !important; right:auto !important;
+  width:auto !important; max-width:none !important;
+  height:auto !important;
+  transform:none !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+  filter:none !important;
+  display:grid !important;        /* dossier card layout = grid 38px 1fr */
+  z-index:auto !important;
+}
+.fc-stage .fc-grid .fc-card.is-active,
+.fc-stage .fc-grid .fc-card.is-prev,
+.fc-stage .fc-grid .fc-card.is-next,
+.fc-stage .fc-grid .fc-card.is-leaving{
+  /* All carousel state classes are no-ops in static mode */
+  position:relative !important;
+  transform:none !important;
+  opacity:1 !important;
+  filter:none !important;
+}
+.fc-stage .fc-grid .fc-card.is-active:hover,
+.fc-stage .fc-grid .fc-card.is-prev:hover,
+.fc-stage .fc-grid .fc-card.is-next:hover{
+  /* Restore the v2.59 dossier hover lift */
+  transform:translate(2px,-3px) !important;
+}
+
+.fc-controls{ display:none !important }
+
+/* PART C · MINIMALIST TERMINUS
+   The .terminus block is removed from HTML; the .contact block is the
+   only footer content. We keep the carbon background and Vignelli air,
+   add a thin gold hairline above the title. */
+
+footer#contact{
+  padding-top:80px;       /* less top padding now that .terminus is gone */
+}
+footer#contact .contact{
+  position:relative;
+  padding-top:64px;
+}
+footer#contact .contact::before{
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:120px; height:2px;
+  background:var(--gold);
+}
+footer#contact .contact .title{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font:500 11px/1 var(--mono);
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:rgba(244,239,224,.72);
+  margin-bottom:18px;
+}
+footer#contact .contact .title::before{
+  content:"";
+  width:8px; height:8px; border-radius:50%;
+  background:var(--gold);
+  display:inline-block;
+}
+/* v2.63 · CONSOLIDATION — END */
+
+/* v2.65 · FLAP CLEANUP — START */
+/* PART 1 · Force 3-col grid for featured-cases at desktop. The old base
+   rule (.featured-cases .fc-grid {grid-template-columns:repeat(2,1fr)})
+   has higher specificity than v2.59's .fc-grid rule, so we use a
+   matching-or-higher specificity selector to win. */
+@media (min-width:981px){
+  #cases .featured-cases .fc-grid,
+  .featured-cases .fc-grid{
+    grid-template-columns:repeat(3, 1fr) !important;
+    gap:24px !important;
+  }
+}
+@media (max-width:980px) and (min-width:641px){
+  #cases .featured-cases .fc-grid,
+  .featured-cases .fc-grid{
+    grid-template-columns:repeat(2, 1fr) !important;
+    gap:20px !important;
+  }
+}
+@media (max-width:640px){
+  #cases .featured-cases .fc-grid,
+  .featured-cases .fc-grid{
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+}
+
+/* PART 2 · Move .note under h2 in same column, left-aligned. */
+body[data-sectag="flap"] .sec-head{
+  display:block;
+  margin-bottom:56px;
+}
+body[data-sectag="flap"] .sec-head .lead{
+  max-width:none;
+  display:block;
+  width:100%;
+}
+body[data-sectag="flap"] .sec-head .note{
+  font-family:var(--display);
+  font-style:normal;
+  font-size:15.5px;
+  line-height:1.6;
+  color:var(--slate);
+  max-width:62ch;
+  margin:18px 0 0 0;
+  text-align:left;
+  align-self:auto;
+  padding-top:14px;
+  border-top:2px solid rgba(14,14,16,.18);
+}
+
+/* PART 3 · Flap flip animation
+   On hover, the visible label rolls up and the data-flip text rolls in
+   from below. CSS-only, uses overflow + ::before pseudo + transform.    */
+
+body[data-sectag="flap"] .sec-head .lead .sec-tag .name{
+  position:relative;
+  display:inline-block;
+  overflow:hidden;
+  height:1.2em;
+  line-height:1.2em;
+  vertical-align:middle;
+  white-space:nowrap;
+  /* Keep existing flap text typography from v2.48 */
+  text-transform:uppercase;
+}
+/* The visible label slides up on hover */
+body[data-sectag="flap"] .sec-head .lead .sec-tag .name{
+  transition:transform .55s cubic-bezier(.6, 0, 0, 1);
+}
+body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .name{
+  transform:translateY(-100%);
+}
+/* The data-flip alternative slides in from below, replacing visible label */
+body[data-sectag="flap"] .sec-head .lead .sec-tag .name::after{
+  content:attr(data-flip);
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  height:100%;
+  white-space:nowrap;
+  transform:translateY(100%);
+  transition:transform .55s cubic-bezier(.6, 0, 0, 1);
+  /* inherit color/font from .name */
+}
+body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .name::after{
+  transform:translateY(0);
+}
+
+/* Container needs to handle the overflow for the rolling effect */
+body[data-sectag="flap"] .sec-head .lead .sec-tag{
+  overflow:hidden;
+}
+
+/* Subtle on-hover cue — bullet pulse */
+body[data-sectag="flap"] .sec-head .lead .sec-tag .bullet{
+  transition:transform .35s var(--ease);
+}
+body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .bullet{
+  transform:scale(1.08);
+}
+
+/* Reduced motion — no flips */
+@media (prefers-reduced-motion:reduce){
+  body[data-sectag="flap"] .sec-head .lead .sec-tag .name,
+  body[data-sectag="flap"] .sec-head .lead .sec-tag .name::after,
+  body[data-sectag="flap"] .sec-head .lead .sec-tag .bullet{
+    transition:none;
+  }
+  body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .name{
+    transform:none;
+  }
+  body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .name::after{
+    transform:translateY(100%);
+  }
+}
+/* v2.65 · FLAP CLEANUP — END */
+
+/* v2.66 · FLAP TITLES — START */
+/* Tighten the .note under each section h2 so it reads as a deliberate deck,
+   not a paragraph hanging in space. Short gold rule + tight max-width. */
+body[data-sectag="flap"] .sec-head .lead{
+  display:block;
+  width:100%;
+  max-width:none;
+}
+body[data-sectag="flap"] .sec-head .note{
+  font-family:var(--display);
+  font-style:normal;
+  font-weight:500;
+  font-size:15.5px;
+  line-height:1.6;
+  color:var(--slate);
+  max-width:46ch;
+  margin:24px 0 0 0;
+  padding-top:18px;
+  text-align:left;
+  border-top:none;
+  position:relative;
+}
+body[data-sectag="flap"] .sec-head .note::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:96px;
+  height:2px;
+  background:var(--carbon);
+}
+/* v2.66 · FLAP TITLES — END */
+
+/* v2.67 · FLAP 3D — START */
+/* Variant-B layout (full-width flap) + proper 3D rotateX flip on hover.
+   Markup: .sec-tag > .flap-card > .flap-side.flap-front + .flap-side.flap-back
+   Each face has bullet · name · meta with the meta pinned to the right
+   via margin-left:auto. Whole strip rotates around its horizontal axis.
+
+   Reset all v2.65 / v2.66 inner-text-roll rules first — those targeted
+   .sec-tag .name and conflict with the 3D structure.                      */
+
+/* Reset v2.65 inner roll on .name (now superseded) */
+body[data-sectag="flap"] .sec-head .lead .sec-tag .name{
+  position:static;
+  display:inline;
+  overflow:visible;
+  height:auto;
+  line-height:inherit;
+  white-space:normal;
+  vertical-align:baseline;
+  transform:none;
+  transition:none;
+}
+body[data-sectag="flap"] .sec-head .lead .sec-tag .name::after{
+  content:none;
+  display:none;
+}
+
+/* The .sec-tag is now the perspective container — full width of .lead */
+body[data-sectag="flap"] .sec-head .lead .sec-tag{
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  background:transparent;
+  padding:0;
+  margin:0 0 28px;
+  box-shadow:none;
+  perspective:1400px;
+  overflow:visible;
+}
+
+/* The flap card · holds front + back, rotates on hover */
+.sec-tag .flap-card{
+  position:relative;
+  display:block;
+  width:100%;
+  transform-style:preserve-3d;
+  transition:transform .85s cubic-bezier(.4, .05, .2, 1);
+  /* Adds a subtle bounce at the end like the slat settling */
+}
+.sec-tag:hover .flap-card{
+  transform:rotateX(180deg);
+}
+
+/* Each face · positioned absolutely so they overlap */
+.sec-tag .flap-side{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  width:100%;
+  padding:18px 26px;
+  background:var(--carbon);
+  color:var(--paper);
+  font:600 14px/1 var(--mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  position:relative;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  box-shadow:0 8px 22px -14px rgba(14,14,16,.5);
+  height:64px;
+  box-sizing:border-box;
+}
+.sec-tag .flap-side::before{
+  /* Perforation strip above the flap (existing v2.48 detail, kept) */
+  content:"";
+  position:absolute;
+  top:-10px; left:18%; right:18%;
+  height:10px;
+  background:repeating-linear-gradient(to right, rgba(14,14,16,.16) 0 1px, transparent 1px 5px);
+  opacity:.55;
+}
+
+.sec-tag .flap-front{
+  position:relative;
+  z-index:2;
+}
+.sec-tag .flap-back{
+  position:absolute;
+  top:0; left:0;
+  transform:rotateX(180deg);
+  z-index:1;
+}
+
+/* Bullet · same MTA round chip as before */
+.sec-tag .flap-side .bullet{
+  width:38px; height:38px;
+  border-radius:50%;
+  display:grid; place-items:center;
+  font:800 13px/1 var(--mono);
+  letter-spacing:.04em;
+  color:#fff;
+  flex:0 0 38px;
+  /* background set inline */
+}
+
+/* Section title · large flap text */
+.sec-tag .flap-side .name{
+  font:700 17px/1.1 var(--display);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--paper);
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+
+/* Meta · pushed to the right edge, mono small caps, lower contrast */
+.sec-tag .flap-side .meta{
+  margin-left:auto;
+  font:500 11px/1.2 var(--mono);
+  letter-spacing:.22em;
+  color:rgba(244,239,224,.55);
+  text-transform:uppercase;
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+
+/* Subtle hover hint on the bullet (independent of the 3D flip) */
+.sec-tag .flap-side .bullet{
+  transition:box-shadow .35s var(--ease);
+}
+.sec-tag:hover .flap-front .bullet{
+  box-shadow:0 0 0 3px rgba(255,255,255,.18);
+}
+
+/* Reduced-motion users · just cross-fade the back face on hover */
+@media (prefers-reduced-motion:reduce){
+  .sec-tag .flap-card{
+    transition:none;
+  }
+  .sec-tag:hover .flap-card{ transform:none; }
+  .sec-tag .flap-back{ transition:opacity .25s linear; opacity:0; }
+  .sec-tag:hover .flap-back{ opacity:1; }
+  .sec-tag .flap-front{ transition:opacity .25s linear; }
+  .sec-tag:hover .flap-front{ opacity:0; }
+}
+
+/* Responsive · stack meta below name on narrow screens, flap height grows */
+@media (max-width:780px){
+  .sec-tag .flap-side{
+    flex-wrap:wrap;
+    height:auto;
+    padding:14px 18px;
+    gap:8px 14px;
+  }
+  .sec-tag .flap-side .meta{
+    margin-left:0;
+    flex-basis:100%;
+    font-size:9.5px;
+  }
+}
+/* v2.67 · FLAP 3D — END */
+
+/* v2.68 · HIDE HERO LABELS — START */
+/* Hide the hero kicker pill ("MARKETING · ADVERTISING · DELHI NCR · BOMBAY ·
+   BANGALORE") and the montage hero-aside's placeholder label/counter
+   ("Reel · 0:20 · loop / // placeholder · stop-motion / 01 / 16"). */
+.hero .kicker{ display:none !important }
+.ha-montage .hm-label,
+.ha-montage .hm-counter{ display:none !important }
+/* v2.68 · HIDE HERO LABELS — END */
+
+
+
+/* v2.71 · THREADS COOLNESS — START */
+/* Push thread-canvas BEHIND content so h2 reads above the lines */
+.thread-canvas{
+  z-index:0 !important;
+  opacity:.42 !important;
+  transition:opacity .6s var(--ease), filter .8s var(--ease);
+  will-change:transform;
+}
+
+/* Section content sits ABOVE threads */
+.hero,
+section{
+  isolation:isolate;
+}
+.sec-head,
+.ws-block,
+.fc-grid,
+.bt-grid,
+.cases-grid,
+.train-strip,
+.scroll-lock-wrapper,
+.about-grid,
+.svc-row,
+.timeline,
+.contact,
+.terminus,
+.meta-bar{
+  position:relative;
+  z-index:2;
+}
+
+/* The hero's wordmark and copy stays above threads */
+.hero-grid,
+.hero-mark,
+.hero-aside,
+.aerial,
+.scroll-cue{
+  position:relative;
+  z-index:2;
+}
+/* Aerial map (NYC subway aerial) stays above the threads but below content */
+.hero .aerial{ z-index:1 }
+
+/* SECTION HOVER · saturate threads when you mouse over the section */
+.hero:hover .thread-canvas,
+section:hover .thread-canvas{
+  opacity:.62;
+  filter:saturate(1.25);
+}
+.hero:hover .thread-canvas path,
+section:hover .thread-canvas path{
+  stroke-width:3.4;
+  transition:stroke-width .55s var(--ease);
+}
+
+/* Reduced-motion users · skip the parallax + hover effects */
+@media (prefers-reduced-motion:reduce){
+  .thread-canvas,
+  .hero:hover .thread-canvas,
+  section:hover .thread-canvas{
+    transition:none;
+    transform:none !important;
+    filter:none !important;
+  }
+}
+/* v2.71 · THREADS COOLNESS — END */
 </style>
 </head>
-<body data-sectag="flap">
+<body data-sectag="flap" data-hero-aside="montage" data-terminus="spaghetti">
 
 <div id="progress"></div>
 <div class="cursor-ring"></div>
@@ -1201,8 +3288,8 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
     <span>Ninety-Eight<br><small>Entertainment · since 2020</small></span>
   </a>
   <ul>
-    <li><a href="#our-people" class="active">Roster</a></li>
-    <li><a href="#featured-cases">Cases</a></li>
+    <li><a href="#cases" class="active">Cases</a></li>
+    <li><a href="#roster">Roster</a></li>
     <li><a href="#selected-clients">Clients</a></li>
     <li><a href="#brand-partners">Brands</a></li>
     <li><a href="#services">Services</a></li>
@@ -1323,23 +3410,332 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
         <span><b>Marketing</b> · Advertising · Strategy</span>
       </div>
     </div>
+    <!-- v2.57 · HERO ASIDE STAGE — START -->
+    <!-- v2.57 · Imported from the Claude Design v2.51-v2.53 branch.
+         The hero's right column is now a stage hosting 7 variants
+         (billing · logos · press · manifesto · index · ticker · montage).
+         Locked to "montage" via body[data-hero-aside="montage"].
+         All 7 are kept in DOM so future tweaks can switch via body attr. -->
+<!-- v2.33 · Hero sidebar replaced — was a flat list of 7 service lines.
+         Now it's a rotating "billing block" of flagship work — one client at a time,
+         their colour, their headline metric, in the language of a film credit. The
+         wordmark on the left does the services job; this column does the receipts job. -->
+    <aside class="hero-receipts hero-aside" data-aside="billing" aria-label="Featured work — flagship clients" id="hero-receipts">
+      <header class="hr-head">
+        <span class="hr-tag"><span class="hr-pulse"></span>Now Boarding · Featured Work</span>
+        <span class="hr-counter" aria-hidden="true"><b id="hr-now">01</b><i>/</i><span id="hr-total">06</span></span>
+      </header>
 
-    <!-- v2.27 · Studio Notes replaced: timeline moved into the founder dialog;
-         hero sidebar now lists what we move daily — 7 service lines. -->
-    <aside class="timeline" aria-label="Services">
-      <h3>Studio · Lines</h3>
-      <p class="quote">
-        Seven lines out of the station. Each one gets your business somewhere it couldn't get on its own.
-        <small>// 98 · WHAT WE MOVE</small>
-      </p>
-      <div class="tl-row" data-reveal><div class="yr">01</div><div class="ev">Strategy</div></div>
-      <div class="tl-row" data-reveal><div class="yr">02</div><div class="ev">Consulting</div></div>
-      <div class="tl-row" data-reveal><div class="yr">03</div><div class="ev">Marketing</div></div>
-      <div class="tl-row" data-reveal><div class="yr">04</div><div class="ev">Advertising</div></div>
-      <div class="tl-row" data-reveal><div class="yr">05</div><div class="ev">Execution</div></div>
-      <div class="tl-row" data-reveal><div class="yr">06</div><div class="ev">Financial Modeling</div></div>
-      <div class="tl-row" data-reveal><div class="yr">07</div><div class="ev">Market Research</div></div>
+      <div class="hr-stage" id="hr-stage">
+        <!-- Each card is a "billing block" — credit-line, mark, brand name, headline metric, dek.
+             Driven by JS (auto-advance + click). The first card is .is-active on load. -->
+        <article class="hr-card is-active" data-c="#1F4D8C" data-mark="IS" data-tier="Talent · Sports · Anchor">
+          <div class="hr-credit"><span>A 98 production</span><span>Talent · 2014–present</span></div>
+          <div class="hr-body">
+            <span class="hr-mark" style="background:#1F4D8C">IS</span>
+            <div class="hr-meta">
+              <span class="hr-brand">Ishant Sharma</span>
+              <span class="hr-line">India's most-capped fast bowler · 105 Tests</span>
+            </div>
+          </div>
+          <div class="hr-stat"><b>11</b><i>brand deals · last cycle</i></div>
+          <div class="hr-quote">"They didn't manage my calendar. They built me as a product."</div>
+        </article>
+
+        <article class="hr-card" data-c="#DD3D38" data-mark="RP" data-tier="Talent · Sports · Captain">
+          <div class="hr-credit"><span>A 98 production</span><span>Talent · 2016–2020</span></div>
+          <div class="hr-body">
+            <span class="hr-mark" style="background:#DD3D38">PS</span>
+            <div class="hr-meta">
+              <span class="hr-brand">Pratima Singh</span>
+              <span class="hr-line">Captain · Indian Basketball · 5× national</span>
+            </div>
+          </div>
+          <div class="hr-stat"><b>1st</b><i>brand book in Indian women's basketball</i></div>
+          <div class="hr-quote">"They saw the practice before they saw the player."</div>
+        </article>
+
+        <article class="hr-card" data-c="#F5B015" data-mark="RP" data-tier="Hospitality · Heritage">
+          <div class="hr-credit"><span>A 98 production</span><span>Hospitality · 2021–22</span></div>
+          <div class="hr-body">
+            <span class="hr-mark" style="background:#F5B015;color:#0E0E10">RP</span>
+            <div class="hr-meta">
+              <span class="hr-brand">Rang Punjab</span>
+              <span class="hr-line">Heritage hospitality · 2 cities · 4 properties</span>
+            </div>
+          </div>
+          <div class="hr-stat"><b>3.4×</b><i>covers per night · pre-launch to month-3</i></div>
+          <div class="hr-quote">"We borrowed the emotional permission. They earned us the kitchen seat."</div>
+        </article>
+
+        <article class="hr-card" data-c="#2F9E5E" data-mark="SC" data-tier="D2C · Coffee">
+          <div class="hr-credit"><span>A 98 production</span><span>D2C · 2022</span></div>
+          <div class="hr-body">
+            <span class="hr-mark" style="background:#2F9E5E">SC</span>
+            <div class="hr-meta">
+              <span class="hr-brand">Slay Coffee</span>
+              <span class="hr-line">Cup-shot UGC · BIT.LY-direct funnel</span>
+            </div>
+          </div>
+          <div class="hr-stat"><b>2.1M</b><i>impressions · zero paid amplification</i></div>
+          <div class="hr-quote">"The cup-shot was the door. The app was the room."</div>
+        </article>
+
+        <article class="hr-card" data-c="#7E4DA5" data-mark="HR" data-tier="F&B · Multi-property">
+          <div class="hr-credit"><span>A 98 production</span><span>F&amp;B · 2023</span></div>
+          <div class="hr-body">
+            <span class="hr-mark" style="background:#7E4DA5">HR</span>
+            <div class="hr-meta">
+              <span class="hr-brand">Hard Rock Cafe</span>
+              <span class="hr-line">Live music · 4 venues · weekend programming</span>
+            </div>
+          </div>
+          <div class="hr-stat"><b>32%</b><i>weekend reservations · YoY</i></div>
+          <div class="hr-quote">"Live music is a destination. We sold it that way."</div>
+        </article>
+
+        <article class="hr-card" data-c="#E87722" data-mark="UA" data-tier="Edu-tech · Platform">
+          <div class="hr-credit"><span>A 98 production</span><span>Platform · 2022</span></div>
+          <div class="hr-body">
+            <span class="hr-mark" style="background:#E87722">UA</span>
+            <div class="hr-meta">
+              <span class="hr-brand">Unacademy</span>
+              <span class="hr-line">Creator-led growth · educator onboarding</span>
+            </div>
+          </div>
+          <div class="hr-stat"><b>78</b><i>educators routed · single quarter</i></div>
+          <div class="hr-quote">"Edu-tech wins on familiarity. We brought the familiar inside."</div>
+        </article>
+      </div>
+
+      <footer class="hr-foot">
+        <div class="hr-dots" id="hr-dots" role="tablist" aria-label="Flagship work"></div>
+        <span class="hr-receipts-stat"><b>70+</b> brands · <b>3</b> studios · <b>1</b> way of working</span>
+      </footer>
     </aside>
+
+    <!-- v2.34 · ALT HERO ASIDE VARIANTS — pick one via Tweaks → "Hero sidebar".
+         All siblings of .hero-receipts. Only the one matching body[data-hero-aside]
+         is displayed; the rest are display:none (no extra DOM cost). -->
+
+    <!-- VARIANT: LOGO WALL · 4×6 typographic grid of brand marks -->
+    <aside class="hero-aside ha-logos" data-aside="logos" aria-label="Selected clients">
+      <header class="ha-head"><span class="ha-tag"><span class="hr-pulse"></span>The Roster · 70+</span><span class="ha-meta">Selected clients</span></header>
+      <div class="ha-logo-grid">
+        <span data-c="#1F4D8C">IS</span><span data-c="#DD3D38">PS</span><span data-c="#F5B015" class="dark">RP</span><span data-c="#2F9E5E">SC</span>
+        <span data-c="#7E4DA5">HR</span><span data-c="#E87722">UA</span><span data-c="#E7497C">TP</span><span data-c="#1F4D8C">DG</span>
+        <span data-c="#2F9E5E">FU</span><span data-c="#DD3D38">RZ</span><span data-c="#F5B015" class="dark">BR</span><span data-c="#7E4DA5">KH</span>
+        <span data-c="#E87722">FR</span><span data-c="#1F4D8C">MT</span><span data-c="#DD3D38">PP</span><span data-c="#2F9E5E">AE</span>
+        <span data-c="#F5B015" class="dark">OP</span><span data-c="#E7497C">FZ</span><span data-c="#7E4DA5">VT</span><span data-c="#1F4D8C">BO</span>
+        <span data-c="#2F9E5E">SK</span><span data-c="#DD3D38">RG</span><span data-c="#E87722">SS</span><span data-c="#F5B015" class="dark">+50</span>
+      </div>
+      <footer class="ha-foot"><b>70+</b> brands · <b>22</b> cities · <b>9</b> categories</footer>
+    </aside>
+
+    <!-- VARIANT: PRESS · editorial pull-quote stack -->
+    <aside class="hero-aside ha-press" data-aside="press" aria-label="Press">
+      <header class="ha-head"><span class="ha-tag"><span class="hr-pulse"></span>Press · 2023–2026</span><span class="ha-meta">In the trades</span></header>
+      <div class="ha-press-stack">
+        <article class="ha-press-card">
+          <div class="ha-press-pub"><span>Forbes India</span><small>Aug '24</small></div>
+          <p class="ha-press-pull">"Tech-driven triumph: a sub-twenty-five operator quietly built one of India's busiest creative shops."</p>
+        </article>
+        <article class="ha-press-card">
+          <div class="ha-press-pub"><span>The Week</span><small>Mar '24</small></div>
+          <p class="ha-press-pull">"Innovative strategies — they sell the occasion before they sell the product."</p>
+        </article>
+        <article class="ha-press-card">
+          <div class="ha-press-pub"><span>mid-day</span><small>Jan '24</small></div>
+          <p class="ha-press-pull">"Equity participation, not retainer minutes — a new operating system for agency work."</p>
+        </article>
+      </div>
+      <footer class="ha-foot"><b>4</b> publications · <b>2</b> stage talks · <b>1</b> documentary</footer>
+    </aside>
+
+    <!-- VARIANT: MANIFESTO · one big italic line, signed -->
+    <aside class="hero-aside ha-manifesto" data-aside="manifesto" aria-label="Manifesto">
+      <header class="ha-head"><span class="ha-tag"><span class="hr-pulse"></span>The Operating Idea</span><span class="ha-meta">// 98</span></header>
+      <div class="ha-manifesto-body">
+        <span class="ha-manifesto-marks" aria-hidden="true">"</span>
+        <p class="ha-manifesto-line">We don't manage calendars. We build <em>brands as products</em> — and the people inside them as <em>founders</em>.</p>
+        <div class="ha-manifesto-sig">
+          <span class="ha-sig-name">Harsh Arya</span>
+          <span class="ha-sig-role">Founder · Ninety-Eight</span>
+        </div>
+        <div class="ha-manifesto-proof">
+          <span><b>11</b><i>brand deals · last cycle</i></span>
+          <span><b>105</b><i>Test caps · anchor talent</i></span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- VARIANT: INDEX · numbered table of contents of work categories -->
+    <aside class="hero-aside ha-index" data-aside="index" aria-label="Index of work">
+      <header class="ha-head"><span class="ha-tag"><span class="hr-pulse"></span>Index of Work</span><span class="ha-meta">By category</span></header>
+      <ol class="ha-index-list">
+        <li><span class="hi-n">01</span><span class="hi-cat">Talent · Sports</span><span class="hi-c">04</span></li>
+        <li><span class="hi-n">02</span><span class="hi-cat">F&amp;B · Restaurants</span><span class="hi-c">28</span></li>
+        <li><span class="hi-n">03</span><span class="hi-cat">Hospitality · Hotels</span><span class="hi-c">06</span></li>
+        <li><span class="hi-n">04</span><span class="hi-cat">D2C · CPG</span><span class="hi-c">11</span></li>
+        <li><span class="hi-n">05</span><span class="hi-cat">Edu-tech · Platforms</span><span class="hi-c">04</span></li>
+        <li><span class="hi-n">06</span><span class="hi-cat">Lifestyle · Wellness</span><span class="hi-c">09</span></li>
+        <li><span class="hi-n">07</span><span class="hi-cat">Entertainment · Live</span><span class="hi-c">08</span></li>
+      </ol>
+      <footer class="ha-foot"><b>70+</b> total · <b>9</b> verticals on the book</footer>
+    </aside>
+
+    <!-- VARIANT: TICKER · vertical scrolling campaign news -->
+    <aside class="hero-aside ha-ticker" data-aside="ticker" aria-label="Live shipping ticker">
+      <header class="ha-head"><span class="ha-tag"><span class="hr-pulse"></span>Now Shipping · Live</span><span class="ha-meta">Last 30 days</span></header>
+      <div class="ha-ticker-frame">
+        <div class="ha-ticker-rail" id="ha-ticker-rail">
+          <!-- duplicated for seamless loop in JS -->
+          <div class="ha-tick"><span class="hat-c" style="background:#1F4D8C"></span><span class="hat-line"><b>Ishant × RuPay</b> · IPL '24 · <i>12M reach</i></span></div>
+          <div class="ha-tick"><span class="hat-c" style="background:#F5B015"></span><span class="hat-line"><b>Rang Punjab</b> · Bandra opening · <i>3.4× covers</i></span></div>
+          <div class="ha-tick"><span class="hat-c" style="background:#2F9E5E"></span><span class="hat-line"><b>Slay Coffee</b> · UGC drop · <i>2.1M imps · 0 paid</i></span></div>
+          <div class="ha-tick"><span class="hat-c" style="background:#7E4DA5"></span><span class="hat-line"><b>Hard Rock Cafe</b> · weekend run · <i>+32% YoY</i></span></div>
+          <div class="ha-tick"><span class="hat-c" style="background:#E87722"></span><span class="hat-line"><b>Unacademy</b> · educator funnel · <i>78 routed · Q3</i></span></div>
+          <div class="ha-tick"><span class="hat-c" style="background:#DD3D38"></span><span class="hat-line"><b>Pratima Singh</b> · Nike partnership · <i>signed</i></span></div>
+          <div class="ha-tick"><span class="hat-c" style="background:#E7497C"></span><span class="hat-line"><b>Tickled Pink</b> · season look-book · <i>shipping</i></span></div>
+        </div>
+      </div>
+      <footer class="ha-foot"><b>1.2k</b> assets shipped · <b>YTD</b></footer>
+    </aside>
+
+    <!-- VARIANT: MONTAGE · stop-motion paper-craft loop on transparent bg.
+         PLACEHOLDER for a real ~20s alpha-channel WebM that the studio shoots in-house.
+         Sixteen 1.25s beats covering the service range: packaging, menu design, brand
+         identity, social, photoshoot, strategy, mural, awards, video, growth, billing,
+         retail/booth, typography, motion, partnership, ship. -->
+    <aside class="hero-aside ha-montage" data-aside="montage" aria-label="Stop-motion montage of work">
+      <div class="hm-label">
+        <span><span class="dot"></span>Reel · 0:20 · loop</span>
+        <span>// placeholder · stop-motion</span>
+      </div>
+      <div class="hm-stage" aria-hidden="true">
+        <span class="hm-counter" id="hm-counter">01 / 16</span>
+
+        <!-- 01 PACKAGING -->
+        <div class="hm-frame hmf-pack"><div class="hm-art" style="width:240px;height:240px">
+          <span class="hm-paper gold b1"></span>
+          <span class="hm-paper red b2"></span>
+          <span class="hm-paper royal b3"></span>
+          <span class="lid"></span>
+        </div></div>
+
+        <!-- 02 MENU -->
+        <div class="hm-frame hmf-menu"><div class="hm-art" style="width:280px;height:240px">
+          <div class="pg">
+            <span class="ln"><span>Burrata</span><span>·420</span></span>
+            <span class="ln"><span>Lamb chops</span><span>·680</span></span>
+            <span class="ln"><span>Kunafa</span><span>·320</span></span>
+            <span class="ln"><span>Espresso</span><span>·180</span></span>
+          </div>
+          <span class="turn"></span>
+        </div></div>
+
+        <!-- 03 STAMP / IDENTITY -->
+        <div class="hm-frame hmf-stamp"><div class="hm-art" style="width:220px;height:220px">
+          <span class="ink"></span>
+          <span class="hm-paper stamp">98</span>
+        </div></div>
+
+        <!-- 04 SOCIAL POST -->
+        <div class="hm-frame hmf-post"><div class="hm-art" style="width:220px;height:240px">
+          <div class="post"><div class="img"></div><div class="meta"><span>@98</span><span>2.1M ♥</span></div></div>
+          <span class="heart">♥</span>
+        </div></div>
+
+        <!-- 05 PHOTOSHOOT -->
+        <div class="hm-frame hmf-shoot"><div class="hm-art" style="width:240px;height:220px">
+          <span class="hm-paper poly2"><span class="frame"></span></span>
+          <span class="hm-paper poly"><span class="frame"></span></span>
+          <span class="flash"></span>
+        </div></div>
+
+        <!-- 06 STRATEGY DECK -->
+        <div class="hm-frame hmf-strategy"><div class="hm-art" style="width:260px;height:240px">
+          <span class="hm-paper doc">
+            <h>STRATEGY · Q3</h>
+            <span class="l m"></span><span class="l s"></span><span class="l"></span><span class="l m"></span><span class="l s"></span><span class="l"></span>
+          </span>
+          <span class="arrow">→</span>
+        </div></div>
+
+        <!-- 07 WALL MURAL -->
+        <div class="hm-frame hmf-mural"><div class="hm-art" style="width:280px;height:200px;position:relative">
+          <span class="hm-paper wall"></span>
+          <span class="paint1"></span><span class="paint2"></span><span class="paint3"></span>
+        </div></div>
+
+        <!-- 08 AWARD -->
+        <div class="hm-frame hmf-award"><div class="hm-art" style="width:220px;height:240px">
+          <span class="hm-paper cup">★</span>
+          <span class="hm-paper ribbon">SHIPPED · Q4</span>
+        </div></div>
+
+        <!-- 09 PHONE / REEL -->
+        <div class="hm-frame hmf-phone"><div class="hm-art" style="width:160px;height:240px">
+          <span class="hm-paper ph"><span class="scr"></span></span>
+          <span class="swipe"></span>
+        </div></div>
+
+        <!-- 10 GROWTH CHART -->
+        <div class="hm-frame hmf-chart"><div class="hm-art" style="width:280px;height:220px;position:relative">
+          <span class="axis"></span><span class="axis2"></span>
+          <span class="bar b1"></span><span class="bar b2"></span><span class="bar b3"></span><span class="bar b4"></span>
+          <span class="arrow">↗</span>
+        </div></div>
+
+        <!-- 11 INVOICE / FINANCIAL -->
+        <div class="hm-frame hmf-invoice"><div class="hm-art" style="width:260px;height:240px">
+          <span class="hm-paper inv">
+            <h>INVOICE · 0098</h>
+            <span class="row"><span>Strategy</span><span>₹4,80,000</span></span>
+            <span class="row"><span>Identity</span><span>₹3,20,000</span></span>
+            <span class="row"><span>Campaign</span><span>₹6,40,000</span></span>
+            <span class="row"><span>Total</span><span><b>₹14.40L</b></span></span>
+          </span>
+          <span class="stamp">PAID</span>
+        </div></div>
+
+        <!-- 12 RETAIL BOOTH -->
+        <div class="hm-frame hmf-booth"><div class="hm-art" style="width:280px;height:200px;position:relative">
+          <span class="hm-paper booth">RANG PUNJAB</span>
+          <span class="legs"></span>
+          <span class="crowd"></span>
+        </div></div>
+
+        <!-- 13 TYPOGRAPHY -->
+        <div class="hm-frame hmf-type"><div class="hm-art" style="width:280px;height:200px;position:relative">
+          <span class="big">98<i>.</i></span>
+          <span class="sub">// type · in · house</span>
+        </div></div>
+
+        <!-- 14 VIDEO / MOTION -->
+        <div class="hm-frame hmf-video"><div class="hm-art" style="width:280px;height:220px;position:relative">
+          <span class="scr"><span class="play"></span></span>
+          <span class="bars"><span></span><span></span><span></span><span></span><span></span></span>
+        </div></div>
+
+        <!-- 15 PARTNERSHIP -->
+        <div class="hm-frame hmf-shake"><div class="hm-art" style="width:280px;height:200px;position:relative">
+          <span class="h1"></span><span class="h2"></span><span class="spark">+</span>
+        </div></div>
+
+        <!-- 16 SHIP -->
+        <div class="hm-frame hmf-ship"><div class="hm-art" style="width:280px;height:200px;position:relative">
+          <span class="word">SHIP.</span>
+          <span class="stamp">'26</span>
+        </div></div>
+
+        <div class="hm-caption">
+          <b>The 98 reel</b><span>// stop-motion · 16 beats · 0:20</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+    <!-- v2.57 · HERO ASIDE STAGE — END -->
   </div>
 
   <div class="scroll-cue"><span>Scroll</span><span class="bar"></span></div>
@@ -1358,14 +3754,14 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
 </aside>
 
 <!-- =================== OUR PEOPLE · lifted above Services per v2.14 — case study can't be buried =================== -->
-<section id="our-people">
+<section id="cases">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--royal)"><span class="bullet" style="background:var(--royal)">RP</span><span class="name" data-flip="WE'VE SPOKEN FOR">Our Roster</span><span class="stop">LINE 04 · STOP 02</span></span>
-        <h2>People that we have <em>spoken for.</em></h2>
+        <span class="sec-tag" style="--accent:var(--gold)"><span class="flap-card"><span class="flap-side flap-front"><span class="bullet" style="background:var(--gold)">CS</span><span class="name">Featured Cases</span><span class="meta">Now Boarding · 6 in production</span></span><span class="flap-side flap-back"><span class="bullet" style="background:var(--gold)">CS</span><span class="name">In Production</span><span class="meta">Filed by hand · 2026</span></span></span></span>
+        <h2>Cases. <em>In production.</em></h2>
       </div>
-      <p class="note">One athlete at the centre. Six restaurants on the line. Seventeen brands in the book. The rest is below — a logo wall of selected clients, none of whom got there because we were cheap.</p>
+      <p class="note">One athlete at the centre. Six restaurants on the line. Seventeen brands in the book. The receipts read first; the full roster is on the next line.</p>
     </div>
 
     <!-- v2.14 · ISHANT CAROUSEL · the no-friction headline
@@ -1513,11 +3909,7 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
            modals open in place; the rest are placeholders styled like Esquire
            magazine articles, in production. -->
       <div class="ws-block featured-cases reveal" id="featured-cases">
-        <div class="fc-head">
-          <h3>Featured Cases</h3>
-          <span class="fc-headmeta">A few in production · across categories</span>
-        </div>
-        <div class="fc-grid">
+<div class="fc-grid">
 
           <a class="fc-card" href="#case-yyc-group" data-case="yyc-group" aria-label="YYC Group — TBSP, Pot Pot, Wheaty — open case study">
             <span class="fc-stripe" style="background:var(--green)"></span>
@@ -1588,6 +3980,26 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
         </div>
       </div>
 
+    </div>
+  </div>
+  <svg class="thread-canvas" id="thread-cases" preserveAspectRatio="none"></svg>
+</section>
+
+<!-- =================== THE ROSTER · v2.58 — split out of #cases =================== -->
+<section id="roster">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="lead">
+        <span class="sec-tag" style="--accent:var(--royal)"><span class="flap-card"><span class="flap-side flap-front"><span class="bullet" style="background:var(--royal)">RT</span><span class="name">The Roster</span><span class="meta">Now Boarding · Hospitality + Brands</span></span><span class="flap-side flap-back"><span class="bullet" style="background:var(--royal)">RT</span><span class="name">70+ Names</span><span class="meta">Mostly Punctual · 9 categories</span></span></span></span>
+        <h2>People that we have <em>spoken for.</em></h2>
+      </div>
+      <p class="note">Selected clients across hospitality and consumer. None of whom got there because we were cheap. Hospitality up top, brand partners below.</p>
+    </div>
+
+    <div class="work-showcase">
+      <div class="ws-backdrop" aria-hidden="true">
+        <div class="ws-watermark">98</div>
+      </div>
       <div class="ws-block reveal" id="selected-clients">
         <div class="ws-head">
           <h3>Hospitality · Selected Clients</h3>
@@ -1675,15 +4087,16 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
       </div>
     </div>
   </div>
-  <svg class="thread-canvas" id="thread-our-people" preserveAspectRatio="none"></svg>
+  <svg class="thread-canvas" id="thread-roster" preserveAspectRatio="none"></svg>
 </section>
+
 
 <!-- =================== SERVICES · moved below Our People per v2.14 =================== -->
 <section id="services">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--red)"><span class="bullet" style="background:var(--red)">SV</span><span class="name" data-flip="WHAT WE MOVE · DAILY">Services</span><span class="stop">LINE 02 · STOP 03</span></span>
+        <span class="sec-tag" style="--accent:var(--red)"><span class="flap-card"><span class="flap-side flap-front"><span class="bullet" style="background:var(--red)">SV</span><span class="name">Services</span><span class="meta">Daily · Seven Lines Out</span></span><span class="flap-side flap-back"><span class="bullet" style="background:var(--red)">SV</span><span class="name">On Schedule</span><span class="meta">We move products, not minutes</span></span></span></span>
         <h2>What we move. <em>Daily.</em></h2>
       </div>
       <p class="note">Seven lines out of the station. Each one gets your business somewhere it couldn't get on its own. We don't do operational consulting — that's not our thing.</p>
@@ -1737,14 +4150,14 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   <svg class="thread-canvas" id="thread-services" preserveAspectRatio="none"></svg>
 </section>
 
-<!-- v2.14 · removed #work and #culture sections — Ishant carousel + Featured Cases now carry case-study weight inside #our-people. Train marquee returns when video/PNG/3D assets land. -->
+<!-- v2.14 · removed #work and #culture sections — Ishant carousel + Featured Cases now carry case-study weight inside #cases. Train marquee returns when video/PNG/3D assets land. -->
 
 <!-- =================== ABOUT =================== -->
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="lead">
-        <span class="sec-tag" style="--accent:var(--pink)"><span class="bullet" style="background:var(--pink)">AU</span><span class="name" data-flip="MOSTLY PUNCTUAL">About</span><span class="stop">LINE 06 · STOP 04</span></span>
+        <span class="sec-tag" style="--accent:var(--pink)"><span class="flap-card"><span class="flap-side flap-front"><span class="bullet" style="background:var(--pink)">AU</span><span class="name">About</span><span class="meta">Since 2020 · Delhi · Bombay · Bangalore</span></span><span class="flap-side flap-back"><span class="bullet" style="background:var(--pink)">AU</span><span class="name">Mostly Punctual</span><span class="meta">Founded in Delhi NCR</span></span></span></span>
         <h2>A small studio with <em>a big timetable.</em></h2>
       </div>
       <p class="note">Process-based, integrated, impact-oriented. Mostly, punctual.</p>
@@ -1828,19 +4241,6 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
 <!-- =================== FOOTER · TERMINUS =================== -->
 <footer id="contact">
   <div class="wrap">
-    <div class="terminus">
-      <div class="t-tag"><b>TERMINUS</b> · every line ends here</div>
-      <h2>The next stop <em>is yours.</em></h2>
-      <p class="t-sub">End of the line for the tour. Start of the line for your brand. Drop us a note and we'll set a departure time.</p>
-      <div class="t-stops">
-        <span>Board</span>
-        <span>Our People</span>
-        <span>Services</span>
-        <span>About</span>
-        <span class="now">Terminus</span>
-      </div>
-    </div>
-
     <div class="contact">
       <div>
         <span class="title">Get in Touch</span>
@@ -2981,7 +5381,7 @@ window.addEventListener('resize', queueTick);
 // run once so the initial state is correct
 scrollTick();
 
-const sectionIds = ['our-people','featured-cases','selected-clients','brand-partners','services','about','contact'];
+const sectionIds = ['cases','featured-cases','selected-clients','brand-partners','roster','services','about','contact'];
 const links = document.querySelectorAll('.nav ul a');
 const navObs = new IntersectionObserver((entries)=>{
   entries.forEach(en=>{
@@ -3071,7 +5471,8 @@ function buildThreads(){
 
   const sections = [
     { el: document.querySelector('.hero'),         svg: document.getElementById('thread-hero'),       vis:'solid' },
-    { el: document.getElementById('our-people'),   svg: document.getElementById('thread-our-people'), vis:'solid' },
+    { el: document.getElementById('cases'),    svg: document.getElementById('thread-cases'),    vis:'solid' },
+    { el: document.getElementById('roster'),   svg: document.getElementById('thread-roster'),   vis:'solid' },
     { el: document.getElementById('services'),     svg: document.getElementById('thread-services'),   vis:'solid' },
     { el: document.getElementById('about'),        svg: document.getElementById('thread-about'),      vis:'ghost' }
   ];
@@ -3157,7 +5558,8 @@ window.addEventListener('resize', ()=>{ clearTimeout(rsT); rsT = setTimeout(()=>
    ============================================================ */
 
 const stopMeta = {
-  'our-people':       { code:'RS', name:'Roster',         color:'var(--royal)'  },
+  'cases':            { code:'CS', name:'Cases',          color:'var(--gold)'   },
+  'roster':           { code:'RT', name:'The Roster',     color:'var(--royal)'  },
   'featured-cases':   { code:'CS', name:'Featured Cases', color:'var(--gold)'   },
   'selected-clients': { code:'HC', name:'Hospitality',    color:'var(--green)'  },
   'brand-partners':   { code:'BP', name:'Brand Partners', color:'var(--purple)' },
@@ -3170,7 +5572,7 @@ const stopMeta = {
 // it's the terminus, the rail represents en-route stops)
 const railEl = document.getElementById('station-rail');
 if (railEl) {
-  const railOrder = ['our-people','featured-cases','selected-clients','brand-partners','services','about'];
+  const railOrder = ['cases','featured-cases','roster','selected-clients','brand-partners','services','about'];
   railEl.innerHTML = '<span class="rail-track"></span>' + railOrder.map(id => {
     const m = stopMeta[id];
     return `<a class="rail-stop" data-section="${id}" href="#${id}" aria-label="Jump to ${m.name}">
@@ -3215,7 +5617,7 @@ const stopObs = new IntersectionObserver((entries)=>{
     announceStop(id);
   }
 }, {threshold:[0.35, 0.6]});
-['our-people','featured-cases','selected-clients','brand-partners','services','about','contact'].forEach(id=>{
+['cases','featured-cases','roster','selected-clients','brand-partners','services','about','contact'].forEach(id=>{
   const el = document.getElementById(id);
   if (el) stopObs.observe(el);
 });
@@ -5089,5 +7491,283 @@ window.addEventListener('mousemove', e => {
      ===================================================================== -->
 
 
+
+<script>
+/* v2.59 · CASE HERO BROADSIDE INIT — START */
+/* Stamps data-file ("01"/"02"/...) onto every .cd-hero-collage so the
+   ghost FILE № numeral renders, and wraps the run of .cdh-creator child
+   elements in a .cdh-rail flex container so they sit on the bottom rail
+   instead of being scattered absolute-positioned circles.
+
+   Inline position styles on each chip (bottom/right/top/left/width/height/
+   font-size) are stripped so the broadside CSS can recompose them as
+   typeset chips. Inline `background:` and `color:` survive — those carry
+   the per-case colour story and must not be lost.
+
+   Runs once on DOMContentLoaded. Idempotent via dataset.file. */
+(function initCaseHeroBroadside(){
+  function run(){
+    document.querySelectorAll('.case-dialog').forEach((dlg, i) => {
+      const collage = dlg.querySelector('.cd-hero-collage');
+      if (!collage || collage.dataset.file) return;
+      collage.dataset.file = String(i + 1).padStart(2, '0');
+      const chips = Array.from(collage.children).filter(c => c.classList && c.classList.contains('cdh-creator'));
+      if (!chips.length) return;
+      const rail = document.createElement('div');
+      rail.className = 'cdh-rail';
+      rail.setAttribute('aria-label', 'Case roster');
+      chips[0].parentNode.insertBefore(rail, chips[0]);
+      chips.forEach(chip => {
+        ['bottom','right','top','left','width','height','font-size'].forEach(p => chip.style.removeProperty(p));
+        rail.appendChild(chip);
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+/* v2.59 · CASE HERO BROADSIDE INIT — END */
+</script>
+
+<script>
+/* v2.60 · DOSSIER CAROUSEL INIT — START */
+/* Rotates one .fc-card in the .fc-stage at a time.
+   · Auto-advance every 6500ms
+   · Pause when pointer is over the stage; resume after mouseleave
+   · Pause when prev/next/dot is focused or clicked; resume after 8s idle
+   · Click the active card → opens the modal (existing initCaseDialogs handler)
+   · Idempotent · guards via dataset.fcStageInit                            */
+(function initFeaturedCasesCarousel(){
+  function run(){
+    document.querySelectorAll('[data-fc-stage]').forEach(stage => {
+      if (stage.dataset.fcStageInit) return;
+      stage.dataset.fcStageInit = '1';
+
+      const grid  = stage.querySelector('.fc-grid');
+      const cards = grid ? Array.from(grid.querySelectorAll('.fc-card')) : [];
+      if (!cards.length) return;
+
+      // Find the controls bar (sibling of the stage)
+      const root = stage.parentElement;
+      const controls = root ? root.querySelector('[data-fc-controls]') : null;
+      const counterNow = root ? root.querySelector('#fc-now') : null;
+      const counterTot = root ? root.querySelector('#fc-total') : null;
+      const dotsRoot   = root ? root.querySelector('#fc-dots') : null;
+      const prevBtn    = stage.querySelector('.fc-prev');
+      const nextBtn    = stage.querySelector('.fc-next');
+
+      if (counterTot) counterTot.textContent = String(cards.length).padStart(2, '0');
+
+      // Build dots
+      if (dotsRoot){
+        dotsRoot.innerHTML = '';
+        cards.forEach((card, i) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.setAttribute('role','tab');
+          b.setAttribute('aria-label', `Go to case ${i+1}`);
+          b.addEventListener('click', () => goTo(i, true));
+          dotsRoot.appendChild(b);
+        });
+      }
+      const dots = dotsRoot ? Array.from(dotsRoot.querySelectorAll('button')) : [];
+
+      let idx = 0;
+      let timer = null;
+      let resumeTimer = null;
+      const ADVANCE_MS = 6500;
+      const RESUME_AFTER_INTERACTION_MS = 8000;
+
+      function setActive(i){
+        const prev = idx;
+        idx = (i + cards.length) % cards.length;
+        cards.forEach((c, k) => {
+          c.classList.remove('is-active', 'is-leaving');
+          if (k === idx) c.classList.add('is-active');
+          else if (k === prev) c.classList.add('is-leaving');
+        });
+        dots.forEach((d, k) => d.classList.toggle('is-active', k === idx));
+        if (counterNow) counterNow.textContent = String(idx + 1).padStart(2, '0');
+      }
+      function goTo(i, isUserAction){
+        setActive(i);
+        if (isUserAction){
+          stop();
+          clearTimeout(resumeTimer);
+          resumeTimer = setTimeout(start, RESUME_AFTER_INTERACTION_MS);
+        }
+      }
+      function next(isUserAction){ goTo(idx + 1, isUserAction); }
+      function prev(isUserAction){ goTo(idx - 1, isUserAction); }
+      function start(){
+        stop();
+        timer = setInterval(() => next(false), ADVANCE_MS);
+      }
+      function stop(){
+        if (timer) { clearInterval(timer); timer = null; }
+      }
+
+      // Wire nav buttons
+      if (prevBtn) prevBtn.addEventListener('click', () => prev(true));
+      if (nextBtn) nextBtn.addEventListener('click', () => next(true));
+
+      // Pause on hover anywhere over the stage
+      stage.addEventListener('mouseenter', stop);
+      stage.addEventListener('mouseleave', () => { clearTimeout(resumeTimer); start(); });
+
+      // Pause on focus-within (keyboard accessibility)
+      stage.addEventListener('focusin', stop);
+      stage.addEventListener('focusout', () => { clearTimeout(resumeTimer); resumeTimer = setTimeout(start, RESUME_AFTER_INTERACTION_MS); });
+
+      // Pause when the tab is not visible (saves CPU + avoids weird snap-back)
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop();
+        else start();
+      });
+
+      // Reduced-motion users get the first card and no rotation
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      setActive(0);
+      if (!reduce) start();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+/* v2.60 · DOSSIER CAROUSEL INIT — END */
+</script>
+
+<script>
+/* v2.62 · 3UP CAROUSEL JS — START */
+/* Augments the v2.60 single-card carousel with 3-up coverflow logic.
+   FIX (v2.62b): MutationObserver caused a feedback loop because applyTriple
+   modifies is-prev/is-next, which fired the observer, which re-ran apply.
+   Replaced with a 100ms poll that only re-runs when the is-active INDEX
+   has changed. applyTriple never touches is-active, so no loop possible. */
+(function init3UpCases(){
+  function applyTriple(grid){
+    const cards = Array.from(grid.querySelectorAll('.fc-card'));
+    if (!cards.length) return -1;
+    let activeIdx = cards.findIndex(c => c.classList.contains('is-active'));
+    if (activeIdx < 0) activeIdx = 0;
+    const prevIdx = (activeIdx - 1 + cards.length) % cards.length;
+    const nextIdx = (activeIdx + 1) % cards.length;
+    cards.forEach((c, i) => {
+      const wantPrev = (i === prevIdx && i !== activeIdx);
+      const wantNext = (i === nextIdx && i !== activeIdx);
+      // Only toggle if the desired state differs from current — avoids
+      // pointless DOM writes.
+      if (c.classList.contains('is-prev') !== wantPrev) {
+        c.classList.toggle('is-prev', wantPrev);
+      }
+      if (c.classList.contains('is-next') !== wantNext) {
+        c.classList.toggle('is-next', wantNext);
+      }
+    });
+    return activeIdx;
+  }
+
+  function setupStage(stage){
+    if (stage.dataset.fc3upInit) return;
+    stage.dataset.fc3upInit = '1';
+
+    const grid = stage.querySelector('.fc-grid');
+    if (!grid) return;
+
+    let lastActive = -2;  // -2 forces first apply
+    function tick(){
+      const cards = Array.from(grid.querySelectorAll('.fc-card'));
+      if (!cards.length) return;
+      const activeIdx = cards.findIndex(c => c.classList.contains('is-active'));
+      if (activeIdx !== lastActive) {
+        lastActive = applyTriple(grid);
+      }
+    }
+
+    // Initial apply, then poll cheaply for is-active changes
+    setTimeout(tick, 0);
+    setInterval(tick, 100);
+
+    // Capture-phase click handler on each card · intercept side-card clicks
+    grid.querySelectorAll('.fc-card').forEach((card) => {
+      card.addEventListener('click', e => {
+        if (card.classList.contains('is-active')) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        const cards = Array.from(grid.querySelectorAll('.fc-card'));
+        const clickedIdx = cards.indexOf(card);
+        if (clickedIdx < 0) return;
+        // Reuse v2.60's dot-button to advance — keeps auto-advance pause logic
+        const dotsRoot = stage.parentElement
+          ? stage.parentElement.querySelector('#fc-dots')
+          : null;
+        if (dotsRoot) {
+          const targetDot = dotsRoot.querySelectorAll('button')[clickedIdx];
+          if (targetDot) targetDot.click();
+        }
+      }, true);
+    });
+  }
+
+  function run(){
+    document.querySelectorAll('[data-fc-stage]').forEach(setupStage);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+/* v2.62 · 3UP CAROUSEL JS — END */
+</script>
+
+<script>
+/* v2.71 · THREADS PARALLAX — START */
+/* Translate each .thread-canvas a few pixels based on the cursor position
+   inside its parent section. Subtle — like silk strings gently pulled. */
+(function initThreadsParallax(){
+  function setup(){
+    document.querySelectorAll('.hero, section').forEach(sec => {
+      const canvas = sec.querySelector('.thread-canvas');
+      if (!canvas || canvas.dataset.parallaxInit) return;
+      canvas.dataset.parallaxInit = '1';
+
+      let raf = null;
+      function onMove(e){
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          const rect = sec.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          canvas.style.transform = `translate(${(x * 16).toFixed(1)}px, ${(y * 10).toFixed(1)}px)`;
+          raf = null;
+        });
+      }
+      function onLeave(){
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
+        canvas.style.transform = '';
+      }
+
+      sec.addEventListener('mousemove', onMove);
+      sec.addEventListener('mouseleave', onLeave);
+    });
+  }
+
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setup);
+  } else {
+    setup();
+  }
+})();
+/* v2.71 · THREADS PARALLAX — END */
+</script>
 </body>
 </html>
