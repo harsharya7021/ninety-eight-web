@@ -1165,13 +1165,6 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
   body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{padding:0 10px;font-size:9px}
 }
 /* v2.48 · FLAP — END */
-
-/* v2.54 · HIDE JOURNAL — START */
-/* Hides the "From the Journal · Read next →" rail inside every case-modal.
-   Reversal: simply delete this block (between the START / END comments)
-   and re-add the Journal nav link in the main <ul>.                     */
-.cd-readnext{ display:none !important }
-/* v2.54 · HIDE JOURNAL — END */
 </style>
 </head>
 <body data-sectag="flap">
@@ -1578,6 +1571,41 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
             </div>
           </a>
 
+        </div>
+      </div>
+
+      <!-- v2.31 · Pop-Culture / Journal — Esquire-style article cards with
+           placeholder titles. Long-form pieces on culture, brand, generation. -->
+      <div class="ws-block reveal" id="pop-culture">
+        <div class="ws-head">
+          <h3>Pop-Culture · The Journal</h3>
+          <span class="ws-count">Long-form notes from the studio</span>
+        </div>
+        <div class="pc-grid">
+          <a class="pc-card" href="#journal-don-draper">
+            <span class="pc-kicker">Brand · Archetypes</span>
+            <h4 class="pc-title">[ Placeholder title — Don Draper as a Gen-Z brand brief. ]</h4>
+            <p class="pc-deck">[ Placeholder dek — what an ad agency on Madison Avenue circa 1965 still gets right about culture, and where it falls short. ]</p>
+            <span class="pc-meta">Read · 8 min</span>
+          </a>
+          <a class="pc-card" href="#journal-2001">
+            <span class="pc-kicker">Film · Future</span>
+            <h4 class="pc-title">[ Placeholder title — 2001: A Space Odyssey for the marketer who has lost the plot. ]</h4>
+            <p class="pc-deck">[ Placeholder dek — Kubrick's silence as brief. The monolith as KPI. ]</p>
+            <span class="pc-meta">Read · 6 min</span>
+          </a>
+          <a class="pc-card" href="#journal-yeezy">
+            <span class="pc-kicker">Fashion · Collab</span>
+            <h4 class="pc-title">[ Placeholder title — Adidas × YEEZY and what brand–talent equity actually looks like. ]</h4>
+            <p class="pc-deck">[ Placeholder dek — when a partnership stops being a campaign and becomes a balance sheet. ]</p>
+            <span class="pc-meta">Read · 9 min</span>
+          </a>
+          <a class="pc-card" href="#journal-ferragamo">
+            <span class="pc-kicker">Heritage · Reset</span>
+            <h4 class="pc-title">[ Placeholder title — The Ferragamo reset and the patience of luxury. ]</h4>
+            <p class="pc-deck">[ Placeholder dek — what a 100-year-old house teaches a six-month-old D2C. ]</p>
+            <span class="pc-meta">Read · 7 min</span>
+          </a>
         </div>
       </div>
 
