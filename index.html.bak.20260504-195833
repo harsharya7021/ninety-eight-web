@@ -1172,13 +1172,6 @@ body[data-sectag="flap"] .sec-head .lead .sec-tag .stop{
    and re-add the Journal nav link in the main <ul>.                     */
 .cd-readnext{ display:none !important }
 /* v2.54 · HIDE JOURNAL — END */
-
-/* v2.55a · TRAIN STRIPE ALIGN — START */
-/* Drop the train so its blue stripe (mid-height) lands on the section-line. */
-.train-img{ bottom:-320px }
-@media (max-width:980px){ .train-img{ bottom:-240px } }
-@media (max-width:780px){ .train-img{ bottom:-170px } }
-/* v2.55a · TRAIN STRIPE ALIGN — END */
 </style>
 </head>
 <body data-sectag="flap">
@@ -3604,7 +3597,7 @@ window.addEventListener('mousemove', e => {
     // v2.25 · slow + extended: tracking window covers strip + 150% of next viewport,
     // so the train keeps moving after the strip has exited and only fully clears the
     // screen once the next section is well into view.
-    const extra = 0; // v2.55b · train whizzes past before our-roster
+    const extra = vh * 1.5;
     const windowH = vh + rect.height + extra;
     const currentDist = vh - rect.top;
     const progress = Math.max(0, Math.min(1, currentDist / windowH));

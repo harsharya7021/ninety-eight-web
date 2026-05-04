@@ -3604,7 +3604,7 @@ window.addEventListener('mousemove', e => {
     // v2.25 · slow + extended: tracking window covers strip + 150% of next viewport,
     // so the train keeps moving after the strip has exited and only fully clears the
     // screen once the next section is well into view.
-    const extra = 0; // v2.55b · train whizzes past before our-roster
+    const extra = vh * 1.5;
     const windowH = vh + rect.height + extra;
     const currentDist = vh - rect.top;
     const progress = Math.max(0, Math.min(1, currentDist / windowH));
