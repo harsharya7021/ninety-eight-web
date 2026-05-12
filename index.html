@@ -3385,8 +3385,7 @@ section:hover .thread-canvas path{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-2deg);
   width:280px;max-width:88%;height:auto;
   filter:drop-shadow(2px 4px 0 rgba(0,0,0,.18));
-  animation:hm-jitter .3s steps(2,end) infinite;
-}
+  }
 .hmf-stamp-real{display:flex;align-items:center;justify-content:center}
 .hmf-stamp-real .stamp-img{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-2deg);
@@ -3401,19 +3400,29 @@ section:hover .thread-canvas path{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
   width:340px;height:120px;border-radius:50%;
   background:rgba(31,77,140,.12);filter:blur(14px);
-  animation:hm-jitter .3s steps(2,end) infinite;
-}
+  }
 /* v2.77c · 98 outline — properly centered, no label bleed */
 .hmf-type .brand-outline{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
   width:240px;max-width:80%;height:auto;
   z-index:2;
-  animation:hm-jitter .3s steps(2,end) infinite;
   filter:invert(1) brightness(.08);
 }
 /* Belt-and-braces: any .sub inside frame 13 (legacy or otherwise) is hidden */
 .hmf-type .sub{display:none !important}
 /* v2.77b · MONTAGE ARTIFACTS — END */
+
+/* v2.77d · ARTIFACT CENTERING GUARD — START */
+.hmf-patch .patch-img,
+.hmf-type .brand-outline{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  /* No jitter on the image itself — the parent .hm-art jitters; the child inherits. */
+}
+.hmf-patch .patch-img{transform:translate(-50%,-50%) rotate(-2deg) !important}
+.hmf-type .brand-outline{transform:translate(-50%,-50%) !important}
+/* v2.77d · ARTIFACT CENTERING GUARD — END */
 </style>
 
 <!-- v2.72 · OG META — START -->
