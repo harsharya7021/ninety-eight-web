@@ -1281,27 +1281,29 @@ body[data-hero-aside="ticker"]    .hero-aside[data-aside="ticker"]{display:flex}
    We use steps(1) so frames cut, not crossfade. */
 .hm-frame{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  opacity:0;animation:hm-cycle 20s steps(1,end) infinite;
+  opacity:0;animation:hm-cycle 22.5s steps(1,end) infinite;
 }
 .hm-frame:nth-of-type(1) {animation-delay:0s}
 .hm-frame:nth-of-type(2) {animation-delay:-1.25s}
 .hm-frame:nth-of-type(3) {animation-delay:-2.5s}
 .hm-frame:nth-of-type(4) {animation-delay:-3.75s}
-.hm-frame:nth-of-type(5) {animation-delay:-5s}
+.hm-frame:nth-of-type(5) {animation-delay:-5.0s}
 .hm-frame:nth-of-type(6) {animation-delay:-6.25s}
 .hm-frame:nth-of-type(7) {animation-delay:-7.5s}
 .hm-frame:nth-of-type(8) {animation-delay:-8.75s}
-.hm-frame:nth-of-type(9) {animation-delay:-10s}
+.hm-frame:nth-of-type(9) {animation-delay:-10.0s}
 .hm-frame:nth-of-type(10){animation-delay:-11.25s}
 .hm-frame:nth-of-type(11){animation-delay:-12.5s}
 .hm-frame:nth-of-type(12){animation-delay:-13.75s}
-.hm-frame:nth-of-type(13){animation-delay:-15s}
+.hm-frame:nth-of-type(13){animation-delay:-15.0s}
 .hm-frame:nth-of-type(14){animation-delay:-16.25s}
 .hm-frame:nth-of-type(15){animation-delay:-17.5s}
 .hm-frame:nth-of-type(16){animation-delay:-18.75s}
+.hm-frame:nth-of-type(17){animation-delay:-20.0s}
+.hm-frame:nth-of-type(18){animation-delay:-21.25s}
 @keyframes hm-cycle{
-  0%, 6.25% {opacity:1}     /* visible 1.25s of the 20s cycle */
-  6.26%, 100% {opacity:0}
+  0%, 5.55% {opacity:1}     /* visible 1.25s of the 22.5s cycle */
+  5.56%, 100% {opacity:0}
 }
 /* per-frame inner motion — choppy, 8fps feel via steps */
 .hm-frame .hm-art{position:relative;width:78%;max-width:300px;animation:hm-jitter .3s steps(2,end) infinite}
@@ -3266,7 +3268,178 @@ section:hover .thread-canvas path{
   }
 }
 /* v2.71 · THREADS COOLNESS — END */
+
+/* v2.72 · MOBILE QA — START */
+/* Touch devices · :hover doesn't behave on tap, so add a tap-toggle class */
+@media (hover:none) and (pointer:coarse){
+  /* Disable hover-based flap flip on touch */
+  body[data-sectag="flap"] .sec-head .lead .sec-tag:hover .flap-card{
+    transform:none;
+  }
+  /* Use tap-toggled .is-flipped class instead */
+  body[data-sectag="flap"] .sec-head .lead .sec-tag.is-flipped .flap-card{
+    transform:rotateX(180deg);
+  }
+  /* Disable threads-parallax on touch — mousemove fires erratically there */
+  .thread-canvas{ transform:none !important; }
+  /* The hover-saturate on .thread-canvas can stay; tap also fires :hover */
+}
+/* v2.72 · MOBILE QA — END */
+
+/* v2.72 · CONTACT FORM — START */
+.contact .cta-form{
+  margin-top:26px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  max-width:560px;
+}
+.contact .cta-form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+@media (max-width:540px){
+  .contact .cta-form-row{ grid-template-columns:1fr }
+}
+.contact .cta-form label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font:500 11px/1 var(--mono);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(244,239,224,.62);
+}
+.contact .cta-form-label{
+  display:block;
+}
+.contact .cta-form input,
+.contact .cta-form textarea{
+  font:500 14px/1.4 var(--display);
+  background:rgba(244,239,224,.06);
+  color:var(--paper);
+  border:1px solid rgba(244,239,224,.18);
+  border-radius:6px;
+  padding:12px 14px;
+  width:100%;
+  outline:none;
+  transition:border-color .25s var(--ease), background .25s var(--ease);
+  letter-spacing:0;
+  text-transform:none;
+  font-weight:400;
+}
+.contact .cta-form input::placeholder,
+.contact .cta-form textarea::placeholder{
+  color:rgba(244,239,224,.32);
+}
+.contact .cta-form input:focus,
+.contact .cta-form textarea:focus{
+  border-color:var(--gold);
+  background:rgba(244,239,224,.1);
+}
+.contact .cta-form textarea{
+  resize:vertical;
+  min-height:112px;
+}
+.contact .cta-form-submit{
+  align-self:flex-start;
+  margin-top:6px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 22px;
+  background:var(--gold);
+  color:var(--carbon);
+  border:0;
+  border-radius:999px;
+  font:800 13px/1 var(--display);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:transform .3s var(--ease), background .3s var(--ease);
+}
+.contact .cta-form-submit:hover{
+  transform:translateY(-2px);
+  background:#fff;
+}
+.contact .cta-form-submit svg{
+  transition:transform .3s var(--ease);
+}
+.contact .cta-form-submit:hover svg{
+  transform:translate(3px,-3px);
+}
+.contact .cta-form-fineprint{
+  margin:6px 0 0;
+  font:500 11px/1.4 var(--mono);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(244,239,224,.42);
+}
+/* v2.72 · CONTACT FORM — END */
+
+
+/* v2.77b · MONTAGE ARTIFACTS — START */
+/* Real-artifact frames. Image-based, transparent backgrounds. */
+.hmf-patch .patch-img{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-2deg);
+  width:280px;max-width:88%;height:auto;
+  filter:drop-shadow(2px 4px 0 rgba(0,0,0,.18));
+  animation:hm-jitter .3s steps(2,end) infinite;
+}
+.hmf-stamp-real{display:flex;align-items:center;justify-content:center}
+.hmf-stamp-real .stamp-img{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-2deg);
+  width:300px;max-width:90%;height:auto;
+  animation:hm-stamp-down .6s steps(3,end) infinite alternate;
+}
+@keyframes hm-stamp-down{
+  0%  {transform:translate(-50%,-58%) rotate(-2deg) scale(1.03)}
+  100%{transform:translate(-50%,-50%) rotate(-2deg) scale(1.0)}
+}
+.hmf-stamp-real .ink-halo{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:340px;height:120px;border-radius:50%;
+  background:rgba(31,77,140,.12);filter:blur(14px);
+  animation:hm-jitter .3s steps(2,end) infinite;
+}
+/* The 98 outline upgrades the existing TYPOGRAPHY beat (frame 13). */
+.hmf-type .brand-outline{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);
+  width:200px;max-width:72%;height:auto;
+  animation:hm-jitter .3s steps(2,end) infinite;
+  /* Filter inverts to off-cream on the cream paper bg */
+  filter:invert(1) brightness(.08);
+}
+.hmf-type .brand-outline + .sub{
+  position:absolute;left:50%;bottom:14px;transform:translateX(-50%);
+  font:600 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate);
+}
+/* v2.77b · MONTAGE ARTIFACTS — END */
 </style>
+
+<!-- v2.72 · OG META — START -->
+<link rel="canonical" href="https://www.ninety-eight.in/">
+<meta name="theme-color" content="#0E0E10">
+<meta name="author" content="Ninety-Eight Entertainment">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='30' cy='50' r='28' fill='%231F4D8C'/%3E%3Ccircle cx='70' cy='50' r='28' fill='%23DD3D38'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="og.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ninety-Eight Entertainment">
+<meta property="og:title" content="Ninety-Eight — A creative powerhouse. Business partners for hire.">
+<meta property="og:description" content="Strategy, marketing, advertising, execution, financial modeling, market research — for founders who want a partner, not a vendor. Since 2020.">
+<meta property="og:url" content="https://www.ninety-eight.in/">
+<meta property="og:image" content="https://www.ninety-eight.in/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ninety-Eight · two-circle 98 wordmark, tagline, est. 2020">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ninety-Eight — A creative powerhouse. Business partners for hire.">
+<meta name="twitter:description" content="Strategy, marketing, advertising, execution, financial modeling, market research — for founders who want a partner, not a vendor. Since 2020.">
+<meta name="twitter:image" content="https://www.ninety-eight.in/og.png">
+<meta name="twitter:image:alt" content="Ninety-Eight · two-circle 98 wordmark">
+<!-- v2.72 · OG META — END -->
 </head>
 <body data-sectag="flap" data-hero-aside="montage" data-terminus="spaghetti">
 
@@ -3609,11 +3782,11 @@ section:hover .thread-canvas path{
          retail/booth, typography, motion, partnership, ship. -->
     <aside class="hero-aside ha-montage" data-aside="montage" aria-label="Stop-motion montage of work">
       <div class="hm-label">
-        <span><span class="dot"></span>Reel · 0:20 · loop</span>
+        <span><span class="dot"></span>Reel · 0:22 · loop</span>
         <span>// placeholder · stop-motion</span>
       </div>
       <div class="hm-stage" aria-hidden="true">
-        <span class="hm-counter" id="hm-counter">01 / 16</span>
+        <span class="hm-counter" id="hm-counter">01 / 18</span>
 
         <!-- 01 PACKAGING -->
         <div class="hm-frame hmf-pack"><div class="hm-art" style="width:240px;height:240px">
@@ -3706,9 +3879,9 @@ section:hover .thread-canvas path{
           <span class="crowd"></span>
         </div></div>
 
-        <!-- 13 TYPOGRAPHY -->
+        <!-- 13 TYPOGRAPHY · 98 outline (v2.77b) -->
         <div class="hm-frame hmf-type"><div class="hm-art" style="width:280px;height:200px;position:relative">
-          <span class="big">98<i>.</i></span>
+          <img class="brand-outline" src="highlights/artifacts/98-outline-logo.png" alt="Ninety-Eight outline brand mark">
           <span class="sub">// type · in · house</span>
         </div></div>
 
@@ -3729,8 +3902,22 @@ section:hover .thread-canvas path{
           <span class="stamp">'26</span>
         </div></div>
 
+        <!-- v2.77b · MONTAGE ARTIFACTS — START -->
+        <!-- 17 NAME PATCH · the brand introduces itself -->
+        <div class="hm-frame hmf-patch"><div class="hm-art" style="width:300px;height:240px;position:relative">
+          <img class="patch-img" src="highlights/artifacts/hello-im-98-name-patch.png" alt="Hello, I'm Ninety-Eight Entertainment — embroidered name patch">
+        </div></div>
+
+        <!-- 18 STAMP · the official sign-off -->
+        <div class="hm-frame hmf-stamp-real"><div class="hm-art" style="width:340px;height:200px;position:relative">
+          <span class="ink-halo"></span>
+          <img class="stamp-img" src="highlights/artifacts/ninety-eight-entertainment-stamp.png" alt="Ninety-Eight Entertainment — official stamp">
+        </div></div>
+        <!-- v2.77b · MONTAGE ARTIFACTS — END -->
+
+
         <div class="hm-caption">
-          <b>The 98 reel</b><span>// stop-motion · 16 beats · 0:20</span>
+          <b>The 98 reel</b><span>// stop-motion · 18 beats · 0:22</span>
         </div>
       </div>
     </aside>
@@ -3750,7 +3937,7 @@ section:hover .thread-canvas path{
      v2.23 · Transparent strip, bigger train (580px), scroll-driven via JS.
      Rails + station labels removed for a cleaner divider. -->
 <aside class="train-strip" aria-label="The 98 Express — passing through" id="train-strip">
-<img src="Train/train-png-v2-higher-res.png" alt="98 monorail" class="train-img" loading="lazy">
+<img fetchpriority="high" decoding="async" src="Train/train-png-v2-higher-res.png" alt="98 monorail" class="train-img">
 </aside>
 
 <!-- =================== OUR PEOPLE · lifted above Services per v2.14 — case study can't be buried =================== -->
@@ -3782,7 +3969,7 @@ section:hover .thread-canvas path{
       <div class="ic-rail" id="ic-rail" tabindex="0" aria-label="Swipe through chapters">
 
         <article class="ic-slide" data-c="open" style="background:var(--royal)">
-          <img class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%202.png" alt="Ishant Sharma in India Test whites, holding a cricket ball" onerror="this.classList.add('ic-img-missing')">
+          <img decoding="async" class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%202.png" alt="Ishant Sharma in India Test whites, holding a cricket ball" onerror="this.classList.add('ic-img-missing')">
           <div class="ic-text">
             <span class="ic-meta">01 · The Case</span>
             <h3>Ishant Sharma</h3>
@@ -3804,7 +3991,7 @@ section:hover .thread-canvas path{
         </article>
 
         <article class="ic-slide" data-c="rupay" style="background:var(--green)">
-          <img class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%203.png" alt="Ishant Sharma celebrating, arm raised" onerror="this.classList.add('ic-img-missing')">
+          <img decoding="async" class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%203.png" alt="Ishant Sharma celebrating, arm raised" onerror="this.classList.add('ic-img-missing')">
           <div class="ic-text">
             <span class="ic-meta">03 · RuPay × IPL</span>
             <h3>Howzzaaaatt!</h3>
@@ -3822,7 +4009,7 @@ section:hover .thread-canvas path{
         </article>
 
         <article class="ic-slide ic-bridge-slide" data-c="bridge" style="background:var(--red)">
-          <img class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%201.png" alt="Ishant Sharma mid-celebration, INDIA jersey" onerror="this.classList.add('ic-img-missing')">
+          <img decoding="async" class="ic-portrait" loading="lazy" src="Ishant%20images/Layer%201.png" alt="Ishant Sharma mid-celebration, INDIA jersey" onerror="this.classList.add('ic-img-missing')">
           <div class="ic-text">
             <span class="ic-meta" style="color:rgba(244,239,224,.85)">— pivot —</span>
             <h3 style="color:var(--paper)">A campaign was<br>one play.</h3>
@@ -3924,7 +4111,7 @@ section:hover .thread-canvas path{
 
           <a class="fc-card" href="#case-andreas" data-case="andreas" aria-label="Andreas — open case study">
             <span class="fc-stripe" style="background:var(--royal)"></span>
-            <span class="fc-cover"><img loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span>
+            <span class="fc-cover"><img decoding="async" loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span>
             <div class="fc-body">
               <span class="fc-tag"><span class="fc-bullet" style="background:var(--royal)"></span>Hospitality · Fine Dining</span>
               <h4 class="fc-name">Andreas</h4>
@@ -4006,56 +4193,56 @@ section:hover .thread-canvas path{
           <span class="ws-count">Selected hospitality clients</span>
         </div>
         <div class="bt-grid">
-            <a class="bt" href="#" title="Andreas" aria-label="Andreas"><span class="bt-img"><img loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span><span class="bt-name">Andreas</span></a>
-            <a class="bt" href="#" title="Baoji" aria-label="Baoji"><span class="bt-img"><img loading="lazy" src="highlights/Baoji_.png" alt="Baoji cover"></span><span class="bt-name">Baoji</span></a>
-            <a class="bt" href="#" title="Baris GK" aria-label="Baris GK"><span class="bt-img"><img loading="lazy" src="highlights/Baris GK.png" alt="Baris GK cover"></span><span class="bt-name">Baris GK</span></a>
-            <a class="bt" href="#" title="Bayroute" aria-label="Bayroute"><span class="bt-img"><img loading="lazy" src="highlights/Bayroute.png" alt="Bayroute cover"></span><span class="bt-name">Bayroute</span></a>
-            <a class="bt" href="#" title="Boccon Cheeni" aria-label="Boccon Cheeni"><span class="bt-img"><img loading="lazy" src="highlights/Boccon Cheeni.png" alt="Boccon Cheeni cover"></span><span class="bt-name">Boccon Cheeni</span></a>
-            <a class="bt" href="#" title="Butter Room" aria-label="Butter Room"><span class="bt-img"><img loading="lazy" src="highlights/Butter ROOM.png" alt="Butter Room cover"></span><span class="bt-name">Butter Room</span></a>
-            <a class="bt" href="#" title="Crusty Culture" aria-label="Crusty Culture"><span class="bt-img"><img loading="lazy" src="highlights/Crusty Culture_.png" alt="Crusty Culture cover"></span><span class="bt-name">Crusty Culture</span></a>
-            <a class="bt" href="#" title="Deja Brew" aria-label="Deja Brew"><span class="bt-img"><img loading="lazy" src="highlights/Deja Brew_.png" alt="Deja Brew cover"></span><span class="bt-name">Deja Brew</span></a>
-            <a class="bt" href="#" title="Duty Free" aria-label="Duty Free"><span class="bt-img"><img loading="lazy" src="highlights/Duty Free.png" alt="Duty Free cover"></span><span class="bt-name">Duty Free</span></a>
-            <a class="bt" href="#" title="Farzi Cafe" aria-label="Farzi Cafe"><span class="bt-img"><img loading="lazy" src="highlights/farzi.png" alt="Farzi Cafe cover"></span><span class="bt-name">Farzi Cafe</span></a>
-            <a class="bt" href="#" title="Fig" aria-label="Fig"><span class="bt-img"><img loading="lazy" src="highlights/Fig.png" alt="Fig cover"></span><span class="bt-name">Fig</span></a>
-            <a class="bt" href="#" title="Flaunt" aria-label="Flaunt"><span class="bt-img"><img loading="lazy" src="highlights/flaunt.png" alt="Flaunt cover"></span><span class="bt-name">Flaunt</span></a>
-            <a class="bt" href="#" title="Gastronomica" aria-label="Gastronomica"><span class="bt-img"><img loading="lazy" src="highlights/Gastronomica_.png" alt="Gastronomica cover"></span><span class="bt-name">Gastronomica</span></a>
-            <a class="bt" href="#" title="Getafix" aria-label="Getafix"><span class="bt-img"><img loading="lazy" src="highlights/Getafix.png" alt="Getafix cover"></span><span class="bt-name">Getafix</span></a>
-            <a class="bt" href="#" title="Hard Rock Cafe" aria-label="Hard Rock Cafe"><span class="bt-img"><img loading="lazy" src="highlights/Hard Rock Cafe.png" alt="Hard Rock Cafe cover"></span><span class="bt-name">Hard Rock Cafe</span></a>
+            <a class="bt" href="#" title="Andreas" aria-label="Andreas"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Andreas.png" alt="Andreas cover"></span><span class="bt-name">Andreas</span></a>
+            <a class="bt" href="#" title="Baoji" aria-label="Baoji"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Baoji_.png" alt="Baoji cover"></span><span class="bt-name">Baoji</span></a>
+            <a class="bt" href="#" title="Baris GK" aria-label="Baris GK"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Baris GK.png" alt="Baris GK cover"></span><span class="bt-name">Baris GK</span></a>
+            <a class="bt" href="#" title="Bayroute" aria-label="Bayroute"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Bayroute.png" alt="Bayroute cover"></span><span class="bt-name">Bayroute</span></a>
+            <a class="bt" href="#" title="Boccon Cheeni" aria-label="Boccon Cheeni"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Boccon Cheeni.png" alt="Boccon Cheeni cover"></span><span class="bt-name">Boccon Cheeni</span></a>
+            <a class="bt" href="#" title="Butter Room" aria-label="Butter Room"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Butter ROOM.png" alt="Butter Room cover"></span><span class="bt-name">Butter Room</span></a>
+            <a class="bt" href="#" title="Crusty Culture" aria-label="Crusty Culture"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Crusty Culture_.png" alt="Crusty Culture cover"></span><span class="bt-name">Crusty Culture</span></a>
+            <a class="bt" href="#" title="Deja Brew" aria-label="Deja Brew"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Deja Brew_.png" alt="Deja Brew cover"></span><span class="bt-name">Deja Brew</span></a>
+            <a class="bt" href="#" title="Duty Free" aria-label="Duty Free"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Duty Free.png" alt="Duty Free cover"></span><span class="bt-name">Duty Free</span></a>
+            <a class="bt" href="#" title="Farzi Cafe" aria-label="Farzi Cafe"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/farzi.png" alt="Farzi Cafe cover"></span><span class="bt-name">Farzi Cafe</span></a>
+            <a class="bt" href="#" title="Fig" aria-label="Fig"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Fig.png" alt="Fig cover"></span><span class="bt-name">Fig</span></a>
+            <a class="bt" href="#" title="Flaunt" aria-label="Flaunt"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/flaunt.png" alt="Flaunt cover"></span><span class="bt-name">Flaunt</span></a>
+            <a class="bt" href="#" title="Gastronomica" aria-label="Gastronomica"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Gastronomica_.png" alt="Gastronomica cover"></span><span class="bt-name">Gastronomica</span></a>
+            <a class="bt" href="#" title="Getafix" aria-label="Getafix"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Getafix.png" alt="Getafix cover"></span><span class="bt-name">Getafix</span></a>
+            <a class="bt" href="#" title="Hard Rock Cafe" aria-label="Hard Rock Cafe"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Hard Rock Cafe.png" alt="Hard Rock Cafe cover"></span><span class="bt-name">Hard Rock Cafe</span></a>
             <a class="bt is-placeholder" href="#" title="Hitchki" aria-label="Hitchki"><span class="bt-img" style="background:var(--purple)">HI</span><span class="bt-name">Hitchki</span></a>
-            <a class="bt" href="#" title="Hook" aria-label="Hook"><span class="bt-img"><img loading="lazy" src="highlights/Hook.png" alt="Hook cover"></span><span class="bt-name">Hook</span></a>
+            <a class="bt" href="#" title="Hook" aria-label="Hook"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Hook.png" alt="Hook cover"></span><span class="bt-name">Hook</span></a>
             <a class="bt is-placeholder" href="#" title="Imperfecto" aria-label="Imperfecto"><span class="bt-img" style="background:var(--pink)">IM</span><span class="bt-name">Imperfecto</span></a>
-            <a class="bt" href="#" title="Iskate by Roseate" aria-label="Iskate by Roseate"><span class="bt-img"><img loading="lazy" src="highlights/iskate by roseate.png" alt="Iskate by Roseate cover"></span><span class="bt-name">Iskate by Roseate</span></a>
+            <a class="bt" href="#" title="Iskate by Roseate" aria-label="Iskate by Roseate"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/iskate by roseate.png" alt="Iskate by Roseate cover"></span><span class="bt-name">Iskate by Roseate</span></a>
             <a class="bt is-placeholder" href="#" title="Khubani" aria-label="Khubani"><span class="bt-img" style="background:var(--gold)">KH</span><span class="bt-name">Khubani</span></a>
-            <a class="bt" href="#" title="Kleo" aria-label="Kleo"><span class="bt-img"><img loading="lazy" src="highlights/Kleo_.png" alt="Kleo cover"></span><span class="bt-name">Kleo</span></a>
-            <a class="bt" href="#" title="La Roca" aria-label="La Roca"><span class="bt-img"><img loading="lazy" src="highlights/La Roca.png" alt="La Roca cover"></span><span class="bt-name">La Roca</span></a>
-            <a class="bt" href="#" title="Limitless Cookhouse" aria-label="Limitless Cookhouse"><span class="bt-img"><img loading="lazy" src="highlights/Limitless cookhouse.png" alt="Limitless Cookhouse cover"></span><span class="bt-name">Limitless Cookhouse</span></a>
-            <a class="bt" href="#" title="Local" aria-label="Local"><span class="bt-img"><img loading="lazy" src="highlights/Local_.png" alt="Local cover"></span><span class="bt-name">Local</span></a>
-            <a class="bt" href="#" title="Madam Chutney" aria-label="Madam Chutney"><span class="bt-img"><img loading="lazy" src="highlights/Madam Chutney_.png" alt="Madam Chutney cover"></span><span class="bt-name">Madam Chutney</span></a>
-            <a class="bt" href="#" title="Mai Bao" aria-label="Mai Bao"><span class="bt-img"><img loading="lazy" src="highlights/Mai Bao_.png" alt="Mai Bao cover"></span><span class="bt-name">Mai Bao</span></a>
+            <a class="bt" href="#" title="Kleo" aria-label="Kleo"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Kleo_.png" alt="Kleo cover"></span><span class="bt-name">Kleo</span></a>
+            <a class="bt" href="#" title="La Roca" aria-label="La Roca"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/La Roca.png" alt="La Roca cover"></span><span class="bt-name">La Roca</span></a>
+            <a class="bt" href="#" title="Limitless Cookhouse" aria-label="Limitless Cookhouse"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Limitless cookhouse.png" alt="Limitless Cookhouse cover"></span><span class="bt-name">Limitless Cookhouse</span></a>
+            <a class="bt" href="#" title="Local" aria-label="Local"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Local_.png" alt="Local cover"></span><span class="bt-name">Local</span></a>
+            <a class="bt" href="#" title="Madam Chutney" aria-label="Madam Chutney"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Madam Chutney_.png" alt="Madam Chutney cover"></span><span class="bt-name">Madam Chutney</span></a>
+            <a class="bt" href="#" title="Mai Bao" aria-label="Mai Bao"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Mai Bao_.png" alt="Mai Bao cover"></span><span class="bt-name">Mai Bao</span></a>
             <a class="bt is-placeholder" href="#" title="Miss Doozy" aria-label="Miss Doozy"><span class="bt-img" style="background:var(--red)">MD</span><span class="bt-name">Miss Doozy</span></a>
-            <a class="bt" href="#" title="Molecule" aria-label="Molecule"><span class="bt-img"><img loading="lazy" src="highlights/Molecule_.png" alt="Molecule cover"></span><span class="bt-name">Molecule</span></a>
-            <a class="bt" href="#" title="Monet" aria-label="Monet"><span class="bt-img"><img loading="lazy" src="highlights/Monet.png" alt="Monet cover"></span><span class="bt-name">Monet</span></a>
-            <a class="bt" href="#" title="Nao by Bercos" aria-label="Nao by Bercos"><span class="bt-img"><img loading="lazy" src="highlights/Nao By Bercos_.png" alt="Nao by Bercos cover"></span><span class="bt-name">Nao by Bercos</span></a>
+            <a class="bt" href="#" title="Molecule" aria-label="Molecule"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Molecule_.png" alt="Molecule cover"></span><span class="bt-name">Molecule</span></a>
+            <a class="bt" href="#" title="Monet" aria-label="Monet"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Monet.png" alt="Monet cover"></span><span class="bt-name">Monet</span></a>
+            <a class="bt" href="#" title="Nao by Bercos" aria-label="Nao by Bercos"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Nao By Bercos_.png" alt="Nao by Bercos cover"></span><span class="bt-name">Nao by Bercos</span></a>
             <a class="bt is-placeholder" href="#" title="One8 Commune" aria-label="One8 Commune"><span class="bt-img" style="background:var(--pink)">OC</span><span class="bt-name">One8 Commune</span></a>
-            <a class="bt" href="#" title="Ophelia" aria-label="Ophelia"><span class="bt-img"><img loading="lazy" src="highlights/Ophelia.png" alt="Ophelia cover"></span><span class="bt-name">Ophelia</span></a>
-            <a class="bt" href="#" title="Pa Pa Ya" aria-label="Pa Pa Ya"><span class="bt-img"><img loading="lazy" src="highlights/Pa Pa Ya.png" alt="Pa Pa Ya cover"></span><span class="bt-name">Pa Pa Ya</span></a>
-            <a class="bt" href="#" title="Poetry" aria-label="Poetry"><span class="bt-img"><img loading="lazy" src="highlights/Poetry_.png" alt="Poetry cover"></span><span class="bt-name">Poetry</span></a>
-            <a class="bt" href="#" title="Pot Pot" aria-label="Pot Pot"><span class="bt-img"><img loading="lazy" src="highlights/Pot Pot_.png" alt="Pot Pot cover"></span><span class="bt-name">Pot Pot</span></a>
-            <a class="bt" href="#" title="Rang Punjab" aria-label="Rang Punjab"><span class="bt-img"><img loading="lazy" src="highlights/Rang Punjab.png" alt="Rang Punjab cover"></span><span class="bt-name">Rang Punjab</span></a>
-            <a class="bt" href="#" title="Rizq" aria-label="Rizq"><span class="bt-img"><img loading="lazy" src="highlights/Rizq.png" alt="Rizq cover"></span><span class="bt-name">Rizq</span></a>
+            <a class="bt" href="#" title="Ophelia" aria-label="Ophelia"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Ophelia.png" alt="Ophelia cover"></span><span class="bt-name">Ophelia</span></a>
+            <a class="bt" href="#" title="Pa Pa Ya" aria-label="Pa Pa Ya"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Pa Pa Ya.png" alt="Pa Pa Ya cover"></span><span class="bt-name">Pa Pa Ya</span></a>
+            <a class="bt" href="#" title="Poetry" aria-label="Poetry"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Poetry_.png" alt="Poetry cover"></span><span class="bt-name">Poetry</span></a>
+            <a class="bt" href="#" title="Pot Pot" aria-label="Pot Pot"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Pot Pot_.png" alt="Pot Pot cover"></span><span class="bt-name">Pot Pot</span></a>
+            <a class="bt" href="#" title="Rang Punjab" aria-label="Rang Punjab"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Rang Punjab.png" alt="Rang Punjab cover"></span><span class="bt-name">Rang Punjab</span></a>
+            <a class="bt" href="#" title="Rizq" aria-label="Rizq"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Rizq.png" alt="Rizq cover"></span><span class="bt-name">Rizq</span></a>
             <a class="bt is-placeholder" href="#" title="Romeo Lane" aria-label="Romeo Lane"><span class="bt-img" style="background:var(--gold)">RL</span><span class="bt-name">Romeo Lane</span></a>
             <a class="bt" href="#case-rooh" data-case="rooh" title="Rooh" aria-label="Rooh — open case study"><span class="bt-img" style="background:var(--purple)">RH</span><span class="bt-name">Rooh</span></a>
-            <a class="bt" href="#" title="Sizzling Shack" aria-label="Sizzling Shack"><span class="bt-img"><img loading="lazy" src="highlights/Sizzling Shack_.png" alt="Sizzling Shack cover"></span><span class="bt-name">Sizzling Shack</span></a>
-            <a class="bt" href="#" title="Sky Lantern" aria-label="Sky Lantern"><span class="bt-img"><img loading="lazy" src="highlights/Sky Lantern.png" alt="Sky Lantern cover"></span><span class="bt-name">Sky Lantern</span></a>
-            <a class="bt" href="#case-slay-coffee" data-case="slay-coffee" title="Slay Coffee" aria-label="Slay Coffee — open case study"><span class="bt-img"><img loading="lazy" src="highlights/Slay Coffee Highlights.png" alt="Slay Coffee cover"></span><span class="bt-name">Slay Coffee</span></a>
-            <a class="bt" href="#" title="Slique" aria-label="Slique"><span class="bt-img"><img loading="lazy" src="highlights/Slique_.png" alt="Slique cover"></span><span class="bt-name">Slique</span></a>
-            <a class="bt" href="#" title="TBSP" aria-label="TBSP"><span class="bt-img"><img loading="lazy" src="highlights/TBSP Highlight.png" alt="TBSP cover"></span><span class="bt-name">TBSP</span></a>
-            <a class="bt" href="#" title="Thai Mama" aria-label="Thai Mama"><span class="bt-img"><img loading="lazy" src="highlights/thai mamama.png" alt="Thai Mama cover"></span><span class="bt-name">Thai Mama</span></a>
-            <a class="bt" href="#" title="The Weekend" aria-label="The Weekend"><span class="bt-img"><img loading="lazy" src="highlights/The Weekend_.png" alt="The Weekend cover"></span><span class="bt-name">The Weekend</span></a>
-            <a class="bt" href="#" title="UCH Rewind" aria-label="UCH Rewind"><span class="bt-img"><img loading="lazy" src="highlights/UCH.png" alt="UCH Rewind cover"></span><span class="bt-name">UCH Rewind</span></a>
-            <a class="bt" href="#" title="Unplugged Courtyard" aria-label="Unplugged Courtyard"><span class="bt-img"><img loading="lazy" src="highlights/Unplugged Courtyard_.png" alt="Unplugged Courtyard cover"></span><span class="bt-name">Unplugged Courtyard</span></a>
-            <a class="bt" href="#" title="Vietnom" aria-label="Vietnom"><span class="bt-img"><img loading="lazy" src="highlights/Vietnom_.png" alt="Vietnom cover"></span><span class="bt-name">Vietnom</span></a>
-            <a class="bt" href="#" title="Wheaty" aria-label="Wheaty"><span class="bt-img"><img loading="lazy" src="highlights/Wheaty_.png" alt="Wheaty cover"></span><span class="bt-name">Wheaty</span></a>
+            <a class="bt" href="#" title="Sizzling Shack" aria-label="Sizzling Shack"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Sizzling Shack_.png" alt="Sizzling Shack cover"></span><span class="bt-name">Sizzling Shack</span></a>
+            <a class="bt" href="#" title="Sky Lantern" aria-label="Sky Lantern"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Sky Lantern.png" alt="Sky Lantern cover"></span><span class="bt-name">Sky Lantern</span></a>
+            <a class="bt" href="#case-slay-coffee" data-case="slay-coffee" title="Slay Coffee" aria-label="Slay Coffee — open case study"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Slay Coffee Highlights.png" alt="Slay Coffee cover"></span><span class="bt-name">Slay Coffee</span></a>
+            <a class="bt" href="#" title="Slique" aria-label="Slique"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Slique_.png" alt="Slique cover"></span><span class="bt-name">Slique</span></a>
+            <a class="bt" href="#" title="TBSP" aria-label="TBSP"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/TBSP Highlight.png" alt="TBSP cover"></span><span class="bt-name">TBSP</span></a>
+            <a class="bt" href="#" title="Thai Mama" aria-label="Thai Mama"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/thai mamama.png" alt="Thai Mama cover"></span><span class="bt-name">Thai Mama</span></a>
+            <a class="bt" href="#" title="The Weekend" aria-label="The Weekend"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/The Weekend_.png" alt="The Weekend cover"></span><span class="bt-name">The Weekend</span></a>
+            <a class="bt" href="#" title="UCH Rewind" aria-label="UCH Rewind"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/UCH.png" alt="UCH Rewind cover"></span><span class="bt-name">UCH Rewind</span></a>
+            <a class="bt" href="#" title="Unplugged Courtyard" aria-label="Unplugged Courtyard"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Unplugged Courtyard_.png" alt="Unplugged Courtyard cover"></span><span class="bt-name">Unplugged Courtyard</span></a>
+            <a class="bt" href="#" title="Vietnom" aria-label="Vietnom"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Vietnom_.png" alt="Vietnom cover"></span><span class="bt-name">Vietnom</span></a>
+            <a class="bt" href="#" title="Wheaty" aria-label="Wheaty"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Wheaty_.png" alt="Wheaty cover"></span><span class="bt-name">Wheaty</span></a>
             <a class="bt is-placeholder" href="#" title="Yeti" aria-label="Yeti"><span class="bt-img" style="background:var(--green)">YE</span><span class="bt-name">Yeti</span></a>
         </div>
       </div>
@@ -4070,14 +4257,14 @@ section:hover .thread-canvas path{
             <a class="bt is-placeholder" href="#" title="Adani × Lite Bite Foods" aria-label="Adani × Lite Bite Foods"><span class="bt-img" style="background:var(--red)">ALB</span><span class="bt-name">Adani × Lite Bite Foods</span></a>
             <a class="bt is-placeholder" href="#" title="Arista Vault" aria-label="Arista Vault"><span class="bt-img" style="background:var(--gold)">AV</span><span class="bt-name">Arista Vault</span></a>
             <a class="bt is-placeholder" href="#" title="Asian Business School" aria-label="Asian Business School"><span class="bt-img" style="background:var(--royal)">ABS</span><span class="bt-name">Asian Business School</span></a>
-            <a class="bt" href="#" title="Betway" aria-label="Betway"><span class="bt-img"><img loading="lazy" src="highlights/betway.png" alt="Betway cover"></span><span class="bt-name">Betway</span></a>
+            <a class="bt" href="#" title="Betway" aria-label="Betway"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/betway.png" alt="Betway cover"></span><span class="bt-name">Betway</span></a>
             <a class="bt is-placeholder" href="#" title="Borges India" aria-label="Borges India"><span class="bt-img" style="background:var(--brown)">BI</span><span class="bt-name">Borges India</span></a>
             <a class="bt is-placeholder" href="#" title="Fast &amp; Up" aria-label="Fast &amp; Up"><span class="bt-img" style="background:var(--red)">FU</span><span class="bt-name">Fast &amp; Up</span></a>
             <a class="bt is-placeholder" href="#" title="Happydent" aria-label="Happydent"><span class="bt-img" style="background:var(--orange)">HA</span><span class="bt-name">Happydent</span></a>
-            <a class="bt" href="#" title="Indian Sneaker Fest" aria-label="Indian Sneaker Fest"><span class="bt-img"><img loading="lazy" src="highlights/Sneaker Fest.png" alt="Indian Sneaker Fest cover"></span><span class="bt-name">Indian Sneaker Fest</span></a>
+            <a class="bt" href="#" title="Indian Sneaker Fest" aria-label="Indian Sneaker Fest"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/Sneaker Fest.png" alt="Indian Sneaker Fest cover"></span><span class="bt-name">Indian Sneaker Fest</span></a>
             <a class="bt is-placeholder" href="#" title="Mainstreet × CRED" aria-label="Mainstreet × CRED"><span class="bt-img" style="background:var(--red)">MC</span><span class="bt-name">Mainstreet × CRED</span></a>
             <a class="bt is-placeholder" href="#" title="Meta" aria-label="Meta"><span class="bt-img" style="background:var(--brown)">ME</span><span class="bt-name">Meta</span></a>
-            <a class="bt" href="#" title="RD Accessories" aria-label="RD Accessories"><span class="bt-img"><img loading="lazy" src="highlights/RD.png" alt="RD Accessories cover"></span><span class="bt-name">RD Accessories</span></a>
+            <a class="bt" href="#" title="RD Accessories" aria-label="RD Accessories"><span class="bt-img"><img decoding="async" loading="lazy" src="highlights/RD.png" alt="RD Accessories cover"></span><span class="bt-name">RD Accessories</span></a>
             <a class="bt is-placeholder" href="#" title="RuPay" aria-label="RuPay"><span class="bt-img" style="background:var(--royal)">RP</span><span class="bt-name">RuPay</span></a>
             <a class="bt is-placeholder" href="#" title="Spinny" aria-label="Spinny"><span class="bt-img" style="background:var(--orange)">SP</span><span class="bt-name">Spinny</span></a>
             <a class="bt is-placeholder" href="#" title="Truly Madly" aria-label="Truly Madly"><span class="bt-img" style="background:var(--brown)">TM</span><span class="bt-name">Truly Madly</span></a>
@@ -4167,7 +4354,7 @@ section:hover .thread-canvas path{
       <div class="founder reveal">
         <!-- v2.22 · founder pin canvas — Three.js renders the ISB GLB as a floating pin orbiting the avatar -->
         <canvas class="founder-pin-canvas" id="founder-pin-canvas" aria-hidden="true"></canvas>
-        <div class="avatar"><img src="highlights/founder/harsh-isb.jpg" alt="Harsh Arya" onerror="this.parentNode.classList.add('avatar-fallback');this.remove();"><span class="avatar-initials">HA</span></div>
+        <div class="avatar"><img decoding="async" loading="lazy" src="highlights/founder/harsh-isb.jpg" alt="Harsh Arya" onerror="this.parentNode.classList.add('avatar-fallback');this.remove();"><span class="avatar-initials">HA</span></div>
         <div>
           <h4>Harsh Arya</h4>
           <small>Founder · Ninety-Eight</small>
@@ -4200,17 +4387,17 @@ section:hover .thread-canvas path{
       </div>
       <div class="ps-rail" tabindex="0" aria-label="Press features — scroll to navigate">
         <a class="ps-card" href="press/Artboard 1.jpeg" target="_blank" rel="noopener" data-article-url="" aria-label="Outlook feature on 98 Entertainment">
-          <span class="ps-img"><img loading="lazy" src="press/Artboard 1.jpeg" alt="Outlook feature on Harsh Arya and 98 Entertainment"></span>
+          <span class="ps-img"><img decoding="async" loading="lazy" src="press/Artboard 1.jpeg" alt="Outlook feature on Harsh Arya and 98 Entertainment"></span>
           <span class="ps-pub">Outlook</span>
           <span class="ps-meta">Entertainment Spotlight · Feature</span>
         </a>
         <a class="ps-card" href="press/Artboard 3.jpeg" target="_blank" rel="noopener" data-article-url="" aria-label="The Week feature on 98 Entertainment">
-          <span class="ps-img"><img loading="lazy" src="press/Artboard 3.jpeg" alt="The Week feature on Harsh Arya and 98 Entertainment"></span>
+          <span class="ps-img"><img decoding="async" loading="lazy" src="press/Artboard 3.jpeg" alt="The Week feature on Harsh Arya and 98 Entertainment"></span>
           <span class="ps-pub">The Week</span>
           <span class="ps-meta">Tech-driven Triumph · Feature</span>
         </a>
         <a class="ps-card" href="press/Artboard 4.jpeg" target="_blank" rel="noopener" data-article-url="" aria-label="mid-day feature on 98 Entertainment">
-          <span class="ps-img"><img loading="lazy" src="press/Artboard 4.jpeg" alt="mid-day feature on Harsh Arya and 98 Entertainment"></span>
+          <span class="ps-img"><img decoding="async" loading="lazy" src="press/Artboard 4.jpeg" alt="mid-day feature on Harsh Arya and 98 Entertainment"></span>
           <span class="ps-pub">mid-day</span>
           <span class="ps-meta">Innovative Strategies · Feature</span>
         </a>
@@ -4223,7 +4410,7 @@ section:hover .thread-canvas path{
           <span class="ps-meta">Stage · Founder Story</span>
         </a>
         <a class="ps-card" href="https://youtu.be/2VKot2RhlbM" target="_blank" rel="noopener" aria-label="Podcast appearance — Harsh Arya on YouTube">
-          <span class="ps-img"><img loading="lazy" src="https://img.youtube.com/vi/2VKot2RhlbM/hqdefault.jpg" alt="Podcast appearance thumbnail"></span>
+          <span class="ps-img"><img decoding="async" loading="lazy" src="https://img.youtube.com/vi/2VKot2RhlbM/hqdefault.jpg" alt="Podcast appearance thumbnail"></span>
           <span class="ps-pub">YouTube · Podcast</span>
           <span class="ps-meta">Long-form · Conversation</span>
         </a>
@@ -4245,10 +4432,33 @@ section:hover .thread-canvas path{
       <div>
         <span class="title">Get in Touch</span>
         <h2>Let's put your story <em>on the line.</em></h2>
-        <a class="cta-big" href="mailto:contact@ninety-eight.in">
-          contact@ninety-eight.in
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17 L17 7 M9 7 H17 V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
-        </a>
+        <!-- v2.72 · CONTACT FORM — START -->
+        <form class="cta-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <div class="cta-form-row">
+            <label>
+              <span class="cta-form-label">Your name</span>
+              <input type="text" name="name" autocomplete="name" required placeholder="Harsh Arya">
+            </label>
+            <label>
+              <span class="cta-form-label">Your email</span>
+              <input type="email" name="email" autocomplete="email" required placeholder="you@studio.com">
+            </label>
+          </div>
+          <label>
+            <span class="cta-form-label">Studio · brand · project (optional)</span>
+            <input type="text" name="studio" autocomplete="organization" placeholder="What we'd be working on together">
+          </label>
+          <label>
+            <span class="cta-form-label">Tell us more</span>
+            <textarea name="message" rows="4" required placeholder="Where you are · where you're going · what you'd want from us"></textarea>
+          </label>
+          <button type="submit" class="cta-form-submit">
+            Send the note
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 L17 7 M9 7 H17 V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg>
+          </button>
+          <p class="cta-form-fineprint">We answer in 48 hours · or sooner if it's urgent.</p>
+        </form>
+        <!-- v2.72 · CONTACT FORM — END -->
       </div>
 
       <div class="block">
@@ -4385,7 +4595,7 @@ section:hover .thread-canvas path{
 
     <!-- Hero -->
     <div class="cd-hero" style="background:var(--royal)">
-      <img loading="lazy" src="Ishant%20images/Layer%202.png" alt="Ishant Sharma in India Test whites, holding a cricket ball" onerror="this.style.display='none'">
+      <img decoding="async" loading="lazy" src="Ishant%20images/Layer%202.png" alt="Ishant Sharma in India Test whites, holding a cricket ball" onerror="this.style.display='none'">
       <div class="cd-hero-text">
         <span class="cd-hero-meta">Talent · Personal Brand</span>
         <h2 id="cd-ishant-title">Ishant Sharma</h2>
@@ -4435,7 +4645,7 @@ section:hover .thread-canvas path{
 
     <!-- Mid-modal hero divider · green -->
     <div class="cd-divider" style="background:var(--green)">
-      <img loading="lazy" src="Ishant%20images/Layer%203.png" alt="Ishant Sharma celebrating, arm raised" onerror="this.style.display='none'">
+      <img decoding="async" loading="lazy" src="Ishant%20images/Layer%203.png" alt="Ishant Sharma celebrating, arm raised" onerror="this.style.display='none'">
     </div>
 
     <!-- Chapter 05 · Spinny -->
@@ -4497,7 +4707,7 @@ section:hover .thread-canvas path{
 
     <!-- Mid-modal hero divider · red -->
     <div class="cd-divider" style="background:var(--red)">
-      <img loading="lazy" src="Ishant%20images/Layer%201.png" alt="Ishant Sharma in INDIA jersey, mid-celebration" onerror="this.style.display='none'">
+      <img decoding="async" loading="lazy" src="Ishant%20images/Layer%201.png" alt="Ishant Sharma in INDIA jersey, mid-celebration" onerror="this.style.display='none'">
     </div>
 
     <!-- Chapter 11 · Equity -->
@@ -7768,6 +7978,34 @@ window.addEventListener('mousemove', e => {
   }
 })();
 /* v2.71 · THREADS PARALLAX — END */
+</script>
+
+<script>
+/* v2.72 · MOBILE QA JS — START */
+/* On touch devices, tap a sec-tag flap to flip it; tap again to flip back. */
+(function initFlapTouch(){
+  if (!window.matchMedia || !window.matchMedia('(hover:none) and (pointer:coarse)').matches) return;
+  function setup(){
+    document.querySelectorAll('.sec-tag').forEach(tag => {
+      if (tag.dataset.flapTouchInit) return;
+      tag.dataset.flapTouchInit = '1';
+      tag.addEventListener('click', e => {
+        tag.classList.toggle('is-flipped');
+        // Auto-revert after 5s so the front face is the resting state
+        if (tag.classList.contains('is-flipped')) {
+          clearTimeout(tag._flipBack);
+          tag._flipBack = setTimeout(() => tag.classList.remove('is-flipped'), 5000);
+        }
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setup);
+  } else {
+    setup();
+  }
+})();
+/* v2.72 · MOBILE QA JS — END */
 </script>
 </body>
 </html>
