@@ -3424,48 +3424,6 @@ section:hover .thread-canvas path{
 .hmf-type .brand-outline{transform:translate(-50%,-50%) !important}
 /* v2.77d · ARTIFACT CENTERING GUARD — END */
 
-/* v2.78 · NAZAR CHARM — START */
-/* Nimbu-mirchi nazar suttar — hangs over #cases. Drops in on view, then idles. */
-#cases{position:relative}
-.nazar-charm{
-  position:absolute;
-  top:-32px;
-  right:64px;
-  width:88px;
-  z-index:6;
-  pointer-events:none;
-  transform-origin:50% 0%;
-  opacity:0;
-  will-change:transform,opacity;
-}
-.nazar-charm img{display:block;width:100%;height:auto}
-.nazar-charm.is-active{
-  animation:
-    nazar-drop 1.4s cubic-bezier(.34,1.56,.64,1) both,
-    nazar-sway 5s ease-in-out 1.4s infinite alternate;
-}
-@keyframes nazar-drop{
-  0%   {opacity:0;transform:translateY(-160%) rotate(0deg)}
-  55%  {opacity:1;transform:translateY(10%) rotate(-5deg)}
-  78%  {transform:translateY(-4%) rotate(4deg)}
-  92%  {transform:translateY(2%) rotate(-2deg)}
-  100% {opacity:1;transform:translateY(0) rotate(0deg)}
-}
-@keyframes nazar-sway{
-  0%, 100% {transform:rotate(-3.5deg)}
-  50%      {transform:rotate(3.5deg)}
-}
-@media (max-width:780px){
-  .nazar-charm{width:64px;right:24px;top:-24px}
-}
-@media (prefers-reduced-motion: reduce){
-  .nazar-charm.is-active{
-    animation:nazar-drop 0.4s linear both;
-    opacity:1;
-    transform:none;
-  }
-}
-/* v2.78 · NAZAR CHARM — END */
 </style>
 
 <!-- v2.72 · OG META — START -->
@@ -3992,11 +3950,6 @@ section:hover .thread-canvas path{
 <!-- =================== OUR PEOPLE · lifted above Services per v2.14 — case study can't be buried =================== -->
 <section id="cases">
 
-  <!-- v2.78 · NAZAR CHARM — START -->
-  <div class="nazar-charm" aria-hidden="true">
-    <img src="highlights/artifacts/nimbu-mirchi-nazar.png?v=280f" alt="">
-  </div>
-  <!-- v2.78 · NAZAR CHARM — END -->
 
   <div class="wrap">
     <div class="sec-head reveal">
@@ -8064,21 +8017,5 @@ window.addEventListener('mousemove', e => {
 /* v2.72 · MOBILE QA JS — END */
 </script>
 
-<script>
-/* v2.78 · NAZAR CHARM IO — START */
-(function(){
-  var charm = document.querySelector('.nazar-charm');
-  if(!charm) return;
-  if(!('IntersectionObserver' in window)){ charm.classList.add('is-active'); return; }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ charm.classList.add('is-active'); io.disconnect(); }
-    });
-  }, {rootMargin:'-10% 0px -10% 0px', threshold:0.05});
-  var cases = document.getElementById('cases');
-  if(cases) io.observe(cases);
-})();
-/* v2.78 · NAZAR CHARM IO — END */
-</script>
 </body>
 </html>
