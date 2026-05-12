@@ -3403,18 +3403,16 @@ section:hover .thread-canvas path{
   background:rgba(31,77,140,.12);filter:blur(14px);
   animation:hm-jitter .3s steps(2,end) infinite;
 }
-/* The 98 outline upgrades the existing TYPOGRAPHY beat (frame 13). */
+/* v2.77c · 98 outline — properly centered, no label bleed */
 .hmf-type .brand-outline{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);
-  width:200px;max-width:72%;height:auto;
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:240px;max-width:80%;height:auto;
+  z-index:2;
   animation:hm-jitter .3s steps(2,end) infinite;
-  /* Filter inverts to off-cream on the cream paper bg */
   filter:invert(1) brightness(.08);
 }
-.hmf-type .brand-outline + .sub{
-  position:absolute;left:50%;bottom:14px;transform:translateX(-50%);
-  font:600 9px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--slate);
-}
+/* Belt-and-braces: any .sub inside frame 13 (legacy or otherwise) is hidden */
+.hmf-type .sub{display:none !important}
 /* v2.77b · MONTAGE ARTIFACTS — END */
 </style>
 
@@ -3882,8 +3880,7 @@ section:hover .thread-canvas path{
         <!-- 13 TYPOGRAPHY · 98 outline (v2.77b) -->
         <div class="hm-frame hmf-type"><div class="hm-art" style="width:280px;height:200px;position:relative">
           <img class="brand-outline" src="highlights/artifacts/98-outline-logo.png" alt="Ninety-Eight outline brand mark">
-          <span class="sub">// type · in · house</span>
-        </div></div>
+                </div></div>
 
         <!-- 14 VIDEO / MOTION -->
         <div class="hm-frame hmf-video"><div class="hm-art" style="width:280px;height:220px;position:relative">
