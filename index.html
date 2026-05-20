@@ -1336,6 +1336,68 @@ body[data-hero-aside="ticker"]    .hero-aside[data-aside="ticker"]{display:flex}
   0%, 3.2626% {opacity:1}
   3.2627%, 100% {opacity:0}
 }
+
+/* v2.90 · JOKE FRAMES — START */
+
+/* 06 [JOKE] MAKE THE LOGO BIGGER — designer ratcheting up the size */
+.hmf-bigger .logo{position:absolute;font:900 1em/.9 var(--display);letter-spacing:-.05em}
+.hmf-bigger .logo.a{left:8%;top:22%;font-size:36px;color:#1F4D8C}
+.hmf-bigger .logo.b{left:24%;top:32%;font-size:80px;color:#DD3D38}
+.hmf-bigger .logo.c{left:42%;top:8%;font-size:170px;color:#0E0E10;animation:hm-bigger .5s steps(2,end) infinite alternate}
+@keyframes hm-bigger{0%{transform:scale(1)}100%{transform:scale(1.05)}}
+.hmf-bigger .note{position:absolute;right:5%;bottom:12%;background:#F5B015;color:#DD3D38;padding:5px 9px;font:800 13px/1 var(--display);letter-spacing:.04em;transform:rotate(-6deg);text-transform:uppercase}
+
+/* 12 [JOKE] FINAL_v17.psd — a stack of misnamed file cards */
+.hmf-final .file{position:absolute;background:#F4EFE0;color:#0E0E10;border:1.5px solid #0E0E10;padding:5px 12px 5px 10px;font:700 11px/1 var(--mono);letter-spacing:.02em;box-shadow:2px 2px 0 rgba(0,0,0,.14);white-space:nowrap}
+.hmf-final .file::before{content:"";display:inline-block;width:8px;height:10px;background:#1F4D8C;margin-right:7px;vertical-align:-1px}
+.hmf-final .f1{left:8%;top:6%;transform:rotate(-3deg)}
+.hmf-final .f2{left:16%;top:22%;transform:rotate(2deg)}
+.hmf-final .f3{left:10%;top:38%;transform:rotate(-1deg)}
+.hmf-final .f4{left:18%;top:54%;transform:rotate(3deg)}
+.hmf-final .f5{left:14%;top:72%;background:#F5B015;border:2.5px solid #DD3D38;font-weight:900;animation:hm-final .45s steps(2,end) infinite alternate}
+.hmf-final .f5::before{background:#DD3D38}
+@keyframes hm-final{0%{transform:rotate(-2deg) scale(1.1)}100%{transform:rotate(1deg) scale(1.14)}}
+.hmf-final .arrow{position:absolute;right:6%;top:68%;font:900 40px/1 var(--display);color:#DD3D38;animation:hm-arrow .4s steps(2,end) infinite alternate}
+
+/* 18 [JOKE] GO VIRAL — fishing rod casts #TRENDING bait */
+.hmf-viral .rod{position:absolute;left:3%;top:14%;width:54%;height:5px;background:#0E0E10;transform:rotate(16deg);transform-origin:left center;border-radius:2px}
+.hmf-viral .string{position:absolute;left:54%;top:30%;width:1.5px;height:38%;background:#0E0E10}
+.hmf-viral .bait{position:absolute;left:43%;top:70%;background:#DD3D38;color:#F4EFE0;font:800 11px/1 var(--mono);padding:6px 11px;letter-spacing:.14em;transform:rotate(-4deg);animation:hm-bait .5s steps(2,end) infinite alternate}
+@keyframes hm-bait{0%{transform:rotate(-4deg) translateY(0)}100%{transform:rotate(3deg) translateY(-5px)}}
+.hmf-viral .stamp{position:absolute;right:5%;bottom:10%;background:transparent;color:#DD3D38;border:3px solid #DD3D38;padding:8px 14px;font:900 19px/1.05 var(--display);letter-spacing:-.02em;transform:rotate(-9deg);text-align:center;text-transform:uppercase}
+.hmf-viral .stamp em{display:block;font:600 9px/1 var(--mono);letter-spacing:.16em;color:#DD3D38;font-style:normal;margin-top:4px;text-transform:none}
+
+/* 24 [JOKE] GRWM REEL — phone with brand-y checklist */
+.hmf-grwm .phone{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:120px;height:200px;background:#0E0E10;border-radius:18px;padding:9px;box-sizing:border-box}
+.hmf-grwm .screen{display:block;width:100%;height:100%;background:linear-gradient(160deg,#FBEAF0 0%,#F4EFE0 78%);border-radius:10px;padding:12px 10px;box-sizing:border-box;position:relative;text-align:left}
+.hmf-grwm .top{display:block;font:800 8px/1 var(--mono);letter-spacing:.1em;color:#DD3D38;margin-bottom:9px}
+.hmf-grwm .cl{display:block;font:600 9px/1.5 var(--mono);color:#0E0E10;letter-spacing:.04em}
+.hmf-grwm .like{position:absolute;right:8px;bottom:22px;color:#DD3D38;font-size:18px;animation:hm-heart .4s steps(2,end) infinite alternate}
+.hmf-grwm .share{position:absolute;right:10px;bottom:5px;color:#1F4D8C;font-size:15px;font-weight:900}
+.hmf-grwm .label{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);background:#F5B015;color:#0E0E10;padding:3px 12px;font:800 10px/1 var(--mono);letter-spacing:.22em}
+
+/* 30 [JOKE] PER MY LAST EMAIL — passive-aggressive follow-up */
+.hmf-email .card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-2deg);width:230px;background:#F4EFE0;border:1.5px solid #0E0E10;padding:14px 16px;box-shadow:3px 3px 0 rgba(0,0,0,.14);text-align:left;box-sizing:border-box}
+.hmf-email .card .hdr{display:block;font:800 11px/1.3 var(--display);color:#0E0E10;letter-spacing:-.01em}
+.hmf-email .card .rule{display:block;height:1px;background:#0E0E10;margin:9px 0;opacity:.4}
+.hmf-email .card .body{display:block;font:500 13px/1.45 var(--serif);color:#0E0E10;margin-bottom:14px}
+.hmf-email .card .body mark{background:#F5B015;color:#0E0E10;padding:0 4px;font-style:italic}
+.hmf-email .card .meta{display:block;font:800 8px/1 var(--mono);letter-spacing:.18em;color:#DD3D38}
+
+/* 36 [JOKE] ADD A WOW — client feedback in marker on the brief */
+.hmf-wow .brief{position:absolute;left:6%;top:8%;width:62%;background:#F4EFE0;border:1.5px solid #0E0E10;padding:14px;box-shadow:3px 3px 0 rgba(0,0,0,.12);transform:rotate(-3deg);box-sizing:border-box}
+.hmf-wow .brief .l{display:block;height:5px;background:#0E0E10;margin-bottom:9px;width:100%;opacity:.65}
+.hmf-wow .brief .l.s{width:55%}
+.hmf-wow .brief .l.m{width:78%}
+.hmf-wow .star{position:absolute;font:900 30px/1 var(--display);animation:hm-wow .5s steps(2,end) infinite alternate}
+.hmf-wow .star.s1{right:26%;top:12%;color:#DD3D38;animation-delay:0s}
+.hmf-wow .star.s2{right:10%;top:38%;color:#1F4D8C;animation-delay:.15s}
+.hmf-wow .star.s3{right:18%;top:62%;color:#F5B015;animation-delay:.3s}
+@keyframes hm-wow{0%{transform:scale(.9) rotate(-8deg)}100%{transform:scale(1.18) rotate(10deg)}}
+.hmf-wow .scribble{position:absolute;right:4%;bottom:6%;color:#DD3D38;font:900 22px/1 var(--display);text-align:center;letter-spacing:-.02em;border:3px solid #DD3D38;padding:7px 13px;transform:rotate(-6deg);text-transform:uppercase}
+
+/* v2.90 · JOKE FRAMES — END */
+
 /* per-frame inner motion — softer wiggle to match the slower cadence */
 .hm-frame .hm-art{position:relative;width:78%;max-width:300px;animation:hm-jitter .5s steps(2,end) infinite}
 @keyframes hm-jitter{
@@ -4633,7 +4695,7 @@ body[data-tempo="idle"]  .reveal{ transition-duration: 1.6s !important; }
                 </div>
                 <h4 class="ic-ticket-headline">One playbook,<br>en route.</h4>
                 <div class="ic-ticket-fields">
-                  <div><small>To</small><span class="ic-ticket-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fc859389bc9e8e9d9298d29f9391">[email&#160;protected]</a></span></div>
+                  <div><small>To</small><span class="ic-ticket-email">you@brand.com</span></div>
                   <div><small>Ticket</small><span class="ic-ticket-num">#0001</span></div>
                   <div><small>Dispatched</small><span class="ic-ticket-when">just now</span></div>
                 </div>
@@ -5055,7 +5117,7 @@ body[data-tempo="idle"]  .reveal{ transition-duration: 1.6s !important; }
         </div>
         <div class="small">
           <a href="tel:+919711184674">+91 97111 84674</a><br>
-          <a href="/cdn-cgi/l/email-protection#d4b7bbbaa0b5b7a094babdbab1a0adf9b1bdb3bca0fabdba"><span class="__cf_email__" data-cfemail="e98a86879d888a9da98780878c9d90c48c808e819dc78087">[email&#160;protected]</span></a>
+          <a href="mailto:contact@ninety-eight.in">contact@ninety-eight.in</a>
         </div>
       </div>
     </form>
