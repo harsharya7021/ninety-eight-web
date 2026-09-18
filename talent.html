@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){var d=document.documentElement,g='carbon';try{if(localStorage.getItem('98-ground')==='white')g='white';}catch(e){}d.setAttribute('data-ground',g);})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personal branding agency &amp; talent management, Delhi — Talent &amp; Branding · Ninety-Eight</title>
+<meta name="description" content="We don't manage talent. We run a brand. Exclusive representation for athletes, creators and founders, and the same operating system run on businesses. The Ishant Sharma case.">
+<meta property="og:title" content="Personal branding agency &amp; talent management, Delhi — Talent &amp; Branding · Ninety-Eight">
+<meta property="og:description" content=""We don't manage talent. We run a brand. Exclusive representation for athletes, creators and founders, and the same operating system run on businesses. The Ishant Sharma case.">
+<meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ninety-eight.in/talent.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ninety-eight.in/talent.html">
+<meta name="twitter:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script>/* the horizontal builds (073, 038) lay out under html.fx from 821px up; set before first paint unless motion is reduced — the main script takes it back off if GSAP never loads */
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('fx');</script>
+<style>
+/* =========================================================================
+   TALENT & BRANDING — vertical 01's own page (v3.30, Sep 2026)
+   Same house as index.html: carbon, Archivo / Instrument Serif / Space Mono,
+   one red, the green of the talent card. One idea per viewport.
+   The mechanic (v3.31): the trading card — Ishant's own 98 card — has the
+   first screen of the walk to itself (effect 077: it tilts, rolls and
+   drifts with the pointer), then vanishes as effect 073 takes the screen:
+   chapters slide horizontally along one timeline line in the brand's
+   colours, each with its station dot, its label on the line and a big
+   chapter number that pivots in from the right edge and out again. Act
+   two's brand cases run as effect 038 (a pinned strip of shoulders, one
+   open at a time) and the production floor plays as a reel — one glance,
+   eight stops, hover a name to hold on it.
+   ========================================================================= */
+:root{
+  --bg:#0B0B0C; --bg2:#121214; --ink:#F4F4F2; --dim:#8E8E88;
+  --line:rgba(244,244,242,.13); --red:#EE352E; --green:#00933C; --yellow:#FCCC0A;
+  --pad:clamp(1.25rem,4vw,4rem); --ease:cubic-bezier(.16,1,.3,1);
+  --card:#101113; --cardline:rgba(244,244,242,.1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--red);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;background:none;border:none;color:inherit;cursor:pointer}
+.mono{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.mono b{color:var(--ink);font-weight:400}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.wrap{padding:0 var(--pad)}
+.rev{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.rev.in,.in .rev{opacity:1;transform:none}
+
+/* ---------- header ---------- */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem var(--pad);transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+#hdr.scrolled{background:rgba(11,11,12,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+#hdr a{color:var(--ink);transition:color .3s}
+#hdr a:hover{color:var(--red)}
+#hdr .home{display:inline-flex;align-items:center;gap:.7rem}
+#hdr .home img{height:22px;width:auto;opacity:.92}
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--green);width:0;z-index:130}
+
+/* ---------- hero: effect 086 ---------- */
+#top{position:relative;min-height:100vh;display:grid;place-items:center;padding:6rem var(--pad) 5rem;overflow:hidden;background:var(--bg)}
+/* v3.30: the three lines a size down and set tight — 4.6vw on a 1.06 line
+   (was 6.2vw on 1.34); the 086 image is one line tall and as wide as the
+   split it opens in (2 × 8.6vw, the reference's letter shift), so it fills
+   the gap instead of floating in it */
+.verts{list-style:none;display:flex;flex-direction:column;align-items:center;font-weight:750;font-stretch:112%;text-transform:uppercase;letter-spacing:-.012em;font-size:clamp(1.8rem,4.6vw,5rem);line-height:1.06}
+.verts li{position:relative}
+.verts .text{width:max-content;cursor:pointer;color:var(--ink)}
+.verts .letter{display:inline-block;will-change:transform}
+.verts .media{position:absolute;width:calc(2 * max(8.6vw,80px) - .5em);height:1em;top:.03em;left:0;object-fit:cover;pointer-events:none;clip-path:inset(0% 50% round 1vw);z-index:3}
+#top .nudge{position:absolute;left:var(--pad);bottom:1.6rem;z-index:2;width:1px;height:46px;background:rgba(244,244,242,.2);overflow:hidden}
+#top .nudge::after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--ink);animation:drip 2.1s var(--ease) infinite}
+@keyframes drip{0%{top:-100%}60%,100%{top:100%}}
+@media (max-width:820px){
+  /* v3.66: 5.6vw, not 7 — the lines are max-content (the letters are split for 086, so they
+     cannot wrap) and at 7vw "Talent representation" ran 423px across a 390px phone and was
+     cut at the right edge; at 5.6vw the longest line clears the padding from 320px up */
+  .verts{font-size:clamp(1rem,5.6vw,2.4rem);line-height:1.1}
+}
+
+/* effect 097: lines set to max-content so the gathered words never reflow */
+.g97 .line{width:max-content;max-width:none}
+.g97 .word{will-change:transform}
+
+/* ---------- section furniture ---------- */
+.sec{position:relative;padding:clamp(5rem,14vh,10rem) 0}
+.sec.wrap{padding-left:var(--pad);padding-right:var(--pad)} /* v3.31: .sec's shorthand had been zeroing .wrap's gutters since v3.29 — the practice and act-two heads sat flush left */
+#ishant.sec{padding-top:0}
+.sec-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line);margin-bottom:clamp(2.5rem,6vh,4.5rem)}
+.sec-head h2{font-weight:750;font-stretch:112%;text-transform:uppercase;letter-spacing:-.01em;line-height:.95;font-size:clamp(2rem,5.2vw,4.8rem)}
+.sec-head h2 small{display:block;font-family:'Instrument Serif',Georgia,serif;font-weight:400;text-transform:none;letter-spacing:0;font-size:.42em;color:var(--dim);margin-top:.5rem}
+
+/* ---------- the walk: effect 073, with the card held on the left ----------
+   .pin-height is the runway (N sections × 120vh, set by the script);
+   .stage is what gets pinned — inside it the card column stays put while
+   .container (the row of 100vw sections) is driven left. Reference
+   geometry kept: the timeline line at 50%, the 11px station dot at each
+   right column's edge, the big title at 17vw with transform-origin
+   0 -2.3vw and a -2.3vw bottom margin, the label on the line. */
+#ishant.sec{padding:0}
+/* base layout — phones, reduced motion, no GSAP: a vertical stack with the
+   card on top. The horizontal 073 build sits under html.fx from 821px up
+   (the head script sets .fx unless motion is reduced; the main script
+   removes it if GSAP never arrived). */
+.walk .section{position:relative;display:flex;flex-direction:column;padding:3.5rem var(--pad);border-top:1px solid var(--line)}
+.walk .section.intro{display:none}
+.walk .right .label{display:block;margin-bottom:1rem}
+.walk .right .label b{color:var(--ink);font-weight:400}
+.walk .left{margin-bottom:1.6rem}
+.walk .left .main-title{font-weight:750;font-stretch:112%;text-transform:uppercase;letter-spacing:-.012em;line-height:.95;font-size:clamp(1.8rem,3.4vw,3.4rem);margin-bottom:.8rem}
+.walk .left .label{display:flex;align-items:center;gap:8px}
+.walk .left .label svg path{fill:var(--sink,var(--ink))}
+/* the brand's colours on the timeline (v3.31): even chapters take red /
+   yellow / green ground with dark ink — the reference's own habit of
+   alternating grounds; odd chapters stay on carbon */
+.walk .section.cs{--sink:#0A0A0B;--sdim:rgba(10,10,11,.62);--sline:rgba(10,10,11,.18);color:var(--sink)}
+.walk .section.c-red{background:var(--red);--sem:#F4F4F2;--sacc:#F4F4F2}
+.walk .section.c-yellow{background:var(--yellow);--sem:var(--red);--sacc:var(--red)}
+.walk .section.c-green{background:var(--green);--sem:#F4F4F2;--sacc:#F4F4F2}
+.walk .section.cs .mono{color:var(--sdim)}
+.walk .section.cs .mono b,.walk .section.cs .right .label b{color:var(--sink)}
+.walk .section.cs .title{color:var(--sink)}
+.walk .section.cs .right::after{background:var(--sink)}
+.walk .section.cs h3 em{color:var(--sem)}
+.walk .section.cs p{color:rgba(10,10,11,.84)}
+.walk .section.cs p strong,.walk .section.cs p em,.walk .section.cs .pull{color:var(--sink)}
+.walk .section.cs .numbers{background:var(--sline);border-color:var(--sline)}
+.walk .section.cs .numbers div{background:transparent}
+.walk .section.cs .numbers i{color:var(--sacc)}
+.walk .section.cs .bridge{border-color:rgba(10,10,11,.35);color:var(--sink)}
+.walk .section.cs .bridge:hover{border-color:var(--sink)}
+.walk .title{order:-1;font-size:3.2rem;margin:0 0 .6rem;line-height:1;font-weight:800;font-stretch:112%;letter-spacing:-.03em;color:rgba(244,244,242,.35);pointer-events:none}
+.card-col{display:flex;flex-direction:column;align-items:center;padding:5.5rem var(--pad) 2.5rem}
+.card-col .under{margin-top:1.2rem;text-align:center}
+.card-col .under .hint{display:block;margin-top:.5rem;color:var(--dim)}
+.card-col .under b{color:var(--ink);font-weight:400}
+
+/* the card — Ishant's own 98 card (v3.31, assets/ishant-card.webp, the
+   designed PNG with its corners in its alpha); the gloss tracks the
+   pointer over the tilt */
+.tcard{position:relative;width:min(68vw,300px);aspect-ratio:799/1236;border-radius:3.4% / 2.2%;overflow:hidden;background:transparent;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));transform-style:preserve-3d;will-change:transform}
+.tcard .scan{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.tcard .gloss{position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(60% 40% at var(--gx,30%) var(--gy,20%),rgba(255,255,255,.14),rgba(255,255,255,0) 70%);mix-blend-mode:screen}
+
+@media (min-width:821px){
+  html.fx .walk .pin-height{height:1320vh;overflow:hidden}
+  html.fx .walk .stage{position:relative;height:100vh;overflow:hidden;background:var(--bg)}
+  html.fx .walk .container{position:relative;height:100vh;width:max-content;display:flex;will-change:transform}
+  html.fx .walk .container::before{content:"";width:calc(100% - 150vw);height:1px;background:var(--line);position:absolute;top:50%;left:150vw;z-index:1}
+  html.fx .walk .section{height:100%;width:100vw;flex:0 0 100vw;padding:0;border-top:0}
+  html.fx .walk .section:nth-child(even):not(.cs){background:var(--bg2)}
+  html.fx .walk .section.intro{display:block;background:transparent}
+  html.fx .walk .right{position:absolute;left:50%;top:0;bottom:0;width:50%;padding:6.5rem 9vw 0 0}
+  html.fx .walk .right::after{content:"";position:absolute;width:11px;height:11px;top:calc(50% - 5px);left:0;background:var(--green);z-index:2}
+  html.fx .walk .right .label{position:absolute;top:50%;left:1.6rem;transform:translate(0,-50%);z-index:2;white-space:nowrap;margin:0}
+  html.fx .walk .title{position:absolute;bottom:0;left:0;font-size:17vw;width:max-content;transform-origin:0 -2.3vw;padding:0 0 0 var(--pad);margin:0 0 -2.3vw;z-index:4;color:var(--ink);will-change:transform}
+  /* the card column: centred over the whole pinned stage for the first
+     screen, above the sliding sections; pointer events pass through to
+     the stage so the 077 tilt reads the pointer anywhere over the screen */
+  html.fx .card-col{position:absolute;inset:0;width:auto;height:100vh;z-index:6;justify-content:center;padding:4.5rem 0 3rem;pointer-events:none;perspective:300vw}
+  html.fx .card-col > *{pointer-events:auto}
+  html.fx .tcard{width:auto;height:min(68vh,720px);max-height:none}
+  /* the reference's left column: the first chapter carries the walk's
+     title and a label on the line; the others leave it empty */
+  html.fx .walk .left{position:absolute;left:0;top:0;bottom:0;width:50%;padding:6.5rem var(--pad) 0}
+  html.fx .walk .left .main-title{font-weight:750;font-stretch:112%;text-transform:uppercase;letter-spacing:-.012em;line-height:.95;font-size:clamp(2rem,3.4vw,3.4rem);max-width:11ch;margin:0}
+  html.fx .walk .left .label{position:absolute;top:50%;left:var(--pad);display:flex;align-items:center;gap:8px;transform:translate(0,-5px);line-height:11px;margin:0;white-space:nowrap}
+  html.fx .chapter .numbers{grid-template-columns:repeat(4,minmax(0,1fr))}
+  html.fx .walk .section:nth-child(even):not(.cs) .numbers div{background:var(--bg2)}
+}
+
+/* chapters: the copy in the right column of each section */
+.chapter .content{position:relative;z-index:2}
+.chapter h3{font-weight:750;font-stretch:112%;text-transform:uppercase;letter-spacing:-.01em;line-height:.96;font-size:clamp(1.4rem,2.3vw,2.3rem);margin-bottom:1rem}
+.chapter h3 em{font-style:normal;color:var(--green)}
+.chapter p{max-width:36rem;font-size:clamp(.95rem,1.1vw,1.08rem);line-height:1.5;color:rgba(244,244,242,.8);margin-bottom:.8rem}
+.chapter p strong{color:var(--ink);font-weight:600}
+.chapter p em{font-style:italic;font-family:'Instrument Serif',Georgia,serif;font-size:1.12em;color:var(--ink)}
+.chapter .numbers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:1rem 0 .9rem;max-width:36rem}
+.chapter .numbers div{background:var(--bg);padding:.7rem .8rem}
+.chapter .numbers b{display:block;font-weight:800;font-stretch:112%;font-size:clamp(1.2rem,1.8vw,1.7rem);line-height:1;letter-spacing:-.01em}
+.chapter .numbers span{display:block;margin-top:.35rem;font-size:.56rem}
+.chapter .numbers i{display:block;font-style:normal;color:var(--green);margin-top:.15rem;font-size:.56rem}
+.pull{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(1.5rem,2.6vw,2.6rem);line-height:1.15;max-width:30ch;color:var(--ink)}
+.pull cite{display:block;font-style:normal;margin-top:1.2rem}
+.chapter .bridge{display:inline-flex;align-items:center;gap:.6rem;margin-top:.6rem;padding:.7em 1.1em;border:1px solid var(--line);border-radius:99px;color:var(--ink);transition:.3s}
+.chapter .bridge:hover{border-color:var(--ink)}
+
+/* ---------- the practice: four beats ---------- */
+.beats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.beat{background:var(--bg);padding:clamp(1.4rem,2.4vw,2.4rem);min-height:22rem;display:flex;flex-direction:column}
+.beat .n{color:var(--green)}
+.beat h4{font-weight:750;font-stretch:112%;text-transform:uppercase;font-size:clamp(1.2rem,1.9vw,1.7rem);line-height:1;margin:1.4rem 0 1rem}
+.beat p{color:rgba(244,244,242,.78);font-size:.98rem}
+.beat .who{margin-top:auto;padding-top:1.4rem}
+.roster-line{margin-top:1.4rem}
+.roster-line span{color:var(--ink)}
+.roster-line i{color:var(--dim);font-style:normal;margin:0 .5em}
+
+/* ---------- act two: branding for businesses ---------- */
+#business{background:var(--bg2)}
+.acttwo{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:start}
+.acttwo .t{font-weight:750;font-stretch:112%;text-transform:uppercase;line-height:.95;letter-spacing:-.01em;font-size:clamp(2.2rem,5.4vw,5.4rem)}
+.acttwo .t em{font-style:normal;color:var(--red)}
+.acttwo p{font-size:clamp(1rem,1.3vw,1.25rem);line-height:1.5;color:rgba(244,244,242,.8);margin-bottom:1rem;max-width:36rem}
+/* the brand cases as effect 038 (v3.30): a pinned strip of shoulders,
+   every case a 4vw spine with its name set up it; the one nearest the
+   scroll's progress is .on and opens its cover to the full height.
+   Reference numbers: 300vh runway, 2vw/2.6vw type rotated -90° from
+   0 50%, media at 100% - 2.6vw with 1.3vw 1.3vw 0 4vw margins and 0.6vw
+   corners, 4vw shoulders, .3 alpha rules and dim names when closed. */
+#business.sec{padding-bottom:0}
+.mwg038{margin-top:clamp(2.5rem,6vh,4.5rem);border-top:1px solid var(--line)}
+/* base: the reference's own ≤768 block — a column, every case open */
+.mwg038 .project{position:relative}
+.mwg038 .project:not(:first-child){border-top:1px solid rgba(244,244,242,.3)}
+.mwg038 .datas{margin:30px 15px 15px;font:500 normal 28px/30px 'Archivo',sans-serif;letter-spacing:-.03em}
+.mwg038 .datas .label{font-weight:750;font-stretch:112%;text-transform:uppercase}
+.mwg038 .datas .year{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);display:flex;gap:1.2em;flex-wrap:wrap;margin-top:.4rem}
+.mwg038 .datas .year a{color:var(--red)}
+.mwg038 .media{display:block;margin:15px;width:calc(100% - 30px);aspect-ratio:1.8;border-radius:.6vw;overflow:hidden;background:#17181b;position:relative}
+.mwg038 .media img{width:100%;height:100%;object-fit:cover;display:block}
+.mwg038 .media.ph{display:grid;place-items:center}
+.mwg038 .media.ph span{font-weight:800;font-stretch:112%;font-size:clamp(3rem,7vw,7rem);color:rgba(244,244,242,.12);letter-spacing:-.02em}
+.mwg038 .media.ph small{position:absolute;left:1.4rem;bottom:1.2rem;color:var(--dim)}
+@media (min-width:821px){
+  html.fx .mwg038 .pin-height{height:300vh;overflow:hidden}
+  html.fx .mwg038 .container{white-space:nowrap;width:max-content;height:100vh;display:flex;background:var(--bg2);padding-top:4rem}
+  html.fx .mwg038 .project{height:100%;min-width:5vw;border-top:0}
+  html.fx .mwg038 .project:not(:last-child){border-right:1px solid rgba(244,244,242,.3)}
+  html.fx .mwg038 .project:not(.on){color:rgba(244,244,242,.3)}
+  html.fx .mwg038 .project:not(.on) .year,html.fx .mwg038 .project:not(.on) .media{display:none}
+  html.fx .mwg038 .datas{position:absolute;bottom:0;left:2vw;margin:0;font-size:2vw;line-height:2.6vw;transform:rotate(-90deg);transform-origin:0 50%;width:calc(100vh - 4rem - 2.6vw);display:flex;justify-content:space-between;align-items:center;white-space:nowrap}
+  html.fx .mwg038 .datas .year{margin:0;flex-wrap:nowrap}
+  /* six cases, not the reference's twenty-four: the open cover is sized to
+     fill what the shoulders leave (never narrower than square), so the band
+     spans the screen and the strip's width never changes with the open
+     case — the reference measures its travel once, at the start. --n is
+     the project count, set by the script. */
+  html.fx .mwg038 .media{display:inline-block;vertical-align:top;height:calc(100% - 2.6vw);width:max(calc(100vw - var(--n,6) * 5vw - 1.3vw),calc(100vh - 4rem - 2.6vw));margin:1.3vw 1.3vw 0 5vw}
+  html.fx .mwg038 .media.ph{display:inline-grid}
+}
+/* ---------- made here: the reel and its index ---------- */
+#made{background:var(--bg)}
+.reel{display:grid;grid-template-columns:minmax(220px,30%) 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:stretch}
+.reel-list{list-style:none;display:flex;flex-direction:column;justify-content:center;gap:.1rem}
+.reel-list li{position:relative;display:flex;align-items:baseline;gap:.9rem;padding:.42rem 0 .42rem 1.2rem;cursor:pointer;color:rgba(244,244,242,.4);transition:color .3s;-webkit-user-select:none;user-select:none}
+.reel-list li::before{content:"";position:absolute;left:0;top:50%;width:6px;height:6px;margin-top:-3px;background:var(--red);border-radius:50%;opacity:0;transform:scale(.4);transition:.3s}
+.reel-list li b{font-weight:750;font-stretch:112%;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(1.1rem,1.9vw,1.9rem);line-height:1;white-space:nowrap}
+.reel-list li span{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);opacity:0;transform:translateX(-6px);transition:.3s;white-space:nowrap}
+.reel-list li.on,.reel-list li:hover{color:var(--ink)}
+.reel-list li.on::before{opacity:1;transform:none}
+.reel-list li.on span,.reel-list li:hover span{opacity:1;transform:none}
+.reel-stage{position:relative;border-radius:1vw;overflow:hidden;background:#0f0f11;aspect-ratio:16/9}
+.reel-stage video{width:100%;height:100%;object-fit:cover;display:block}
+.reel-stage .reel-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(244,244,242,.12)}
+.reel-stage .reel-bar i{display:block;height:100%;width:0;background:var(--red)}
+.reel-stage .reel-now{position:absolute;left:1.2rem;bottom:1.2rem;padding:.5em .9em;border-radius:99px;background:rgba(11,11,12,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--ink)}
+.reel-stage .reel-now span{color:rgba(244,244,242,.7)}
+.reel-foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1.4rem}
+@media (max-width:820px){
+  .reel{grid-template-columns:1fr}
+  .reel-list{flex-direction:row;flex-wrap:wrap;gap:.2rem 1rem;order:2;margin-top:1rem}
+  .reel-list li{padding:.3rem 0 .3rem .9rem}
+  .reel-list li span{display:none}
+  .reel-stage{border-radius:10px}
+}
+
+/* ---------- ending ---------- */
+#ask{min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:clamp(5rem,14vh,10rem) var(--pad)}
+#ask h2{font-weight:750;font-stretch:112%;text-transform:uppercase;line-height:.92;letter-spacing:-.012em;font-size:clamp(2.6rem,7.4vw,7.6rem);max-width:12ch}
+#ask h2 i{font-style:normal;color:var(--red)}
+#ask .btns{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:2.4rem}
+.btn-y{display:inline-flex;align-items:center;gap:.6rem;background:var(--yellow);color:#111;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:1em 1.6em;border-radius:99px;transition:transform .3s var(--ease),background .3s}
+.btn-y:hover{transform:translateY(-2px);background:#ffd83a}
+.pill{display:inline-flex;align-items:center;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:1em 1.4em;border-radius:99px;border:1px solid var(--line);color:var(--ink);transition:.3s}
+.pill:hover{border-color:var(--ink)}
+footer{padding:2rem var(--pad) 2.2rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .beats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .acttwo{grid-template-columns:1fr}
+}
+/* under 820px both pinned strips stand down — the base rules above are the
+   vertical stack (the walk with the card on top, the cases a column) and
+   the script only builds the horizontal effects from 821px up */
+/* v3.67: the instruction names the gesture the device has */
+.s98-hov,.s98-tap{font-style:inherit}
+@media (hover:none){ .s98-hov{display:none} }
+@media (hover:hover){ .s98-tap{display:none} }
+@media (max-width:820px){
+  #hdr .home b{display:none}
+  #hdr a:last-child b{font-size:.6rem;letter-spacing:.12em}
+  #hdr{padding:.7rem var(--pad)}
+  .card-col .under{font-size:.6rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .rev{opacity:1!important;transform:none!important}
+  *{animation:none!important}
+}
+
+/* ---------- the white ground (v3.53): the site-wide switch can put this page on white ---------- */
+html[data-ground="white"]{
+  --bg:#FFFFFF; --bg2:#F2F2F0; --ink:#0B0B0C; --dim:#6B6B66; --line:rgba(11,11,12,.13);
+  --card:#F4F4F2; --cardline:rgba(11,11,12,.1);
+}
+html[data-ground="white"] #top .nudge{background:rgba(11,11,12,.2)}
+html[data-ground="white"] .walk .title{color:rgba(11,11,12,.3)}
+html[data-ground="white"] .chapter p,html[data-ground="white"] .acttwo p{color:rgba(11,11,12,.8)}
+html[data-ground="white"] .beat p{color:rgba(11,11,12,.78)}
+html[data-ground="white"] .mwg038 .project:not(:first-child){border-top-color:rgba(11,11,12,.25)}
+html[data-ground="white"] .mwg038 .media{background:#E9E9E6}
+html[data-ground="white"] .mwg038 .media.ph span{color:rgba(11,11,12,.14)}
+html[data-ground="white"] .reel-list li{color:rgba(11,11,12,.4)}
+html[data-ground="white"] .reel-stage .reel-now{color:#F4F4F2}
+html.fx[data-ground="white"] .mwg038 .project:not(:last-child){border-right-color:rgba(11,11,12,.25)}
+html.fx[data-ground="white"] .mwg038 .project:not(.on){color:rgba(11,11,12,.3)}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div id="progress"></div>
+
+<!--S98:HEAD — the shared header and menu: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<header class="s98-head" id="s98-head">
+  <div class="s98-l">
+    <button class="s98-menu" id="s98-menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav035" aria-label="Menu"><span class="md-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="md-txt">Menu</span></button>
+  </div>
+  <a class="s98-c" href="index.html" aria-label="Ninety-Eight &mdash; home"><img src="assets/98-graffiti.png" alt="" width="834" height="529"></a>
+</header>
+<div class="nav035" id="nav035" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="n35-inner">
+    <div class="n35-top">
+      <p class="n35-word" aria-hidden="true">Menu</p>
+      <div class="n35-wmedias" aria-hidden="true">
+        <img class="n35-wmedia" src="assets/gurls/g06.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/ishant.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g07.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/slay.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g08.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/one8.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g09.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/hardrock.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <ul>
+      <li><a href="talent.html" aria-current="page">
+        <span class="n35-name">Talent &amp; Branding</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/retain/ishant-social.webp" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="marketing.html">
+        <span class="n35-name">Marketing &middot; seven instruments &middot; 35 cases</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/bayroute.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/monet.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/butterroom.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/fig.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#voices">
+        <span class="n35-name">In their words</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/hardrock.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/poetry.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#film" data-action="film">
+        <span class="n35-name">In the building <sup class="beta">98 Studio &middot; beta</sup></span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="blog/index.html">
+        <span class="n35-name">The journal</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/menu/m2.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="cases.html">
+        <span class="n35-name">Case studies &middot; everything, A to Z</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/sneakerfest.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/skylantern.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/rizq.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/limitless.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/dejabrew.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="about.html">
+        <span class="n35-name">About &mdash; who we are, since 01.01.2020</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/gurls/g03.webp" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#contact">
+        <span class="n35-name">Contact &mdash; tell us what you&rsquo;re building.</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/contact/envelope-green.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/pigeon-carbon.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/phone-yellow.png" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+    </ul>
+    <div class="n35-bottom">
+      <div class="n35-ground" role="group" aria-label="Background"><button type="button" data-s98-ground="carbon">Carbon</button><span class="n35-sep" aria-hidden="true">/</span><button type="button" data-s98-ground="white">White</button></div>
+      <p class="n35-hint" aria-hidden="true">Scroll &darr; to go back to the page</p>
+    </div>
+  </div>
+</div>
+<!--/S98:HEAD-->
+
+<main>
+<h1 class="vh">Personal branding agency and talent management, Delhi &mdash; Talent &amp; Branding at Ninety-Eight</h1>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="in mwg086">
+  <!-- effect 086: the three practices inside the vertical, alone on the
+       first screen. Hover a word and it splits where the pointer is; that
+       practice's image opens between the letters (clip-path inset,
+       expo.inOut 0.4s, letters ±0.086vw). Click lands on the section. -->
+  <ul class="verts rev" aria-label="Inside this vertical">
+    <li><p class="text" data-href="#ishant">Talent representation</p><img class="media" src="assets/practice/talent.jpg" alt=""></li>
+    <li><p class="text" data-href="#ishant">Personal branding</p><img class="media" src="assets/covers/ishant.jpg" alt=""></li>
+    <li><p class="text" data-href="#business">Branding for business</p><img class="media" src="assets/covers/slay.jpg" alt=""></li>
+  </ul>
+  <span class="nudge" aria-hidden="true"></span>
+</section>
+
+<!-- ============ THE WALK — ISHANT ============ -->
+<!-- Effect 073. The stage is pinned for the runway and the row of
+     sections is driven left. The first section is blank: the card has that
+     screen to itself, centred, and shrinks away as the first chapter slides
+     in — 073 then owns the screen, reference layout: the first chapter's
+     left column carries the walk's title and a label on the line, every
+     chapter's right column its label on the line and the copy above it,
+     the chapter number pivoting in at the bottom, even chapters on the
+     brand's red / yellow / green. Effect 077 drives the card from the
+     pointer anywhere over the stage while it is up. -->
+<section class="sec" id="ishant">
+  <div class="walk mwg073">
+    <div class="pin-height">
+      <div class="stage">
+        <div class="card-col">
+          <div class="tcard" id="card-ishant">
+            <img class="scan" src="assets/ishant-card.webp" alt="Ishant Sharma &mdash; trading card">
+            <div class="gloss"></div>
+          </div>
+          <p class="under mono" data-caption><b>Ishant Sharma</b> &middot; ISH&mdash;2020 &middot; exclusive contract &middot; 2022 &rarr;<br><span class="hint">Scroll &darr; the walk begins</span></p>
+        </div>
+
+        <div class="container g97" data-chapters>
+          <div class="section intro" aria-hidden="true"></div>
+
+          <div class="section chapter" data-tag="The name">
+            <div class="left">
+              <p class="main-title">From a name to a brand.</p>
+              <p class="label mono"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8.25 4.03258C8.91667 4.41748 8.91667 5.37973 8.25 5.76463L1.5 9.66175C0.833333 10.0466 -4.88121e-07 9.56552 -4.54472e-07 8.79572L-1.13776e-07 1.00149C-8.01267e-08 0.23169 0.833333 -0.249435 1.5 0.135465L8.25 4.03258Z" fill="#F4F4F2"/></svg><span><b>Ishant Sharma</b> &middot; the walk, 2022 &rarr;</span></p>
+            </div>
+            <div class="right">
+              <p class="label mono"><b>01 &middot; Before us</b></p>
+              <div class="content">
+            <h3>Already a name. <em>Not yet a brand.</em></h3>
+            <p>105 Tests, 311 wickets, a thirteen-year India career. What was missing wasn&rsquo;t fame. It was the mechanism to <em>monetise that name without diluting it.</em></p>
+            <p>A talented bowler taking sponsor calls is not a property. It&rsquo;s an inbox.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">01</p>
+          </div>
+
+          <div class="section chapter cs c-red" data-tag="The signing">
+            <div class="right">
+              <p class="label mono"><b>02 &middot; 2022</b></p>
+              <div class="content">
+            <h3>The signing.</h3>
+            <p>Exclusive representation, won in 2022 &mdash; sole agency-of-record for brand deals, social media and personal communications.</p>
+            <p>The shift in posture: from <strong>what&rsquo;s the brief</strong> to <strong>what does the brand sound like, what is it worth, what kind of partner do we want.</strong> An ownable property with a managed brand surface.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">02</p>
+          </div>
+
+          <div class="section chapter" data-tag="The numbers">
+            <div class="right">
+              <p class="label mono"><b>03 &middot; 2022 &rarr; 2023</b></p>
+              <div class="content">
+            <h3>Better posts. <em>Not more posts.</em></h3>
+            <div class="numbers">
+            <div><b>7.5M</b><span class="mono">Instagram likes</span><i class="mono">+140% &middot; 2.4&times;</i></div>
+            <div><b>23.7M</b><span class="mono">Reels views</span><i class="mono">+156% &middot; 2.56&times;</i></div>
+            <div><b>8,868</b><span class="mono">Comments</span><i class="mono">+85% &middot; 1.85&times;</i></div>
+            <div><b>4.75M</b><span class="mono">Twitter impressions</span><i class="mono">70 tweets, up from 55</i></div>
+            </div>
+            <p>Publishing volume was nearly flat. The lift came from format choices, collab structure and timing &mdash; not from working the channel harder.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">03</p>
+          </div>
+
+          <div class="section chapter cs c-yellow" data-tag="RuPay × IPL">
+            <div class="right">
+              <p class="label mono"><b>04 &middot; April 2022</b></p>
+              <div class="content">
+            <h3>The face of <em>RuPay &times; IPL.</em></h3>
+            <p>NPCI&rsquo;s first-ever IPL campaign &mdash; <em>RuPay. Be On-The-Go</em> &mdash; with Ishant as the lead face. Five films across TV, OTT, digital and social; the <em>Howzzaaaatt!</em> gag positioning RuPay&rsquo;s payment speed against his bowling.</p>
+            <p>Harsha Bhogle and Virender Sehwag amplified on Twitter. DDB Mudra handled the creative. We ran the talent &mdash; national scale, the most-watched cricket window of the year, our talent at the centre. Covered by <strong>ET BrandEquity</strong>.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">04</p>
+          </div>
+
+          <div class="section chapter" data-tag="Spinny">
+            <div class="right">
+              <p class="label mono"><b>05 &middot; The thesis in action</b></p>
+              <div class="content">
+            <h3>Rent the channel. <em>Don&rsquo;t sell the slot.</em></h3>
+            <p>Instead of selling sponsorship slots one-off, Spinny ran a multi-week placement programme through Ishant&rsquo;s handles, anchored on archival cricket reels &mdash; the format the metrics team had flagged as the year&rsquo;s highest-performing.</p>
+            <p>That single format is most of the +14M jump in reels views. For Spinny: a sustained share-of-voice in cricket-fan circles that no single-window IPL slot could buy.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">05</p>
+          </div>
+
+          <div class="section chapter cs c-green" data-tag="CRED">
+            <div class="right">
+              <p class="label mono"><b>06 &middot; Mainstreet &times; CRED</b></p>
+              <div class="content">
+            <h3>Sneakers <em>as content.</em></h3>
+            <p>A streetwear spree at Mainstreet Marketplace, sponsored by CRED, turned into a piece of content: Ishant on the floor, picking a haul, talking sneaker stories on camera. A brand placement that didn&rsquo;t read as one.</p>
+            <p>Streetwear is a Gen-Z signal a Test bowler doesn&rsquo;t usually own. We built the room where he could own it credibly &mdash; CRED as the sponsor of the visit, not the subject of the post.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">06</p>
+          </div>
+
+          <div class="section chapter" data-tag="The bridge">
+            <div class="right">
+              <p class="label mono"><b>07 &middot; Ranveer &times; Ishant</b></p>
+              <div class="content">
+            <h3>Two rooms. <em>One bridge.</em></h3>
+            <p>Cross-talent collaborations between cinema&rsquo;s biggest livewire and cricket&rsquo;s quiet veteran &mdash; engineered, not coincidental. Joint content windows, cross-posted reels, brand-aligned moments.</p>
+            <p>The bridge work extended to <strong>Sanyam Sharma</strong> and <strong>Rajesh Yadav</strong> &mdash; separate creator audiences, the same engineered cross-over. The thesis is the bridge, not the host.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">07</p>
+          </div>
+
+          <div class="section chapter cs c-yellow" data-tag="Partners">
+            <div class="right">
+              <p class="label mono"><b>08 &middot; The long deals</b></p>
+              <div class="content">
+            <h3>Business partner, <em>not vendor.</em></h3>
+            <p><strong>RD Accessories</strong> &mdash; a homegrown D2C brand that needed structure, not stardom. We built the deal architecture: rights, licensing, content windows, reporting cadence. Then we shipped the campaign.</p>
+            <p><strong>Asian Business School</strong> &mdash; the partnership that didn&rsquo;t run on a quarter. Multi-year campus engagements; content for ABS that reads as content for Ishant, not as paid placement.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">08</p>
+          </div>
+
+          <div class="section chapter" data-tag="Trust">
+            <div class="right">
+              <p class="label mono"><b>09 &middot; The daughter announcement</b></p>
+              <div class="content">
+            <h3>The metric was <em>trust.</em></h3>
+            <p>We were the ones to break the news &mdash; not because we wanted the engagement, because we&rsquo;d earned the trust to. The post went out on his timeline, in his voice, with no brand handle in the caption.</p>
+            <p>The documentary window came the same way: a long-form film on cricket, identity and the modern Indian player. Coverage a competitor can&rsquo;t sponsor their way into.</p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">09</p>
+          </div>
+
+          <div class="section chapter cs c-red" data-tag="The quote">
+            <div class="right">
+              <p class="label mono"><b>10 &middot; In his words</b></p>
+              <div class="content">
+            <blockquote class="pull">&ldquo;They didn&rsquo;t manage my calendar. They built me as a product.&rdquo;<cite class="mono">Ishant Sharma</cite></blockquote>
+            <p style="margin-top:1.6rem"><a class="bridge mono" href="cases/ishant/"><b>Open the full case file</b> &rarr;</a></p>
+              </div>
+            </div>
+            <p class="title" aria-hidden="true">10</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE PRACTICE ============ -->
+<section class="sec wrap" id="practice">
+  <div class="sec-head rev">
+    <h2>The operating system.<small>What representation means here, in four beats</small></h2>
+    <p class="mono">Athletes &middot; creators &middot; founders</p>
+  </div>
+  <div class="beats">
+    <div class="beat rev"><p class="n mono">01</p><h4>Representation</h4><p>Agency of record, exclusively. One inbox, one voice, one answer to &ldquo;what is this brand worth.&rdquo; We say no on your behalf more often than we say yes.</p><p class="who mono">Deals &middot; comms &middot; the calendar, last</p></div>
+    <div class="beat rev" style="--d:.08s"><p class="n mono">02</p><h4>Editorial</h4><p>The managed brand surface: what the person sounds like, what they post, what they never post. Better posts, not more posts &mdash; format, collab structure and timing.</p><p class="who mono">Social &middot; podcasts &middot; long-form</p></div>
+    <div class="beat rev" style="--d:.16s"><p class="n mono">03</p><h4>Deal flow</h4><p>Rights, licensing, content windows, reporting cadence. Renting the channel instead of selling the slot. Bridges into other rooms &mdash; other talent, other audiences.</p><p class="who mono">Structure &middot; cross-overs &middot; long horizons</p></div>
+    <div class="beat rev" style="--d:.24s"><p class="n mono">04</p><h4>Equity</h4><p>When we believe, we own the upside. The same operating system, offered on equity terms instead of fees &mdash; first on a person, then on a business.</p><p class="who mono">Partner, not vendor</p></div>
+  </div>
+  <p class="roster-line mono rev">On the roster &middot; <span>Ishant Sharma</span><i>&middot;</i><span>Pratima Singh</span><i>&middot;</i><span>Moksh Bainsla</span><i>&middot;</i><span>Rajnandini</span> &middot; exclusive contracts, creators &amp; voices, spokespeople</p>
+</section>
+
+<!-- ============ ACT TWO: BUSINESSES ============ -->
+<section class="sec wrap" id="business">
+  <div class="acttwo g97">
+    <div>
+      <p class="kicker mono rev"><i style="background:var(--red)"></i>Act two &middot; Branding for businesses</p>
+      <h2 class="t rev" style="--d:.08s">Same operating system. <em>Different asset class.</em></h2>
+    </div>
+    <div class="rev" style="--d:.16s">
+      <p>Once the system was proven on a person, we ran it on brands: positioning that reads like a point of view, an identity that survives the feed, and a deal structure that makes us a partner in the outcome, not a line in the budget.</p>
+      <p>The natural extension was equity. <strong>Arista Vault</strong> &mdash; a luggage-tech founder we partnered with on equity terms instead of fees, because we knew the deck was Shark-Tank-bound.</p>
+    </div>
+  </div>
+  <!-- effect 038: the cases as a pinned strip of shoulders. Every case
+       points at assets/covers/<slug>.jpg; where no cover is on file yet
+       the script swaps in a monogram panel (data-mono / data-sub), so a
+       cover lands the moment the file does. -->
+  <div class="mwg038" data-cases>
+    <div class="pin-height">
+      <div class="container">
+        <div class="project">
+          <div class="datas"><p class="label">Arista Vault</p><p class="year"><span>Brand &middot; D2C &middot; Equity partnership</span><a href="cases/arista-vault/">Open the case &rarr;</a></p></div>
+          <a class="media" href="cases/arista-vault/" data-mono="AV" data-sub="Equity, not retainer"><img src="assets/covers/arista.jpg" alt="Arista Vault"></a>
+        </div>
+        <div class="project">
+          <div class="datas"><p class="label">Slay Coffee</p><p class="year"><span>Brand &middot; Coffee &middot; D2C &middot; 6.9M reach, zero paid</span><a href="cases/slay-coffee/">Open the case &rarr;</a></p></div>
+          <a class="media" href="cases/slay-coffee/" data-mono="S" data-sub="Sell the moment in the cup"><img src="assets/covers/slay.jpg" alt="Slay Coffee"></a>
+        </div>
+        <div class="project">
+          <div class="datas"><p class="label">Borges India</p><p class="year"><span>Brand &middot; Pantry &middot; FMCG</span><a href="cases/borges/">Open the case &rarr;</a></p></div>
+          <a class="media" href="cases/borges/" data-mono="B" data-sub="Cook for your loved ones"><img src="assets/covers/borges.jpg" alt="Borges India"></a>
+        </div>
+        <div class="project">
+          <div class="datas"><p class="label">Happydent</p><p class="year"><span>FMCG &middot; Brand campaign &middot; Influencer-driven</span><a href="cases/happy-dent/">Open the case &rarr;</a></p></div>
+          <a class="media" href="cases/happy-dent/" data-mono="H" data-sub="Sparkling smile"><img src="assets/covers/happydent.jpg" alt="Happydent"></a>
+        </div>
+        <div class="project">
+          <div class="datas"><p class="label">Fast &amp; Up</p><p class="year"><span>Lifestyle &middot; Health &amp; wellness &middot; Milestone activation</span><a href="cases/fast-up/">Open the case &rarr;</a></p></div>
+          <a class="media" href="cases/fast-up/" data-mono="F&amp;U" data-sub="Milestone activation"><img src="assets/covers/fastup.jpg" alt="Fast &amp; Up"></a>
+        </div>
+        <div class="project">
+          <div class="datas"><p class="label">Sneaker Fest</p><p class="year"><span>Pop-culture &middot; Streetwear &middot; Festival activation</span><a href="cases/tgisf/">Open the case &rarr;</a></p></div>
+          <a class="media" href="cases/tgisf/" data-mono="TGISF" data-sub="Streetwear, at festival scale"><img src="assets/covers/sneakerfest.jpg" alt="The Great Indian Sneaker Fest"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MADE HERE — the production floor, in one glance ============ -->
+<!-- assets/showcase.mp4: a 20-second reel cut from the work itself (Behance
+     + the client folders), eight stops. The list on the left is the index:
+     the reel lights each name as it passes; hover (or tap) a name and the
+     reel holds on that stop, looping it, until the pointer leaves. -->
+<section class="sec wrap" id="made">
+  <div class="sec-head rev">
+    <h2>Made here.<small>Identities, creatives and shoots from the production floor &mdash; in one glance</small></h2>
+    <p class="mono"><a href="https://www.behance.net/harsharya" target="_blank" rel="noopener"><b>The full set on Behance &nearr;</b></a></p>
+  </div>
+  <div class="reel rev" data-reel>
+    <ul class="reel-list" aria-label="Stops on the reel">
+      <li data-start="0.0" data-end="2.5"><b>Spice Station</b><span>Social creatives</span></li>
+      <li data-start="2.5" data-end="4.792"><b>Bunta Bar Express</b><span>Brand &amp; visual identity</span></li>
+      <li data-start="4.792" data-end="7.083"><b>Burger Now</b><span>Brand identity</span></li>
+      <li data-start="7.083" data-end="10.042"><b>JD Jewellers</b><span>Logo, lockups, reveal</span></li>
+      <li data-start="10.042" data-end="11.292"><b>Noidawery</b><span>Brewery &amp; restaurant &mdash; banner</span></li>
+      <li data-start="11.292" data-end="13.792"><b>Miss Doozy</b><span>Influencer shoot</span></li>
+      <li data-start="13.792" data-end="16.292"><b>Aarushi Jain shoot</b><span>F&amp;B photography</span></li>
+      <li data-start="16.292" data-end="19.625"><b>More from the floor</b><span>Posters, identities, apps</span></li>
+    </ul>
+    <div class="reel-stage">
+      <video src="assets/showcase.mp4" poster="assets/showcase.jpg" muted playsinline loop preload="metadata" aria-label="The work, in one glance"></video>
+      <p class="reel-now mono"><b data-now>Spice Station</b> &middot; <span data-nowsub>Social creatives</span></p>
+      <div class="reel-bar"><i data-prog></i></div>
+    </div>
+  </div>
+  <p class="reel-foot mono rev"><span>Eight stops &middot; twenty seconds &middot; <i class="s98-hov">hover</i><i class="s98-tap">tap</i> a name to hold on it</span><span>Spice Station &middot; Bunta Bar &middot; Burger Now &middot; JD &middot; Noidawery &middot; Miss Doozy &middot; Aarushi Jain &middot; and more</span></p>
+</section>
+
+<!-- ============ THE ASK ============ -->
+<section id="ask">
+  <p class="kicker mono rev" style="justify-content:center"><i></i>The smallest possible yes</p>
+  <h2 class="g97">Tell us who you&rsquo;re building<i>.</i></h2>
+  <div class="btns rev" style="--d:.16s">
+    <a class="btn-y" href="index.html#contact">Send one line &rarr;</a>
+    <a class="pill" href="https://wa.me/919711184674?text=Hi%20Ninety-Eight%20%E2%80%94%20talent%20%2F%20branding%20enquiry" target="_blank" rel="noopener">WhatsApp instead</a>
+  </div>
+</section>
+
+</main>
+
+<!--S98:FOOT — the shared footer: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<footer class="s98-foot" id="s98-foot">
+  <div class="s98-fc s98-f1">
+    <span class="s98-faint">Socials:</span>
+    <a href="https://instagram.com/98.entertainment" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.behance.net/harsharya" target="_blank" rel="noopener">Behance</a>
+    <a href="https://wa.me/919711184674?text=Here%27s%20what%20I%27m%20building%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="s98-fc s98-f2">
+    <span class="s98-faint">Pages:</span>
+    <a href="index.html">Home</a>
+    <a href="marketing.html">Marketing &mdash; seven instruments</a>
+    <a href="talent.html" aria-current="page">Talent &amp; Branding</a>
+    <a href="blog/index.html">The journal</a>
+    <a href="cases.html">Case studies</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="s98-fc s98-f3">
+    <span class="s98-faint">Marketing, instrument by instrument:</span>
+    <a href="identity.html">Branding &mdash; identity &amp; design</a>
+    <a href="press.html">PR &amp; Media &mdash; the press room</a>
+    <a href="amplify.html">Creators &mdash; the creator floor</a>
+    <a href="performance-marketing.html">Paid &amp; Search &mdash; performance marketing</a>
+    <a href="retain.html">Social &mdash; the feed, held</a>
+    <a href="production.html">Production &mdash; the shoots</a>
+    <a href="events.html">Events &mdash; the night floor</a>
+  </div>
+  <div class="s98-fc s98-f4">
+    <span class="s98-faint">Contact:</span>
+    <a href="mailto:contact@ninety-eight.in" data-s98-mail="contact@ninety-eight.in">contact@ninety-eight.in</a>
+    <a href="index.html#contact">Tell us what you&rsquo;re building &rarr;</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+  <div class="s98-rights">
+    <span>All rights reserved. &copy;2026 Ninety-Eight Entertainment</span>
+    <span class="s98-faint">Delhi NCR &middot; est. 01.01.2020 &middot; <span data-s98-clock>IST</span></span>
+  </div>
+</footer>
+<!--/S98:FOOT-->
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script>/* v3.67: on a phone the address bar shrinking is a "resize"; without this every pin re-measures mid-scroll and the page jumps */if(window.ScrollTrigger){ScrollTrigger.config({ignoreMobileResize:true});}</script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+
+  /* Lenis, as on the landing */
+  if (typeof Lenis !== 'undefined' && !reduce){
+    var lenis = new Lenis({ autoRaf:true });
+    window.__lenis = lenis;
+    if (hasGsap) lenis.on('scroll', ScrollTrigger.update);
+    var relaying=false;
+    lenis.on('scroll', function(){ if(relaying) return; relaying=true; try{ window.dispatchEvent(new Event('scroll')); } finally { relaying=false; } });
+  }
+
+  /* header + progress */
+  var hdr=document.getElementById('hdr'), prog=document.getElementById('progress');
+  function onScroll(){
+    var y=window.pageYOffset, h=document.documentElement.scrollHeight-window.innerHeight;
+    if(hdr) hdr.classList.toggle('scrolled', y>24);
+    prog.style.width=(h>0?(y/h*100):0)+'%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* reveals */
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -12% 0px'});
+  document.querySelectorAll('.rev').forEach(function(el){ if(!el.closest('#top')) io.observe(el); });
+
+  /* ---- the walk: effect 073, the card as effect 077, the cases as 038 ----
+     Built from 821px up under gsap.matchMedia, after fonts land, in this
+     order: the 073 pin first (the 097 gather keys off its tween), then the
+     card's arrival and its 077 hold, then the copy's gather, then the 038
+     strip. Below 821px, or without GSAP / with reduced motion, the base
+     CSS is a vertical stack and none of this runs. */
+  if(!hasGsap||reduce) document.documentElement.classList.remove('fx');
+  var mm=hasGsap&&!reduce?gsap.matchMedia():null;
+
+  function buildWalk(){
+    var walk=document.querySelector('.walk.mwg073'); if(!walk) return null;
+    var pinHeight=walk.querySelector('.pin-height'), stage=walk.querySelector('.stage'), container=walk.querySelector('.container');
+    var sections=container.querySelectorAll('.section'), titles=container.querySelectorAll('.title');
+    pinHeight.style.height=(sections.length*120)+'vh';
+
+    var card=walk.querySelector('.tcard'), cap=walk.querySelector('[data-caption]'), intro=container.querySelector('.section.intro');
+
+    /* 073: the row of sections driven left across the runway, the stage
+       pinned — reference: xPercent -100 + x innerWidth, linear, scrubbed */
+    var scrollTween=gsap.to(container,{
+      xPercent:-100, x:function(){ return window.innerWidth; }, ease:'none',
+      scrollTrigger:{trigger:pinHeight,start:'top top',end:'bottom bottom',pin:stage,scrub:true,invalidateOnRefresh:true}
+    });
+
+    /* the big numbers: standing on the right edge as the section arrives,
+       lying along the bottom when centred, back up on the right as it
+       leaves — reference numbers (expo.inOut, offsets from offsetHeight) */
+    titles.forEach(function(title){
+      gsap.to(title,{
+        rotation:-90, x:function(){ return window.innerWidth-title.offsetHeight; }, y:function(){ return title.offsetHeight; }, ease:'expo.inOut',
+        scrollTrigger:{trigger:title.parentNode,containerAnimation:scrollTween,start:'left 0%',end:'left -100%',scrub:true,invalidateOnRefresh:true}
+      });
+      gsap.from(title,{
+        rotation:90, y:function(){ return -window.innerHeight+title.offsetHeight; }, x:function(){ return title.offsetHeight; }, ease:'expo.inOut',
+        scrollTrigger:{trigger:title.parentNode,containerAnimation:scrollTween,start:'left 100%',end:'left 0%',scrub:true,invalidateOnRefresh:true}
+      });
+    });
+
+    /* the arrival, then the exit: the blank first section is the card's
+       own screen — it flips in once as the walk approaches — and as that
+       section slides away the card shrinks and fades out with its caption,
+       gone before the first chapter reaches the centre, so 073 has the
+       whole screen from there. Scrubbed, so it comes back on the way up. */
+    gsap.from(card,{rotationY:-70,autoAlpha:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:pinHeight,start:'top 60%',once:true}});
+    var vanish=gsap.timeline({scrollTrigger:{trigger:intro,containerAnimation:scrollTween,start:'left 0%',end:'left -45%',scrub:0.5,invalidateOnRefresh:true}});
+    vanish.fromTo(card,{scale:1,autoAlpha:1},{scale:.55,autoAlpha:0,ease:'none',immediateRender:false},0);
+    if(cap) vanish.fromTo(cap,{autoAlpha:1},{autoAlpha:0,ease:'none',immediateRender:false},0);
+
+    /* effect 077: the card is a held object. Pointer anywhere over the
+       stage drives it — rotationY ±40 / rotationX ±30 from the pointer's
+       place in the viewport, a roll and a drift from its velocity settling
+       66ms after it stops (reference numbers); the gloss follows. The
+       inner parallax (a cut-out foreground over a background at 120%) is
+       wired for a .media-background layer and idle until one exists — the
+       scan is a single flat print. */
+    var bgimg=card.querySelector('.media-background');
+    gsap.set(card,{transformPerspective:1100});
+    var rotX=gsap.quickTo(card,'rotationX',{duration:.6,ease:'power2'});
+    var rotY=gsap.quickTo(card,'rotationY',{duration:.6,ease:'power2'});
+    var rotZ=gsap.quickTo(card,'rotation',{duration:1,ease:'power2'});
+    var xPT=gsap.quickTo(card,'xPercent',{duration:1,ease:'power1'});
+    var yPT=gsap.quickTo(card,'yPercent',{duration:1,ease:'power1'});
+    var cX=bgimg?gsap.quickTo(bgimg,'xPercent',{duration:.6,ease:'power2'}):null;
+    var cY=bgimg?gsap.quickTo(bgimg,'yPercent',{duration:.6,ease:'power2'}):null;
+    var isMoving, oldX=null, oldY=null;
+    function applyMove(clientX,clientY){
+      var W=window.innerWidth, H=window.innerHeight;
+      var posX=Math.max(0,Math.min(W,clientX)), posY=Math.max(0,Math.min(H,clientY));
+      if(oldX===null){ oldX=posX; oldY=posY; }
+      var mouseX=(posX/W)*2-1, mouseY=(posY/H)*2-1;
+      rotY(mouseX*40); rotX(-mouseY*30);
+      rotZ((posX-oldX)/4);
+      xPT(posX-oldX); yPT(posY-oldY);
+      if(cX){ var mapX=gsap.utils.mapRange(0,W,8,-8), mapY=gsap.utils.mapRange(0,H,8,-8); cX(mapX(posX)); cY(mapY(posY)); }
+      card.style.setProperty('--gx',(posX/W*100)+'%'); card.style.setProperty('--gy',(posY/H*100)+'%');
+      oldX=posX; oldY=posY;
+      clearTimeout(isMoving);
+      isMoving=setTimeout(function(){ rotZ(0); xPT(0); yPT(0); },66);
+    }
+    var onMove=function(e){ applyMove(e.clientX,e.clientY); };
+    var onLeave=function(){ rotX(0); rotY(0); rotZ(0); xPT(0); yPT(0); if(cX){cX(0);cY(0);} oldX=oldY=null; };
+    var onT=function(e){ if(e.touches&&e.touches[0]) applyMove(e.touches[0].clientX,e.touches[0].clientY); };
+    if(matchMedia('(hover:hover)').matches){
+      walk.addEventListener('mousemove',onMove); walk.addEventListener('mouseleave',onLeave);
+    } else {
+      walk.addEventListener('touchstart',onT,{passive:true}); walk.addEventListener('touchmove',onT,{passive:true});
+    }
+    return {tween:scrollTween, cleanup:function(){
+      walk.removeEventListener('mousemove',onMove); walk.removeEventListener('mouseleave',onLeave);
+      walk.removeEventListener('touchstart',onT); walk.removeEventListener('touchmove',onT);
+      pinHeight.style.height='';
+    }};
+  }
+
+  /* effect 097 — every line of copy arrives spread across its column and
+     gathers into natural text: on the page, as the line rises from the
+     bottom edge to 60% of the screen; inside the 073 walk, as its section
+     slides in from the right edge to its resting place (left 100% → 55%).
+     power2.out, scrub 0.2, reversible. The spread measure is the column
+     the text sits in. Built after fonts. */
+  function buildGather(walkTween){
+    if(typeof SplitText==='undefined') return function(){};
+    var splits=[];
+    document.querySelectorAll('.g97').forEach(function(container){
+      var inWalk=!!container.closest('.mwg073');
+      if(inWalk&&!walkTween) return;
+      var targets=container.matches('h2')?[container]:container.querySelectorAll('.chapter .content h3, .chapter .content p, .chapter .content .pull, .acttwo p, .acttwo .t');
+      [].forEach.call(targets,function(el){
+        el.classList.remove('rev'); el.classList.add('in');
+        splits.push(SplitText.create(el,{type:'lines, words',linesClass:'line',wordsClass:'word',aria:'none'}));
+      });
+      container.querySelectorAll('.line').forEach(function(line){
+        var measure=line.closest('.content')||(container.matches('h2')?container.parentElement:container);
+        var containerWidth=measure.clientWidth, cRect=measure.getBoundingClientRect();
+        var words=[].slice.call(line.querySelectorAll('.word'));
+        var total=words.reduce(function(a,w){ return a+w.getBoundingClientRect().width; },0);
+        var gaps=words.length-1, free=Math.max(containerWidth-total,0), gap=gaps>0?free/gaps:0;
+        var targetLeft=0;
+        words.forEach(function(w,i){
+          var r=w.getBoundingClientRect(); var cur=r.left-cRect.left;
+          gsap.set(w,{x:targetLeft-cur});
+          targetLeft+=r.width+(i<words.length-1?gap:0);
+        });
+        var st=inWalk?{trigger:line,containerAnimation:walkTween,start:'left 100%',end:'left 55%',scrub:0.2}:{trigger:line,start:'top bottom',end:'top 60%',scrub:0.2};
+        gsap.to(words,{x:0,ease:'power2.out',scrollTrigger:st});
+      });
+    });
+    return function(){ splits.forEach(function(s){ try{ s.revert(); }catch(e){} }); };
+  }
+
+  /* effect 038: the cases as a strip of shoulders. The container is driven
+     by its overflow (clientWidth − body width, measured once, as the
+     reference does — every cover is the same 4:3 so the width holds) over
+     300vh, and the project nearest the scroll's progress is the open one. */
+  /* covers not yet on file become monogram panels (the strip's geometry
+     is the same either way) */
+  document.querySelectorAll('.mwg038 .media img').forEach(function(img){
+    var fail=function(){
+      var a=img.parentNode; if(!a||a.classList.contains('ph')) return;
+      a.classList.add('ph'); a.innerHTML='<span>'+(a.getAttribute('data-mono')||'')+'</span><small class="mono">'+(a.getAttribute('data-sub')||'')+'</small>';
+    };
+    if(img.complete&&img.naturalWidth===0) fail(); else img.addEventListener('error',fail);
+  });
+
+  function buildCases(){
+    var root=document.querySelector('.mwg038'); if(!root) return null;
+    var projects=root.querySelectorAll('.project'); if(!projects.length) return null;
+    var numProjects=projects.length, currentProject=projects[0];
+    projects[0].classList.add('on');
+    var container=root.querySelector('.container');
+    root.style.setProperty('--n',numProjects);
+    var dist=Math.max(0,container.clientWidth-document.body.clientWidth);
+    gsap.to(container,{
+      x:-dist, ease:'none',
+      scrollTrigger:{
+        trigger:root.querySelector('.pin-height'), pin:container, start:'top top', end:'bottom bottom', scrub:true,
+        onUpdate:function(self){
+          var closestIndex=Math.round(self.progress*(numProjects-1));
+          var closestProject=projects[closestIndex];
+          if(closestProject!==currentProject){
+            currentProject.classList.remove('on'); closestProject.classList.add('on'); currentProject=closestProject;
+          }
+        }
+      }
+    });
+    return function(){ projects.forEach(function(p){ p.classList.remove('on'); }); };
+  }
+
+  if(mm){
+    var go=function(){
+      mm.add('(min-width: 821px)',function(){
+        var walk=buildWalk();
+        var ungather=buildGather(walk&&walk.tween);
+        var uncases=buildCases();
+        ScrollTrigger.refresh();
+        return function(){ ungather(); if(walk) walk.cleanup(); if(uncases) uncases(); };
+      });
+      mm.add('(max-width: 820px)',function(){
+        var ungather=buildGather(null);
+        ScrollTrigger.refresh();
+        return function(){ ungather(); };
+      });
+    };
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(go,60); }); else go();
+  }
+
+  /* the reel: the index lights each stop as the film passes it; hovering
+     a name (tapping, on touch) holds the film on that stop, looping it,
+     until the pointer leaves (a second tap lets go). The film only runs
+     while its section is on screen. */
+  (function(){
+    var root=document.querySelector('[data-reel]'); if(!root) return;
+    var video=root.querySelector('video'), items=[].slice.call(root.querySelectorAll('.reel-list li'));
+    var bar=root.querySelector('[data-prog]'), now=root.querySelector('[data-now]'), nowsub=root.querySelector('[data-nowsub]');
+    var stops=items.map(function(li){ return {start:+li.getAttribute('data-start'),end:+li.getAttribute('data-end')}; });
+    var held=null, active=-1, hoverable=matchMedia('(hover:hover)').matches;
+    function setActive(i){
+      if(i===active) return; active=i;
+      items.forEach(function(li,k){ li.classList.toggle('on',k===i); });
+      if(i>=0){ now.textContent=items[i].querySelector('b').textContent; nowsub.textContent=items[i].querySelector('span').textContent; }
+    }
+    function play(){ var p=video.play(); if(p&&p.catch) p.catch(function(){}); }
+    video.addEventListener('timeupdate',function(){
+      var t=video.currentTime;
+      if(held!==null){ var c=stops[held]; if(t<c.start-0.05||t>=c.end-0.06){ video.currentTime=c.start; t=c.start; } }
+      var i=-1; for(var k=0;k<stops.length;k++){ if(t>=stops[k].start) i=k; }
+      setActive(i);
+      if(bar&&video.duration) bar.style.width=(t/video.duration*100)+'%';
+    });
+    function hold(i){ held=i; video.currentTime=stops[i].start; play(); setActive(i); root.classList.add('held'); }
+    function release(){ held=null; root.classList.remove('held'); }
+    items.forEach(function(li,i){
+      li.addEventListener('mouseenter',function(){ if(hoverable) hold(i); });
+      li.addEventListener('click',function(){ if(held===i&&!hoverable) release(); else hold(i); });
+    });
+    root.querySelector('.reel-list').addEventListener('mouseleave',function(){ if(hoverable) release(); });
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) play(); else video.pause(); }); },{threshold:.15});
+      io.observe(root);
+    } else play();
+  })();
+
+  /* effect 086 - the hero's three practices */
+  (function(){
+    var root=document.querySelector('.mwg086'); if(!root||!hasGsap||reduce) return;
+    var texts=root.querySelectorAll('.text');
+    function wrap(el){ el.innerHTML=el.textContent.split('').map(function(c){ return c===' '?'<span class="letter">&nbsp;</span>':'<span class="letter">'+c+'</span>'; }).join(''); }
+    function leave(e){ var t=e.currentTarget; if(!t.classList.contains('outro')){ t.classList.add('outro'); if(t.tl) t.tl.reverse(); } }
+    function enter(e){
+      var letter=e.currentTarget, parent=letter.closest('.text');
+      if(parent.classList.contains('hovered')){
+        if(parent.classList.contains('outro')){ parent.classList.remove('outro'); if(parent.tl) parent.tl.play(); }
+        return;
+      }
+      parent.classList.add('hovered');
+      var sib=[].slice.call(parent.querySelectorAll('.letter')), index=sib.indexOf(letter);
+      var rect=letter.getBoundingClientRect();
+      var past=e.clientX>rect.left+rect.width/2, split=past?index:index-1;
+      var left=sib.slice(0,split+1), right=sib.slice(split+1);
+      var media=parent.parentElement.querySelector('.media');
+      var lastLeft=left[left.length-1];
+      var leftDistance=lastLeft?lastLeft.getBoundingClientRect().right-parent.getBoundingClientRect().left:0;
+      var tl=gsap.timeline({onReverseComplete:function(){ parent.classList.remove('hovered'); parent.classList.remove('outro'); }});
+      parent.tl=tl;
+      var shift=Math.max(0.086*window.innerWidth, 80);
+      tl.fromTo(media,{x:leftDistance,xPercent:-50},{clipPath:'inset(0% 0% round 1vw)',duration:.4,ease:'expo.inOut'},0);
+      if(left.length) tl.to(left,{x:-shift,duration:.4,ease:'expo.inOut'},0);
+      if(right.length) tl.to(right,{x:shift,duration:.4,ease:'expo.inOut'},0);
+    }
+    var go=function(){
+      texts.forEach(function(t){
+        wrap(t); t.addEventListener('mouseleave',leave);
+        t.addEventListener('click',function(){ var h=t.getAttribute('data-href'); var el=h&&document.querySelector(h); if(el){ var y=el.getBoundingClientRect().top+window.pageYOffset; if(window.__lenis) window.__lenis.scrollTo(y); else window.scrollTo(0,y); } });
+      });
+      root.querySelectorAll('.letter').forEach(function(l){ l.addEventListener('mouseenter',enter); });
+    };
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(go); else go();
+  })();
+
+  /* deep links into the landing's case overlays travel as hashes;
+     nothing to do here — index.html reads #case-<slug> on load. */
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){var d=document.documentElement,g='carbon';try{if(localStorage.getItem('98-ground')==='white')g='white';}catch(e){}d.setAttribute('data-ground',g);})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marketing agency, Delhi NCR — seven instruments · Ninety-Eight</title>
+<meta name="description" content="Full-scale marketing practice, from start to finish: branding, PR &amp; media, influencer marketing, paid &amp; search, social, production, events. 35 records, 70+ brands.">
+<meta property="og:title" content="Marketing agency, Delhi NCR — seven instruments · Ninety-Eight">
+<meta property="og:description" content=""Full-scale marketing practice, from start to finish: branding, PR &amp; media, influencer marketing, paid &amp; search, social, production, events. 35 records, 70+ brands.">
+<meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ninety-eight.in/marketing.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ninety-eight.in/marketing.html">
+<meta name="twitter:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/field.css">
+<script>
+/* v3.66: the stage is decided here, before first paint, not at the foot of the body.
+   html.fx = motion allowed, so the opener's plain h1 is never painted and then yanked
+   (the 104 script removes the class again if GSAP fails to arrive, and the readable
+   line comes back); data-cues starts at "wait" so no Scroll cue shows before site.js
+   has had its say. Reduced motion adds neither and gets the readable page as before. */
+(function(){var d=document.documentElement;d.classList.add('js');if(!matchMedia('(prefers-reduced-motion:reduce)').matches)d.classList.add('fx');d.setAttribute('data-cues','wait');})();
+/* v3.68: the wire runs on a phone too, at Harsh's call — the opener is the line on the
+   path at every width, as it was through v3.66. */
+</script>
+<style>
+/* =========================================================================
+   MARKETING — vertical 02 (v3.44, Sep 2026)  ·  THE PROBLEM SPINE
+
+   The axis changed. It was five funnel stages named for what we call them
+   internally; it is now five problems named in the founder's own words, with
+   the capabilities underneath as seven recognisable NOUNS — Branding, PR,
+   Creators, Paid, Social, Production, Events. Noun labels are found roughly
+   twice as fast as verb labels, and "The Habit" was neither.
+
+   Why the change is evidence-led, not fashion: re-tagged from what each case
+   record actually says rather than which flywheel room it was filed in,
+   100% of the 35 cases are multi-discipline (creators 34, social 32,
+   production 17, events 17, branding 13, PR 9, paid 4). The old five-room
+   tree forced each case into one box; the work has never been shaped that
+   way. assets/facets.json holds the tags and is meant to be corrected.
+
+   THE SPINE — the one device that stops this becoming a mosaic of effects:
+   a fixed left rail of the five problems that fills as you scroll, and a
+   fixed bar of the seven instrument chips that re-light under every problem
+   that uses them. The chips never move and never change shape; only their
+   state changes. That is the argument made visible — Events is not a stage,
+   it is an instrument, and you watch it light again and again.
+
+   Architecture constant, design variable — the designer's rule from the
+   Sep 10 call: "the structuring is the same, but the design is different…
+   when you change design but there's no anchor point to hold on to, they get
+   lost." Every problem screen has the same skeleton (number, problem, one
+   sentence, one figure, one door) and each varies its interior alignment.
+
+   The ground is assets/field.js, unchanged, blooming the lead instrument's
+   colour. Crossfade slowed from 4s to 7s — "it's changing themes way faster
+   than it should", same call.
+
+   v3.46, same day: the spine's two fixtures are gone at Harsh's call, the
+   chip bar and the rail of numbers. The seven now present themselves once,
+   as panels straight after the hero (effect 109, #seven); the problems keep
+   their skeleton, and the ground still takes each one's lead colour.
+
+   v3.47, same day: the page is the opener and the seven, nothing else. At
+   Harsh's call the hero, the five problems, the work grid and the ask are
+   gone with their CSS and script, and the seven sit centred. Most of the
+   above is history now; the ground follows whichever panel is open.
+   ========================================================================= */
+:root{
+  --bg:#0B0B0C; --ink:#F4F4F2; --dim:#8E8E88; --faint:#6E6E68;
+  --line:rgba(244,244,242,.14); --hair:rgba(244,244,242,.07);
+  --red:#EE352E; --pad:clamp(1.25rem,5vw,5rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --rail:0px;   /* v3.46: the rail is gone, and so is the column it reserved */
+  --room:#5278C2;
+}
+.c-branding{--chip:#5278C2}
+.c-pr{--chip:#0039A6}
+.c-creators{--chip:#00933C}
+.c-paid{--chip:#FCCC0A}
+.c-social{--chip:#FF6319}
+.c-production{--chip:#996633}
+.c-events{--chip:#EE352E}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo',Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+::selection{background:var(--room);color:#0B0B0C}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+svg{display:block}
+.mono{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+/* ---------- fixed chrome ---------- */
+.chrome{position:fixed;inset:0;z-index:40;pointer-events:none}
+.chrome > *{pointer-events:auto}
+.back{position:absolute;top:1.3rem;left:var(--pad)}
+.back:hover{opacity:.55}
+.mark{position:absolute;top:1.3rem;left:50%;transform:translateX(-50%);
+  font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;opacity:.9}
+.tonav{position:absolute;top:1.3rem;right:var(--pad);display:flex;gap:1.1rem}
+.tonav a:hover{color:var(--ink)}
+
+
+/* ---------- screens ---------- */
+.screen{position:relative;min-height:100svh;display:flex;align-items:center;
+  padding:6.5rem var(--pad) 7.5rem;overflow:hidden}
+.screen > .body{position:relative;z-index:2;width:100%;max-width:1180px;margin-left:calc(var(--rail) + 2vw)}
+@media(max-width:900px){ .screen > .body{margin-left:0} }
+
+.rise{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
+.on .rise{opacity:1;transform:none}
+.wipe{display:block;overflow:hidden}
+.wipe > span{display:block;transform:translateY(105%);transition:transform 1.2s var(--ease);transition-delay:var(--d,0s)}
+.on .wipe > span{transform:none}
+@media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .rise,.wipe>span{opacity:1;transform:none;transition:none} }
+
+#bar{position:fixed;top:0;left:0;height:1px;width:0;background:var(--room);z-index:130;transition:background 1.6s var(--ease)}
+/* =========================================================================
+   THE OPENER — effect 104, the line on a wire (v3.45, Sep 10 2026)
+
+   "Full-scale marketing practice, from start to finish." rides a train of
+   text and tiles along an SVG path that is dead straight at rest and bends
+   into a wave in proportion to how hard you are scrolling. The zip's
+   mechanism and its numbers: GAP 90, tiles 310 high, the morph quickTo'd at
+   1s power2 and let go 66ms after the last scroll. The first screen is the
+   zip's own — the field and a Scroll cue.
+
+   The CSS ships the READABLE state (the sentence as plain type); the script
+   adds .fx before it installs anything, so no GSAP or reduced motion gets a
+   legible line, never a blank pinned one. The two tiles are emoji, 📈 then
+   🚀, set as text so each device draws them in its own emoji font (Apple's on
+   a Mac or an iPhone). Each keeps the zip's 310-unit tile box.
+   ========================================================================= */
+.mwg104{position:relative}
+.w104-say{padding:clamp(6.5rem,16vh,9rem) var(--pad) 0 calc(var(--pad) + var(--rail) + 2vw);
+  font-weight:800;font-stretch:118%;letter-spacing:-.035em;line-height:.94;font-size:clamp(2.1rem,6.6vw,5.4rem);text-wrap:balance}
+.w104-say i{font-style:normal;color:var(--red)}
+@media(max-width:900px){ .w104-say{padding-left:var(--pad)} }
+.mwg104 .pin-height,.w104-cue{display:none}
+/* v3.66: html.fx is set in the head, so the two rules below already hold at first paint;
+   .mwg104.fx follows when the script has installed the stage (and is the state that
+   survives if the head's guess is withdrawn for want of GSAP) */
+html.fx .mwg104 .w104-say,.mwg104.fx .w104-say{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+html.fx .mwg104 .pin-height,.mwg104.fx .pin-height{display:block;height:857vh}   /* the script re-paces this to the line; 857 is it for this one */
+.mwg104 .container{height:100vh;display:flex;align-items:center;overflow:hidden}
+.mwg104 svg{display:block;width:120%;height:auto;overflow:visible;margin:8vw 0 0 -10%}
+#w104-line{fill:none;stroke:none}
+#w104-track{visibility:hidden}
+.mwg104.ready #w104-track{visibility:visible}
+.mwg104 text.segment{fill:var(--ink);font-family:'Archivo',Helvetica,Arial,sans-serif;font-weight:800;font-stretch:118%;letter-spacing:-.035em;
+  stroke:var(--ink);stroke-width:2px;stroke-linejoin:round}   /* at -.035em some pairs abut (the r-t in start) and anti-aliasing draws a hairline seam where they meet; a 2-unit stroke in the fill colour closes it */
+.mwg104 text.segment .stop{fill:var(--red);stroke:var(--red)}
+.mwg104 .emo{font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji','Twemoji Mozilla',sans-serif;font-size:280px;fill:var(--ink)}   /* fill only shows if a device has no colour emoji font */
+.mwg104.fx .w104-cue{display:flex;flex-direction:column;align-items:center;gap:.85rem;
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none}
+.w104-cue i{display:block;width:1px;height:34px;background:var(--line);position:relative;overflow:hidden}
+.w104-cue i::after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--ink);animation:w104drip 1.8s var(--ease) infinite}
+@keyframes w104drip{to{top:100%}}
+/* =========================================================================
+   THE SEVEN — effect 109, the instruments as panels (v3.46, Sep 10 2026)
+
+   Straight after the hero, the seven instruments the page is built on, each
+   a panel in its own colour (the .c-* subway colours): one open (the name, a
+   picture from its room, a paragraph in that room's own words, how many of
+   the 35 records use it, its doors), the other six standing as pills with
+   the name turned up the side. The ground blooms the open panel's colour.
+   The spine's chip bar and rail of numbers went in the same change, at
+   Harsh's call, so this is now the one place the seven are named.
+
+   The zip's accordion was built for four. Sized here for seven: pills 56px
+   (the zip's 88 would leave the open panel no room), the open width is what
+   the column has left (never more than the zip's 736), and when that falls
+   under 560px the panels stack, which is the zip's own small-screen form.
+
+   CSS ships the READABLE state, a plain grid of seven open cards; the script
+   adds .fx and takes over. No GSAP or reduced motion keeps the grid.
+   ========================================================================= */
+.s109-kick{font-weight:400;margin-bottom:1.1rem}
+.s109-kick span{display:none}
+#seven > .body{max-width:calc(736px + 6 * (56px + 6px));margin-inline:auto}   /* v3.47: centred. The cap is the row's full width in the driver (736 open, six 56px pills, six 6px gaps), so the row fills it and the kicker sits on its left edge; change PILL, GAP or 736 there and change this too */
+#seven.fx109 .s109-kick span{display:inline}
+.mwg109{--open:660px;--t109:min(104px,calc((var(--open) - 40px) / 6.3))}   /* "Production" sets 6.09em wide in this face */
+.mwg109 .container{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:6px}
+.mwg109 .slide{--on:#050506;position:relative;overflow:hidden;padding:20px;border-radius:20px;background:var(--chip);color:var(--on)}
+.mwg109 .slide.c-pr,.mwg109 .slide.c-production{--on:#fff}   /* the two dark chips carry white; the rest carry black (all >= 4.5:1) */
+.mwg109 .content{display:flex;flex-direction:column;justify-content:space-between;gap:1.4rem;height:100%}
+.mwg109 .title{font-weight:800;font-stretch:118%;letter-spacing:-.03em;line-height:.85;font-size:clamp(1.9rem,3vw,2.6rem);width:min-content;outline:none}
+.mwg109 .bottom{display:flex;flex-direction:column;gap:1rem}
+/* the picture plate (v3.64, from Harsh's canvas): a portrait shot standing on a card
+   of its own in the panel's ink, 7px below it and 9px to its left. --ar is the plate's
+   shape (PR's shot stands a little taller), --pos the band a taller shot keeps. */
+.mwg109 .media{position:relative;display:block;width:calc(100% - 9px);height:auto;aspect-ratio:var(--ar,1131/1414);min-width:0;min-height:0}   /* the 9px is the shot's own offset: it keeps the pair inside the panel */
+.mwg109 .media i{position:absolute;left:0;top:7px;width:100%;height:100%;border-radius:7px;background:var(--on)}
+.mwg109 .media img{position:relative;left:9px;display:block;width:100%;height:100%;border-radius:7px;object-fit:cover;object-position:var(--pos,50% 50%)}
+.mwg109 .txt p{font-size:.95rem;line-height:1.45;letter-spacing:-.005em}
+.mwg109 .txt .meta{margin-top:.9rem;font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.95}
+.mwg109 .meta a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;
+  display:inline-block;padding:.4rem 0;margin:-.4rem 0}   /* v3.66: the type stays .58rem; the target grows to ~26px without moving anything */
+.mwg109 .meta a:hover{text-decoration-thickness:2px}
+.mwg109 .meta .no{opacity:.62}
+.mwg109 .small-title{display:none}
+.mwg109 a:focus-visible,.mwg109 .small-title:focus-visible{outline:2px solid var(--on);outline-offset:-6px}
+
+/* the accordion */
+.mwg109.fx .container{display:flex;align-items:center;gap:6px;height:506px}
+.mwg109.fx .slide{flex:0 0 56px;height:506px}
+.mwg109.fx .slide:not(.on){cursor:pointer}
+.mwg109.fx .content{width:calc(var(--open) - 40px)}
+.mwg109.fx .title{font-size:var(--t109)}
+.mwg109.fx .bottom{flex-direction:row;align-items:flex-end;gap:28px;flex:1 1 auto;min-height:0}
+.mwg109.fx .media{width:clamp(180px,calc(var(--open) - 370px),270px);max-height:100%;flex:0 0 auto}
+.mwg109.fx .txt{width:290px;flex:0 0 auto}
+.mwg109.fx .small-title{display:flex;justify-content:center;position:absolute;bottom:0;left:100%;width:506px;
+  padding:20px;line-height:16px;transform:rotate(-90deg);transform-origin:0 100%;
+  font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;color:var(--on)}
+/* stacked, the zip's small-screen form: pills 60px tall, each panel opening to its own height */
+.mwg109.fx.stack .container{flex-direction:column;align-items:stretch;height:auto}
+.mwg109.fx.stack .slide{flex:0 0 60px;height:auto;width:100%}
+.mwg109.fx.stack .content{width:auto;height:auto}
+.mwg109.fx.stack .bottom{flex-direction:column;align-items:stretch;gap:1rem}
+.mwg109.fx.stack .media{width:calc(100% - 9px);max-width:480px;order:2}
+.mwg109.fx.stack .title{font-size:min(var(--t109),4.5rem)}
+.mwg109.fx.stack .txt{width:auto}
+.mwg109.fx.stack .small-title{left:0;width:100%;padding:22px 20px;transform:none;justify-content:flex-start}
+
+/* ---------- the white ground (v3.53): the site-wide switch can put this page on white ---------- */
+html[data-ground="white"]{
+  --bg:#FFFFFF; --ink:#0B0B0C; --dim:#6B6B66; --faint:#8E8E88; --line:rgba(11,11,12,.14); --hair:rgba(11,11,12,.07);
+}
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div id="bar"></div>
+<div class="grain98" aria-hidden="true"></div>
+
+<!--S98:HEAD — the shared header and menu: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<header class="s98-head" id="s98-head">
+  <div class="s98-l">
+    <button class="s98-menu" id="s98-menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav035" aria-label="Menu"><span class="md-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="md-txt">Menu</span></button>
+  </div>
+  <a class="s98-c" href="index.html" aria-label="Ninety-Eight &mdash; home"><img src="assets/98-graffiti.png" alt="" width="834" height="529"></a>
+</header>
+<div class="nav035" id="nav035" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="n35-inner">
+    <div class="n35-top">
+      <p class="n35-word" aria-hidden="true">Menu</p>
+      <div class="n35-wmedias" aria-hidden="true">
+        <img class="n35-wmedia" src="assets/gurls/g06.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/ishant.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g07.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/slay.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g08.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/one8.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g09.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/hardrock.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <ul>
+      <li><a href="talent.html">
+        <span class="n35-name">Talent &amp; Branding</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/retain/ishant-social.webp" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="marketing.html" aria-current="page">
+        <span class="n35-name">Marketing &middot; seven instruments &middot; 35 cases</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/bayroute.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/monet.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/butterroom.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/fig.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#voices">
+        <span class="n35-name">In their words</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/hardrock.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/poetry.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#film" data-action="film">
+        <span class="n35-name">In the building <sup class="beta">98 Studio &middot; beta</sup></span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="blog/index.html">
+        <span class="n35-name">The journal</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/menu/m2.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="cases.html">
+        <span class="n35-name">Case studies &middot; everything, A to Z</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/sneakerfest.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/skylantern.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/rizq.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/limitless.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/dejabrew.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="about.html">
+        <span class="n35-name">About &mdash; who we are, since 01.01.2020</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/gurls/g03.webp" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#contact">
+        <span class="n35-name">Contact &mdash; tell us what you&rsquo;re building.</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/contact/envelope-green.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/pigeon-carbon.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/phone-yellow.png" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+    </ul>
+    <div class="n35-bottom">
+      <div class="n35-ground" role="group" aria-label="Background"><button type="button" data-s98-ground="carbon">Carbon</button><span class="n35-sep" aria-hidden="true">/</span><button type="button" data-s98-ground="white">White</button></div>
+      <p class="n35-hint" aria-hidden="true">Scroll &darr; to go back to the page</p>
+    </div>
+  </div>
+</div>
+<!--/S98:HEAD-->
+
+<main>
+<!-- ============ THE OPENER — effect 104, the line on a wire (v3.45) ============
+     The two tiles are emoji (📈, 🚀), drawn by each device's own emoji
+     font. To put a picture in instead, replace a
+       <g class="segment tile">…</g>
+     with
+       <image class="segment" href="assets/…" height="300" clip-path="url(#w104-clip)"/>
+     and nothing else changes: the driver sizes an image from its own aspect
+     ratio exactly as the zip does, and re-paces the runway to the new train. -->
+<section class="mwg104" id="opener">
+  <h1 class="w104-say">Full-scale marketing practice, from start to finish<i>.</i></h1>
+  <p class="w104-cue mono" aria-hidden="true">Scroll<i></i></p>
+  <div class="pin-height">
+    <div class="container">
+      <svg width="2577" height="391" viewBox="0 0 2577 391" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="w104-clip" clipPathUnits="objectBoundingBox"><rect width="1" height="1" rx=".08" ry=".08"/></clipPath>
+        </defs>
+        <path id="w104-line" d="M0 195H644H1288H1932H2576"/>
+        <path id="w104-wave" d="M0.21875 190.5C0.21875 190.5 382.004 0.5 644.219 0.5C906.434 0.5 1051.3 78.1239 1288.22 190.5C1531.72 306 1668.87 390.5 1932.22 390.5C2195.57 390.5 2576.22 190.5 2576.22 190.5" stroke="#FFF" style="opacity:0;"/>
+        <g id="w104-track">
+          <text class="segment" font-size="350"><textPath href="#w104-line" text-anchor="start">Full-scale</textPath></text>
+          <g class="segment tile" data-w="310" data-h="310"><text class="emo" x="155" y="155" text-anchor="middle" dominant-baseline="central">📈</text></g>
+          <text class="segment" font-size="350"><textPath href="#w104-line" text-anchor="start">marketing practice,</textPath></text>
+          <g class="segment tile" data-w="310" data-h="310"><text class="emo" x="155" y="155" text-anchor="middle" dominant-baseline="central">🚀</text></g>
+          <text class="segment" font-size="350"><textPath href="#w104-line" text-anchor="start">from start to finish<tspan class="stop">.</tspan></textPath></text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ THE SEVEN — effect 109, the instruments as panels (v3.46) ============
+     One panel open, six standing as pills with their name turned up the side.
+     Each paragraph is that instrument's room talking (Paid & Search, which has
+     no room, borrows Problem 04), each picture comes from that room's assets,
+     and each count is recounted at load from FACETS (assets/facets.json,
+     inlined). Since v3.47 this is the page's last screen, centred. -->
+<section class="screen io" id="seven" data-lead="branding" aria-labelledby="seven-h">
+  <div class="body">
+    <h2 class="mono s109-kick rise" id="seven-h">The seven instruments<span> &middot; open any of them</span></h2>
+    <div class="mwg109 rise" id="w109" style="--d:.1s">
+      <div class="container">
+        <div class="slide c-branding" data-key="branding">
+          <div class="content" id="w109-branding">
+            <h3 class="title" tabindex="-1">Branding</h3>
+            <div class="bottom">
+              <div class="media"><i aria-hidden="true"></i><img src="assets/retain/branding-bench.webp" alt="At the bench &mdash; drawing a mark over a reference wall, samples and swatches laid out" width="960" height="1200" loading="lazy" decoding="async"></div>
+              <div class="txt">
+                <p>The name, the position, the mark, and a system that has to survive a feed it was never designed for. Not a deck that gets signed off and filed, but the thing the press cycle, the creator brief and the menu photograph all have to agree with.</p>
+                <p class="meta">In <span data-count="branding">13</span> of <span data-total>35</span> records<br><a href="identity.html" target="_blank" rel="noopener">The identity work &nearr;</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="small-title" type="button" aria-controls="w109-branding" aria-expanded="true">Branding</button>
+        </div>
+        <div class="slide c-pr" data-key="pr">
+          <div class="content" id="w109-pr">
+            <h3 class="title" tabindex="-1">PR&nbsp;&amp; Media</h3>
+            <div class="bottom">
+              <div class="media" style="--ar:1121/1441"><i aria-hidden="true"></i><img src="assets/retain/pr-press-call.webp" alt="A publicist holding out a red telephone receiver over a spread of magazine covers" width="935" height="1200" loading="lazy" decoding="async"></div>
+              <div class="txt">
+                <p>The earned half of the same job: a creator makes the city talk, a journalist makes the record. Three awards in one year for one client group, and national trade press for a campaign fronted by our talent.</p>
+                <p class="meta">In <span data-count="pr">9</span> of <span data-total>35</span> records<br><a href="press.html" target="_blank" rel="noopener">The press room &nearr;</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="small-title" type="button" aria-controls="w109-pr" aria-expanded="false">PR &amp; Media</button>
+        </div>
+        <div class="slide c-creators" data-key="creators">
+          <div class="content" id="w109-creators">
+            <h3 class="title" tabindex="-1">Creators</h3>
+            <div class="bottom">
+              <div class="media"><i aria-hidden="true"></i><img src="assets/retain/creators-ring.webp" alt="One subject ringed by phone screens, every camera filming her at once" width="960" height="1200" loading="lazy" decoding="async"></div>
+              <div class="txt">
+                <p>One verified voice per audience class, never five from the same shelf, landing inside a window tight enough that a city reads it as an arrival rather than a schedule. Reach is combined follower reach, not impressions, and we say so.</p>
+                <p class="meta">In <span data-count="creators">34</span> of <span data-total>35</span> records<br><a href="amplify.html" target="_blank" rel="noopener">The creator floor &nearr;</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="small-title" type="button" aria-controls="w109-creators" aria-expanded="false">Creators</button>
+        </div>
+        <div class="slide c-paid" data-key="paid">
+          <div class="content" id="w109-paid">
+            <h3 class="title" tabindex="-1">Paid&nbsp;&amp; Search</h3>
+            <div class="bottom">
+              <div class="media" style="--pos:50% 0%"><i aria-hidden="true"></i><img src="assets/retain/paid-desk.webp" alt="Working a laptop at a studio desk, pencil between the teeth" width="800" height="1200" loading="lazy" decoding="async"></div>
+              <div class="txt">
+                <p>Noise that never converts is a hobby. Paid media and search, tuned until they pay back. Four records touch it and none of them lead with it. It is the youngest thing we do, and we would rather say so.</p>
+                <p class="meta">In <span data-count="paid">4</span> of <span data-total>35</span> records<br><a href="performance-marketing.html" target="_blank" rel="noopener">Performance marketing &nearr;</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="small-title" type="button" aria-controls="w109-paid" aria-expanded="false">Paid &amp; Search</button>
+        </div>
+        <div class="slide c-social" data-key="social">
+          <div class="content" id="w109-social">
+            <h3 class="title" tabindex="-1">Social</h3>
+            <div class="bottom">
+              <div class="media" style="--pos:50% 92%"><i aria-hidden="true"></i><img src="assets/retain/social-ideas.webp" alt="Carrying the week's ideas &mdash; an armful of magazines, a notebook and two coffees" width="800" height="1200" loading="lazy" decoding="async"></div>
+              <div class="txt">
+                <p>Reach you rent stops the day you stop paying; this is the part you keep. The feed held week after week and the design system under it, with social creatives, stories and posts for eleven brands in the directory.</p>
+                <p class="meta">In <span data-count="social">32</span> of <span data-total>35</span> records<br><a href="retain.html" target="_blank" rel="noopener">The studio directory &nearr;</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="small-title" type="button" aria-controls="w109-social" aria-expanded="false">Social</button>
+        </div>
+        <div class="slide c-production" data-key="production">
+          <div class="content" id="w109-production">
+            <h3 class="title" tabindex="-1">Production</h3>
+            <div class="bottom">
+              <div class="media" style="--pos:50% 92%"><i aria-hidden="true"></i><img src="assets/retain/prod/studio-tripod.webp" alt="Behind the camera &mdash; a body on a tripod head, tethered, waiting on the next frame" width="800" height="1200" loading="lazy" decoding="async"></div>
+              <div class="txt">
+                <p>A shoot is a channel we own, not a service sold apart from it. Menus, ranges, rooms and people: sixteen shoots across food and hospitality, run here, not bought in.</p>
+                <p class="meta">In <span data-count="production">17</span> of <span data-total>35</span> records<br><a href="production.html" target="_blank" rel="noopener">The shoots &nearr;</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="small-title" type="button" aria-controls="w109-production" aria-expanded="false">Production</button>
+        </div>
+        <div class="slide c-events" data-key="events">
+          <div class="content" id="w109-events">
+            <h3 class="title" tabindex="-1">Events</h3>
+            <div class="bottom">
+              <div class="media" style="--pos:50% 0%"><i aria-hidden="true"></i><img src="assets/retain/events-speaker-call.webp" alt="A call on speaker at the desk, the run of show going into a notebook" width="902" height="1200" loading="lazy" decoding="async"></div>
+              <div class="txt">
+                <p>A festival&rsquo;s product is the room. Launch parties, festival activations, venue takeovers, anniversaries: our job on the night is to make sure the right forty people are standing in it, and that what they saw survives the next morning.</p>
+                <p class="meta">In <span data-count="events">17</span> of <span data-total>35</span> records<br><a href="events.html" target="_blank" rel="noopener">The night floor &nearr;</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="small-title" type="button" aria-controls="w109-events" aria-expanded="false">Events</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!--S98:FOOT — the shared footer: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<footer class="s98-foot" id="s98-foot">
+  <div class="s98-fc s98-f1">
+    <span class="s98-faint">Socials:</span>
+    <a href="https://instagram.com/98.entertainment" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.behance.net/harsharya" target="_blank" rel="noopener">Behance</a>
+    <a href="https://wa.me/919711184674?text=Here%27s%20what%20I%27m%20building%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="s98-fc s98-f2">
+    <span class="s98-faint">Pages:</span>
+    <a href="index.html">Home</a>
+    <a href="marketing.html" aria-current="page">Marketing &mdash; seven instruments</a>
+    <a href="talent.html">Talent &amp; Branding</a>
+    <a href="blog/index.html">The journal</a>
+    <a href="cases.html">Case studies</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="s98-fc s98-f3">
+    <span class="s98-faint">Marketing, instrument by instrument:</span>
+    <a href="identity.html">Branding &mdash; identity &amp; design</a>
+    <a href="press.html">PR &amp; Media &mdash; the press room</a>
+    <a href="amplify.html">Creators &mdash; the creator floor</a>
+    <a href="performance-marketing.html">Paid &amp; Search &mdash; performance marketing</a>
+    <a href="retain.html">Social &mdash; the feed, held</a>
+    <a href="production.html">Production &mdash; the shoots</a>
+    <a href="events.html">Events &mdash; the night floor</a>
+  </div>
+  <div class="s98-fc s98-f4">
+    <span class="s98-faint">Contact:</span>
+    <a href="mailto:contact@ninety-eight.in" data-s98-mail="contact@ninety-eight.in">contact@ninety-eight.in</a>
+    <a href="index.html#contact">Tell us what you&rsquo;re building &rarr;</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+  <div class="s98-rights">
+    <span>All rights reserved. &copy;2026 Ninety-Eight Entertainment</span>
+    <span class="s98-faint">Delhi NCR &middot; est. 01.01.2020 &middot; <span data-s98-clock>IST</span></span>
+  </div>
+</footer>
+<!--/S98:FOOT-->
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script>/* v3.67: on a phone the address bar shrinking is a "resize"; without this every pin re-measures mid-scroll and the page jumps */if(window.ScrollTrigger){ScrollTrigger.config({ignoreMobileResize:true});}</script>
+<script src="assets/vendor/MorphSVGPlugin.min.js"></script>
+<script>
+/* ---- 104: the opener rides a wire that waves with your scroll (v3.45) ------
+   The zip's driver. Three departures, each forced:
+   1. Text is measured by the SVG itself — getComputedTextLength on an
+      off-path probe — not on canvas. Canvas ignores font-stretch and
+      letter-spacing, and this page's display type uses both (118%, -.035em);
+      measured on canvas the words would overrun their gaps.
+   2. The zip's document.fonts.load('LayGrotesk') is gone: it names a face
+      this site does not have. The line waits for Archivo 800 instead.
+   3. The runway is the zip's PACE, not its length: 700vh of scroll per
+      11,835 units of path + train (its own sentence, measured in Inter 500).
+      This line runs a little longer than the zip's, so it gets 857vh
+      rather than 800 and crosses the screen at the reference's speed.
+      Change the words or the tiles and the runway re-paces itself.
+   Lenis, optional in the zip, stays out: this page scrolls natively. */
+(function(){
+  var root = document.getElementById('opener'); if (!root) return;
+  /* v3.66: a hash landing (events.html and two journal posts arrive at #seven). With
+     scroll-behavior:smooth the browser's own fragment jump is a glide, and the stage's
+     first ScrollTrigger.refresh() cancels a glide mid-flight, so the page stayed at the
+     top. Land by hand, instantly: once now, once more when the stage has measured. */
+  function land(){
+    var h = location.hash, el = null; if (!h || h.length < 2) return;
+    try { el = document.getElementById(decodeURIComponent(h.slice(1))); } catch (e) {}
+    if (!el) return;
+    var de = document.documentElement, was = de.style.scrollBehavior;
+    de.style.scrollBehavior = 'auto'; el.scrollIntoView(); de.style.scrollBehavior = was;
+  }
+  land();
+  /* v3.66: the head already put html.fx on for this stage; if the stage cannot be built
+     after all, take it off again so the plain line is painted instead of nothing */
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches ||
+      typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof MorphSVGPlugin === 'undefined'){
+    document.documentElement.classList.remove('fx'); return;
+  }
+  gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin);
+  root.classList.add('fx');                    /* the stage replaces the plain line before anything measures */
+
+  var pinHeight = root.querySelector('.pin-height');
+  var container = root.querySelector('.container');
+  var svg = root.querySelector('svg');
+  var svgPath = root.querySelector('#w104-line');
+  var track = root.querySelector('#w104-track');
+  var SVGNS = 'http://www.w3.org/2000/svg';
+
+  var GAP = 90, IMG_HEIGHT = 310;
+  var REF_SPAN = 11835, REF_RUN = 700;          /* the zip: 2,576 path + 9,259 train, over 700vh */
+  var segments = [], totalLength = 0, scrollProgress = 0, ready = false, tries = 0;
+  var wheelTimeout, prevScroll = null;
+
+  var morphTl = gsap.timeline({ paused: true })
+    .to(svgPath, { morphSVG: root.querySelector('#w104-wave'), duration: 1, ease: 'none' });
+
+  var amplitude = { value: 0 };
+  var amplitudeTo = gsap.quickTo(amplitude, 'value', {
+    duration: 1, ease: 'power2',
+    onUpdate: function(){
+      morphTl.progress(gsap.utils.clamp(0, 1, amplitude.value / 50));
+      update();
+    }
+  });
+
+  function sizeImages(){                        /* pictures, if one ever replaces an emoji tile */
+    return Promise.all([].map.call(track.querySelectorAll('image.segment'), function(img){
+      return new Promise(function(resolve){
+        var probe = new Image();
+        var apply = function(){
+          img.setAttribute('width', Math.round(IMG_HEIGHT * probe.naturalWidth / probe.naturalHeight));
+          img.setAttribute('height', IMG_HEIGHT);
+          resolve();
+        };
+        probe.onload = apply; probe.onerror = resolve;
+        probe.src = img.getAttribute('href');
+        if (probe.complete && probe.naturalWidth) apply();
+      });
+    }));
+  }
+
+  function measureText(el){
+    var probe = document.createElementNS(SVGNS, 'text');
+    probe.setAttribute('class', 'segment');
+    probe.setAttribute('font-size', el.getAttribute('font-size') || '350');
+    probe.setAttribute('visibility', 'hidden');
+    probe.textContent = el.textContent;
+    svg.appendChild(probe);
+    var w = probe.getComputedTextLength();
+    svg.removeChild(probe);
+    return w;
+  }
+
+  function measureSegments(){
+    segments = [].filter.call(track.children, function(el){
+      return el.classList.contains('segment');
+    }).map(function(el){
+      var tag = el.tagName.toLowerCase();
+      if (tag === 'text') return { type: 'text', el: el, textPath: el.querySelector('textPath'), size: measureText(el) };
+      var img = tag === 'image';
+      var w = +el.getAttribute(img ? 'width' : 'data-w'), h = +el.getAttribute(img ? 'height' : 'data-h');
+      return { type: img ? 'image' : 'tile', el: el, size: w, width: w, height: h };
+    });
+    totalLength = segments.reduce(function(sum, seg, i){
+      return sum + seg.size + (i < segments.length - 1 ? GAP : 0);
+    }, 0);
+  }
+
+  function placeOnPath(seg, len){
+    var el = seg.el, width = seg.width, height = seg.height;
+    var pl = svgPath.getTotalLength();
+    if (len < -width || len > pl + width){ el.style.opacity = 0; return; }
+
+    el.style.opacity = 1;
+    var clamped = gsap.utils.clamp(0, pl, len);
+    var pt = svgPath.getPointAtLength(clamped);
+    var next = svgPath.getPointAtLength(gsap.utils.clamp(0, pl, clamped + 1));
+    var angle = Math.atan2(next.y - pt.y, next.x - pt.x) * 180 / Math.PI;
+    var rot = 'rotate(' + angle + ' ' + pt.x + ' ' + pt.y + ')';
+
+    if (seg.type === 'image'){
+      el.setAttribute('x', pt.x - width / 2);
+      el.setAttribute('y', pt.y - height);
+      el.setAttribute('transform', rot);
+    } else {                                    /* an emoji tile is a group: no x/y of its own */
+      el.setAttribute('transform', rot + ' translate(' + (pt.x - width / 2) + ' ' + (pt.y - height) + ')');
+    }
+  }
+
+  function update(){
+    if (!ready) return;
+    var pl = svgPath.getTotalLength();
+    var cursor = pl + totalLength - scrollProgress * (pl + totalLength);
+
+    for (var i = segments.length - 1; i >= 0; i--){
+      var seg = segments[i];
+      cursor -= seg.size;
+      if (seg.type === 'text'){
+        seg.textPath.setAttribute('startOffset', ((cursor / pl) * 100) + '%');
+        seg.el.style.opacity = (cursor >= pl || cursor + seg.size <= 0) ? 0 : 1;
+      } else {
+        placeOnPath(seg, cursor + seg.size / 2);
+      }
+      cursor -= GAP;
+    }
+  }
+
+  function bumpAmplitude(amount){
+    amplitudeTo(Math.abs(amount));
+    clearTimeout(wheelTimeout);
+    wheelTimeout = setTimeout(function(){ amplitudeTo(0); }, 66);
+  }
+  function handleWheel(e){ bumpAmplitude(e.deltaY); }
+
+  function repace(){                            /* the zip's pace, this line's length */
+    var run = REF_RUN * (svgPath.getTotalLength() + totalLength) / REF_SPAN;
+    pinHeight.style.height = (100 + run).toFixed(1) + 'vh';
+  }
+
+  function init(){
+    measureSegments();
+    /* a pane laid out at 0x0 measures nothing — wait for a real one (v3.36's guard) */
+    if (!(segments.length && segments[0].size > 0) && tries++ < 40){ setTimeout(init, 250); return; }
+    repace();
+    ready = true;
+    update();
+    root.classList.add('ready');
+
+    gsap.to(root.querySelector('.w104-cue'), {
+      autoAlpha: 0, duration: 0.2,
+      scrollTrigger: { trigger: root, start: 'top top', end: 'top top-=1', toggleActions: 'play none reverse none' }
+    });
+
+    ScrollTrigger.create({
+      trigger: pinHeight,
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: container,
+      scrub: true,
+      onRefresh: function(){ measureSegments(); update(); },
+      onUpdate: function(self){
+        var scroll = self.scroll();
+        if (prevScroll != null) bumpAmplitude(scroll - prevScroll);
+        prevScroll = scroll;
+        scrollProgress = self.progress;
+        update();
+      }
+    });
+
+    root.addEventListener('wheel', handleWheel, { passive: true });
+    ScrollTrigger.refresh();
+    land();
+  }
+
+  /* start once the type and any pictures are in — or after 3s regardless, so a stalled font file
+     never leaves five blank screens; a face that lands later re-measures the train and re-paces it */
+  var started = false;
+  function start(){
+    if (started) return; started = true;
+    init();
+    if (document.fonts && document.fonts.addEventListener){
+      document.fonts.addEventListener('loadingdone', function(){
+        if (!ready) return;
+        measureSegments(); repace(); update(); ScrollTrigger.refresh();
+      });
+    }
+  }
+  var waits = [sizeImages()];
+  if (document.fonts){
+    waits.push(document.fonts.ready);
+    waits.push(document.fonts.load('800 350px Archivo'));
+  }
+  Promise.all(waits).then(start, start);
+  setTimeout(start, 3000);
+})();
+</script>
+<script>
+/* ---- 109: the seven instruments as panels (v3.46) ---------------------------
+   The zip's accordion and its numbers: a pill lifts 400 -> 420 on hover (0.3s
+   back.out(2)); a click closes the open panel and opens the pill (0.5s
+   back.inOut(0.9)), the old content sliding out one side while the new comes
+   in from the other and the small title rides off the same way; the bottom
+   row fades over 0.4s. Departures, all forced by fitting seven panels in the
+   page's column:
+   - pills are 56px, not 88, and the open width is whatever the column leaves
+     (never more than the zip's 736), measured and re-measured on resize;
+   - under 560px of open panel the stack takes over, the zip's own small-screen
+     form, with each panel opening to its measured height, not a fixed 536/636;
+   - the small title is a <button>, so a keyboard opens panels too, and the
+     closed panels' content is inert;
+   - opening a panel tells the page (Spine98.repaint), so the ground blooms
+     that instrument's colour.
+   The zip's MutationObserver teardown is dropped: this page never removes the
+   section (and the teardown called a `tl` that does not exist). */
+(function(){
+  var root = document.getElementById('w109'); if (!root) return;
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  if (typeof gsap === 'undefined') return;
+  var section = document.getElementById('seven');
+  root.classList.add('fx');
+  if (section) section.classList.add('fx109');
+
+  var container = root.querySelector('.container');
+  var slides = [].slice.call(container.querySelectorAll('.slide'));
+  var contents = slides.map(function(s){ return s.querySelector('.content'); });
+  var smallTitles = slides.map(function(s){ return s.querySelector('.small-title'); });
+  var bottoms = slides.map(function(s){ return s.querySelector('.bottom'); });
+  var N = slides.length, GAP = 6, PILL = 56, MIN_OPEN = 560, EASE = 'back.inOut(0.9)';
+  var S = null, open = 0, tries = 0;
+  var canHover = matchMedia('(hover:hover)').matches;
+
+  function measure(){
+    var cw = root.clientWidth;
+    if (!cw) return false;
+    var room = cw - (N - 1) * (PILL + GAP);
+    if (room >= MIN_OPEN){
+      S = { axis:'x', stack:false, open:Math.min(736, room), closed:PILL, radius:PILL / 2,
+            hOpen:506, hClosed:400, hHover:420, stOpen:60, cRight:70 };
+      S.cLeft = -(S.open - 16); S.stBefore = -(S.open - 16);   /* the zip's -704 leaves 32px of its 88px pill; a 56px pill needs 16 to clear */
+    } else {
+      S = { axis:'y', stack:true, open:cw, closed:60, radius:30, stOpen:60, cRight:70 };
+    }
+    root.classList.toggle('stack', S.stack);
+    root.style.setProperty('--open', S.open + 'px');
+    if (S.stack){                      /* a closed panel's content must clear the pill entirely */
+      var tallest = 0;
+      contents.forEach(function(c){ tallest = Math.max(tallest, c.offsetHeight); });
+      S.cLeft = -(tallest + 40); S.stBefore = -(tallest + 80);
+    }
+    return true;
+  }
+
+  function panelHeight(i){ return Math.ceil(contents[i].offsetHeight) + 40; }
+
+  function a11y(){
+    slides.forEach(function(s, i){
+      var on = i === open;
+      s.classList.toggle('on', on);
+      smallTitles[i].setAttribute('aria-expanded', on ? 'true' : 'false');
+      if (on){ smallTitles[i].setAttribute('inert', ''); contents[i].removeAttribute('inert'); }
+      else { smallTitles[i].removeAttribute('inert'); contents[i].setAttribute('inert', ''); }
+    });
+  }
+
+  function apply(){                    /* lay the current state down, no motion */
+    var all = slides.concat(contents, smallTitles, bottoms);
+    gsap.killTweensOf(all);
+    gsap.set(all, { clearProps:'all' });
+    slides.forEach(function(s, i){
+      var on = i === open;
+      if (S.axis === 'x'){
+        gsap.set(s, { flex:'0 0 ' + (on ? S.open : S.closed) + 'px', height:on ? S.hOpen : S.hClosed, borderRadius:on ? 20 : S.radius });
+        gsap.set(smallTitles[i], { x:on ? S.stOpen : 0, width:on ? S.hOpen : S.hClosed });
+        gsap.set(contents[i], { x:on ? 0 : S.cLeft });
+      } else {
+        gsap.set(s, { flex:'0 0 ' + (on ? panelHeight(i) : S.closed) + 'px', borderRadius:on ? 20 : S.radius });
+        gsap.set(smallTitles[i], { y:on ? S.stOpen : 0 });
+        gsap.set(contents[i], { y:on ? 0 : S.cLeft });
+      }
+      gsap.set(bottoms[i], { autoAlpha:on ? 1 : 0 });
+    });
+    a11y();
+  }
+
+  function openPanel(index){
+    if (index === open) return;
+    var isBefore = index < open, prev = open, A = S.axis, v;
+    open = index;
+
+    /* everything closes */
+    if (A === 'x'){
+      gsap.to(slides, { flex:'0 0 ' + S.closed + 'px', height:S.hClosed, borderRadius:S.radius, duration:.5, ease:EASE });
+      gsap.to(smallTitles, { x:0, width:S.hClosed, duration:.5, ease:EASE });
+    } else {
+      gsap.to(slides, { flex:'0 0 ' + S.closed + 'px', borderRadius:S.radius, duration:.5, ease:EASE });
+      gsap.to(smallTitles, { y:0, duration:.5, ease:EASE });
+    }
+    v = { duration:.5, ease:EASE }; v[A] = isBefore ? S.cLeft : S.cRight;
+    gsap.to(contents[prev], v);
+    gsap.to(bottoms, { autoAlpha:0, duration:.4, ease:'power1.inOut' });
+
+    /* ...and the chosen one opens */
+    var item = slides[index];
+    if (A === 'x') gsap.to(item, { flex:'0 0 ' + S.open + 'px', height:S.hOpen, borderRadius:20, duration:.5, ease:EASE });
+    else gsap.to(item, { flex:'0 0 ' + panelHeight(index) + 'px', borderRadius:20, duration:.5, ease:EASE });
+    var from = {}; from[A] = isBefore ? S.cRight : S.cLeft;
+    v = { duration:.5, ease:EASE }; v[A] = 0;
+    gsap.fromTo(contents[index], from, v);
+    v = { duration:.5, ease:EASE }; v[A] = isBefore ? S.stBefore : S.stOpen;
+    if (A === 'x') v.width = S.hOpen;
+    gsap.to(smallTitles[index], v);
+    gsap.to(bottoms[index], { autoAlpha:1, delay:A === 'y' ? .4 : 0, duration:.4, ease:'power1.inOut' });
+
+    a11y();
+    if (section){
+      section.dataset.lead = item.dataset.key;
+      if (window.Spine98) Spine98.repaint();
+    }
+  }
+
+  function lift(i, h){
+    if (!S || S.axis !== 'x' || i === open) return;
+    gsap.to(slides[i], { height:h, duration:.3, ease:'back.out(2)' });
+    gsap.to(smallTitles[i], { width:h, duration:.3, ease:'back.out(2)' });
+  }
+
+  slides.forEach(function(s, i){
+    if (canHover){
+      s.addEventListener('mouseenter', function(){ lift(i, S && S.hHover); });
+      s.addEventListener('mouseleave', function(){ lift(i, S && S.hClosed); });
+    }
+    s.addEventListener('click', function(e){
+      if (!S || i === open) return;                  /* links in the open panel behave as links */
+      var byKeyboard = e.detail === 0;
+      openPanel(i);
+      if (byKeyboard) contents[i].querySelector('.title').focus({ preventScroll:true });
+    });
+  });
+
+  function init(){
+    if (!measure()){ if (tries++ < 40) setTimeout(init, 250); return; }   /* v3.36's guard: wait for a real width */
+    apply();
+  }
+  var rt = 0;
+  addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ if (measure()) apply(); }, 150);
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ if (S && measure()) apply(); });
+  init();
+})();
+</script>
+<script src="assets/field.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var FACETS = {"ishant": ["branding", "creators", "paid", "pr", "production", "social"], "borges": ["creators", "events", "paid", "pr", "production", "social"], "slay-coffee": ["branding", "creators", "social"], "rooh": ["branding", "creators", "events", "production", "social"], "limitless": ["creators", "events", "paid", "production", "social"], "arista-vault": ["branding", "social"], "yyc-group": ["branding", "creators", "events", "pr", "social"], "andreas": ["creators", "paid", "pr", "production", "social"], "daryaganj": ["creators", "events", "production", "social"], "tickled-pink": ["creators", "events", "production", "social"], "ophelia": ["creators", "events", "production", "social"], "khubani": ["creators", "events", "pr", "social"], "hard-rock": ["branding", "creators", "events", "production", "social"], "roseate": ["creators", "production", "social"], "fast-up": ["creators", "events", "pr", "social"], "unacademy": ["creators", "production", "social"], "meta-creator": ["creators", "production", "social"], "happy-dent": ["creators", "pr", "production", "social"], "tgisf": ["creators", "events", "social"], "punjab-grill": ["creators", "events", "social"], "bayroute": ["branding", "creators", "social"], "dejabrew": ["creators", "social"], "rizq": ["branding", "creators"], "poetry": ["creators", "social"], "nao": ["creators", "social"], "local": ["creators", "production"], "monet": ["creators", "pr"], "slique": ["branding", "creators", "social"], "farzi-cafe": ["creators", "events", "social"], "flaunt": ["branding", "creators", "events", "social"], "iskate": ["creators", "production", "social"], "sky-lantern": ["creators", "events", "social"], "tablespoon": ["branding", "creators", "social"], "the-weekend": ["branding", "creators", "events", "production", "social"], "one8-commune": ["branding", "creators", "events", "pr", "production", "social"]};
+  /* v3.46: with the chip bar gone the seven are named here, and their colours are read from the .c-*
+     classes, the one place they are set. (Read off the chips they came back grey: .chip's own
+     --chip:var(--dim) was declared after the .c-* rules and won, so the ground had been grey too.) */
+  var INSTR  = [['branding','Branding'],['pr','PR & Media'],['creators','Creators'],['paid','Paid & Search'],
+                ['social','Social'],['production','Production'],['events','Events']];
+  var CHIPC  = {};
+  INSTR.forEach(function(p){
+    var probe = document.createElement('i');
+    probe.className = 'c-' + p[0]; probe.hidden = true;
+    document.body.appendChild(probe);
+    CHIPC[p[0]] = getComputedStyle(probe).getPropertyValue('--chip').trim() || '#5278C2';
+    probe.remove();
+  });
+
+  /* ---- the ground, blooming the open panel's colour ---- */
+  /* v3.47: #seven is the page's one screen, so the ground's list is the seven colours, in panel order */
+  var SEVEN = INSTR.map(function(p){ return p[0]; });
+  var order = SEVEN.map(function(k){ return CHIPC[k] || '#5278C2'; });
+  function grade(hex){                       /* atmosphere is graded; marks are not */
+    var n = parseInt(hex.slice(1), 16);
+    return '#' + [16,8,0].map(function(s){
+      return ('0' + Math.round(((n>>s)&255) * 0.42).toString(16)).slice(-2);
+    }).join('');
+  }
+  if (window.Field98) Field98.mount({ base:'#0B0B0C', colors: order.map(grade), intensity: 0.86 });
+
+  var screens = [].slice.call(document.querySelectorAll('.screen'));
+  var bar = document.getElementById('bar'), cur = -1;
+
+  function setScreen(el, force){
+    var idx = screens.indexOf(el); if (idx === cur && !force) return; cur = idx;
+    var lead = el.dataset.lead || 'branding';                /* the open panel's instrument */
+    document.documentElement.style.setProperty('--room', CHIPC[lead] || '#5278C2');
+    if (window.Field98 && Field98.ok) Field98.to(Math.max(0, SEVEN.indexOf(lead)));
+  }
+  /* v3.46: the seven panels call this when one opens, so the ground follows at once */
+  window.Spine98 = { repaint: function(){ if (cur > -1) setScreen(screens[cur], true); } };
+
+  if ('IntersectionObserver' in window){
+    var rev = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) e.target.classList.add('on'); });
+    }, {threshold:.1});
+    screens.forEach(function(s){ rev.observe(s); });
+    var act = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) setScreen(e.target); });
+    }, {rootMargin:'-45% 0px -45% 0px'});
+    screens.forEach(function(s){ act.observe(s); });
+  } else {
+    screens.forEach(function(s){ s.classList.add('on'); });
+  }
+  setScreen(screens[0]);
+
+  /* v3.46: the seven panels' counts, recounted from FACETS at load */
+  [].forEach.call(document.querySelectorAll('[data-count]'), function(el){
+    var k = el.dataset.count;
+    el.textContent = Object.keys(FACETS).filter(function(s){ return FACETS[s].indexOf(k) > -1; }).length;
+  });
+  [].forEach.call(document.querySelectorAll('[data-total]'), function(el){ el.textContent = Object.keys(FACETS).length; });
+
+  /* ---- progress hairline ---- */
+  var raf = 0;
+  addEventListener('scroll', function(){
+    if (raf) return;
+    raf = requestAnimationFrame(function(){
+      raf = 0;
+      var max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+    });
+  }, {passive:true});
+
+  /* ---- pointer parallax on the ground ---- */
+  if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches){
+    addEventListener('pointermove', function(e){
+      if (window.Field98 && Field98.ok)
+        Field98.pointer((e.clientX/innerWidth)*2 - 1, 1 - (e.clientY/innerHeight)*2);
+    }, {passive:true});
+  }
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

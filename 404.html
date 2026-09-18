@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nothing at this address — Ninety-Eight</title>
+<meta name="robots" content="noindex">
+<!-- 404 for www.ninety-eight.in (GitHub Pages serves this file, with a 404
+     status, for any path that does not exist). It is served at any depth, so
+     every link here is absolute from the root; on the github.io preview the
+     script below puts the repo name back. Self-contained on purpose: the
+     shared frame relies on relative paths and this page has no fixed one. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<script>
+(function(){try{document.documentElement.setAttribute('data-ground',localStorage.getItem('98-ground')==='white'?'white':'carbon');}catch(e){document.documentElement.setAttribute('data-ground','carbon');}})();
+</script>
+<style>
+:root{--bg:#0B0B0C;--ink:#F4F4F2;--faint:.32;--line:rgba(244,244,242,.2);--red:#EE352E}
+html[data-ground="white"]{--bg:#FFFFFF;--ink:#000000;--faint:.2;--line:rgba(0,0,0,.2)}
+html{background:var(--bg);color:var(--ink)}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;
+  padding:clamp(1.25rem,4vw,4rem);font:400 16px/1.55 'Archivo',Helvetica,Arial,sans-serif;letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.mono{font:400 11px/1.6 'Space Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase}
+.kick{display:flex;align-items:center;gap:10px;margin:0 0 1.5rem}
+.kick i{width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(238,53,46,.18)}
+h1{margin:0 0 1rem;font-weight:500;font-size:clamp(2rem,6vw,4.5rem);line-height:1.02;letter-spacing:-.03em;max-width:14em;font-stretch:96%}
+p{max-width:34em;margin:0 0 1.25rem}
+p.dim{opacity:.72}
+nav{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem 1.75rem}
+a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+a:hover{border-bottom-color:var(--ink)}
+.addr{opacity:var(--faint);word-break:break-all}
+footer{margin-top:auto;padding-top:3rem;opacity:var(--faint)}
+</style>
+</head>
+<body>
+<main>
+  <p class="kick mono"><i aria-hidden="true"></i>404 &mdash; Nothing at this address</p>
+  <h1>This page is not here.</h1>
+  <p class="dim">The site was rebuilt in September 2026. The journal moved to <a href="/blog/" data-p="blog/">/blog/</a>, the 35 case files have an <a href="/cases.html" data-p="cases.html">index</a> of their own, and everything else is one menu away.</p>
+  <p class="mono addr" id="addr"></p>
+  <nav class="mono" aria-label="Where to go instead">
+    <a href="/" data-p="">Home</a>
+    <a href="/cases.html" data-p="cases.html">Case studies</a>
+    <a href="/marketing.html" data-p="marketing.html">Marketing</a>
+    <a href="/talent.html" data-p="talent.html">Talent &amp; Branding</a>
+    <a href="/blog/" data-p="blog/">Journal</a>
+    <a href="/about.html" data-p="about.html">About</a>
+    <a href="/index.html#contact" data-p="index.html#contact">Contact</a>
+  </nav>
+</main>
+<footer class="mono">Ninety-Eight Entertainment &middot; Delhi NCR &middot; contact@ninety-eight.in</footer>
+<script>
+(function(){
+  var path=location.pathname, base='/';
+  var m=path.match(/^\/(ninety-eight-v3|ninety-eight-web)\//); if(m){base='/'+m[1]+'/';}
+  var rest=path.slice(base.length);
+  /* the v2 journal lived at /journal/…; it is /blog/ now */
+  if(/^journal(\/|$)/.test(rest)){location.replace(base+'blog/');return;}
+  /* /cases/ has no index of its own; the index is cases.html */
+  if(/^cases\/?$/.test(rest)){location.replace(base+'cases.html');return;}
+  if(base!=='/'){var as=document.querySelectorAll('a[data-p]');for(var i=0;i<as.length;i++){as[i].setAttribute('href',base+as[i].getAttribute('data-p'));}}
+  var el=document.getElementById('addr'); if(el){el.textContent='Asked for: '+location.host+path;}
+})();
+</script>
+</body>
+</html>

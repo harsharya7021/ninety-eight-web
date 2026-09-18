@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){var d=document.documentElement,g='carbon';try{if(localStorage.getItem('98-ground')==='white')g='white';}catch(e){}d.setAttribute('data-ground',g);})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PR agency, Delhi NCR — the press room · Ninety-Eight</title>
+<meta name="description" content="PR &amp; media at Ninety-Eight: twelve stories our clients earned in Curly Tales, The New Indian Express, GQ, India Today, NDTV Food and more; events &amp; experiential; digital &amp; social PR.">
+<meta property="og:title" content="PR agency, Delhi NCR — the press room · Ninety-Eight">
+<meta property="og:description" content=""PR &amp; media at Ninety-Eight: twelve stories our clients earned in Curly Tales, The New Indian Express, GQ, India Today, NDTV Food and more; events &amp; experiential; digital &amp; social PR.">
+<meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ninety-eight.in/press.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ninety-eight.in/press.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/room.css">
+<style>
+/* =========================================================================
+   THE PRESS ROOM — PR & media, in three sections (v3.58, Sep 2026)
+   PR & Media's own page (v3.57), grown at Harsh's call into the three
+   things the practice does, each under its own title in the room pages'
+   type, composed line by line (v3.62: no kicker rows, at Harsh's call):
+
+     01 Media Relations      the twelve coverage cards on the MWG 088 row:
+                             drag it, and each card that comes on screen
+                             flies in from the edge it enters by at 60%
+                             of its size and settles in 0.8s.
+     02 Events & Experiential
+        Marketing            MWG 065: three rows of pictures, pinned under
+                             the header, each travelling left as you
+                             scroll so all three reach their ends together.
+                             Empty frames at the zip's proportions until
+                             Harsh's event photos arrive (see the rows).
+     03 Digital & Social PR  creators' posts from our campaigns on a second
+                             088 row, each at its own proportions.
+
+   THE PICTURES ARE NOT EDITED HERE (v3.60). They come from the Press Room
+   board (a claude.ai artifact) through Workshop (build files)/build_press.py:
+   the board holds each section's pictures, their order, their alt text and
+   the line that describes each section; "sync press room" writes new pictures to
+   assets/press/, assets/events/ and assets/social/ and regenerates this
+   file from _press_template.html. Edit the template, not this. The events
+   wall splits its pictures into three rows in board order, each row as
+   close as can be to the others' width; with none, it keeps the zip's 36
+   empty frames.
+
+   The CSS ships the READABLE state: plain grids. The scripts add .fx
+   before they move anything, so reduced motion or a blocked script
+   still shows every picture, never an empty pin.
+   ========================================================================= */
+:root{ --room:#0039A6; }   /* PR & Media's colour (the seven's .c-pr) */
+
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}   /* the page's own title, for screen readers and search */
+.prs-h{margin:calc(clamp(120px,22vh,260px) + var(--lh) * 2) var(--m) 0}   /* a section's title: the room pages' headline lines, the full width of the page */
+#mr-h{margin-top:calc(var(--lh) * 4)}   /* the first one opens the page, under the header */
+main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before the footer's rule */
+
+/* ---------- 088: a row you drag (01 and 03) ---------- */
+.w088{position:relative;margin-top:calc(var(--lh) * 2);padding:0 var(--m)}
+.w088 .w-cue{display:none}
+.w088 .container{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:var(--gap)}
+.w088.social .container{grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.w088 .media{display:block;width:100%;height:auto;aspect-ratio:var(--ar,1);object-fit:cover}
+
+/* the effect: the zip's layout, once the script has taken over. A press card is the zip's 22vw
+   square (35vw under 768px), with departures for cards that carry type: never under 280px on a
+   computer (the zip's 22vw is 225px at 1024), min(72vw, 440px) on a phone, where the zip's 35vw
+   would set a headline at 7px, and never taller than the screen under the header allows. A
+   creator post stands a quarter taller than a press card, at its own proportions. */
+.w088.fx{padding:0;overflow:hidden;
+  --card:clamp(280px, 22vw, calc(100vh - var(--s98-h,0px) - 120px));
+  --tall:min(calc(var(--card) * 1.25), calc(100vh - var(--s98-h,0px) - 80px))}
+.w088.fx .w-stage{outline:0}
+.w088.fx .w-stage:focus-visible{outline:1px solid var(--ink);outline-offset:14px}
+.w088.fx .container{display:flex;gap:2vw;padding:0 25px;width:max-content;white-space:nowrap;cursor:grab;touch-action:pan-y}   /* pan-y: a vertical swipe still scrolls the page */
+.w088.fx .container:active{cursor:grabbing}
+.w088.fx .media-parent{flex:none;width:var(--card);transform-style:preserve-3d}
+.w088.fx.social .media-parent{width:calc(var(--tall) * var(--ar))}
+.w088.fx .media{user-select:none;-webkit-user-select:none;-webkit-user-drag:none;transform-style:preserve-3d}
+.w088.fx .w-cue{display:block;margin:calc(var(--lh) * 1.5) 0 0;text-align:center;opacity:var(--faint);pointer-events:none;transition:opacity .6s var(--ease)}
+.w088.fx .w-cue.off{opacity:0}
+@media(max-width:768px){
+  .w088.fx{--card:min(72vw, 440px, calc(100vh - var(--s98-h,0px) - 120px))}
+  .w088.fx .container{padding:0 15px;gap:15px}
+}
+@supports (height:100svh){
+  .w088.fx{--card:clamp(280px, 22vw, calc(100svh - var(--s98-h,0px) - 120px));
+    --tall:min(calc(var(--card) * 1.25), calc(100svh - var(--s98-h,0px) - 80px))}
+  @media(max-width:768px){ .w088.fx{--card:min(72vw, 440px, calc(100svh - var(--s98-h,0px) - 120px))} }
+}
+
+/* ---------- 065: three rows that travel as you scroll (02) ---------- */
+.w065{position:relative;margin-top:calc(var(--lh) * 2)}
+.w065 .medias{display:flex;flex-wrap:wrap;gap:8px;padding:0 var(--m) 8px}
+.w065 .media{display:block;height:clamp(120px, 16vw, 220px);width:auto;max-width:none;aspect-ratio:var(--ar);border-radius:10px;object-fit:cover}
+.w065 .ph{border:1px dashed var(--line);display:flex;align-items:center;justify-content:center}   /* a frame waiting for its photo */
+.w065 .ph::after{content:attr(data-n);opacity:var(--faint)}
+/* the effect: the zip's layout, pinned under the site's header rather than behind it */
+.w065.fx .pin-height{height:400vh}
+.w065.fx .container{width:100%;height:calc(100vh - var(--s98-h,0px));display:flex;flex-direction:column;justify-content:center;overflow:hidden;gap:8px}
+.w065.fx .medias{flex-wrap:nowrap;width:max-content;height:calc(33.33% - 32px / 3);padding:0 8px}
+.w065.fx .media{height:100%}
+@supports (height:100svh){ .w065.fx .container{height:calc(100svh - var(--s98-h,0px))} }
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<!--S98:HEAD — the shared header and menu: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<header class="s98-head" id="s98-head">
+  <div class="s98-l">
+    <button class="s98-menu" id="s98-menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav035" aria-label="Menu"><span class="md-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="md-txt">Menu</span></button>
+  </div>
+  <a class="s98-c" href="index.html" aria-label="Ninety-Eight &mdash; home"><img src="assets/98-graffiti.png" alt="" width="834" height="529"></a>
+</header>
+<div class="s98-spacer" aria-hidden="true"></div>
+<div class="nav035" id="nav035" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="n35-inner">
+    <div class="n35-top">
+      <p class="n35-word" aria-hidden="true">Menu</p>
+      <div class="n35-wmedias" aria-hidden="true">
+        <img class="n35-wmedia" src="assets/gurls/g06.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/ishant.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g07.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/slay.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g08.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/one8.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g09.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/hardrock.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <ul>
+      <li><a href="talent.html">
+        <span class="n35-name">Talent &amp; Branding</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/retain/ishant-social.webp" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="marketing.html" aria-current="page">
+        <span class="n35-name">Marketing &middot; seven instruments &middot; 35 cases</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/bayroute.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/monet.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/butterroom.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/fig.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#voices">
+        <span class="n35-name">In their words</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/hardrock.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/poetry.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#film" data-action="film">
+        <span class="n35-name">In the building <sup class="beta">98 Studio &middot; beta</sup></span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="blog/index.html">
+        <span class="n35-name">The journal</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/menu/m2.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="cases.html">
+        <span class="n35-name">Case studies &middot; everything, A to Z</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/sneakerfest.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/skylantern.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/rizq.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/limitless.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/dejabrew.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="about.html">
+        <span class="n35-name">About &mdash; who we are, since 01.01.2020</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/gurls/g03.webp" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#contact">
+        <span class="n35-name">Contact &mdash; tell us what you&rsquo;re building.</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/contact/envelope-green.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/pigeon-carbon.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/phone-yellow.png" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+    </ul>
+    <div class="n35-bottom">
+      <div class="n35-ground" role="group" aria-label="Background"><button type="button" data-s98-ground="carbon">Carbon</button><span class="n35-sep" aria-hidden="true">/</span><button type="button" data-s98-ground="white">White</button></div>
+      <p class="n35-hint" aria-hidden="true">Scroll &darr; to go back to the page</p>
+    </div>
+  </div>
+</div>
+<!--/S98:HEAD-->
+
+<main>
+<h1 class="vh">The press room &mdash; PR &amp; media at Ninety-Eight</h1>
+
+<!-- ============ 01 — Media Relations: the row, effect 088 ============ -->
+<section class="prs" id="media-relations" aria-labelledby="mr-h">
+  <h2 class="prs-h" id="mr-h" aria-label="Media Relations">
+    <span class="ln l"><i>Media</i></span><span class="hl"></span>
+    <span class="ln r"><i>Relations</i></span><span class="hl"></span>
+  </h2>
+  <div class="w088">
+    <div class="w-stage" role="region" aria-label="Twelve stories in ten publications. Drag the row, or use the arrow keys.">
+    <div class="container">
+      <div class="media-parent"><img class="media" src="assets/press/curlytales-valentine.webp" alt="Curly Tales: “6 Romantic Experiences To Gift A Foodie &amp; Floor Them With Taste This Valentine’s Day”, by Tania Tarafdar" width="1200" height="1200" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/tnie-khansamas.webp" alt="The New Indian Express, a food review of Pracheen: India before 1947: “Recipes from the league of Khansamas”, by Rajkumari Sharma Tankha" width="1200" height="1200" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/lifestyleasia-pracheen.webp" alt="Lifestyle Asia, on Pracheen: India before 1947: “5 places in Delhi to try this month if you’re craving wholesome Indian cuisine”" width="1200" height="1200" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/idiva-tbsp.webp" alt="iDiva, 24 February 2023, on Tbsp. Tablespoon, DLF Avenue, Saket: “8 Places For The Juiciest Gourmet Burgers In Delhi &amp; Mumbai”, by Tanya Kundu" width="1200" height="1200" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/femina-valentine.webp" alt="Femina: “#ValentineDining: Wine &amp; Dine At These Hotspots In Delhi and Bengaluru!”, written by Aishwarya Acharya" width="1200" height="1200" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/gq-new-restaurants.webp" alt="GQ: “The 9 best new restaurants &amp; delivery kitchens in Delhi to try right now”, by Saumyaa Vohra" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/outlook-ivoryy.webp" alt="Outlook, a restaurant review: “Ivoryy: A Garden of Many Delights”, by Mallika Bhagat" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/indiatoday-mood.webp" alt="India Today: “In the mood for food”, by Manjari Saxena" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/curlytales-harajuku.webp" alt="Curly Tales, on Select Citywalk, Saket: “Delhi Has A Tokyo Cafe That Offers Exclusively Crafted Japanese Desserts &amp; Boba Tea”, by Suchismita Pal" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/ndtvfood-harajuku.webp" alt="NDTV Food: “New In Town: This Adorable Tokyo Café In Delhi Has Bought The Vibrant Streets Of Harajuku To Town”, by Aanchal Mathur" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/outlooktraveller-hearth.webp" alt="Outlook Traveller, an interview on Hearth &amp; i: “Megha Jhunjhunwala’s Journey from the West”, by Simrran Gill" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent"><img class="media" src="assets/press/tnie-bowled-over.webp" alt="The New Indian Express, on the Buddha bowl: “Bowled over”, by Medha Dutta Yadav" width="1200" height="1200" loading="lazy" decoding="async" draggable="false"></div>
+    </div>
+    </div>
+    <p class="w-cue" aria-hidden="true">Drag</p>
+  </div>
+</section>
+
+<!-- ============ 02 — Events & Experiential Marketing: the rows, effect 065 ============ -->
+<section class="prs" id="events-experiential" aria-labelledby="ev-h">
+  <h2 class="prs-h" id="ev-h" aria-label="Events &amp; Experiential Marketing">
+    <span class="ln l"><i>Events &amp;</i></span><span class="hl"></span>
+    <span class="ln c"><i>Experiential</i></span><span class="hl"></span>
+    <span class="ln r"><i>Marketing</i></span><span class="hl"></span>
+  </h2>
+  <div class="w065" id="w065">
+    <div class="pin-height">
+      <div class="container">
+        <div class="medias">
+          <div class="media ph" style="--ar:622/440" data-n="01" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:348/440" data-n="02" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:667/440" data-n="03" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="04" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:440/440" data-n="05" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:348/440" data-n="06" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="07" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:440/440" data-n="08" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:448/440" data-n="09" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:607/440" data-n="10" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="11" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:348/440" data-n="12" aria-hidden="true"></div>
+        </div>
+        <div class="medias">
+          <div class="media ph" style="--ar:348/440" data-n="13" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="14" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:440/440" data-n="15" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="16" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:348/440" data-n="17" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:448/440" data-n="18" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="19" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:440/440" data-n="20" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:667/440" data-n="21" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:348/440" data-n="22" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:607/440" data-n="23" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="24" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:348/440" data-n="25" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="26" aria-hidden="true"></div>
+        </div>
+        <div class="medias">
+          <div class="media ph" style="--ar:622/440" data-n="27" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:667/440" data-n="28" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:440/440" data-n="29" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="30" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:348/440" data-n="31" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:607/440" data-n="32" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:448/440" data-n="33" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:440/440" data-n="34" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:622/440" data-n="35" aria-hidden="true"></div>
+          <div class="media ph" style="--ar:348/440" data-n="36" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 — Digital & Social PR: a second row, effect 088 ============ -->
+<section class="prs" id="digital-social" aria-labelledby="ds-h">
+  <h2 class="prs-h" id="ds-h" aria-label="Digital &amp; Social PR">
+    <span class="ln l"><i>Digital &amp;</i></span><span class="hl"></span>
+    <span class="ln r"><i>Social PR</i></span><span class="hl"></span>
+  </h2>
+  <div class="w088 social">
+    <div class="w-stage" role="region" aria-label="Twenty creator posts from our campaigns. Drag the row, or use the arrow keys.">
+    <div class="container">
+      <div class="media-parent" style="--ar:0.799"><img class="media" src="assets/social/315304326.webp" alt="A creator at Monet" width="799" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/324389961.webp" alt="A creator at Tbsp. Tablespoon" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:1"><img class="media" src="assets/social/314706081.webp" alt="A creator at dinner, with cocktails and plates on the table" width="1000" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:1"><img class="media" src="assets/social/296148922.webp" alt="Snackstar.in, a seeding post by @sanjanas_patil" width="1000" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/313485866.webp" alt="A creator at a wrought-iron gate, at night" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/315005430.webp" alt="A creator at a restaurant bar" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.799"><img class="media" src="assets/social/311786676.webp" alt="A creator’s plate: open toasts with avocado" width="799" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.801"><img class="media" src="assets/social/314395520.webp" alt="A creator with a drink, on a terrace" width="801" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.903"><img class="media" src="assets/social/314996695.webp" alt="A creator on a rooftop at night" width="903" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/286368495.webp" alt="A creator under a neon sign" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/294013919.webp" alt="A creator in red at a restaurant entrance" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/315971440.webp" alt="A creator at a table at night, with food and shots" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/313377028.webp" alt="A creator at a restaurant booth" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/323972681.webp" alt="A creator with a cocktail and sushi" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/311637083.webp" alt="A creator in a bar" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/316124419.webp" alt="A creator at a flower wall" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/324061218.webp" alt="A creator in sunglasses at an iron gate" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.929"><img class="media" src="assets/social/314472561.webp" alt="A creator with a drink, on a rooftop" width="929" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.8"><img class="media" src="assets/social/310958727.webp" alt="A creator on a terrace at night" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="media-parent" style="--ar:0.75"><img class="media" src="assets/social/63e61995.webp" alt="A guest in face paint at an event" width="750" height="1000" loading="lazy" decoding="async" draggable="false"></div>
+    </div>
+    </div>
+    <p class="w-cue" aria-hidden="true">Drag</p>
+  </div>
+</section>
+</main>
+
+<!--S98:FOOT — the shared footer: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<footer class="s98-foot" id="s98-foot">
+  <div class="s98-fc s98-f1">
+    <span class="s98-faint">Socials:</span>
+    <a href="https://instagram.com/98.entertainment" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.behance.net/harsharya" target="_blank" rel="noopener">Behance</a>
+    <a href="https://wa.me/919711184674?text=Here%27s%20what%20I%27m%20building%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="s98-fc s98-f2">
+    <span class="s98-faint">Pages:</span>
+    <a href="index.html">Home</a>
+    <a href="marketing.html">Marketing &mdash; seven instruments</a>
+    <a href="talent.html">Talent &amp; Branding</a>
+    <a href="blog/index.html">The journal</a>
+    <a href="cases.html">Case studies</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="s98-fc s98-f3">
+    <span class="s98-faint">Marketing, instrument by instrument:</span>
+    <a href="identity.html">Branding &mdash; identity &amp; design</a>
+    <a href="press.html" aria-current="page">PR &amp; Media &mdash; the press room</a>
+    <a href="amplify.html">Creators &mdash; the creator floor</a>
+    <a href="performance-marketing.html">Paid &amp; Search &mdash; performance marketing</a>
+    <a href="retain.html">Social &mdash; the feed, held</a>
+    <a href="production.html">Production &mdash; the shoots</a>
+    <a href="events.html">Events &mdash; the night floor</a>
+  </div>
+  <div class="s98-fc s98-f4">
+    <span class="s98-faint">Contact:</span>
+    <a href="mailto:contact@ninety-eight.in" data-s98-mail="contact@ninety-eight.in">contact@ninety-eight.in</a>
+    <a href="index.html#contact">Tell us what you&rsquo;re building &rarr;</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+  <div class="s98-rights">
+    <span>All rights reserved. &copy;2026 Ninety-Eight Entertainment</span>
+    <span class="s98-faint">Delhi NCR &middot; est. 01.01.2020 &middot; <span data-s98-clock>IST</span></span>
+  </div>
+</footer>
+<!--/S98:FOOT-->
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/Observer.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script>
+/* ---- 088: the rows you drag (01 Media Relations, 03 Digital & Social PR) ----
+   The zip's driver, line for line where it can be, run once per row: the
+   row's x follows the drag through quickTo (0.5s, power4) at 1.4x the
+   pointer, 1.5x on a touch screen, clamped between its two ends; on every
+   step of that tween each card is tested against the screen, and one that
+   has just come on is thrown in from the side the row is travelling from,
+   from 4 x 100 / (1 + d / 500) px (d, the row's last step), at scale 0.6,
+   to its place in 0.8s power3.out, while one that has just gone off is
+   hidden. Departures, each forced:
+   1. The page scrolls, so a row takes horizontal gestures only
+      (touch-action: pan-y); a vertical swipe still scrolls.
+   2. The zip measures once. Here a change of width re-measures a row (a
+      phone turned sideways, a window resized, the 768px step) and keeps
+      it as far along as it was (at the end, it stays at the end), without
+      animating anything.
+   3. At a step of 500px or more to the left the zip's formula divides by
+      zero, then flips sign, and the card would come in from the wrong
+      side; its denominator is held at 0.25 or more (a jump by keyboard
+      can take such a step on a slow frame).
+   4. Also moving a row, for anyone who can't or won't drag: a trackpad's
+      sideways swipe or shift + wheel over it (the page's own vertical
+      scroll is left alone), and, with the row focused, the arrow keys (one
+      card), Home and End.
+   5. A faint "Drag" under each row, gone at its first move. The zip has
+      only its grab cursor, and a phone has no cursor.
+   6. A row's lazy cards load all at once when the row comes within a
+      screen of view, so none arrives blank at the edge.
+   7. Cards of different widths (the creator posts keep their own
+      proportions): the keys step by the row's average card.
+   8. A card that leaves while its throw is still running has the throw
+      stopped. In the zip a throw that has not drawn its first frame yet
+      turns its card visible again when it does, so at keyboard or flick
+      speed, where a card can cross the screen in two frames, cards were
+      left visible off screen.
+   Nothing at all without GSAP or with reduced motion: the grids stay. */
+(function(){
+  if (typeof gsap === 'undefined' || typeof Observer === 'undefined') return;
+  var roots = [].slice.call(document.querySelectorAll('.w088'));
+  if (!roots.length) return;
+  gsap.registerPlugin(Observer);
+
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', function(){
+    var offs = roots.map(row).filter(Boolean);
+    return function(){ offs.forEach(function(off){ off(); }); };
+  });
+
+  function row(root){
+    var stage = root.querySelector('.w-stage'), container = root.querySelector('.container'), cue = root.querySelector('.w-cue');
+    var parents = [].slice.call(root.querySelectorAll('.media-parent'));
+    if (!stage || !container || !parents.length) return null;
+    root.classList.add('fx');
+    stage.setAttribute('tabindex', '0');
+
+    var vw = 0, span = 0, data = [], inView = [], total = 0, oldX = 0, rt = 0, io = null;
+    var isTouch = matchMedia('(hover: none)').matches;
+
+    function measure(){
+      vw = document.body.clientWidth;
+      span = Math.min(0, vw - container.clientWidth);        /* how far the row can travel, as a negative x */
+      data = parents.map(function(parent){
+        return { parent: parent, media: parent.querySelector('.media'), offsetLeft: parent.offsetLeft, width: parent.offsetWidth };
+      });
+    }
+    function clamp(v){ return gsap.utils.clamp(Math.min(0, document.body.clientWidth - container.clientWidth), 0, v); }
+    function hideCue(){ if (cue && !cue.classList.contains('off')) cue.classList.add('off'); }
+
+    measure();
+    data.forEach(function(d, i){
+      if (d.offsetLeft < vw && d.offsetLeft + d.width > 0) inView[i] = true;
+      else { inView[i] = false; gsap.set(d.media, { autoAlpha: 0 }); }
+    });
+
+    var xTo = gsap.quickTo(container, 'x', {
+      duration: 0.5,
+      ease: 'power4',
+      onUpdate: function(){ checkViewport(); }
+    });
+
+    function checkViewport(){
+      var currentX = gsap.getProperty(container, 'x');
+      var delta = currentX - oldX;
+      if (delta === 0) return;
+      oldX = currentX;
+      data.forEach(function(d, i){
+        var left = d.offsetLeft + currentX;
+        var isInView = left < vw && left + d.width > 0;
+        if (isInView && !inView[i]){
+          inView[i] = true;
+          var direction = Math.sign(delta);
+          var xFrom = direction * (-100 / Math.max(0.25, 1 + delta / 500));
+          gsap.fromTo(d.media, { x: xFrom * 4, scale: 0.6, autoAlpha: 1 }, { x: 0, scale: 1, duration: 0.8, ease: 'power3.out' });
+        } else if (!isInView && inView[i]){
+          inView[i] = false;
+          gsap.killTweensOf(d.media);        /* 8. a throw still waiting for its first frame would show it again */
+          gsap.set(d.media, { autoAlpha: 0 });
+        }
+      });
+    }
+    function go(v){ total = clamp(v); xTo(total); hideCue(); }
+
+    Observer.create({
+      target: container,
+      type: 'touch,pointer',
+      onDrag: function(self){ go(total + (isTouch ? self.deltaX * 1.5 : self.deltaX * 1.4)); }
+    });
+
+    /* 4. sideways swipes and shift + wheel over the row; the keys once it has focus */
+    function onWheel(e){
+      var dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0);
+      if (!dx || e.ctrlKey) return;
+      e.preventDefault();
+      go(total - dx * (e.deltaMode === 1 ? 16 : 1));
+    }
+    function onKey(e){
+      var step = data.length > 1 ? (data[data.length - 1].offsetLeft - data[0].offsetLeft) / (data.length - 1) : vw / 2;   /* 7. the average card */
+      if (e.key === 'ArrowRight') go(total - step);
+      else if (e.key === 'ArrowLeft') go(total + step);
+      else if (e.key === 'Home') go(0);
+      else if (e.key === 'End') go(-Infinity);
+      else return;
+      e.preventDefault();
+    }
+    stage.addEventListener('wheel', onWheel, { passive: false });
+    stage.addEventListener('keydown', onKey);
+
+    /* 2. a new width: measure again, keep the row as far along as it was, show what is on screen */
+    function relayout(){
+      if (document.body.clientWidth === vw && parents[0].offsetWidth === data[0].width && container.clientWidth - vw === -span) return;
+      var along = span ? total / span : 0;
+      measure();
+      total = oldX = clamp(along * span);
+      xTo(total, total);                   /* a jump, not a glide: the step it renders is 0, so nothing is thrown in */
+      data.forEach(function(d, i){
+        var left = d.offsetLeft + total, on = left < vw && left + d.width > 0;
+        if (on && !inView[i]){ inView[i] = true; gsap.set(d.media, { autoAlpha: 1, x: 0, scale: 1 }); }
+        else if (!on && inView[i]){ inView[i] = false; gsap.killTweensOf(d.media); gsap.set(d.media, { autoAlpha: 0 }); }
+      });
+    }
+    function onResize(){ clearTimeout(rt); rt = setTimeout(relayout, 120); }
+    addEventListener('resize', onResize);
+
+    /* 6. the lazy cards, all at once when the row is within a screen of view */
+    function promote(){ [].forEach.call(root.querySelectorAll('img[loading="lazy"]'), function(img){ img.loading = 'eager'; }); }
+    if ('IntersectionObserver' in window){
+      io = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ promote(); io.disconnect(); io = null; } }, { rootMargin: '100% 0px' });
+      io.observe(stage);
+    } else promote();
+
+    return function(){
+      clearTimeout(rt);
+      if (io) io.disconnect();
+      removeEventListener('resize', onResize);
+      stage.removeEventListener('wheel', onWheel);
+      stage.removeEventListener('keydown', onKey);
+      stage.removeAttribute('tabindex');
+      root.classList.remove('fx');
+    };
+  }
+})();
+
+/* ---- 065: the rows, scrubbed to the scroll (02 Events & Experiential Marketing) ----
+   The zip's driver: the container is pinned for the height of a 400vh
+   runway, and each of the three rows travels left by its own length
+   minus the screen's width, all three starting together and reaching
+   their right ends together, with no easing (ease none, scrubbed), so a
+   longer row moves faster. Departures, each forced:
+   1. Lenis stays out: the site scrolls natively everywhere.
+   2. The container pins under the site's header, not behind it, and is
+      the screen's height less the header's.
+   3. The zip waits for every picture before it measures; here the travel
+      is a function and the pin invalidates on refresh, so a picture that
+      lands late, a resize or the 768px step re-measure instead. A row
+      shorter than the screen stays where it is.
+   4. The pictures load lazily, and all at once when the wall comes within
+      a screen of view: a row's far end is clipped, so the browser alone
+      would fetch those only as they slide in.
+   Nothing at all without GSAP or with reduced motion: the rows wrap. */
+(function(){
+  var root = document.getElementById('w065'); if (!root) return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  var pinHeight = root.querySelector('.pin-height'), container = root.querySelector('.container');
+  var rows = [].slice.call(root.querySelectorAll('.medias'));
+  if (!pinHeight || !container || !rows.length) return;
+  gsap.registerPlugin(ScrollTrigger);
+  function under(){ var h = document.getElementById('s98-head'); return 'top ' + (h ? h.offsetHeight : 0) + 'px'; }
+
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', function(){
+    root.classList.add('fx');
+    ScrollTrigger.create({ trigger: pinHeight, start: under, end: 'bottom bottom', pin: container, invalidateOnRefresh: true });
+    var tl = gsap.timeline({ scrollTrigger: { trigger: pinHeight, start: under, end: 'bottom bottom', scrub: true, invalidateOnRefresh: true } });
+    rows.forEach(function(row){
+      tl.to(row, { x: function(){ return -Math.max(0, row.scrollWidth - document.body.clientWidth); }, ease: 'none', duration: 1 }, 0);
+    });
+    return function(){ root.classList.remove('fx'); };
+  });
+  var imgs = [].slice.call(root.querySelectorAll('img.media'));
+  imgs.forEach(function(img){
+    if (!img.complete) img.addEventListener('load', function(){ ScrollTrigger.refresh(); }, { once: true });
+  });
+  if (imgs.length && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      if (!es[0].isIntersecting) return;
+      imgs.forEach(function(img){ img.loading = 'eager'; }); io.disconnect();
+    }, { rootMargin: '100% 0px' });
+    io.observe(root);
+  }
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

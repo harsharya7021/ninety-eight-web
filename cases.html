@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case studies — influencer marketing, PR, branding &amp; talent, A to Z · Ninety-Eight</title>
+<meta name="description" content="Every case, identity, social feed, shoot and press story from Ninety-Eight as one directory, A to Z, with an index by discipline and sector. 34 cases open as pages.">
+<meta property="og:title" content="Case studies — influencer marketing, PR, branding &amp; talent, A to Z · Ninety-Eight">
+<meta property="og:description" content=""Every case, identity, social feed, shoot and press story from Ninety-Eight as one directory, A to Z, with an index by discipline and sector. 34 cases open as pages.">
+<meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ninety-eight.in/cases.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ninety-eight.in/cases.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://www.ninety-eight.in/cases.html","name":"Case studies — Ninety-Eight","isPartOf":{"@id":"https://www.ninety-eight.in/#org"},"about":{"@id":"https://www.ninety-eight.in/#org"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<script>
+(function(){try{document.documentElement.setAttribute('data-ground',localStorage.getItem('98-ground')==='white'?'white':'carbon');}catch(e){document.documentElement.setAttribute('data-ground','carbon');}
+document.documentElement.classList.add('js');})();
+</script>
+<link rel="stylesheet" href="assets/room.css">
+<style>
+/* =========================================================================
+   CASE STUDIES — everything we have made (v3.61, Sep 2026)
+   Harsh: a case studies page "that will follow the directory aesthetic
+   that we have been following" — the room pages' directory, after Obys's
+   Experiment Space "About" (assets/room.css) — with "the exhaustive case
+   studies, directory, and an index". Asked what the directory holds, he
+   chose everything the site has made; asked what the index is, by
+   discipline and by sector.
+     01 Directory: every piece, A to Z, numbered. The room directory's
+        21px rows and hairlines, widened to the columns this one needs:
+        number, project, discipline, sector, year, and where it opens.
+        A still follows the pointer over rows that have one.
+     02 Index: a book's index, by discipline and by sector; every number
+        is a link to its row.
+   The rows and the index are written by Workshop/build_cases.py from the
+   site's own pages (the case drawer on the landing, the rooms, the press
+   room): add work to those pages, then rebuild this one.
+   ========================================================================= */
+:root{ --room:#EE352E; }   /* no room of its own: the red of the mark's 9 */
+
+/* the summary beside the headline: the room directory's own rows */
+.hero .dir{grid-column:1/4}
+.hero .head{grid-column:4/13}
+
+/* ---------- 01 the directory ---------- */
+.cdir{margin-top:calc(var(--lh) * 3)}
+.cdir .chd,.cdir .crw{grid-column:1/13;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+.cdir .chd{margin-bottom:3px}
+/* a row is one line; where a column is too narrow for its words (a case in three
+   disciplines, between 900 and 1200px), the row takes a second line rather than cut them */
+.crw{min-height:21px;line-height:var(--lh);border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--s98-h,40px) + 30vh)}
+.crw > span{min-width:0}
+.cdir .n,.cdir .y,.cdir .o{white-space:nowrap}
+.cdir .n{grid-column:1/2}
+.cdir .p{grid-column:2/5}
+.cdir .d{grid-column:5/9}
+.cdir .s{grid-column:9/11}
+.cdir .y{grid-column:11/12}
+.cdir .o{grid-column:12/13;text-align:right}
+.crw .o{opacity:var(--faint);transition:opacity .25s}
+a.crw:hover .o{opacity:1}
+.crw:target{animation:hit 2.4s var(--ease)}
+@keyframes hit{0%,35%{background:var(--line)}100%{background:transparent}}
+
+/* ---------- 02 the index ---------- */
+.cidx{margin-top:calc(var(--lh) * 2);align-items:start}
+.cidx .col{grid-column:span 6;min-width:0}
+.cidx .col + .col{grid-column:7/13}
+.cidx .hd{display:grid;grid-template-columns:2fr 3fr;column-gap:var(--gap);margin-bottom:3px}
+.term{display:grid;grid-template-columns:2fr 3fr;column-gap:var(--gap);padding-bottom:1px;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--s98-h,40px) + 30vh)}
+.term .k{min-width:0}
+.term.sub .k{padding-left:1.1em}
+.term .nums a{font-variant-numeric:tabular-nums;transition:opacity .25s}
+.term .nums a:hover{opacity:.5}
+.term:target{animation:hit 2.4s var(--ease)}
+.cnote{margin-top:var(--lh)}
+.cnote p{grid-column:1/7}
+
+/* the entrance: the directory's rows fade in as the room's do, the first two dozen staggered */
+html.js .crw,html.js .term{opacity:0;transition:opacity .8s var(--ease);transition-delay:calc(.25s + var(--i,0) * .03s)}
+html.js.in .crw,html.js.in .term{opacity:1}
+.cdir:hover .crw:not(:hover),html.js.in .cdir:hover .crw:not(:hover){opacity:.35}
+@media(prefers-reduced-motion:reduce){ html.js .crw,html.js .term{transition:none;opacity:1} .crw:target,.term:target{animation:none} }
+
+/* between 900 and 1200px, Opens steps out (the note under the directory says where
+   rows open) and the sector takes its column */
+@media(max-width:1199px){
+  .cdir .s{grid-column:9/12}.cdir .y{grid-column:12/13;text-align:right}.cdir .o{display:none}
+}
+@media(max-width:900px){
+  .hero .dir{grid-column:auto}
+  .cdir .chd,.cdir .crw{grid-template-columns:44px minmax(0,1fr) auto}
+  .cdir .n{grid-column:1}.cdir .p{grid-column:2}.cdir .y{grid-column:3;text-align:right}
+  .cdir .d,.cdir .s,.cdir .o{display:none}
+  .cidx .col,.cidx .col + .col{grid-column:1/13}
+  .cidx .col + .col{margin-top:calc(var(--lh) * 2)}
+  .cnote p{grid-column:1/13}
+}
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<!--S98:HEAD — the shared header and menu: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<header class="s98-head" id="s98-head">
+  <div class="s98-l">
+    <button class="s98-menu" id="s98-menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav035" aria-label="Menu"><span class="md-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="md-txt">Menu</span></button>
+  </div>
+  <a class="s98-c" href="index.html" aria-label="Ninety-Eight &mdash; home"><img src="assets/98-graffiti.png" alt="" width="834" height="529"></a>
+</header>
+<div class="s98-spacer" aria-hidden="true"></div>
+<div class="nav035" id="nav035" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="n35-inner">
+    <div class="n35-top">
+      <p class="n35-word" aria-hidden="true">Menu</p>
+      <div class="n35-wmedias" aria-hidden="true">
+        <img class="n35-wmedia" src="assets/gurls/g06.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/ishant.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g07.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/slay.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g08.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/one8.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g09.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/hardrock.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <ul>
+      <li><a href="talent.html">
+        <span class="n35-name">Talent &amp; Branding</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/retain/ishant-social.webp" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="marketing.html">
+        <span class="n35-name">Marketing &middot; seven instruments &middot; 35 cases</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/bayroute.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/monet.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/butterroom.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/fig.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#voices">
+        <span class="n35-name">In their words</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/hardrock.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/poetry.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#film" data-action="film">
+        <span class="n35-name">In the building <sup class="beta">98 Studio &middot; beta</sup></span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="blog/index.html">
+        <span class="n35-name">The journal</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/menu/m2.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="cases.html" aria-current="page">
+        <span class="n35-name">Case studies &middot; everything, A to Z</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/sneakerfest.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/skylantern.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/rizq.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/limitless.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/dejabrew.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="about.html">
+        <span class="n35-name">About &mdash; who we are, since 01.01.2020</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/gurls/g03.webp" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#contact">
+        <span class="n35-name">Contact &mdash; tell us what you&rsquo;re building.</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/contact/envelope-green.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/pigeon-carbon.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/phone-yellow.png" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+    </ul>
+    <div class="n35-bottom">
+      <div class="n35-ground" role="group" aria-label="Background"><button type="button" data-s98-ground="carbon">Carbon</button><span class="n35-sep" aria-hidden="true">/</span><button type="button" data-s98-ground="white">White</button></div>
+      <p class="n35-hint" aria-hidden="true">Scroll &darr; to go back to the page</p>
+    </div>
+  </div>
+</div>
+<!--/S98:HEAD-->
+
+<main>
+<!-- ============ 01 — the directory ============ -->
+<div class="g kick first" id="directory">
+  <span class="n faint" style="--i:0">01</span>
+  <span class="t" style="--i:1">Directory</span>
+  <span class="s faint" style="--i:2">Everything on this site, A to Z &mdash; 82 entries, 2021&ndash;2026</span>
+</div>
+<section class="g hero" aria-label="What the directory holds">
+  <div class="dir">
+    <div class="hd"><span class="faint">Count:</span><span class="faint">Kind of work:</span></div>
+    <div class="row" style="--i:0"><span>34</span><span>Case files</span></div>
+    <div class="row" style="--i:1"><span>07</span><span>Identity &amp; design</span></div>
+    <div class="row" style="--i:2"><span>11</span><span>Social feeds</span></div>
+    <div class="row" style="--i:3"><span>16</span><span>Shoots</span></div>
+    <div class="row" style="--i:4"><span>12</span><span>Press stories</span></div>
+    <div class="row" style="--i:5"><span>02</span><span>Creator walls</span></div>
+  </div>
+  <h1 class="head" aria-label="Case studies: everything we have made, A to Z.">
+    <span class="ln c" style="--i:0"><i>Case</i></span><span class="hl"></span>
+    <span class="ln c" style="--i:1"><i>studies:</i></span><span class="hl"></span>
+    <span class="ln c" style="--i:2"><i>everything</i></span><span class="hl"></span>
+    <span class="ln r" style="--i:3"><i>we have</i></span><span class="hl"></span>
+    <span class="ln r" style="--i:4"><i>made,</i></span><span class="hl"></span>
+    <span class="ln l half" style="--i:5"><i>A to Z</i></span><span class="hl"></span>
+  </h1>
+</section>
+<section class="g cdir" aria-label="The directory, A to Z">
+  <div class="chd"><span class="n faint">Number:</span><span class="p faint">Project:</span><span class="d faint">Discipline:</span><span class="s faint">Sector:</span><span class="y faint">Year:</span><span class="o faint">Opens:</span></div>
+    <a class="crw" href="talent.html#made" id="w01" style="--i:0" data-img="assets/retain/prod/aarushi.webp" title="F&amp;B photography"><span class="n">01</span><span class="p">Aarushi Jain — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">2026</span><span class="o">Reel &rarr;</span></a>
+    <a class="crw" href="cases/andreas/" id="w02" style="--i:1" data-img="assets/covers/andreas.jpg" title="Saket. Revamped launch. Creator-led discovery — without buying a single ad."><span class="n">02</span><span class="p">Andrea’s Eatery</span><span class="d">Launch &amp; PR, Creator marketing, Social media &amp; Retain</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/andreas/" id="w03" style="--i:2" data-img="assets/retain/prod/andreas.webp" title="Hospitality · Saket · relaunch"><span class="n">03</span><span class="p">Andrea’s Eatery — shoot</span><span class="d">Production &amp; photography</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="production.html" id="w04" style="--i:3" data-img="assets/retain/prod/araana.webp" title="Wellness food · natural-light product"><span class="n">04</span><span class="p">Araana — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="cases/arista-vault/" id="w05" style="--i:4" title="A luggage-tech founder we partnered with on equity terms instead of fees — because we knew the deck was Shark-Tank-bound."><span class="n">05</span><span class="p">Arista Vault</span><span class="d">Social media &amp; Retain</span><span class="s">Consumer products</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="production.html" id="w06" style="--i:5" data-img="assets/retain/prod/ayurnosh.webp" title="Health cookies · pack &amp; product"><span class="n">06</span><span class="p">Ayurnosh — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="retain.html#social" id="w07" style="--i:6" data-img="assets/retain/baris.webp" title="Arabian Night — event creatives"><span class="n">07</span><span class="p">Baris</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">2022</span><span class="o">Retain &rarr;</span></a>
+    <a class="crw" href="cases/bayroute/" id="w08" style="--i:7" data-img="assets/covers/bayroute.jpg" title="A new Levantine kitchen in Delhi&#x27;s saturated fine-dining grid — diners had heard the name, none had tasted the room."><span class="n">08</span><span class="p">Bayroute</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="production.html" id="w09" style="--i:8" data-img="assets/retain/prod/bikkgane.webp" title="QSR chain · menu photography"><span class="n">09</span><span class="p">Bikkgane Biryani — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="cases/borges/" id="w10" style="--i:9" title="Cook For Your Loved Ones — a Spanish heritage brand told in the language of Indian home kitchens."><span class="n">10</span><span class="p">Borges India</span><span class="d">Creator marketing, Social media &amp; Retain</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w11" style="--i:10" data-img="assets/press/tnie-bowled-over.webp" title="“Bowled over”"><span class="n">11</span><span class="p">The Buddha bowl, in The New Indian Express</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="showcase-bunta-bar.html" id="w12" style="--i:11" data-img="assets/showcase/poster_bunta.webp" title="Brand identity &amp; visual system"><span class="n">12</span><span class="p">Bunta Bar Express</span><span class="d">Brand identity &amp; design</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">2021</span><span class="o">Showcase &rarr;</span></a>
+    <a class="crw" href="showcase-burger-now.html" id="w13" style="--i:12" data-img="assets/showcase/poster_burger.webp" title="Brand identity, two directions"><span class="n">13</span><span class="p">Burger Now</span><span class="d">Brand identity &amp; design</span><span class="s">Food &amp; drink brands</span><span class="y">2021</span><span class="o">Showcase &rarr;</span></a>
+    <a class="crw" href="production.html" id="w14" style="--i:13" data-img="assets/retain/prod/amsterdam.webp" title="All-day café · brunch &amp; plating"><span class="n">14</span><span class="p">Cafe Amsterdam — shoot</span><span class="d">Production &amp; photography</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="https://www.behance.net/gallery/135300689/x" target="_blank" rel="noopener" id="w15" style="--i:14" data-img="assets/retain/chnkrs.webp" title="Sneaker reselling platform — app concept"><span class="n">15</span><span class="p">CHNKRS</span><span class="d">App &amp; product design</span><span class="s">Technology &amp; apps</span><span class="y">2022</span><span class="o">Behance &nearr;</span></a>
+    <a class="crw" href="production.html" id="w16" style="--i:15" data-img="assets/retain/prod/clubcafe.webp" title="Café · beverages &amp; small plates"><span class="n">16</span><span class="p">Club Cafe — shoot</span><span class="d">Production &amp; photography</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="production.html" id="w17" style="--i:16" data-img="assets/retain/prod/costa.webp" title="Global café chain · the everyday occasion"><span class="n">17</span><span class="p">Costa Coffee — shoot</span><span class="d">Production &amp; photography</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="amplify.html" id="w18" style="--i:17" data-img="assets/creators/wsfbhebhgmbyfx8klhsi.webp" title="The wall of creator pictures, rising as you scroll"><span class="n">18</span><span class="p">The creator floor — forty-four creators</span><span class="d">Creator marketing</span><span class="s">Hospitality</span><span class="y">&mdash;</span><span class="o">Creator floor &rarr;</span></a>
+    <a class="crw" href="press.html#digital-social" id="w19" style="--i:18" data-img="assets/social/315304326.webp" title="Digital &amp; social PR, from our campaigns"><span class="n">19</span><span class="p">Creator posts — twenty</span><span class="d">Digital &amp; social PR</span><span class="s">Hospitality</span><span class="y">2022–23</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="cases/daryaganj/" id="w20" style="--i:19" title="&quot;Inventors of butter chicken &amp; dal makhani&quot; — a heritage Indian house with the strongest origin claim in Indian-restaurant marketing."><span class="n">20</span><span class="p">Daryaganj</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="https://www.behance.net/gallery/136992923/x" target="_blank" rel="noopener" id="w21" style="--i:20" data-img="assets/retain/darzi.webp" title="Bar &amp; kitchen — creatives"><span class="n">21</span><span class="p">Darzi Bar &amp; Kitchen</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">2022</span><span class="o">Behance &nearr;</span></a>
+    <a class="crw" href="production.html" id="w22" style="--i:21" data-img="assets/retain/prod/decasa.webp" title="Cold-pressed beverages · product &amp; lifestyle"><span class="n">22</span><span class="p">De Casa — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="cases/dejabrew/" id="w23" style="--i:22" data-img="assets/covers/dejabrew.jpg" title="Greater Kailash 2 has a café on every corner. Deja Brew needed to own a specific evening — sufi, sheesha, soft-lit social — not the daytime brunch grid."><span class="n">23</span><span class="p">Deja Brew</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="https://www.behance.net/gallery/136995099/x" target="_blank" rel="noopener" id="w24" style="--i:23" data-img="assets/retain/dillusion.webp" title="Creatives"><span class="n">24</span><span class="p">Dillusion</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">2022</span><span class="o">Behance &nearr;</span></a>
+    <a class="crw" href="https://www.behance.net/gallery/136992699/x" target="_blank" rel="noopener" id="w25" style="--i:24" data-img="assets/retain/esquire.webp" title="Social creatives"><span class="n">25</span><span class="p">Esquire Club</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">2022</span><span class="o">Behance &nearr;</span></a>
+    <a class="crw" href="cases/farzi-cafe/" id="w26" style="--i:24" data-img="assets/covers/farzi.jpg" title="98&#x27;s highest-reach concentrated activation. 20 creators delivering 6.49M combined reach for Farzi Cafe — Massive Restaurants&#x27; contemporary Indian concept. Anchored on Amar Sirohi (@foodie_incarnate, 2.35M public figure), Syma Verma (766K), Saanya Khatter (532K), Mehak Dhawan (338K), Harteerath Singh (297K). Founder Zorawar Kalra (Massive Restaurants) in the supporting roster — a rare founder presence."><span class="n">26</span><span class="p">Farzi Cafe</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/fast-up/" id="w27" style="--i:24" title="Sixth-anniversary milestone event for a health-and-wellness brand — a curated celebration that married brand essence with twenty creator voices."><span class="n">27</span><span class="p">Fast &amp; Up</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Wellness &amp; lifestyle</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/fast-up/" id="w28" style="--i:24" data-img="assets/retain/fastup.webp" title="Instagram stories, creator unboxings"><span class="n">28</span><span class="p">Fast &amp; Up — stories</span><span class="d">Social media &amp; Retain</span><span class="s">Wellness &amp; lifestyle</span><span class="y">2021</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/flaunt/" id="w29" style="--i:24" data-img="assets/covers/dutyfree.jpg" title="6 creators delivering 1.70M reach for Flaunt by Duty Free — a Noida launch carnival stacking five sister-brands (Duty Free, Vāyubar, Oscar, Float, Stir It Up). 4 verified handles, 18 story frames. Anchored on Syma Verma (766K verified reel creator), Asmita Arora (467K verified public figure), Akanksha Upneja (206K verified blogger), and verified couple-duo @thestreetstalkers (154K)."><span class="n">29</span><span class="p">Flaunt by Duty Free</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/tgisf/" id="w30" style="--i:24" data-img="assets/covers/sneakerfest.jpg" title="India&#x27;s biggest sneaker fest — a streetwear-and-culture festival anchored on forty-plus creators, one stage, one weekend."><span class="n">30</span><span class="p">The Great Indian Sneaker Fest</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Culture &amp; festivals</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/happy-dent/" id="w31" style="--i:24" title="A six-week influencer-driven campaign for a chewing-gum brand, built around freshness, confidence, and the smile that follows."><span class="n">31</span><span class="p">Happydent — Sparkling Smile</span><span class="d">Launch &amp; PR</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w32" style="--i:24" data-img="assets/press/curlytales-harajuku.webp" title="“Delhi Has A Tokyo Cafe That Offers Exclusively Crafted Japanese Desserts &amp; Boba Tea”"><span class="n">32</span><span class="p">Harajuku, in Curly Tales</span><span class="d">Media relations</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w33" style="--i:24" data-img="assets/press/ndtvfood-harajuku.webp" title="“New In Town: This Adorable Tokyo Café In Delhi Has Bought The Vibrant Streets Of Harajuku To Town”"><span class="n">33</span><span class="p">Harajuku, in NDTV Food</span><span class="d">Media relations</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="cases/hard-rock/" id="w34" style="--i:24" data-img="assets/covers/hardrock.jpg" title="A live-music night-out at Hard Rock Cafe New Delhi — band on stage, fishbowl cocktails, memorabilia walls, classic American bar food."><span class="n">34</span><span class="p">Hard Rock Cafe</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w35" style="--i:24" data-img="assets/press/outlooktraveller-hearth.webp" title="“Megha Jhunjhunwala’s Journey from the West”"><span class="n">35</span><span class="p">Hearth &amp; i, in Outlook Traveller</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w36" style="--i:24" data-img="assets/press/indiatoday-mood.webp" title="“In the mood for food”"><span class="n">36</span><span class="p">In the mood for food, in India Today</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="cases/ishant/" id="w37" style="--i:24" data-img="assets/covers/ishant.jpg" title="The personal-brand case. We didn&#x27;t manage talent. We ran a brand."><span class="n">37</span><span class="p">Ishant Sharma</span><span class="d">Launch &amp; PR, Social media &amp; Retain, Personal branding</span><span class="s">Talent &amp; creators</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/ishant/" id="w38" style="--i:24" data-img="assets/retain/ishant-social.webp" title="Posts, festival posts, reels"><span class="n">38</span><span class="p">Ishant Sharma — posts &amp; reels</span><span class="d">Social media &amp; Retain, Personal branding</span><span class="s">Talent &amp; creators</span><span class="y">2023</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/roseate/" id="w39" style="--i:24" data-img="assets/covers/iskate.jpg" title="An indoor ice rink anchored at a Roseate Hotels property — a luxury-hotel amenity venue that turns &quot;Delhi summer&quot; into &quot;skate season.&quot;"><span class="n">39</span><span class="p">iSKATE by Roseate</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; hotels</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w40" style="--i:24" data-img="assets/press/outlook-ivoryy.webp" title="“Ivoryy: A Garden of Many Delights”"><span class="n">40</span><span class="p">Ivoryy, in Outlook</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="showcase-jd-jewellers.html" id="w41" style="--i:24" data-img="assets/showcase/poster_jd.webp" title="Logo, lockups, reveal film"><span class="n">41</span><span class="p">JD Jewellers</span><span class="d">Brand identity &amp; design</span><span class="s">Jewellery &amp; retail</span><span class="y">2026</span><span class="o">Showcase &rarr;</span></a>
+    <a class="crw" href="cases/khubani/" id="w42" style="--i:24" title="Afternoon &quot;spa lunch&quot; — manicures while you eat. Plus a Levantine night-vibe sister concept, Habibi by Khubani."><span class="n">42</span><span class="p">Khubani</span><span class="d">Launch &amp; PR, Creator marketing</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/limitless/" id="w43" style="--i:24" data-img="assets/covers/limitless.jpg" title="A multi-outlet Delhi lounge brand. Two locations on the calendar — one creator playbook running across both."><span class="n">43</span><span class="p">Limitless</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/local/" id="w44" style="--i:24" title="Noida is rarely the venue side of a creator campaign — most rosters skew Delhi or Gurugram. Local needed two creators willing to travel + make Noida feel like a destination."><span class="n">44</span><span class="p">Local</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/meta-creator/" id="w45" style="--i:24" title="A six-month programme bringing thirty-plus YouTube creators onto Facebook&#x27;s video surface — directly enriching the platform&#x27;s library."><span class="n">45</span><span class="p">Meta Creator Enablement Programme</span><span class="d">Creator marketing</span><span class="s">Platforms &amp; education</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="talent.html#made" id="w46" style="--i:24" data-img="assets/retain/prod/doozy.webp" title="Influencer shoot"><span class="n">46</span><span class="p">Miss Doozy — shoot</span><span class="d">Production &amp; photography</span><span class="s">Talent &amp; creators</span><span class="y">2023</span><span class="o">Reel &rarr;</span></a>
+    <a class="crw" href="cases/monet/" id="w47" style="--i:24" data-img="assets/covers/monet.jpg" title="Monet is a dessert-led Italian kitchen — meaning the plating is the marketing. Most diners decide before they read the menu."><span class="n">47</span><span class="p">Monet</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/nao/" id="w48" style="--i:24" title="Nao is a Berco&#x27;s spinoff entering the modern pan-Asian space. The parent brand has 30+ years of Indo-Chinese equity — we needed to launch Nao as its own concept, not a Berco&#x27;s extension."><span class="n">48</span><span class="p">Nao by Berco’s</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="production.html" id="w49" style="--i:24" data-img="assets/retain/prod/naturelo.webp" title="Ice cream · frozen dessert"><span class="n">49</span><span class="p">Naturelo — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w50" style="--i:24" data-img="assets/press/gq-new-restaurants.webp" title="“The 9 best new restaurants &amp; delivery kitchens in Delhi to try right now”"><span class="n">50</span><span class="p">New restaurants in Delhi, in GQ</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="talent.html#made" id="w51" style="--i:24" data-img="assets/retain/noidawery.webp" title="Brewery &amp; restaurant — banner"><span class="n">51</span><span class="p">Noidawery</span><span class="d">Brand identity &amp; design</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">2023</span><span class="o">Reel &rarr;</span></a>
+    <a class="crw" href="production.html" id="w52" style="--i:24" data-img="assets/retain/prod/nycpie.webp" title="Pizza · menu &amp; hero photography"><span class="n">52</span><span class="p">NYC Pie — shoot</span><span class="d">Production &amp; photography</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="cases/one8-commune/" id="w53" style="--i:24" data-img="assets/covers/one8.jpg" title="Virat Kohli&#x27;s restaurant brand — celebrity-anchored premium dining, run as a creator-roster magnet."><span class="n">53</span><span class="p">One8 Commune</span><span class="d">Creator marketing, Social media &amp; Retain, Events &amp; experiential</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/one8-commune/" id="w54" style="--i:24" data-img="assets/retain/one8.webp" title="Posts"><span class="n">54</span><span class="p">One8 Commune — posts</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">2022</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/ophelia/" id="w55" style="--i:24" data-img="assets/covers/ophelia.jpg" title="A modern-European brunch room in Delhi where the menu reads like an editorial — blue tufted velvet, peach walls, marigolds on the pasta."><span class="n">55</span><span class="p">Ophelia</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/poetry/" id="w56" style="--i:24" data-img="assets/covers/poetry.jpg" title="Poetry sits in the upscale all-day-café space where the room wins on architecture, not virality. The brand had run on word-of-mouth — we needed to build a feed presence without breaking the room&#x27;s quiet."><span class="n">56</span><span class="p">Poetry</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w57" style="--i:24" data-img="assets/press/lifestyleasia-pracheen.webp" title="“5 places in Delhi to try this month if you’re craving wholesome Indian cuisine”"><span class="n">57</span><span class="p">Pracheen, in Lifestyle Asia</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w58" style="--i:24" data-img="assets/press/tnie-khansamas.webp" title="“Recipes from the league of Khansamas”"><span class="n">58</span><span class="p">Pracheen, in The New Indian Express</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="index.html#case-punjab-grill" id="w59" style="--i:24" title="An established premium Indian chain — banqueting-grade kitchens, the kind of brand a creator post has to land squarely in occasion-context."><span class="n">59</span><span class="p">Punjab Grill</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/rizq/" id="w60" style="--i:24" data-img="assets/covers/rizq.jpg" title="A new Levantine + Italian fusion concept walking into a market that already had a clear Italian leader and three credible Levantine restaurants."><span class="n">60</span><span class="p">RIZQ</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/rooh/" id="w61" style="--i:24" title="Premium fine-dining at Ambawatta One — sufi nights, chef pop-ups, tasting-menu storytelling."><span class="n">61</span><span class="p">Rooh</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="https://www.behance.net/gallery/135300883/x" target="_blank" rel="noopener" id="w62" style="--i:24" data-img="assets/retain/ruto.webp" title="Travel app — concept"><span class="n">62</span><span class="p">Ruto</span><span class="d">App &amp; product design</span><span class="s">Technology &amp; apps</span><span class="y">2022</span><span class="o">Behance &nearr;</span></a>
+    <a class="crw" href="https://www.behance.net/gallery/135301101/x" target="_blank" rel="noopener" id="w63" style="--i:24" data-img="assets/retain/search.webp" title="Home-finding app — concept"><span class="n">63</span><span class="p">Search</span><span class="d">App &amp; product design</span><span class="s">Technology &amp; apps</span><span class="y">2022</span><span class="o">Behance &nearr;</span></a>
+    <a class="crw" href="retain.html#social" id="w64" style="--i:24" data-img="assets/retain/skyhouse.webp" title="Live-music posts"><span class="n">64</span><span class="p">Sky House</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">2022</span><span class="o">Retain &rarr;</span></a>
+    <a class="crw" href="cases/sky-lantern/" id="w65" style="--i:24" data-img="assets/covers/skylantern.jpg" title="22 creators across 70 story frames at Sky Lantern — Panchsheel Park courtyard café. Combined reach 3.52M (13 verified handles). Anchored on Saanya Khatter (533K), Deeksha (423K), Prerna Massey (419K verified), Bhavya Monga Arya (389K verified). Repositioned a winter Sunday luncheon as a feed-event the city kept living off."><span class="n">65</span><span class="p">Sky Lantern</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/slay-coffee/" id="w66" style="--i:24" data-img="assets/covers/slay.jpg" title="Cup-shot UGC, partner co-packs, and a &quot;food court in an app&quot; — built with creators who screenshot recipes and order takeaway."><span class="n">66</span><span class="p">Slay Coffee</span><span class="d">Creator marketing</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/slique/" id="w67" style="--i:24" title="Slique runs a Friday-night-onwards positioning — the room only converts after dark. We needed a creator stack that would show up at SLIQUE in the same kind of dressed-for-it mode their audience would."><span class="n">67</span><span class="p">Slique</span><span class="d">Creator marketing</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="https://www.behance.net/gallery/136994279/x" target="_blank" rel="noopener" id="w68" style="--i:24" data-img="assets/retain/spice.webp" title="Social creatives"><span class="n">68</span><span class="p">Spice Station</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">2021</span><span class="o">Behance &nearr;</span></a>
+    <a class="crw" href="production.html" id="w69" style="--i:24" data-img="assets/retain/prod/streetfood.webp" title="UberEats · on location · Delhi"><span class="n">69</span><span class="p">Street Food Trail — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="https://www.behance.net/gallery/136993089/x" target="_blank" rel="noopener" id="w70" style="--i:24" data-img="assets/retain/studio-xo.webp" title="Social creatives"><span class="n">70</span><span class="p">Studio Xo</span><span class="d">Social media &amp; Retain</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">2022</span><span class="o">Behance &nearr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w71" style="--i:24" data-img="assets/press/idiva-tbsp.webp" title="“8 Places For The Juiciest Gourmet Burgers In Delhi &amp; Mumbai”"><span class="n">71</span><span class="p">Tablespoon, in iDiva</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">2023</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="cases/tablespoon/" id="w72" style="--i:24" data-img="assets/covers/tbsp.jpg" title="17 creators delivering 3.47M combined reach for TableSpoon — a Yum Yum Cha umbrella brand operating Delhi multi-cuisine. 8 verified handles, 64 story frames. Anchored on Varun Verma (590K verified digital creator), Shreya Chadda (480K), Toshali Paliwal (360K verified), Harteerath Singh (297K verified), Saaniya Khanna (264K verified)."><span class="n">72</span><span class="p">Tablespoon (TBSP)</span><span class="d">Creator marketing, Social media &amp; Retain, Events &amp; experiential</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="production.html" id="w73" style="--i:24" data-img="assets/retain/prod/theobroma.webp" title="Patisserie · premium retail"><span class="n">73</span><span class="p">Theobroma — shoot</span><span class="d">Production &amp; photography</span><span class="s">Hospitality &middot; cafés &amp; desserts</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="cases/tickled-pink/" id="w74" style="--i:24" title="A Saket destination room where the dinner is the photoshoot — pink, polka-dot, Wonderland-coded, designed to be photographed."><span class="n">74</span><span class="p">Tickled Pink</span><span class="d">Creator marketing, Social media &amp; Retain, Events &amp; experiential</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="production.html" id="w75" style="--i:24" data-img="assets/retain/prod/tilt.webp" title="Beverage · people, parties, celebration"><span class="n">75</span><span class="p">TILT — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="production.html" id="w76" style="--i:24" data-img="assets/retain/prod/twigly.webp" title="Everyday delivery food · menu system"><span class="n">76</span><span class="p">Twigly — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">&mdash;</span><span class="o">Production &rarr;</span></a>
+    <a class="crw" href="cases/unacademy/" id="w77" style="--i:24" title="Importing YouTube&#x27;s best educators onto Unacademy&#x27;s live-class platform — turning open-internet teachers into platform talent."><span class="n">77</span><span class="p">Unacademy</span><span class="d">Creator marketing</span><span class="s">Platforms &amp; education</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w78" style="--i:24" data-img="assets/press/femina-valentine.webp" title="“#ValentineDining: Wine &amp; Dine At These Hotspots In Delhi and Bengaluru!”"><span class="n">78</span><span class="p">Valentine’s dining, in Femina</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="press.html#media-relations" id="w79" style="--i:24" data-img="assets/press/curlytales-valentine.webp" title="“6 Romantic Experiences To Gift A Foodie &amp; Floor Them With Taste This Valentine’s Day”"><span class="n">79</span><span class="p">Valentine’s gifting, in Curly Tales</span><span class="d">Media relations</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Press room &rarr;</span></a>
+    <a class="crw" href="retain.html#social" id="w80" style="--i:24" data-img="assets/retain/velvett.webp" title="Posts"><span class="n">80</span><span class="p">Velvett Spa</span><span class="d">Social media &amp; Retain</span><span class="s">Wellness &amp; lifestyle</span><span class="y">2023</span><span class="o">Retain &rarr;</span></a>
+    <a class="crw" href="cases/the-weekend/" id="w81" style="--i:24" data-img="assets/covers/weekend.jpg" title="A constellation creator launch for The Weekend Wine &amp; More — a Moroccan-inspired fine-dining and wine destination on the upper deck of Gardens Galleria Mall, Noida. Twenty creator handles activated, seventeen active across four audience verticals, combined reach 2.55M. One venue, one weekend, one cultural arrival."><span class="n">81</span><span class="p">The Weekend</span><span class="d">Creator marketing, Events &amp; experiential</span><span class="s">Hospitality &middot; bars &amp; nightlife</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+    <a class="crw" href="cases/yyc-group/" id="w82" style="--i:24" title="Three brands. One operating playbook. Two national awards in a single year."><span class="n">82</span><span class="p">Yum Yum Cha Group</span><span class="d">Launch &amp; PR</span><span class="s">Hospitality &middot; restaurants &amp; dining</span><span class="y">&mdash;</span><span class="o">Case &rarr;</span></a>
+</section>
+<div class="g cnote"><p class="faint">A case opens in its case file on the home page. Everything else opens on the page that holds it &mdash; a showcase, the press room, production, the creator floor, retain or a reel &mdash; and Behance opens in a new tab. A year is shown where the work carries one.</p></div>
+
+<!-- ============ 02 — the index ============ -->
+<div class="g kick" id="index">
+  <span class="n faint" style="--i:0">02</span>
+  <span class="t" style="--i:1">Index</span>
+  <span class="s faint" style="--i:2">By discipline and by sector &mdash; every number is a row above</span>
+</div>
+<section class="g cidx" aria-label="The index">
+  <div class="col" aria-label="By discipline">
+    <div class="hd"><span class="faint">Discipline:</span><span class="faint">Entries:</span></div>
+      <div class="term" id="i-app-and-product-design"><span class="k">App &amp; product design <span class="c faint">3</span></span><span class="nums"><a href="#w15">15</a>, <a href="#w62">62</a>, <a href="#w63">63</a></span></div>
+      <div class="term" id="i-brand-identity-and-design"><span class="k">Brand identity &amp; design <span class="c faint">4</span></span><span class="nums"><a href="#w12">12</a>, <a href="#w13">13</a>, <a href="#w41">41</a>, <a href="#w51">51</a></span></div>
+      <div class="term" id="i-creator-marketing"><span class="k">Creator marketing <span class="c faint">30</span></span><span class="nums"><a href="#w02">02</a>, <a href="#w08">08</a>, <a href="#w10">10</a>, <a href="#w18">18</a>, <a href="#w20">20</a>, <a href="#w23">23</a>, <a href="#w26">26</a>, <a href="#w27">27</a>, <a href="#w29">29</a>, <a href="#w30">30</a>, <a href="#w34">34</a>, <a href="#w39">39</a>, <a href="#w42">42</a>, <a href="#w43">43</a>, <a href="#w44">44</a>, <a href="#w45">45</a>, <a href="#w47">47</a>, <a href="#w48">48</a>, <a href="#w53">53</a>, <a href="#w55">55</a>, <a href="#w56">56</a>, <a href="#w59">59</a>, <a href="#w61">61</a>, <a href="#w65">65</a>, <a href="#w66">66</a>, <a href="#w67">67</a>, <a href="#w72">72</a>, <a href="#w74">74</a>, <a href="#w77">77</a>, <a href="#w81">81</a></span></div>
+      <div class="term" id="i-digital-and-social-pr"><span class="k">Digital &amp; social PR <span class="c faint">1</span></span><span class="nums"><a href="#w19">19</a></span></div>
+      <div class="term" id="i-events-and-experiential"><span class="k">Events &amp; experiential <span class="c faint">12</span></span><span class="nums"><a href="#w20">20</a>, <a href="#w27">27</a>, <a href="#w29">29</a>, <a href="#w30">30</a>, <a href="#w34">34</a>, <a href="#w53">53</a>, <a href="#w55">55</a>, <a href="#w61">61</a>, <a href="#w65">65</a>, <a href="#w72">72</a>, <a href="#w74">74</a>, <a href="#w81">81</a></span></div>
+      <div class="term" id="i-launch-and-pr"><span class="k">Launch &amp; PR <span class="c faint">5</span></span><span class="nums"><a href="#w02">02</a>, <a href="#w31">31</a>, <a href="#w37">37</a>, <a href="#w42">42</a>, <a href="#w82">82</a></span></div>
+      <div class="term" id="i-media-relations"><span class="k">Media relations <span class="c faint">12</span></span><span class="nums"><a href="#w11">11</a>, <a href="#w32">32</a>, <a href="#w33">33</a>, <a href="#w35">35</a>, <a href="#w36">36</a>, <a href="#w40">40</a>, <a href="#w50">50</a>, <a href="#w57">57</a>, <a href="#w58">58</a>, <a href="#w71">71</a>, <a href="#w78">78</a>, <a href="#w79">79</a></span></div>
+      <div class="term" id="i-personal-branding"><span class="k">Personal branding <span class="c faint">2</span></span><span class="nums"><a href="#w37">37</a>, <a href="#w38">38</a></span></div>
+      <div class="term" id="i-production-and-photography"><span class="k">Production &amp; photography <span class="c faint">16</span></span><span class="nums"><a href="#w01">01</a>, <a href="#w03">03</a>, <a href="#w04">04</a>, <a href="#w06">06</a>, <a href="#w09">09</a>, <a href="#w14">14</a>, <a href="#w16">16</a>, <a href="#w17">17</a>, <a href="#w22">22</a>, <a href="#w46">46</a>, <a href="#w49">49</a>, <a href="#w52">52</a>, <a href="#w69">69</a>, <a href="#w73">73</a>, <a href="#w75">75</a>, <a href="#w76">76</a></span></div>
+      <div class="term" id="i-social-media-and-retain"><span class="k">Social media &amp; Retain <span class="c faint">19</span></span><span class="nums"><a href="#w02">02</a>, <a href="#w05">05</a>, <a href="#w07">07</a>, <a href="#w10">10</a>, <a href="#w21">21</a>, <a href="#w24">24</a>, <a href="#w25">25</a>, <a href="#w28">28</a>, <a href="#w37">37</a>, <a href="#w38">38</a>, <a href="#w53">53</a>, <a href="#w54">54</a>, <a href="#w60">60</a>, <a href="#w64">64</a>, <a href="#w68">68</a>, <a href="#w70">70</a>, <a href="#w72">72</a>, <a href="#w74">74</a>, <a href="#w80">80</a></span></div>
+  </div>
+  <div class="col" aria-label="By sector">
+    <div class="hd"><span class="faint">Sector:</span><span class="faint">Entries:</span></div>
+      <div class="term" id="i-consumer-products"><span class="k">Consumer products <span class="c faint">1</span></span><span class="nums"><a href="#w05">05</a></span></div>
+      <div class="term" id="i-culture-and-festivals"><span class="k">Culture &amp; festivals <span class="c faint">1</span></span><span class="nums"><a href="#w30">30</a></span></div>
+      <div class="term" id="i-food-and-drink-brands"><span class="k">Food &amp; drink brands <span class="c faint">13</span></span><span class="nums"><a href="#w01">01</a>, <a href="#w04">04</a>, <a href="#w06">06</a>, <a href="#w09">09</a>, <a href="#w10">10</a>, <a href="#w13">13</a>, <a href="#w22">22</a>, <a href="#w31">31</a>, <a href="#w49">49</a>, <a href="#w66">66</a>, <a href="#w69">69</a>, <a href="#w75">75</a>, <a href="#w76">76</a></span></div>
+      <div class="term" id="i-hospitality"><span class="k">Hospitality <span class="c faint">55</span></span><span class="nums"><a href="#w18">18</a>, <a href="#w19">19</a> &middot; <span class="faint">and below</span></span></div>
+      <div class="term sub"><span class="k">— bars &amp; nightlife <span class="c faint">13</span></span><span class="nums"><a href="#w12">12</a>, <a href="#w21">21</a>, <a href="#w24">24</a>, <a href="#w25">25</a>, <a href="#w29">29</a>, <a href="#w34">34</a>, <a href="#w43">43</a>, <a href="#w44">44</a>, <a href="#w51">51</a>, <a href="#w64">64</a>, <a href="#w67">67</a>, <a href="#w70">70</a>, <a href="#w81">81</a></span></div>
+      <div class="term sub"><span class="k">— cafés &amp; desserts <span class="c faint">10</span></span><span class="nums"><a href="#w14">14</a>, <a href="#w16">16</a>, <a href="#w17">17</a>, <a href="#w23">23</a>, <a href="#w32">32</a>, <a href="#w33">33</a>, <a href="#w47">47</a>, <a href="#w56">56</a>, <a href="#w65">65</a>, <a href="#w73">73</a></span></div>
+      <div class="term sub"><span class="k">— hotels <span class="c faint">1</span></span><span class="nums"><a href="#w39">39</a></span></div>
+      <div class="term sub"><span class="k">— restaurants &amp; dining <span class="c faint">29</span></span><span class="nums"><a href="#w02">02</a>, <a href="#w03">03</a>, <a href="#w07">07</a>, <a href="#w08">08</a>, <a href="#w11">11</a>, <a href="#w20">20</a>, <a href="#w26">26</a>, <a href="#w35">35</a>, <a href="#w36">36</a>, <a href="#w40">40</a>, <a href="#w42">42</a>, <a href="#w48">48</a>, <a href="#w50">50</a>, <a href="#w52">52</a>, <a href="#w53">53</a>, <a href="#w54">54</a>, <a href="#w55">55</a>, <a href="#w57">57</a>, <a href="#w58">58</a>, <a href="#w59">59</a>, <a href="#w60">60</a>, <a href="#w61">61</a>, <a href="#w68">68</a>, <a href="#w71">71</a>, <a href="#w72">72</a>, <a href="#w74">74</a>, <a href="#w78">78</a>, <a href="#w79">79</a>, <a href="#w82">82</a></span></div>
+      <div class="term" id="i-jewellery-and-retail"><span class="k">Jewellery &amp; retail <span class="c faint">1</span></span><span class="nums"><a href="#w41">41</a></span></div>
+      <div class="term" id="i-platforms-and-education"><span class="k">Platforms &amp; education <span class="c faint">2</span></span><span class="nums"><a href="#w45">45</a>, <a href="#w77">77</a></span></div>
+      <div class="term" id="i-talent-and-creators"><span class="k">Talent &amp; creators <span class="c faint">3</span></span><span class="nums"><a href="#w37">37</a>, <a href="#w38">38</a>, <a href="#w46">46</a></span></div>
+      <div class="term" id="i-technology-and-apps"><span class="k">Technology &amp; apps <span class="c faint">3</span></span><span class="nums"><a href="#w15">15</a>, <a href="#w62">62</a>, <a href="#w63">63</a></span></div>
+      <div class="term" id="i-wellness-and-lifestyle"><span class="k">Wellness &amp; lifestyle <span class="c faint">3</span></span><span class="nums"><a href="#w27">27</a>, <a href="#w28">28</a>, <a href="#w80">80</a></span></div>
+  </div>
+</section>
+</main>
+
+<!--S98:FOOT — the shared footer: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<footer class="s98-foot" id="s98-foot">
+  <div class="s98-fc s98-f1">
+    <span class="s98-faint">Socials:</span>
+    <a href="https://instagram.com/98.entertainment" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.behance.net/harsharya" target="_blank" rel="noopener">Behance</a>
+    <a href="https://wa.me/919711184674?text=Here%27s%20what%20I%27m%20building%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="s98-fc s98-f2">
+    <span class="s98-faint">Pages:</span>
+    <a href="index.html">Home</a>
+    <a href="marketing.html">Marketing &mdash; seven instruments</a>
+    <a href="talent.html">Talent &amp; Branding</a>
+    <a href="blog/index.html">The journal</a>
+    <a href="cases.html" aria-current="page">Case studies</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="s98-fc s98-f3">
+    <span class="s98-faint">Marketing, instrument by instrument:</span>
+    <a href="identity.html">Branding &mdash; identity &amp; design</a>
+    <a href="press.html">PR &amp; Media &mdash; the press room</a>
+    <a href="amplify.html">Creators &mdash; the creator floor</a>
+    <a href="performance-marketing.html">Paid &amp; Search &mdash; performance marketing</a>
+    <a href="retain.html">Social &mdash; the feed, held</a>
+    <a href="production.html">Production &mdash; the shoots</a>
+    <a href="events.html">Events &mdash; the night floor</a>
+  </div>
+  <div class="s98-fc s98-f4">
+    <span class="s98-faint">Contact:</span>
+    <a href="mailto:contact@ninety-eight.in" data-s98-mail="contact@ninety-eight.in">contact@ninety-eight.in</a>
+    <a href="index.html#contact">Tell us what you&rsquo;re building &rarr;</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+  <div class="s98-rights">
+    <span>All rights reserved. &copy;2026 Ninety-Eight Entertainment</span>
+    <span class="s98-faint">Delhi NCR &middot; est. 01.01.2020 &middot; <span data-s98-clock>IST</span></span>
+  </div>
+</footer>
+<!--/S98:FOOT-->
+
+<div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
+
+<script src="assets/room.js"></script>
+<script>
+/* ---- the directory's still: it follows the pointer over a row that has one
+   (room.js places its still to the right of the room directory, which here
+   spans the page, so this page places its own) ---- */
+(function(){
+  if (!matchMedia('(hover:hover)').matches) return;
+  var peek = document.getElementById('peek'), img = peek && peek.querySelector('img');
+  if (!peek || !img) return;
+  var x = 0, on = false, cur = null;
+  function place(){
+    /* just above the row, centred on the pointer, so it never covers the row being
+       read; below the row where the header leaves no room above */
+    var W = peek.offsetWidth, H = peek.offsetHeight, r = cur.getBoundingClientRect(), top = 50;
+    var px = Math.round(x - W / 2), py = Math.round(r.top - 8 - H);
+    if (py < top) py = Math.round(r.bottom + 8);
+    if (px < 10) px = 10; if (px + W > innerWidth - 10) px = innerWidth - 10 - W;
+    peek.style.transform = 'translate(' + px + 'px,' + py + 'px)';
+  }
+  [].forEach.call(document.querySelectorAll('.cdir .crw[data-img]'), function(row){
+    row.addEventListener('mouseenter', function(e){ cur = row; img.removeAttribute('src'); img.src = row.getAttribute('data-img'); x = e.clientX; place(); peek.classList.add('on'); on = true; });
+    row.addEventListener('mousemove', function(e){ x = e.clientX; if (on) place(); });
+    row.addEventListener('mouseleave', function(){ peek.classList.remove('on'); on = false; });
+  });
+  addEventListener('scroll', function(){ if (on){ peek.classList.remove('on'); on = false; } }, { passive: true });
+})();
+</script>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* =========================================================================
+   THE ROOM PAGES — retain.html, production.html (v3.39, Sep 2026)
+   One stylesheet for the directory pages after Obys's Experiment Space
+   "About": a 12-column grid with 10px gutters and 10px margins, one small
+   size of the house face for every row and label, hairlines and labels at
+   20%, and headlines composed line by line across the grid. Carbon by
+   default since v3.53, White on request: the switch is in the shared
+   header (assets/site.css / site.js) and holds for the whole site.
+   Page-specific rules live in each page's own <style>.
+   ========================================================================= */
+:root{
+  --bg:#0B0B0C; --ink:#F4F4F2;
+  --line:rgba(244,244,242,.2); --faint:.32; /* labels, links at rest */
+  --dot:rgba(244,244,242,.13);
+  --room:#FF6319;                          /* Retain's colour on the flywheel */
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gap:10px; --m:10px;
+  --fs:13px; --lh:20px;
+}
+html[data-ground="white"]{
+  --bg:#FFFFFF; --ink:#000000; --line:rgba(0,0,0,.2); --faint:.2; --dot:rgba(0,0,0,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo',Helvetica,Arial,sans-serif;font-size:var(--fs);line-height:var(--lh);letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;transition:background .35s,color .35s}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;background:none;border:0;color:inherit;cursor:pointer;letter-spacing:inherit}
+::selection{background:var(--room);color:#000}
+
+/* ---------- the grid ---------- */
+.g{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);margin-left:var(--m);margin-right:var(--m)}
+.faint{opacity:var(--faint)}
+.hair{height:1px;background:var(--line)}
+
+/* ---------- header meta ---------- */
+.meta{margin-top:var(--m);align-items:start;position:relative;z-index:5}
+.meta .left{grid-column:1/5;display:grid;grid-template-columns:3fr 1fr;column-gap:var(--gap)}
+.meta .nav{white-space:nowrap}
+.meta .nav a{position:relative;padding-bottom:1px}
+.meta .nav a.now::after,.meta .ground b.on::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:1px;background:var(--ink)}
+.meta .nav a:hover{opacity:.5}
+.meta .ground{white-space:nowrap}
+.meta .ground b{font-weight:400;position:relative;cursor:pointer;padding-bottom:1px}
+.meta .ground b:not(.on):hover{opacity:.5}
+.meta .centre{grid-column:6/8;display:flex;justify-content:center;align-items:flex-start;padding-top:2px}
+.meta .centre img{height:34px;width:auto}
+html[data-ground="white"] .meta .centre img{filter:invert(1)}
+.meta .right{grid-column:10/13;display:grid;grid-template-columns:2fr 1fr;column-gap:var(--gap)}
+.meta .right .clock{white-space:nowrap}
+.meta .right a{text-align:right}
+.meta .right a:hover{opacity:.5}
+
+/* ---------- section kickers: "01 — Social media" ---------- */
+.kick{margin-top:clamp(120px,22vh,260px);align-items:baseline}
+.kick.first{margin-top:calc(var(--lh) * 2)}
+.kick .n{grid-column:1/2}
+.kick .t{grid-column:2/7}
+.kick .s{grid-column:7/13;text-align:right}
+
+/* ---------- the hero: directory left, headline right ---------- */
+.hero{margin-top:var(--lh);align-items:start}
+.dir{grid-column:1/4}
+.dir .hd{display:grid;grid-template-columns:1fr 2fr;column-gap:var(--gap);margin-bottom:3px}
+.row{display:grid;grid-template-columns:1fr 2fr;column-gap:var(--gap);height:21px;line-height:var(--lh);border-bottom:1px solid var(--line);white-space:nowrap}
+.row span:last-child{overflow:hidden;text-overflow:ellipsis}
+a.row,.row[data-img]{transition:opacity .25s}
+.dir:hover .row:not(:hover){opacity:.35}
+.head{grid-column:4/13;padding-top:2px}
+.ln{display:block;overflow:hidden;line-height:.9;height:.94em;font-size:clamp(38px,6.6vw,120px);font-weight:800;font-stretch:112%;
+  text-transform:uppercase;letter-spacing:-.03em;white-space:nowrap}
+.ln i{display:block;font-style:normal;transform:translateY(0)}
+/* the reference draws a hairline under every headline line — the text
+   rises from under it. Full width of the headline's own box. */
+.hl{display:block;height:1px;background:var(--line);margin:.055em 0 .03em}
+.ln.c{text-align:center}
+.ln.r{text-align:right}
+.ln.l{text-align:left}
+.ln.half{margin-left:50%}          /* the reference's "works" indent */
+.ln.w66{width:66.6%}               /* right-aligned inside two thirds */
+.ln.w83{width:83.3%}
+.second{margin-left:var(--m);margin-right:var(--m);margin-top:var(--lh)}
+
+/* ---------- a text block, cols 7–9 ---------- */
+.essay{margin-top:var(--lh)}
+.essay .txt{grid-column:7/10}
+.essay .lbl{margin-top:var(--m);line-height:1.05em}
+.essay p{margin-top:calc(var(--lh) * .75)}
+.essay p + p{margin-top:var(--lh)}
+.essay a.more{display:inline-block;margin-top:var(--lh);border-bottom:1px solid var(--ink);padding-bottom:1px}
+.essay a.more:hover{opacity:.5}
+.gap{height:40px}
+.spacer{height:clamp(120px,22vh,260px)}
+
+/* ---------- a second list: number col 6, project cols 7–8, link cols 11–12 ---------- */
+.cases{margin-top:var(--lh)}
+.cases .hd{grid-column:1/13;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);margin-bottom:3px}
+.cases .hd .n{grid-column:6/7}
+.cases .hd .p{grid-column:7/9}
+.cases .hd .k{grid-column:11/13;text-align:right;letter-spacing:-.05em}
+a.crow{grid-column:1/13;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);height:21px;line-height:var(--lh);white-space:nowrap;position:relative}
+a.crow::after{content:"";position:absolute;left:calc((100% + var(--gap)) * 5 / 12);right:0;bottom:0;height:1px;background:var(--line)}
+a.crow .n{grid-column:6/7}
+a.crow .p{grid-column:7/11;overflow:hidden;text-overflow:ellipsis;transition:opacity .25s}
+a.crow .k{grid-column:11/13;text-align:right;opacity:var(--faint);transition:opacity .25s}
+a.crow:hover .k{opacity:1}
+.cases:hover a.crow:not(:hover) .p{opacity:.35}
+
+/* ---------- footer meta ---------- */
+.foot{margin-top:clamp(120px,22vh,260px);margin-bottom:var(--m);align-items:start}
+.foot .col{display:flex;flex-direction:column}
+.foot .c1{grid-column:1/3}
+.foot .c2{grid-column:4/7}
+.foot .c3{grid-column:7/10}
+.foot .c4{grid-column:10/13}
+.foot a:hover{opacity:.5}
+.foot .rights{grid-column:1/13;margin-top:calc(var(--lh) * 3);display:flex;justify-content:space-between;gap:var(--gap)}
+
+/* ---------- the still that follows the pointer over a directory ---------- */
+.peek{position:fixed;left:0;top:0;width:280px;pointer-events:none;z-index:50;opacity:0;transform:translate(-9999px,-9999px);transition:opacity .25s}
+.peek img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#111}
+.peek.on{opacity:1}
+@media(hover:none){.peek{display:none}}
+
+/* ---------- the entrance: lines rise, rows fade ---------- */
+html.js .ln i{transform:translateY(110%);transition:transform 1s var(--ease);transition-delay:calc(.08s + var(--i,0) * .07s)}
+html.js .row,html.js a.crow,html.js .essay .txt,html.js .foot > *,html.js .kick > *{opacity:0;transition:opacity .8s var(--ease);transition-delay:calc(.25s + var(--i,0) * .03s)}
+html.js.in .ln i{transform:none}
+html.js.in .row,html.js.in a.crow,html.js.in .essay .txt,html.js.in .foot > *,html.js.in .kick > *{opacity:1}
+html.js.in .dir:hover .row:not(:hover){opacity:.35}
+@media(prefers-reduced-motion:reduce){
+  html.js .ln i,html.js .row,html.js a.crow,html.js .essay .txt,html.js .foot > *,html.js .kick > *{transition:none;transform:none;opacity:1}
+}
+
+/* ---------- narrow screens: everything stacks, the staircase relaxes ---------- */
+@media(max-width:900px){
+  .meta .left{grid-column:1/8;grid-template-columns:auto auto;column-gap:16px;justify-content:start}
+  .meta .centre{display:none}
+  .meta .right{grid-column:8/13;grid-template-columns:1fr auto}
+  .kick .t{grid-column:2/8}.kick .s{grid-column:8/13}
+  .hero{display:flex;flex-direction:column}
+  .head{order:-1;padding:0 0 calc(var(--lh) * 2)}
+  .ln{font-size:clamp(30px,9.6vw,72px)}
+  .ln.c,.ln.r,.ln.l{text-align:left}
+  .ln.half{margin-left:0}
+  .ln.w66,.ln.w83{width:auto}
+  .dir{margin-top:var(--lh);width:100%}
+  .row{grid-template-columns:44px 1fr}
+  .dir .hd{grid-template-columns:44px 1fr}
+  .essay .txt{grid-column:1/13}
+  .cases .hd .n,a.crow .n{grid-column:1/2}
+  .cases .hd .p,a.crow .p{grid-column:2/9}
+  .cases .hd .k,a.crow .k{grid-column:9/13}
+  a.crow::after{left:0}
+  .foot .c1{grid-column:1/7}.foot .c2{grid-column:7/13}.foot .c3{grid-column:1/7;margin-top:var(--lh)}.foot .c4{grid-column:7/13;margin-top:var(--lh)}
+  .foot .rights{flex-direction:column;gap:2px}
+}
+@media(max-width:520px){
+  .meta .right{grid-column:9/13;grid-template-columns:1fr}
+  .meta .right .clock{display:none}
+  .kick .s{display:none}.kick .t{grid-column:2/13}
+  .cases .hd .p,a.crow .p{grid-column:2/8}
+  .cases .hd .k,a.crow .k{grid-column:8/13}
+}

@@ -1,0 +1,250 @@
+/* =========================================================================
+   SITE 98 — the frame every page shares (v3.53, Sep 2026)
+   From the Sep 10 call with the designer: a page may look however it needs
+   to, but the frame that holds it must not change from page to page — one
+   header, one menu, one footer and one ground — so the visitor always has
+   the same anchor, whichever room they are in. This file is that frame and
+   nothing else; each page's own look stays in its own <style>.
+
+     .s98-head   the header, on every page: Menu and the Carbon / White
+                 switch on the left, the mark in the middle, and Marketing,
+                 Personal Branding, Journal, Case studies and Contact as
+                 buttons on the right (v3.56; the last two names v3.61).
+                 Delhi time left it in v3.54 (the footer keeps it) and Home
+                 in v3.55: the mark is the way home.
+                 Fixed; clear at the very top, and a light frosted layer
+                 (the designer's "layer blur") once the page moves under it.
+     .nav035     the curtain menu — effect 035 with 093's word — moved here
+                 from the landing so the dots open it everywhere.
+     .s98-foot   the footer: the same four columns on every page.
+     soft pictures  content photographs get soft corners, a hairline in the
+                 ground's own tone and a small lift (see the end of the file).
+
+   The ground is CARBON by default and WHITE on request, remembered across
+   the whole site ("98-ground" in localStorage) and set on <html> before
+   first paint by the one-line script in every page's <head>.
+   ========================================================================= */
+:root{
+  --s98-bg:#0B0B0C; --s98-ink:#F4F4F2; --s98-faint:.32;
+  --s98-line:rgba(244,244,242,.2); --s98-rule:rgba(244,244,242,.3);
+  --s98-glass:rgba(11,11,12,.62);
+  --s98-stroke:rgba(244,244,242,.14); --s98-lift:0 16px 34px -20px rgba(0,0,0,.8);
+  --s98-red:#EE352E;
+  --s98-h:40px; --s98-m:10px; --s98-pad:clamp(1.25rem,4vw,4rem);
+  --s98-ease:cubic-bezier(.16,1,.3,1);
+}
+html[data-ground="white"]{
+  --s98-bg:#FFFFFF; --s98-ink:#000000; --s98-faint:.2;
+  --s98-line:rgba(0,0,0,.2); --s98-rule:rgba(0,0,0,.3);
+  --s98-glass:rgba(255,255,255,.68);
+  --s98-stroke:rgba(0,0,0,.08); --s98-lift:0 16px 30px -20px rgba(0,0,0,.4);
+}
+html{background:var(--s98-bg)}
+
+/* ---------- the header ---------- */
+.s98-head{position:fixed;top:0;left:0;right:0;z-index:120;height:var(--s98-h);margin:0;padding:0 var(--s98-m);box-sizing:border-box;
+  display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;column-gap:10px;
+  font:400 13px/20px 'Archivo',Helvetica,Arial,sans-serif;font-stretch:100%;letter-spacing:-.01em;text-transform:none;text-align:left;
+  color:var(--s98-ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  /* v3.70: declared, never coloured. On a 40px border-box header this border is
+     holding a pixel — remove it and the content box grows from 39 to 40 and
+     everything centred in the header drops half a pixel, on every page. Giving it
+     a colour here (or in .s98-glass below) is the whole of bringing the hairline back. */
+  border-bottom:1px solid transparent;
+  transition:background-color .35s,color .35s,-webkit-backdrop-filter .35s,backdrop-filter .35s}
+.s98-head.s98-glass{background:var(--s98-glass);-webkit-backdrop-filter:blur(14px) saturate(1.25);backdrop-filter:blur(14px) saturate(1.25)}
+/* v3.71: --s98-glass is the ground's own colour at 62%, so on a flat ground the
+   veil is the ground painted over itself and cannot be seen — measured, the
+   header and the page a row apart differ by 0.07 of 255. On a page whose ground
+   is the Field98 canvas it is the wrong colour: the field sits around L=27 where
+   the header crosses it and the veil is still mixing toward #0B0B0C, which is the
+   band. The frosting is the blur; the tint was only standing in for the ground,
+   and the canvas is fixed behind the header already, so here the header shows it.
+   Not site-wide: on a flat ground the veil is what dims a cover, display type or a
+   photograph passing under the header (without it the ink falls to ~3.8:1 there),
+   while here it is not carrying that load — the word "Menu", the header's only real
+   text, measures 17.5:1 at worst with the veil and without it. Only the live canvas:
+   html.field-static is reduced motion or no
+   WebGL, where marketing drops its pinned stage and the readable page scrolls under
+   the header (the ink falls to 1.13:1 there without the veil), and with no class at
+   all the script never ran and the ground really is flat. Keyed on the class rather
+   than the page, so a later field page inherits it. */
+html.field-on .s98-head.s98-glass{background:transparent}
+.s98-head *{box-sizing:border-box}
+.s98-head a,.s98-head button{color:inherit;text-decoration:none;font:inherit;letter-spacing:inherit;text-transform:none;background:none;border:0;border-radius:0;padding:0;margin:0;cursor:pointer;
+  -webkit-appearance:none;appearance:none;opacity:1;transition:opacity .25s}
+.s98-l{display:flex;align-items:center;gap:22px;min-width:0;white-space:nowrap;justify-self:start}
+/* v3.69: the Carbon / White switch is in the menu's bottom rail (.n35-ground,
+   below) and the five page buttons are the menu's rows, so the header is the
+   dots and the mark. The grid's third column is empty and keeps the mark in
+   the middle of the screen; nothing can run into it any more, which is why the
+   steps that used to move it out of the way are gone from the foot of this
+   section. */
+
+.s98-c{display:block;justify-self:center;line-height:0}
+.s98-c img{display:block;height:26px;width:auto;max-width:none;border-radius:0;box-shadow:none;filter:none;transition:opacity .35s,filter .35s}
+html[data-ground="white"] .s98-c img{filter:invert(1)}
+.s98-head.s98-nomark .s98-c{pointer-events:none}
+.s98-head.s98-nomark .s98-c img{opacity:0}             /* the landing, while its own big mark is on screen */
+.s98-spacer{height:var(--s98-h)}                        /* pages whose content flows from the top start below the header */
+
+/* the dots: three points that read as a menu; while the curtain is down the
+   middle one drops out, the outer two meet, and the word reads Close */
+.s98-menu{display:inline-flex;align-items:center;gap:.55rem}
+.md-dots{display:inline-flex;gap:4px;align-items:center}
+.md-dots i{display:block;width:5px;height:5px;border-radius:50%;background:currentColor;transition:transform .4s var(--s98-ease),opacity .4s var(--s98-ease)}
+.s98-menu:hover .md-dots i:nth-child(1){transform:translateX(-2px)}
+.s98-menu:hover .md-dots i:nth-child(3){transform:translateX(2px)}
+.s98-menu[aria-expanded="true"] .md-dots i:nth-child(2){opacity:0;transform:scale(0)}
+.s98-menu[aria-expanded="true"] .md-dots i:nth-child(1){transform:translateX(4.5px)}
+.s98-menu[aria-expanded="true"] .md-dots i:nth-child(3){transform:translateX(-4.5px)}
+.s98-head .s98-menu:hover{opacity:1}
+
+/* over the open curtain the header is clear again: the curtain is the ground */
+/* a page whose first screen is dark whatever the ground (the landing's film):
+   on white, the clear header at the very top takes light ink over it */
+html[data-ground="white"]:not(.s98-menu-open) .s98-head[data-s98-top="dark"]:not(.s98-glass){color:#F4F4F2}
+html[data-ground="white"]:not(.s98-menu-open) .s98-head[data-s98-top="dark"]:not(.s98-glass) .s98-c img{filter:none}
+html.s98-menu-open .s98-head{z-index:500;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+
+/* v3.69: nothing steps out any more. With the buttons gone the header is one
+   word and the mark, so the mark stays on screen from 320px up — the 1100 /
+   480 / 380 steps measured in v3.61 went with the thing they were dodging. */
+/* v3.67: phone hit areas — the same glyphs, a thumb-sized target under each
+   (padding pulled back by margin, so nothing moves): Menu was 63×20, the ground
+   buttons 44×21, the footer links 20px tall */
+@media(max-width:768px){
+  .s98-head .s98-menu{padding:12px 8px;margin:-12px -8px}
+  .s98-foot a{padding:6px 0;margin:-6px 0}
+}
+@media print{ .s98-head,.nav035{display:none} }
+
+/* ---------- the menu: effect 035, hung as a curtain ----------
+   Moved from index.html (v3.26–v3.32) unchanged in its numbers: 45px rows
+   blooming to 122px, 92px media rising from y:100% behind the row's clip,
+   15px gaps, rules at 30%. Two changes: it takes the ground (carbon, or
+   white when the site is white), and the word's pictures now sit OVER the
+   rows' rules — the designer's note, "the white line should go to the back". */
+.nav035{position:fixed;inset:0;z-index:400;background:var(--s98-bg);color:var(--s98-ink);
+  font-family:'Archivo',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55;letter-spacing:normal;text-align:left;
+  visibility:hidden;transform:translate3d(0,-100%,0);will-change:transform,opacity;-webkit-font-smoothing:antialiased}
+.nav035 *{box-sizing:border-box}
+.nav035.open{visibility:visible}
+/* motion is script-owned (one eased number on the GSAP ticker); these
+   transitions only serve the no-GSAP / reduced-motion fallback */
+.nav035.nofx{transition:transform .6s cubic-bezier(.76,0,.24,1),opacity .6s ease,visibility 0s .6s}
+.nav035.nofx.open{transform:none;opacity:1;transition:transform .6s cubic-bezier(.76,0,.24,1),opacity .6s ease}
+.n35-inner{height:100vh;display:flex;flex-direction:column;justify-content:center}
+.n35-top,.n35-bottom{flex:1 1 0;min-height:0;display:flex;align-items:center;padding:0 var(--s98-pad)}
+.n35-top{padding-top:3.2rem;position:relative;z-index:3}  /* the word's pictures above the rules */
+/* the bottom rail (v3.69): the ground switch on the left, the hint in the middle.
+   A grid rather than a centred flex row, so the hint sits in the middle of the
+   SCREEN whatever the switch measures beside it. Under 600px the two stack,
+   centred, rather than meet. The switch is the header's old one, quieter: the
+   ground you are on is at full ink and underlined, the other at half. */
+.n35-bottom{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;padding-bottom:1.6rem}
+.n35-ground{grid-column:1;justify-self:start;white-space:nowrap;color:var(--s98-ink);
+  font:400 13px/20px 'Archivo',Helvetica,Arial,sans-serif;letter-spacing:-.01em}
+.n35-ground button{position:relative;font:inherit;color:inherit;letter-spacing:inherit;text-transform:none;
+  background:none;border:0;margin:0;padding:0 0 1px;-webkit-appearance:none;appearance:none;cursor:pointer;
+  opacity:.5;transition:opacity .25s}
+.n35-ground button.on{opacity:1}
+.n35-ground button.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor}
+.n35-ground button:hover{opacity:.8}
+.n35-ground button.on:hover{opacity:1}
+.n35-sep{margin:0 .28em;opacity:.5}
+.n35-hint{grid-column:2;margin:0;color:var(--s98-ink);font:400 13px/20px 'Archivo',Helvetica,Arial,sans-serif;letter-spacing:-.01em;opacity:.5;animation:s98pulse 2.8s ease-in-out infinite}
+@media(max-width:768px){
+  /* the thumb-sized target v3.67 gave the header's switch, carried over with it. The
+     underline has to follow the text rather than the padded box, or it sits twelve
+     pixels adrift of the word it belongs to. */
+  .n35-ground button{padding:12px 5px;margin:-12px -5px}
+  .n35-ground button.on::after{bottom:11px;left:5px;right:5px}   /* and inside the side padding, so it underlines the word and not the target */
+}
+@media(max-width:600px){
+  /* stacked and centred, and packed to the foot of the rail: two auto rows in a grid
+     this tall would otherwise stretch and stand half a screen apart */
+  .n35-bottom{grid-template-columns:1fr;justify-items:center;align-content:end;row-gap:.6rem}
+  .n35-ground,.n35-hint{grid-column:1;justify-self:center}
+}
+@keyframes s98pulse{0%,100%{opacity:.25}50%{opacity:.6}}
+/* effect 093: the word */
+.n35-word{display:flex;font-weight:800;font-stretch:118%;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;
+  font-size:clamp(3.4rem,10vw,11rem);color:var(--s98-ink);margin:0;user-select:none}
+.n35-word .letter{position:relative;display:inline-block;cursor:default}
+.n35-word .letter:has(.n35-cm){color:transparent}
+.n35-wmedias{position:absolute;top:0;left:0;pointer-events:none}
+.n35-wmedia{width:1px;height:1px;visibility:hidden;position:absolute}
+.n35-cm{position:absolute;width:9vw;min-width:64px;height:auto;max-width:none;aspect-ratio:1;object-fit:cover;top:50%;left:50%;border-radius:1vw;pointer-events:none;
+  box-shadow:0 0 0 1px var(--s98-stroke),var(--s98-lift)}
+.nav035 ul{width:100%;border-bottom:1px solid var(--s98-rule);display:flex;flex-direction:column;list-style:none;margin:0;padding:0}
+.nav035 ul li{flex:1 1 45px;align-items:center;border-top:1px solid var(--s98-rule);width:100%;padding:0 var(--s98-pad);display:flex;justify-content:space-between;position:relative;overflow:hidden;margin:0}
+.nav035 ul li:first-child{flex:1 1 122px}
+.nav035 ul li a{display:flex;align-items:center;align-self:stretch;flex:1;color:var(--s98-ink);text-decoration:none}
+.n35-name{font-weight:800;font-stretch:118%;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;line-height:1;transition:color .3s}
+.nav035 ul li:hover .n35-name,.nav035 ul li a:focus-visible .n35-name{color:var(--s98-red)}
+.n35-name .beta{font-size:.55em;font-weight:600;color:var(--s98-red);letter-spacing:.1em;vertical-align:super;margin-left:.5em}
+.n35-medias{display:flex;gap:15px;position:absolute;right:var(--s98-pad);top:50%;transform:translate(0,-50%);overflow:hidden}
+.n35-media{width:92px;height:92px;max-width:none;object-fit:cover;transform:translate(0,100%);border-radius:4%}
+.nav035.nofx .n35-media{transform:none}
+.nav035.nofx li:not(:first-child) .n35-media{display:none}   /* no motion, no bloom: only the open first row shows its pictures */
+@media (max-width:768px){
+  .nav035 ul li{padding:0 15px}
+  .nav035 ul li:first-child{flex:1 1 90px}
+  .n35-medias{gap:5px;right:15px}
+  .n35-media{width:60px;height:60px}
+  .n35-media:nth-child(n+4){display:none}
+  .n35-name{font-size:.8rem}
+  .nav035 ul li:first-child .n35-name{padding-right:150px}   /* v3.67: the first row's name ran under its three pictures at 360px */
+}
+@media (max-width:400px){
+  .n35-media:nth-child(n+3){display:none}
+  .nav035 ul li:first-child .n35-name{padding-right:110px}
+}
+
+/* ---------- the footer ---------- */
+.s98-foot{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:10px;row-gap:20px;align-items:start;
+  position:relative;z-index:2;margin:0;padding:clamp(80px,14vh,160px) var(--s98-m) var(--s98-m);box-sizing:border-box;
+  background:var(--s98-bg);color:var(--s98-ink);border-top:1px solid var(--s98-line);
+  font:400 13px/20px 'Archivo',Helvetica,Arial,sans-serif;font-stretch:100%;letter-spacing:-.01em;text-transform:none;text-align:left;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.s98-foot *{box-sizing:border-box}
+.s98-foot a{color:inherit;text-decoration:none;opacity:1;transition:opacity .25s}
+.s98-foot a:hover{opacity:.5}
+.s98-foot a[aria-current="page"]{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.s98-fc{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.s98-f1{grid-column:1/3}.s98-f2{grid-column:4/7}.s98-f3{grid-column:7/10}.s98-f4{grid-column:10/13}
+.s98-faint{opacity:var(--s98-faint)}
+.s98-rights{grid-column:1/13;margin-top:40px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:900px){
+  .s98-f1{grid-column:1/7}.s98-f2{grid-column:7/13}.s98-f3{grid-column:1/7}.s98-f4{grid-column:7/13}
+  .s98-rights{flex-direction:column;gap:2px}
+}
+
+/* ---------- soft pictures ----------
+   The designer's note on the Sep 10 call: a photograph set straight onto
+   the ground with square corners "looks like it's been stuck on something
+   that is not related to it". Content pictures get soft corners, a
+   hairline in the ground's own tone, and a small lift — the "touch of
+   neumorphic depth, small, not much" from the Sep 8 notes. Zero
+   specificity (:where), so any page that styles a picture its own way
+   wins; logos, marks and cut-outs are PNGs and are left alone, and
+   anything else can opt out with .s98-flat. */
+:where(main img:not([src$=".png"]):not([src$=".svg"]):not(.s98-flat)){
+  border-radius:clamp(4px,.45vw,8px);
+  box-shadow:0 0 0 1px var(--s98-stroke),var(--s98-lift);
+}
+/* full-bleed pictures are the ground, not objects on it: the landing's
+   montage frames and its hover preview stay square and flat */
+:where(.mont, .preview) img{border-radius:0;box-shadow:none}
+
+/* ---------- the nudges: only for a page that has gone still (v3.63) ----------
+   A room's Scroll or Drag cue comes up after six seconds without a scroll, a
+   press or a key (assets/site.js sets html[data-cues]), and the first move
+   takes it away again. The rooms keep their own say over whether a cue is due
+   — each fades its own out once its scene has started. Without JS the
+   attribute is never set and every cue shows as it always did. */
+.w104-cue,.w-cue,.scroll-cue{transition:opacity .5s cubic-bezier(.16,1,.3,1)}
+html[data-cues="wait"] .w104-cue,
+html[data-cues="wait"] .w-cue,
+html[data-cues="wait"] .scroll-cue{opacity:0!important}

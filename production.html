@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Food photography &amp; production, Delhi — the shoots · Ninety-Eight</title>
+<meta name="description" content="Shoot craft across food and hospitality — menus, ranges, rooms, people. Sixteen shoots on a wheel, produced by Ninety-Eight.">
+<meta property="og:title" content="Food photography &amp; production, Delhi — the shoots · Ninety-Eight">
+<meta property="og:description" content=""Shoot craft across food and hospitality — menus, ranges, rooms, people. Sixteen shoots on a wheel, produced by Ninety-Eight.">
+<meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ninety-eight.in/production.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ninety-eight.in/production.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<script>
+(function(){try{document.documentElement.setAttribute('data-ground',localStorage.getItem('98-ground')==='white'?'white':'carbon');}catch(e){document.documentElement.setAttribute('data-ground','carbon');}
+document.documentElement.classList.add('js');})();
+</script>
+<link rel="stylesheet" href="assets/room.css">
+<style>
+/* =========================================================================
+   PRODUCTION — the shoots, on their own page (v3.39, Sep 2026)
+   Retain's third part, moved out at Harsh's call: the directory of shoots
+   beside the room's own sentence, then the wheel — MWG 106 from the
+   Ambrosia site — one frame per shoot on a disc tilted toward the reader.
+   Shared rules in assets/room.css; the wheel is below.
+
+   v3.48, Sep 10: at Harsh's call the wheel is the whole page. The header,
+   the directory and its headline, the essay and the footer are gone, and
+   the section fills the screen: labels along the top, the disc in
+   between, the captions along the foot.
+   ========================================================================= */
+.prod{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding:calc(var(--m) + var(--s98-h,0px)) 0 var(--m)}   /* v3.48: one screen, top to foot */
+.prod .wheel{flex:1 1 auto;height:auto;min-height:460px}   /* the disc takes whatever the labels leave */
+.prod .ph h1{font:inherit}   /* the page's heading is the section's own label, set as the label was */
+.prod .ph{align-items:start}
+.prod .ph .lbl{grid-column:1/4}
+.prod .ph .d{grid-column:4/9;max-width:44ch}
+.prod .ph .credit{grid-column:10/13;text-align:right}
+.wheel{position:relative;height:clamp(460px,78vh,760px);margin-top:calc(var(--lh) * 1.5);overflow:hidden;perspective:100vw;
+  background-image:radial-gradient(circle at 50% 50%,var(--dot) .6px,transparent .7px);background-size:12px 12px}
+.wheel::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 92% 78% at 50% 50%,transparent 42%,var(--bg) 100%);opacity:.9}
+.wheel .w-container,.wheel .w-medias{position:absolute;inset:0;transform-style:preserve-3d}
+.wheel .w-medias{z-index:2}
+.wheel .plate{position:absolute;top:calc(50% - 7vw);left:calc(50% - 5.5vw);width:11vw;height:14vw;transform-style:preserve-3d;will-change:transform;display:block}
+.wheel .plate img{width:100%;height:100%;object-fit:cover;display:block;background:var(--bg);
+  outline:1px solid rgba(0,0,0,.16);outline-offset:-1px;box-shadow:0 10px 26px rgba(14,14,16,.13),0 2px 6px rgba(14,14,16,.07);
+  transition:outline-color .3s,box-shadow .3s}
+.wheel .plate:hover img{outline-color:rgba(0,0,0,.62);box-shadow:0 16px 40px rgba(14,14,16,.2),0 3px 8px rgba(14,14,16,.1)}
+html:not([data-ground="white"]) .wheel .plate img{outline-color:rgba(233,234,228,.14);box-shadow:none}
+html:not([data-ground="white"]) .wheel .plate:hover img{outline-color:rgba(233,234,228,.65)}
+a.plate{cursor:pointer}
+.wheel .tip{position:absolute;left:0;top:0;z-index:5;pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap;
+  background:var(--bg);padding:0 6px;line-height:var(--lh)}
+.wheel .tip.on{opacity:1}
+.wheel .tip .faint{margin-left:.6em}
+.prod .pf{margin-top:var(--lh);align-items:baseline}
+.prod .pf .l{grid-column:1/7}
+.prod .pf .r{grid-column:7/13;text-align:right}
+@media(max-width:900px){
+  .prod .ph .lbl{grid-column:1/13}.prod .ph .d{grid-column:1/13;margin-top:4px}.prod .ph .credit{grid-column:1/13;text-align:left;margin-top:4px}
+  .wheel{height:clamp(320px,54vh,460px)}
+  .wheel .plate{top:calc(50% - 16vw);left:calc(50% - 12.5vw);width:25vw;height:32vw}
+  .prod .pf .l,.prod .pf .r{grid-column:1/13;text-align:left}
+}
+@media(hover:none){.wheel .tip{display:none}}
+@media(max-width:900px){.prod .wheel{min-height:320px}}
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<!--S98:HEAD — the shared header and menu: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<header class="s98-head" id="s98-head">
+  <div class="s98-l">
+    <button class="s98-menu" id="s98-menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav035" aria-label="Menu"><span class="md-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="md-txt">Menu</span></button>
+  </div>
+  <a class="s98-c" href="index.html" aria-label="Ninety-Eight &mdash; home"><img src="assets/98-graffiti.png" alt="" width="834" height="529"></a>
+</header>
+<div class="nav035" id="nav035" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="n35-inner">
+    <div class="n35-top">
+      <p class="n35-word" aria-hidden="true">Menu</p>
+      <div class="n35-wmedias" aria-hidden="true">
+        <img class="n35-wmedia" src="assets/gurls/g06.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/ishant.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g07.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/slay.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g08.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/one8.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g09.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/hardrock.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <ul>
+      <li><a href="talent.html">
+        <span class="n35-name">Talent &amp; Branding</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/retain/ishant-social.webp" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="marketing.html" aria-current="page">
+        <span class="n35-name">Marketing &middot; seven instruments &middot; 35 cases</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/bayroute.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/monet.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/butterroom.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/fig.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#voices">
+        <span class="n35-name">In their words</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/hardrock.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/poetry.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#film" data-action="film">
+        <span class="n35-name">In the building <sup class="beta">98 Studio &middot; beta</sup></span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="blog/index.html">
+        <span class="n35-name">The journal</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/menu/m2.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="cases.html">
+        <span class="n35-name">Case studies &middot; everything, A to Z</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/sneakerfest.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/skylantern.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/rizq.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/limitless.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/dejabrew.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="about.html">
+        <span class="n35-name">About &mdash; who we are, since 01.01.2020</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/gurls/g03.webp" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#contact">
+        <span class="n35-name">Contact &mdash; tell us what you&rsquo;re building.</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/contact/envelope-green.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/pigeon-carbon.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/phone-yellow.png" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+    </ul>
+    <div class="n35-bottom">
+      <div class="n35-ground" role="group" aria-label="Background"><button type="button" data-s98-ground="carbon">Carbon</button><span class="n35-sep" aria-hidden="true">/</span><button type="button" data-s98-ground="white">White</button></div>
+      <p class="n35-hint" aria-hidden="true">Scroll &darr; to go back to the page</p>
+    </div>
+  </div>
+</div>
+<!--/S98:HEAD-->
+
+<main>
+<!-- ============ the wheel ============ -->
+<section class="prod" id="wheel-section" aria-label="Production — the wheel">
+  <div class="g ph">
+    <h1 class="lbl faint">Production:</h1>
+    <p class="d">Shoot craft across food and hospitality: menus, ranges, rooms, people. Sixteen shoots, one frame each &mdash; the disc turns as you scroll, and tilts under the pointer.</p>
+    <p class="credit faint">Produced by 98 Entertainment &middot; food photography by Chitra by RK</p>
+  </div>
+  <div class="wheel" id="wheel">
+    <div class="w-container"><div class="w-medias" id="plates">
+      <div class="plate" data-code="THEO" data-name="Theobroma" data-kind="Patisserie · premium retail" aria-label="Theobroma"><img src="assets/retain/prod/theobroma.webp" alt="Theobroma" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="NATR" data-name="Naturelo" data-kind="Ice cream · frozen dessert" aria-label="Naturelo"><img src="assets/retain/prod/naturelo.webp" alt="Naturelo" loading="lazy" decoding="async" draggable="false"></div>
+      <a class="plate" href="cases/andreas/" data-code="ANDR" data-name="Andrea&rsquo;s Eatery" data-kind="Hospitality · Saket · relaunch" aria-label="Andrea&rsquo;s Eatery"><img src="assets/retain/prod/andreas.webp" alt="Andrea&rsquo;s Eatery" loading="lazy" decoding="async" draggable="false"></a>
+      <div class="plate" data-code="COST" data-name="Costa Coffee" data-kind="Global cafe chain · the everyday occasion" aria-label="Costa Coffee"><img src="assets/retain/prod/costa.webp" alt="Costa Coffee" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="TILT" data-name="TILT" data-kind="Beverage · people, parties, celebration" aria-label="TILT"><img src="assets/retain/prod/tilt.webp" alt="TILT" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="TWIG" data-name="Twigly" data-kind="Everyday delivery food · menu system" aria-label="Twigly"><img src="assets/retain/prod/twigly.webp" alt="Twigly" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="AMST" data-name="Cafe Amsterdam" data-kind="All-day cafe · brunch &amp; plating" aria-label="Cafe Amsterdam"><img src="assets/retain/prod/amsterdam.webp" alt="Cafe Amsterdam" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="DECA" data-name="De Casa" data-kind="Cold-pressed beverages · product &amp; lifestyle" aria-label="De Casa"><img src="assets/retain/prod/decasa.webp" alt="De Casa" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="BIKK" data-name="Bikkgane Biryani" data-kind="QSR chain · menu photography" aria-label="Bikkgane Biryani"><img src="assets/retain/prod/bikkgane.webp" alt="Bikkgane Biryani" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="NYCP" data-name="NYC Pie" data-kind="Pizza · menu &amp; hero photography" aria-label="NYC Pie"><img src="assets/retain/prod/nycpie.webp" alt="NYC Pie" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="UBER" data-name="Street Food Trail" data-kind="UberEats · on location · Delhi" aria-label="Street Food Trail"><img src="assets/retain/prod/streetfood.webp" alt="Street Food Trail" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="CLUB" data-name="Club Cafe" data-kind="Cafe · beverages &amp; small plates" aria-label="Club Cafe"><img src="assets/retain/prod/clubcafe.webp" alt="Club Cafe" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="ARAA" data-name="Araana" data-kind="Wellness food · natural-light product" aria-label="Araana"><img src="assets/retain/prod/araana.webp" alt="Araana" loading="lazy" decoding="async" draggable="false"></div>
+      <div class="plate" data-code="AYUR" data-name="Ayurnosh" data-kind="Health cookies · pack &amp; product" aria-label="Ayurnosh"><img src="assets/retain/prod/ayurnosh.webp" alt="Ayurnosh" loading="lazy" decoding="async" draggable="false"></div>
+      <a class="plate" href="talent.html#made" data-code="DOOZ" data-name="Miss Doozy" data-kind="Influencer shoot · 2023" aria-label="Miss Doozy"><img src="assets/retain/prod/doozy.webp" alt="Miss Doozy" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="plate" href="talent.html#made" data-code="AJ" data-name="Aarushi Jain" data-kind="F&amp;B photography · 2026" aria-label="Aarushi Jain"><img src="assets/retain/prod/aarushi.webp" alt="Aarushi Jain shoot" loading="lazy" decoding="async" draggable="false"></a>
+    </div></div>
+    <div class="tip" id="tip" aria-hidden="true"></div>
+  </div>
+  <div class="g pf">
+    <span class="l faint">Production &middot; 16 shoots &middot; food &amp; hospitality</span>
+    <span class="r faint">The plates keep facing you; the disc turns.</span>
+  </div>
+</section>
+
+</main>
+
+<!--S98:FOOT — the shared footer: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<footer class="s98-foot" id="s98-foot">
+  <div class="s98-fc s98-f1">
+    <span class="s98-faint">Socials:</span>
+    <a href="https://instagram.com/98.entertainment" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.behance.net/harsharya" target="_blank" rel="noopener">Behance</a>
+    <a href="https://wa.me/919711184674?text=Here%27s%20what%20I%27m%20building%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="s98-fc s98-f2">
+    <span class="s98-faint">Pages:</span>
+    <a href="index.html">Home</a>
+    <a href="marketing.html">Marketing &mdash; seven instruments</a>
+    <a href="talent.html">Talent &amp; Branding</a>
+    <a href="blog/index.html">The journal</a>
+    <a href="cases.html">Case studies</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="s98-fc s98-f3">
+    <span class="s98-faint">Marketing, instrument by instrument:</span>
+    <a href="identity.html">Branding &mdash; identity &amp; design</a>
+    <a href="press.html">PR &amp; Media &mdash; the press room</a>
+    <a href="amplify.html">Creators &mdash; the creator floor</a>
+    <a href="performance-marketing.html">Paid &amp; Search &mdash; performance marketing</a>
+    <a href="retain.html">Social &mdash; the feed, held</a>
+    <a href="production.html" aria-current="page">Production &mdash; the shoots</a>
+    <a href="events.html">Events &mdash; the night floor</a>
+  </div>
+  <div class="s98-fc s98-f4">
+    <span class="s98-faint">Contact:</span>
+    <a href="mailto:contact@ninety-eight.in" data-s98-mail="contact@ninety-eight.in">contact@ninety-eight.in</a>
+    <a href="index.html#contact">Tell us what you&rsquo;re building &rarr;</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+  <div class="s98-rights">
+    <span>All rights reserved. &copy;2026 Ninety-Eight Entertainment</span>
+    <span class="s98-faint">Delhi NCR &middot; est. 01.01.2020 &middot; <span data-s98-clock>IST</span></span>
+  </div>
+</footer>
+<!--/S98:FOOT-->
+
+<script>
+/* ---- the wheel (MWG 106), eased by hand ----
+   Ported from demo.ninety-eight.in/ambrosia — map.html?s=production —
+   without GSAP: the same targets (quickTo's rotateX/Y/Z on the disc, the
+   counter-rotation on every plate so the frames keep facing the viewer,
+   the radius that opens under speed), eased in one requestAnimationFrame
+   loop that only runs while the section is on screen. One deliberate
+   change: on the pitch site the scroll wheel spins the disc because the
+   wheel is the whole page; here the page's own scroll turns it. */
+(function(){
+  var wheel=document.getElementById('wheel'), holder=document.getElementById('plates'), tip=document.getElementById('tip');
+  if(!wheel||!holder) return;
+  var plates=[].slice.call(holder.querySelectorAll('.plate')), n=plates.length; if(!n) return;
+  var REDUCED=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var base=plates.map(function(_,i){ return (i/n)*Math.PI*2; });
+  var W=1,H=1,layout={};
+  function measure(){ W=wheel.clientWidth||innerWidth; H=wheel.clientHeight||innerHeight;
+    var small=innerWidth<=900;
+    layout= small ? {radiusDivisor:2.75, minDivisor:2.3, wheelRadiusFactor:0.06, translateZ:-40}
+                  : {radiusDivisor:3.5, minDivisor:2.2, wheelRadiusFactor:0.12, translateZ:-26}; }
+  measure();
+  var T={rx:82,ry:0,rz:1}, C={rx:82,ry:0,rz:1};
+  var spinT=0, spin=0, intT=0, inten=0, auto=0, last=performance.now(), lastY=scrollY, live=false, raf=0;
+  var hovering=false, autoScale=1;
+  function render(){
+    holder.style.transform='translate3d(0,0,'+layout.translateZ+'vw) rotateX('+C.rx+'deg) rotateY('+C.ry+'deg) rotateZ('+C.rz+'deg)';
+    var radius=W/Math.max(layout.minDivisor, layout.radiusDivisor-inten*layout.wheelRadiusFactor);
+    var off=auto+spin;
+    for(var i=0;i<n;i++){ var a=off+base[i];
+      plates[i].style.transform='translate3d('+(Math.sin(a)*radius).toFixed(2)+'px,'+(Math.cos(a)*radius).toFixed(2)+'px,0) rotateX('+(-C.rx)+'deg) rotateY('+(-C.ry)+'deg) rotateZ('+(-C.rz)+'deg)'; }
+    wheel.style.perspective=(100+inten*30)+'vw';
+  }
+  function step(now){
+    var dt=Math.min(64, now-last)/1000; last=now;
+    var k=1-Math.pow(0.001, dt*1.6);
+    C.rx+=(T.rx-C.rx)*k; C.ry+=(T.ry-C.ry)*k; C.rz+=(T.rz-C.rz)*k;
+    spin+=(spinT-spin)*(1-Math.pow(0.001, dt*2));
+    inten+=(intT-inten)*(1-Math.pow(0.001, dt*0.9));
+    autoScale+=((hovering?0:1)-autoScale)*(1-Math.pow(0.001, dt*2));
+    if(!REDUCED) auto+=(Math.PI*2/36)*dt*autoScale;
+    render();
+    if(live) raf=requestAnimationFrame(step); else raf=0;
+  }
+  function wake(){ if(!raf){ last=performance.now(); raf=requestAnimationFrame(step); } }
+  new IntersectionObserver(function(en){ live=en[0].isIntersecting; if(live) wake(); },{threshold:0}).observe(wheel);
+  /* v3.48: the wheel is the whole page again, so the pitch site's own behaviour returns: when the page has
+     nowhere to scroll, the mouse wheel and a swipe turn the disc; when it does scroll (a short screen), the
+     page's scroll turns it as before. Never both, so a turn is never counted twice. */
+  function still(){ return document.documentElement.scrollHeight - innerHeight < 2; }
+  function nudge(d){ spinT+=d*0.0022; intT=Math.min(6, Math.abs(d)/12); clearTimeout(wake._t); wake._t=setTimeout(function(){ intT=0; }, 120); wake(); }
+  addEventListener('scroll', function(){ var d=scrollY-lastY; lastY=scrollY; if(live && !still()) nudge(d); }, {passive:true});
+  addEventListener('wheel', function(e){ if(!live || e.ctrlKey || !still()) return; nudge(e.deltaMode===1 ? e.deltaY*16 : e.deltaY); }, {passive:true});
+  var ty=null;
+  addEventListener('touchstart', function(e){ ty=e.touches.length===1 ? e.touches[0].clientY : null; }, {passive:true});
+  addEventListener('touchmove', function(e){ if(ty===null || e.touches.length!==1 || !live || !still()) return;
+    var y=e.touches[0].clientY; nudge(ty-y); ty=y; }, {passive:true});
+  function tilt(cx,cy){ var r=wheel.getBoundingClientRect(); var x=(cx-r.left)/r.width, y=(cy-r.top)/r.height;
+    T.ry=x*20-10; T.rx=y*16-8+82; T.rz=-x*5+2.5; }
+  wheel.addEventListener('mousemove', function(e){ tilt(e.clientX,e.clientY);
+    var r=wheel.getBoundingClientRect(); tip.style.transform='translate(-50%,0) translate('+(e.clientX-r.left)+'px,'+(e.clientY-r.top+26)+'px)'; wake(); });
+  wheel.addEventListener('mouseleave', function(){ T.rx=82; T.ry=0; T.rz=1; hovering=false; tip.classList.remove('on'); wake(); });
+  function onTouch(e){ if(e.touches&&e.touches[0]) { tilt(e.touches[0].clientX,e.touches[0].clientY); wake(); } }
+  wheel.addEventListener('touchstart', onTouch, {passive:true}); wheel.addEventListener('touchmove', onTouch, {passive:true});
+  plates.forEach(function(p){
+    p.addEventListener('mouseenter', function(){ hovering=true;
+      tip.innerHTML='<b style="font-weight:400">'+p.getAttribute('data-code')+' &mdash; '+p.getAttribute('data-name')+'</b><span class="faint">'+p.getAttribute('data-kind')+(p.tagName==='A'?' &middot; open &nearr;':'')+'</span>';
+      tip.classList.add('on'); });
+    p.addEventListener('mouseleave', function(){ hovering=false; tip.classList.remove('on'); });
+  });
+  addEventListener('resize', function(){ measure(); wake(); });
+  render();
+})();
+</script>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

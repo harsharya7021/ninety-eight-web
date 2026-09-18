@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){var d=document.documentElement,g='carbon';try{if(localStorage.getItem('98-ground')==='white')g='white';}catch(e){}d.setAttribute('data-ground',g);})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy · Ninety-Eight Entertainment</title>
+<meta name="description" content="What Ninety-Eight Entertainment collects on ninety-eight.in, what it doesn’t, and what our Pinterest tool does.">
+<meta property="og:title" content="Privacy · Ninety-Eight Entertainment">
+<meta property="og:description" content=""What Ninety-Eight Entertainment collects on ninety-eight.in, what it doesn’t, and what our Pinterest tool does.">
+<meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ninety-eight.in/privacy.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ninety-eight.in/privacy.html">
+<!--
+  ───────────────────────────────────────────────────────────────────────────
+  Deployed for the Pinterest developer app request. The URL Pinterest holds is
+  https://ninety-eight.in/privacy — this file plus privacy/index.html cover
+  both URL styles, so it resolves whichever way the host is configured.
+
+  FOUR CLAIMS I COULD NOT VERIFY FROM OUTSIDE — check before this stays up:
+    1. §2 says the site runs no analytics and sets no cookies. If index.html
+       carries GA, a Meta pixel, Plausible or Hotjar, that line is false.
+    2. §2 assumes no contact form — people email harsh@ninety-eight.in.
+    3. §5 names the host as "our web host". Put the real name in.
+    4. Any YouTube/Vimeo/Spotify/map embed sets its own cookies → add to §5.
+  Not legal advice. Honest plain-English description of actual behaviour.
+  ───────────────────────────────────────────────────────────────────────────
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+:root{
+  --ink:#E9EAE4; --bg:#0A0A0A;
+  --dim:rgba(233,234,228,.44); --dimmer:rgba(233,234,228,.22);
+  --hair:rgba(233,234,228,.13);
+  --red:#E4322B;
+  --mono:"Space Mono",ui-monospace,Menlo,monospace;
+  --sans:"Archivo",-apple-system,"Helvetica Neue",sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6}
+
+/* film grain, same as the rest of the site, dialled right down */
+#grain{position:fixed;inset:-50%;z-index:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>")}
+
+.bar{position:sticky;top:0;z-index:5;background:rgba(10,10,10,.86);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--hair);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px clamp(22px,5vw,48px)}
+.bar a{text-decoration:none;color:inherit}
+.mark{font-size:24px;font-weight:600;letter-spacing:-.04em;line-height:1}
+.mark b{color:var(--red);font-weight:600}
+.back{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);transition:color .25s}
+.back:hover{color:var(--ink)}
+
+main{position:relative;z-index:1;max-width:660px;margin:0 auto;
+  padding:clamp(52px,10vw,104px) clamp(22px,5vw,32px) 96px}
+
+.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:24px}
+h1{font-size:clamp(32px,6vw,52px);font-weight:600;letter-spacing:-.035em;
+  line-height:1.05;margin-bottom:10px}
+h1 b{color:var(--red);font-weight:600}
+.updated{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:44px}
+
+.lede{font-size:18px;color:var(--ink);margin-bottom:8px}
+
+h2{font-size:14px;font-weight:600;letter-spacing:-.002em;margin:46px 0 12px;
+  padding-top:24px;border-top:1px solid var(--hair);display:flex;gap:13px;align-items:baseline}
+h2 s{text-decoration:none;font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;color:var(--dimmer);font-weight:400}
+
+p{margin:0 0 14px;font-size:15.5px;color:rgba(233,234,228,.80)}
+ul{margin:0 0 14px;padding-left:19px}
+li{font-size:15.5px;color:rgba(233,234,228,.80);margin-bottom:8px}
+li::marker{color:var(--dimmer)}
+strong{color:var(--ink);font-weight:600}
+a.lnk{color:var(--ink);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:var(--dimmer);transition:text-decoration-color .2s}
+a.lnk:hover{text-decoration-color:var(--red)}
+
+.note{border-left:2px solid var(--red);padding:3px 0 3px 17px;margin:24px 0;
+  font-size:15px;color:rgba(233,234,228,.72)}
+
+footer{position:relative;z-index:1;border-top:1px solid var(--hair);
+  padding:26px clamp(22px,5vw,48px) 46px;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dim);line-height:1.8}
+footer i{font-style:normal;color:var(--ink)}
+
+/* ---------- the white ground (v3.53): the site-wide switch can put this page on white ---------- */
+html[data-ground="white"]{
+  --ink:#111111; --bg:#FFFFFF; --dim:rgba(17,17,17,.52); --dimmer:rgba(17,17,17,.3); --hair:rgba(17,17,17,.13);
+}
+html[data-ground="white"] p,html[data-ground="white"] li{color:rgba(17,17,17,.8)}
+html[data-ground="white"] .note{color:rgba(17,17,17,.72)}
+</style>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div id="grain"></div>
+
+<!--S98:HEAD — the shared header and menu: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<header class="s98-head" id="s98-head">
+  <div class="s98-l">
+    <button class="s98-menu" id="s98-menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav035" aria-label="Menu"><span class="md-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="md-txt">Menu</span></button>
+  </div>
+  <a class="s98-c" href="../index.html" aria-label="Ninety-Eight &mdash; home"><img src="../assets/98-graffiti.png" alt="" width="834" height="529"></a>
+</header>
+<div class="s98-spacer" aria-hidden="true"></div>
+<div class="nav035" id="nav035" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="n35-inner">
+    <div class="n35-top">
+      <p class="n35-word" aria-hidden="true">Menu</p>
+      <div class="n35-wmedias" aria-hidden="true">
+        <img class="n35-wmedia" src="../assets/gurls/g06.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="../assets/covers/ishant.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="../assets/gurls/g07.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="../assets/covers/slay.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="../assets/gurls/g08.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="../assets/covers/one8.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="../assets/gurls/g09.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="../assets/covers/hardrock.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <ul>
+      <li><a href="../talent.html">
+        <span class="n35-name">Talent &amp; Branding</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="../assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/retain/ishant-social.webp" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="../marketing.html">
+        <span class="n35-name">Marketing &middot; seven instruments &middot; 35 cases</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="../assets/covers/bayroute.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/monet.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/butterroom.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/fig.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="../index.html#voices">
+        <span class="n35-name">In their words</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="../assets/covers/hardrock.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/poetry.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="../index.html#film" data-action="film">
+        <span class="n35-name">In the building <sup class="beta">98 Studio &middot; beta</sup></span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="../assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="../blog/index.html">
+        <span class="n35-name">The journal</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="../assets/menu/m2.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/menu/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/menu/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="../cases.html">
+        <span class="n35-name">Case studies &middot; everything, A to Z</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="../assets/covers/sneakerfest.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/skylantern.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/rizq.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/limitless.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/dejabrew.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="../about.html">
+        <span class="n35-name">About &mdash; who we are, since 01.01.2020</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="../assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/gurls/g03.webp" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="../index.html#contact">
+        <span class="n35-name">Contact &mdash; tell us what you&rsquo;re building.</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="../assets/contact/envelope-green.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/contact/pigeon-carbon.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="../assets/contact/phone-yellow.png" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+    </ul>
+    <div class="n35-bottom">
+      <div class="n35-ground" role="group" aria-label="Background"><button type="button" data-s98-ground="carbon">Carbon</button><span class="n35-sep" aria-hidden="true">/</span><button type="button" data-s98-ground="white">White</button></div>
+      <p class="n35-hint" aria-hidden="true">Scroll &darr; to go back to the page</p>
+    </div>
+  </div>
+</div>
+<!--/S98:HEAD-->
+
+<main>
+  <div class="kicker">Ninety-Eight Entertainment</div>
+  <h1>Privacy<b>.</b></h1>
+  <div class="updated">Last updated 26 August 2026</div>
+
+  <p class="lede">We are a creative studio, not a data business. This page says
+  plainly what we collect, what we don't, and what our Pinterest tool does. If
+  anything here is unclear, write to us and we'll answer in plain language.</p>
+
+  <h2><s>01</s>Who we are</h2>
+  <p>Ninety-Eight Entertainment, a creative and production studio in New Delhi,
+  operating ninety-eight.in. For anything on this page — including a request to
+  see or delete data we hold about you — write to
+  <a class="lnk" href="mailto:harsh@ninety-eight.in">harsh@ninety-eight.in</a>.</p>
+
+  <h2><s>02</s>What the website collects</h2>
+  <p>ninety-eight.in is a static portfolio site. There are no accounts, no login,
+  no cart and no comments. We do not run analytics on it, we set no advertising
+  or tracking cookies, and we build no profiles of visitors.</p>
+  <p>Our web host keeps ordinary server logs — IP address, timestamp, page
+  requested, browser type. That is a byproduct of serving you a page rather than
+  something we gather deliberately, and we do not use it to identify anyone.</p>
+  <p>If you email us, we keep the email. For most visitors that is the only
+  personal data we ever hold.</p>
+
+  <h2><s>03</s>Our Pinterest integration</h2>
+  <p>We use the Pinterest API for one narrow purpose: a build-time script that
+  reads <strong>our own</strong> Pinterest boards, downloads the images we have
+  saved to them, and publishes them as moodboards on this site.</p>
+  <ul>
+    <li>It is <strong>read-only</strong>. It never posts, schedules, comments,
+        follows, or runs ads.</li>
+    <li>It touches <strong>only our own account</strong>. It does not request
+        access to anyone else's boards, pins or profile.</li>
+    <li>It has <strong>no end users</strong>. Nobody signs in through us, so we
+        never hold another person's Pinterest credentials or tokens.</li>
+    <li>It runs by hand, on one machine, when we update the site. It is not a
+        live service, and nothing Pinterest-owned executes on these pages.</li>
+  </ul>
+  <p>Images gathered this way remain the work of the photographers who made them.
+  We publish them as clearly labelled reference, never as our own work, and we
+  keep a record of where each one came from.</p>
+  <div class="note">If you are a photographer or a studio and you would like an
+  image of yours taken down, email
+  <a class="lnk" href="mailto:harsh@ninety-eight.in">harsh@ninety-eight.in</a>.
+  We will remove it. No argument, no form to fill in.</div>
+
+  <h2><s>04</s>What we never do</h2>
+  <ul>
+    <li>We do not sell, rent or trade personal data. Not to anyone, ever.</li>
+    <li>We do not use your data to train models.</li>
+    <li>We do not send marketing email to people who did not ask for it.</li>
+    <li>We do not track you across other websites.</li>
+  </ul>
+
+  <h2><s>05</s>Third parties</h2>
+  <p>A small number of services necessarily see something for the site to work
+  at all:</p>
+  <ul>
+    <li><strong>Our web host</strong> — serves the pages and keeps the server
+        logs described above.</li>
+    <li><strong>Google Fonts</strong> — typefaces load from Google's servers, so
+        your browser makes a request to them and they see your IP address.</li>
+    <li><strong>Pinterest</strong> — as in section 03, and only in the direction
+        of us reading our own boards.</li>
+  </ul>
+  <p>There are no other trackers, tag managers or advertising partners.</p>
+
+  <h2><s>06</s>How long we keep things</h2>
+  <p>Email we keep for as long as the working relationship and our record-keeping
+  obligations require, then delete. Server logs rotate out automatically at the
+  host after a short period. We hold no database of visitors, so there is
+  nothing else to retain.</p>
+
+  <h2><s>07</s>Your rights</h2>
+  <p>You can ask what personal data we hold about you, ask us to correct it, or
+  ask us to delete it. Write to
+  <a class="lnk" href="mailto:harsh@ninety-eight.in">harsh@ninety-eight.in</a>
+  and we will respond within 30 days. No particular form of words is needed, and
+  we will not ask you why.</p>
+
+  <h2><s>08</s>Children</h2>
+  <p>This is a business portfolio site. It is not directed at children and we do
+  not knowingly collect data from anyone under 18.</p>
+
+  <h2><s>09</s>Changes</h2>
+  <p>If any of this changes, we change this page and update the date at the top.
+  We will not quietly broaden what we collect and leave the page as it was.</p>
+</main>
+
+<!--S98:FOOT — the shared footer: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<footer class="s98-foot" id="s98-foot">
+  <div class="s98-fc s98-f1">
+    <span class="s98-faint">Socials:</span>
+    <a href="https://instagram.com/98.entertainment" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.behance.net/harsharya" target="_blank" rel="noopener">Behance</a>
+    <a href="https://wa.me/919711184674?text=Here%27s%20what%20I%27m%20building%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="s98-fc s98-f2">
+    <span class="s98-faint">Pages:</span>
+    <a href="../index.html">Home</a>
+    <a href="../marketing.html">Marketing &mdash; seven instruments</a>
+    <a href="../talent.html">Talent &amp; Branding</a>
+    <a href="../blog/index.html">The journal</a>
+    <a href="../cases.html">Case studies</a>
+    <a href="../about.html">About</a>
+  </div>
+  <div class="s98-fc s98-f3">
+    <span class="s98-faint">Marketing, instrument by instrument:</span>
+    <a href="../identity.html">Branding &mdash; identity &amp; design</a>
+    <a href="../press.html">PR &amp; Media &mdash; the press room</a>
+    <a href="../amplify.html">Creators &mdash; the creator floor</a>
+    <a href="../performance-marketing.html">Paid &amp; Search &mdash; performance marketing</a>
+    <a href="../retain.html">Social &mdash; the feed, held</a>
+    <a href="../production.html">Production &mdash; the shoots</a>
+    <a href="../events.html">Events &mdash; the night floor</a>
+  </div>
+  <div class="s98-fc s98-f4">
+    <span class="s98-faint">Contact:</span>
+    <a href="mailto:contact@ninety-eight.in" data-s98-mail="contact@ninety-eight.in">contact@ninety-eight.in</a>
+    <a href="../index.html#contact">Tell us what you&rsquo;re building &rarr;</a>
+    <a href="../privacy.html" aria-current="page">Privacy</a>
+  </div>
+  <div class="s98-rights">
+    <span>All rights reserved. &copy;2026 Ninety-Eight Entertainment</span>
+    <span class="s98-faint">Delhi NCR &middot; est. 01.01.2020 &middot; <span data-s98-clock>IST</span></span>
+  </div>
+</footer>
+<!--/S98:FOOT-->
+
+<script src="../assets/vendor/gsap.min.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

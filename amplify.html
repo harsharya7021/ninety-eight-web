@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Influencer marketing agency, Delhi — the creator floor · Ninety-Eight</title>
+<meta name="description" content="Creator marketing at Ninety-Eight: forty-four creators from thirty-five documented campaigns. One verified voice per audience class, never five from the same shelf.">
+<meta property="og:title" content="Influencer marketing agency, Delhi — the creator floor · Ninety-Eight">
+<meta property="og:description" content=""Creator marketing at Ninety-Eight: forty-four creators from thirty-five documented campaigns. One verified voice per audience class, never five from the same shelf.">
+<meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ninety-eight.in/amplify.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ninety-eight.in/amplify.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<script>
+(function(){try{document.documentElement.setAttribute('data-ground',localStorage.getItem('98-ground')==='white'?'white':'carbon');}catch(e){document.documentElement.setAttribute('data-ground','carbon');}
+document.documentElement.classList.add('js');})();
+</script>
+<link rel="stylesheet" href="assets/room.css">
+<style>
+/* =========================================================================
+   THE CREATOR FLOOR — effect 051, the float (v3.59, Sep 2026)
+   At Harsh's call the wall is now MWG 051 (033 until v3.50, 084 in v3.51,
+   054 from v3.52 to v3.58), in the version "built for our 44" that he
+   picked on the Creator Wall Effects preview. Three pictures at a time
+   rise up the screen as you scroll, each trailing the scroll by its own
+   second (one, two, three), and as one leaves the top it is dealt the next
+   picture in the board's order and a new place across the width. On the
+   room ground (White / Carbon, Archivo), with no labels over the pictures
+   (v3.54); the page's title is kept for screen readers and search only.
+
+   THE PICTURES ARE NOT EDITED HERE. They come from the Creator Wall board
+   (a claude.ai artifact) through Workshop (build files)/build_creators_wall.py:
+   the board holds the pictures, their order, their alt text and the
+   page's title; a sync writes new pictures to assets/creators/ and regenerates
+   this file from _creators_wall_template.html. Edit the template, not this.
+
+   The CSS ships the READABLE state: a plain grid of every picture.
+   The script adds .fx before it installs anything, so reduced
+   motion or a blocked script still shows the whole wall, never a blank pin.
+   ========================================================================= */
+:root{ --room:#00933C; }   /* Creators' colour */
+
+.w051{position:relative;padding:calc(var(--m) + var(--s98-h,0px)) var(--m) calc(var(--lh) * 3)}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}   /* the page's title, for screen readers and search: the wall shows none (v3.54) */
+.w051 .w-cue{display:none}
+.w051 .w-medias{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:var(--gap);align-items:start}
+.w051 .media{display:block;width:100%;height:auto}
+
+/* the effect, once the script has taken over */
+.w051.fx{padding:0}
+.w051.fx .w-cue{display:block;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;margin:0;pointer-events:none;opacity:var(--faint)}
+.w051.fx .w-screen{position:relative;height:100vh;overflow:hidden}         /* the pinned screen */
+.w051.fx .w-medias{display:none}                                              /* the board's pictures in order: the script deals them from here */
+.w051.fx .w-slot{position:absolute;left:0;top:100%;width:25vw;aspect-ratio:.75;max-width:none;border-radius:1vw;object-fit:cover;will-change:transform}   /* the zip's .media: 25vw at 3:4, starting just below the screen */
+.w051.fx .w-slot:not([src]){visibility:hidden}                                /* a slot with nothing left to deal */
+@media(max-width:768px){
+  .w051.fx .w-slot{width:40vw;border-radius:1.6vw}
+}
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<!--S98:HEAD — the shared header and menu: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<header class="s98-head" id="s98-head">
+  <div class="s98-l">
+    <button class="s98-menu" id="s98-menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav035" aria-label="Menu"><span class="md-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="md-txt">Menu</span></button>
+  </div>
+  <a class="s98-c" href="index.html" aria-label="Ninety-Eight &mdash; home"><img src="assets/98-graffiti.png" alt="" width="834" height="529"></a>
+</header>
+<div class="nav035" id="nav035" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="n35-inner">
+    <div class="n35-top">
+      <p class="n35-word" aria-hidden="true">Menu</p>
+      <div class="n35-wmedias" aria-hidden="true">
+        <img class="n35-wmedia" src="assets/gurls/g06.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/ishant.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g07.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/slay.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g08.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/one8.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g09.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/hardrock.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <ul>
+      <li><a href="talent.html">
+        <span class="n35-name">Talent &amp; Branding</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/retain/ishant-social.webp" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="marketing.html" aria-current="page">
+        <span class="n35-name">Marketing &middot; seven instruments &middot; 35 cases</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/bayroute.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/monet.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/butterroom.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/fig.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#voices">
+        <span class="n35-name">In their words</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/hardrock.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/poetry.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#film" data-action="film">
+        <span class="n35-name">In the building <sup class="beta">98 Studio &middot; beta</sup></span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="blog/index.html">
+        <span class="n35-name">The journal</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/menu/m2.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="cases.html">
+        <span class="n35-name">Case studies &middot; everything, A to Z</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/sneakerfest.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/skylantern.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/rizq.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/limitless.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/dejabrew.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="about.html">
+        <span class="n35-name">About &mdash; who we are, since 01.01.2020</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/gurls/g03.webp" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#contact">
+        <span class="n35-name">Contact &mdash; tell us what you&rsquo;re building.</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/contact/envelope-green.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/pigeon-carbon.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/phone-yellow.png" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+    </ul>
+    <div class="n35-bottom">
+      <div class="n35-ground" role="group" aria-label="Background"><button type="button" data-s98-ground="carbon">Carbon</button><span class="n35-sep" aria-hidden="true">/</span><button type="button" data-s98-ground="white">White</button></div>
+      <p class="n35-hint" aria-hidden="true">Scroll &darr; to go back to the page</p>
+    </div>
+  </div>
+</div>
+<!--/S98:HEAD-->
+
+<main>
+<!-- ============ the wall — effect 051 ============ -->
+<section class="w051" id="wall" aria-label="The creator floor, in pictures">
+  <h1 class="vh">Influencer marketing &mdash; the creator floor</h1>
+  <p class="w-cue" aria-hidden="true">Scroll</p>
+  <div class="w-pin">
+    <div class="w-screen">
+      <div class="w-medias">
+      <img class="media" src="assets/creators/wsfbhebhgmbyfx8klhsi.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/it7f7gwio2z3krs2r8ai.webp" alt="" width="1080" height="1346" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/9ev5t2zpkghu8trorqzx.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/1n12irf1ye8u10rtegvi.webp" alt="" width="961" height="1200" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/bt2ufy4u4pnlvsy0d5h2.webp" alt="" width="800" height="1000" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/fqewc3ovi00e3v5dqgnu.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/5vl6lnegrxpcw72wnr2b.webp" alt="" width="964" height="1200" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/36w83wefqxc4achgbo50.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/mudecs1ii6jm2xmrrnji.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/apdtm0dje8t0bpodr3mc.webp" alt="" width="1080" height="1349" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/9b8cvo3in44vnm0af9ni.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/bgoxvednr9jzhc1v8t6v.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/lt8l8z2xspwsm3nwitd6.webp" alt="" width="1080" height="1349" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/ya3gktglc9xs65akan21.webp" alt="" width="960" height="1200" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/g89xnj9bmd86r4xzbnqb.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/sdczihwfodv4vyqh22fk.webp" alt="" width="672" height="840" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/3figg80w96ghrsq2diqb.webp" alt="" width="960" height="1200" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/supja9vzdvd144h9ctwj.webp" alt="" width="1080" height="1080" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/xfundbbxs5cu6lpmn2as.webp" alt="" width="960" height="1200" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/i53cotmqqkej3fxrqs44.webp" alt="" width="1080" height="1346" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/788tysxp266fny5iemmq.webp" alt="" width="1050" height="1400" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/1ip1enwddwcocpc8qz4u.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/u04xmbtokoedtlceg7l1.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/ljivgd0ouz3srnnsfbxh.webp" alt="" width="672" height="840" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/zgti7a43slypjdr8q66e.webp" alt="" width="1080" height="1349" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/ugtk1jztts9xknu34m89.webp" alt="" width="1080" height="1263" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/30038lilkpk58dphljqn.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/vgutinyslqczl3ex9akm.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/blc344pkirg9c5dzovsy.webp" alt="" width="674" height="840" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/t7ekn0gb1l8f5sbb4rev.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/wuqp0zr0nejfgofnpxr8.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/dv3zhnwudeax6nt4uaep.webp" alt="" width="1050" height="1400" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/7ed7rw8j9j7b5q5gvh78.webp" alt="" width="958" height="1280" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/7nvmf23m110f7rzgouvb.webp" alt="" width="959" height="1200" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/0w3ofr5u0vvoiyqi7qto.webp" alt="" width="1080" height="1350" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/kjouw8ewjv6u3xr7sizn.webp" alt="" width="936" height="1248" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/kugq9xrgdd3j3p9b3rb0.webp" alt="" width="942" height="1000" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/4njisqicvpmx6lfgx9hf.webp" alt="" width="800" height="1000" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/fmmkbwvouaoer5e0nizj.webp" alt="" width="800" height="1000" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/kyw10nriykpvbmo0e6ye.webp" alt="" width="801" height="1000" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/a1jddoipwdgdlojj4wip.webp" alt="" width="799" height="1000" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/3ljd6153z6l9fye98cxy.webp" alt="" width="903" height="1000" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/zjacpe20pgtj55qch0us.webp" alt="" width="800" height="1000" decoding="async" draggable="false">
+      <img class="media" src="assets/creators/tzw6bbhofklsxzy7uo3e.webp" alt="" width="1000" height="1000" decoding="async" draggable="false">
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!--S98:FOOT — the shared footer: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<footer class="s98-foot" id="s98-foot">
+  <div class="s98-fc s98-f1">
+    <span class="s98-faint">Socials:</span>
+    <a href="https://instagram.com/98.entertainment" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.behance.net/harsharya" target="_blank" rel="noopener">Behance</a>
+    <a href="https://wa.me/919711184674?text=Here%27s%20what%20I%27m%20building%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="s98-fc s98-f2">
+    <span class="s98-faint">Pages:</span>
+    <a href="index.html">Home</a>
+    <a href="marketing.html">Marketing &mdash; seven instruments</a>
+    <a href="talent.html">Talent &amp; Branding</a>
+    <a href="blog/index.html">The journal</a>
+    <a href="cases.html">Case studies</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="s98-fc s98-f3">
+    <span class="s98-faint">Marketing, instrument by instrument:</span>
+    <a href="identity.html">Branding &mdash; identity &amp; design</a>
+    <a href="press.html">PR &amp; Media &mdash; the press room</a>
+    <a href="amplify.html" aria-current="page">Creators &mdash; the creator floor</a>
+    <a href="performance-marketing.html">Paid &amp; Search &mdash; performance marketing</a>
+    <a href="retain.html">Social &mdash; the feed, held</a>
+    <a href="production.html">Production &mdash; the shoots</a>
+    <a href="events.html">Events &mdash; the night floor</a>
+  </div>
+  <div class="s98-fc s98-f4">
+    <span class="s98-faint">Contact:</span>
+    <a href="mailto:contact@ninety-eight.in" data-s98-mail="contact@ninety-eight.in">contact@ninety-eight.in</a>
+    <a href="index.html#contact">Tell us what you&rsquo;re building &rarr;</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+  <div class="s98-rights">
+    <span>All rights reserved. &copy;2026 Ninety-Eight Entertainment</span>
+    <span class="s98-faint">Delhi NCR &middot; est. 01.01.2020 &middot; <span data-s98-clock>IST</span></span>
+  </div>
+</footer>
+<!--/S98:FOOT-->
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script>
+/* ---- 051: the float, carried by the scroll ----
+   The zip's driver and numbers: three pictures, 25vw wide at 3:4 (40vw on
+   a phone), start just below the screen and rise as you scroll, each
+   trailing the scroll through its own quickTo (one, two and three seconds,
+   power4). Each goes round its own loop (the screen and a picture's
+   height, plus 0, 200 or 400px "so they are not exactly aligned"), and as
+   it leaves the top it is dealt the next picture and a new place across
+   the width. Departures, each forced:
+   1. The zip holds its page still, listens to the wheel and loops for
+      ever, so its page has no end. Here the screen is pinned and the
+      page's own scroll carries it, a pixel for a pixel as the zip's wheel
+      does: all the pictures rise once, in the board's order, and when the
+      last has left the top the pin lets go and the footer comes up. Lenis
+      stays out, as everywhere on the site.
+   2. The zip deals whatever picture is next whenever one wraps, either
+      way. Here the whole deal is worked out first, so scrolling back
+      brings the same pictures down again in the same places, and none
+      comes round twice.
+   3. The zip drops each picture at a random place across the width, so
+      now and then one rises behind another (about one pass in five on a
+      computer, measured on the Effects preview). Built for our 44: still a
+      random place, but one clear of the pictures rising level with it (the
+      nearer in height, the more it counts), about one pass in a hundred.
+      Where three can't sit side by side (40vw on a phone), it takes the
+      least covered place.
+   4. Crossing 768px re-lays the wall (25vw <-> 40vw), a real change of the
+      window's size deals it again, and turning reduced motion on puts the
+      readable grid back. Nothing at all happens without GSAP.
+   5. Pictures are decoded a few ahead of their turn (see ahead()). */
+(function(){
+  var root = document.getElementById('wall'); if (!root) return;
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  var pin = root.querySelector('.w-pin'), screen = root.querySelector('.w-screen'), cue = root.querySelector('.w-cue');
+  var list = [].slice.call(root.querySelectorAll('.w-medias .media')), N = list.length;
+  if (!pin || !screen || !N) return;
+  gsap.registerPlugin(ScrollTrigger);
+  var SRC = list.map(function(m){ return m.getAttribute('src'); });
+  var OFF = [0, 200, 400], DUR = [1, 2, 3];      /* the zip's offsets (px) and trails (s) for its three pictures */
+
+  gsap.matchMedia().add({ phone: '(max-width: 768px)', desk: 'not all and (max-width: 768px)', still: '(prefers-reduced-motion: reduce)' }, function(ctx){
+    if (ctx.conditions.still) return;
+    root.classList.add('fx');
+    var slots = [0, 1, 2].map(function(){
+      var im = document.createElement('img');
+      im.className = 'w-slot'; im.alt = ''; im.setAttribute('aria-hidden', 'true'); im.decoding = 'async'; im.draggable = false;
+      screen.appendChild(im); return im;
+    });
+    var H = 0, C = [], D = 0, sched = [], xs = [], shown = [-1, -1, -1], ready = 0, laid = [0, 0];
+
+    /* the deal: which picture each slot carries on each of its loops, and where.
+       The loops come round in a fixed order, so the whole deal can be worked
+       out first: each picture goes to the next slot that comes round, at a
+       random place across the width clear of the pictures rising level with
+       it. Where there is no clear place (three can't sit side by side on a
+       phone), that slot sits the loop out and the picture waits for the next. */
+    function deal(){
+      H = screen.clientHeight;
+      var w = slots[0].offsetWidth, h = slots[0].offsetHeight, rangeX = Math.max(0, screen.clientWidth - w);
+      C = OFF.map(function(o){ return H + h + o; });
+      sched = [[], [], []]; xs = [[], [], []];
+      var ev = [], k, n, e, next = 0, last = null;
+      for (k = 0; k < 3; k++) for (n = 0; n <= 2 * N; n++) ev.push({ k: k, n: n, at: n * C[k] });
+      ev.sort(function(a, b){ return a.at - b.at || a.k - b.k; });
+      function level(o, j, extra){                   /* the picture slot j has in the air when o comes up, if it is level with o */
+        if (extra && extra.k === j) return o.at - extra.at < h + 12 ? extra.x : null;
+        var nj = Math.floor(o.at / C[j]);
+        if (sched[j][nj] == null) return null;
+        return o.at - nj * C[j] < h + 12 ? xs[j][nj] : null;
+      }
+      function room(o, extra){                        /* is there a clear place left for o? */
+        var cuts = [];
+        for (var j = 0; j < 3; j++){ if (j === o.k) continue; var xj = level(o, j, extra); if (xj != null) cuts.push([xj - w - 12, xj + w + 12]); }
+        cuts.sort(function(a, b){ return a[0] - b[0]; });
+        var at = 0;
+        for (var c = 0; c < cuts.length; c++){ if (cuts[c][0] > at) return true; at = Math.max(at, cuts[c][1]); }
+        return at <= rangeX;
+      }
+      for (e = 0; e < ev.length && next < N; e++){
+        var o = ev[e], after = ev[e + 1], best = 0, bestHard = Infinity, bestTight = 1, bestSoft = Infinity;
+        for (var t = 0; t < 64; t++){
+          var x = t < 62 ? Math.random() * rangeX : (t === 62 ? 0 : rangeX), hard = 0, soft = 0;
+          for (var j = 0; j < 3; j++){
+            if (j === o.k) continue;
+            var nj = Math.floor(o.at / C[j]);
+            if (sched[j][nj] == null) continue;
+            var up = o.at - nj * C[j], over = Math.max(0, w + 12 - Math.abs(x - xs[j][nj]));   /* how far above this one's start it has risen */
+            if (up < h + 12) hard += over;                                  /* level with it: they would overlap */
+            soft += over * Math.max(0, 1 - up / (h * 2.2));                 /* near it: the scroll's trails could bring them level */
+          }
+          var tight = after && after.k !== o.k && !room(after, { k: o.k, x: x, at: o.at }) ? 1 : 0;   /* would it leave the next one nowhere? */
+          if (hard < bestHard || (hard === bestHard && (tight < bestTight || (tight === bestTight && soft < bestSoft)))){ bestHard = hard; bestTight = tight; bestSoft = soft; best = x; }
+          if (hard === 0 && tight === 0 && soft === 0) break;
+        }
+        if (bestHard > 0) continue;                                         /* no clear place: this loop is sat out */
+        sched[o.k][o.n] = next++; xs[o.k][o.n] = best; last = o;
+      }
+      D = (last ? last.n * C[last.k] : 0) + H + h;  /* the scroll until the last picture has risen out of the top */
+      shown = [-1, -1, -1];
+      laid = [screen.clientWidth, H];
+    }
+    function ahead(i){                              /* decode pictures a few ahead of their turn */
+      var upto = Math.min(N, i + 7);
+      while (ready < upto){ var m = list[ready++]; if (m.decode) m.decode().catch(function(){}); }
+    }
+    function show(k, n){
+      shown[k] = n;
+      var i = sched[k][n];
+      if (i == null){ slots[k].removeAttribute('src'); return; }
+      slots[k].setAttribute('src', SRC[i]);
+      gsap.set(slots[k], { x: xs[k][n] });
+      ahead(i);
+    }
+    deal();
+    var to = slots.map(function(im, k){
+      return gsap.quickTo(im, 'y', { duration: DUR[k], ease: 'power4', modifiers: { y: function(v){
+        var p = Math.max(0, -parseFloat(v)), n = Math.floor(p / C[k]);
+        if (n !== shown[k]) show(k, n);
+        return -(p - n * C[k]) + 'px';
+      } } });
+    });
+    slots.forEach(function(im, k){ show(k, 0); });
+
+    var st = ScrollTrigger.create({
+      trigger: pin, start: 'top top', end: function(){ return '+=' + D; }, pin: screen,
+      onUpdate: function(self){ var p = Math.max(0, self.scroll() - self.start); to.forEach(function(t){ t(-p); }); }
+    });
+    gsap.to(cue, {
+      autoAlpha: 0, duration: 0.2,
+      scrollTrigger: { trigger: root, start: 'top top', end: 'top top-=1', toggleActions: 'play none reverse none' }
+    });
+
+    var timer = 0;
+    function reshape(){
+      clearTimeout(timer);
+      timer = setTimeout(function(){
+        if (Math.abs(screen.clientWidth - laid[0]) < 3 && Math.abs(screen.clientHeight - laid[1]) / laid[1] < 0.15) return;
+        deal(); ScrollTrigger.refresh();
+        var p = Math.max(0, st.scroll() - st.start);
+        to.forEach(function(t){ t(-p); });
+      }, 200);
+    }
+    addEventListener('resize', reshape);
+
+    return function(){                              /* leaving this layout: the slots go, the grid comes back */
+      removeEventListener('resize', reshape); clearTimeout(timer);
+      slots.forEach(function(im){ gsap.killTweensOf(im); im.remove(); });
+      root.classList.remove('fx');
+    };
+  });
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

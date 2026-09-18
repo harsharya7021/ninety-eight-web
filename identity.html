@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brand identity design agency, Delhi — Identity &amp; design · Ninety-Eight</title>
+<meta name="description" content="Naming, marks, lockups, visual systems and app concepts — seven pieces of identity work from Ninety-Eight's Branding instrument, on a strip.">
+<meta property="og:title" content="Brand identity design agency, Delhi — Identity &amp; design · Ninety-Eight">
+<meta property="og:description" content=""Naming, marks, lockups, visual systems and app concepts — seven pieces of identity work from Ninety-Eight's Branding instrument, on a strip.">
+<meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ninety-eight.in/identity.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ninety-eight.in/identity.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<script>
+/* the ground is remembered per browser; read it before first paint so the
+   page never flashes the other one. Falls back to carbon. */
+(function(){try{document.documentElement.setAttribute('data-ground',localStorage.getItem('98-ground')==='white'?'white':'carbon');}catch(e){document.documentElement.setAttribute('data-ground','carbon');}
+document.documentElement.classList.add('js');})();
+</script>
+<link rel="stylesheet" href="assets/room.css">
+<style>
+/* =========================================================================
+   IDENTITY & DESIGN — the first room's own page (v3.40, Sep 2026)
+   Moved out of retain.html at the Sep 9 call, the way Production was: the
+   identity work belongs at the START of the story, not at the foot of the
+   room where the feed is held. Three sections.
+   01 The pieces — the directory, beside the headline.
+   02 The room   — what identity is for, and the launches it fed.
+   03 The work   — effect 038, the pinned strip of shoulders, one open at a
+                   time. Seven pieces, moved here whole from retain.html; the first three open a showcase.
+   Shared rules in assets/room.css; the 038 strip is below.
+
+   v3.49, Sep 10: at Harsh's call the strip is the whole page. 01, 02,
+   the kickers, the header and the footer are gone; the strip starts at
+   the top and its own runway is the page's scroll.
+   ========================================================================= */
+:root{ --room:#5278C2; }   /* The Opening's colour on the flywheel */
+
+/* ---------- 03: the identity strip, effect 038 ---------- */
+.strip{overflow-x:clip;padding-top:var(--s98-h,0px)}   /* v3.49: the page's only section, so nothing above it to clear */
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}   /* the page's heading, for screen readers: the strip has no visible title */
+.strip .project{position:relative}
+.strip .datas{margin:30px 15px 15px;font-size:28px;line-height:30px;letter-spacing:-.03em}
+.strip .datas .label{font-weight:800;font-stretch:112%;text-transform:uppercase}
+.strip .datas .year{font-size:var(--fs);line-height:var(--lh);letter-spacing:-.01em;display:flex;gap:1.2em;flex-wrap:wrap;margin-top:.4rem;opacity:var(--faint)}
+.strip .datas .year a{opacity:1}
+/* every cover in the strip is a poster: 1080x1920, the shape the showcase
+   files are cut to. The three that have one carry it; the four still to be
+   made hold a placeholder in the same frame. Same box for all of them —
+   the strip's travel is measured once, so a cover of a different width
+   would make the slide drift. */
+.strip .media{display:block;margin:15px;width:calc(100% - 30px);aspect-ratio:1080/1920;overflow:hidden;background:var(--bg);position:relative;
+  outline:1px solid var(--line);outline-offset:-1px}
+.strip .media img{width:100%;height:100%;object-fit:cover;display:block}
+.strip .media.ph{display:grid;place-items:center;align-content:center;gap:6px;text-align:center}
+.strip .media.ph b{font-weight:800;font-stretch:112%;font-size:clamp(48px,7vw,120px);line-height:.9;letter-spacing:-.03em;
+  text-transform:uppercase;opacity:.12}
+.strip .media.ph span{opacity:var(--faint)}
+a.media.ph:hover b{opacity:.2}
+.strip .project:not(:first-child){border-top:1px solid var(--line)}
+@media(min-width:901px){
+  /* with a poster-shaped cover the row fits the screen, so there is nothing
+     to slide: the closed shoulders share the slack instead, and the runway
+     is only as long as the seven covers need to change (about 40vh each).
+     If the row ever overflows again the script's travel takes over. */
+  html.js .strip .pin{height:240vh}
+  html.js .strip .container{position:sticky;top:var(--s98-h,0px);height:calc(100vh - var(--s98-h,0px));display:flex;white-space:nowrap;width:max-content;min-width:100%;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);will-change:transform;background:var(--bg)}
+  html.js .strip .project{height:100%;min-width:5vw;border-top:0}
+  html.js .strip .project:not(.on){flex:1 1 auto}
+  html.js .strip .project.on{flex:0 0 auto}
+  html.js .strip .project:not(:last-child){border-right:1px solid var(--line)}
+  html.js .strip .project .datas{position:absolute;bottom:0;left:2vw;margin:0;font-size:2vw;line-height:2.6vw;transform:rotate(-90deg);transform-origin:0 50%;
+    width:calc(100vh - var(--s98-h,0px) - 2.6vw);display:flex;justify-content:space-between;align-items:center;white-space:nowrap;transition:opacity .3s}
+  html.js .strip .project:not(.on) .datas{opacity:var(--faint)}
+  html.js .strip .datas .year{margin:0;flex-wrap:nowrap;opacity:1}
+  html.js .strip .project:not(.on) .year,html.js .strip .project:not(.on) .media{display:none}
+  html.js .strip .media{display:inline-block;vertical-align:top;height:calc(100% - 2.6vw);width:auto;
+    aspect-ratio:1080/1920;margin:1.3vw 1.3vw 0 5vw}
+  html.js .strip .media.ph{display:inline-grid}
+}
+</style>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<!--S98:HEAD — the shared header and menu: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<header class="s98-head" id="s98-head">
+  <div class="s98-l">
+    <button class="s98-menu" id="s98-menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="nav035" aria-label="Menu"><span class="md-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="md-txt">Menu</span></button>
+  </div>
+  <a class="s98-c" href="index.html" aria-label="Ninety-Eight &mdash; home"><img src="assets/98-graffiti.png" alt="" width="834" height="529"></a>
+</header>
+<div class="nav035" id="nav035" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="n35-inner">
+    <div class="n35-top">
+      <p class="n35-word" aria-hidden="true">Menu</p>
+      <div class="n35-wmedias" aria-hidden="true">
+        <img class="n35-wmedia" src="assets/gurls/g06.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/ishant.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g07.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/slay.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g08.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/one8.jpg" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/gurls/g09.webp" alt="" loading="lazy">
+        <img class="n35-wmedia" src="assets/covers/hardrock.jpg" alt="" loading="lazy">
+      </div>
+    </div>
+    <ul>
+      <li><a href="talent.html">
+        <span class="n35-name">Talent &amp; Branding</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/retain/ishant-social.webp" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="marketing.html" aria-current="page">
+        <span class="n35-name">Marketing &middot; seven instruments &middot; 35 cases</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/bayroute.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/monet.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/butterroom.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/fig.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#voices">
+        <span class="n35-name">In their words</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/hardrock.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/poetry.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#film" data-action="film">
+        <span class="n35-name">In the building <sup class="beta">98 Studio &middot; beta</sup></span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="blog/index.html">
+        <span class="n35-name">The journal</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/menu/m2.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/farzi.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/menu/tbsp.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="cases.html">
+        <span class="n35-name">Case studies &middot; everything, A to Z</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/covers/sneakerfest.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/skylantern.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/rizq.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/limitless.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/dejabrew.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="about.html">
+        <span class="n35-name">About &mdash; who we are, since 01.01.2020</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/98-studio.jpg" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/gurls/g03.webp" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/covers/ishant.jpg" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+      <li><a href="index.html#contact">
+        <span class="n35-name">Contact &mdash; tell us what you&rsquo;re building.</span>
+        <span class="n35-medias" aria-hidden="true">
+          <img class="n35-media" src="assets/contact/envelope-green.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/pigeon-carbon.png" alt="" loading="lazy" decoding="async">
+          <img class="n35-media" src="assets/contact/phone-yellow.png" alt="" loading="lazy" decoding="async">
+        </span>
+      </a></li>
+    </ul>
+    <div class="n35-bottom">
+      <div class="n35-ground" role="group" aria-label="Background"><button type="button" data-s98-ground="carbon">Carbon</button><span class="n35-sep" aria-hidden="true">/</span><button type="button" data-s98-ground="white">White</button></div>
+      <p class="n35-hint" aria-hidden="true">Scroll &darr; to go back to the page</p>
+    </div>
+  </div>
+</div>
+<!--/S98:HEAD-->
+
+<main>
+<!-- ============ the work, as effect 038 — the page's only section since v3.49 ============ -->
+<h1 class="vh">Brand identity design &mdash; Identity &amp; design</h1>
+<section class="strip" id="strip" aria-label="Identity work">
+  <div class="pin">
+    <div class="container" id="strip-c">
+      <div class="project">
+        <div class="datas"><p class="label">Bunta Bar Express</p><p class="year"><span>Brand identity &amp; visual system &middot; 2021</span><a href="showcase-bunta-bar.html">Showcase &rarr;</a><a href="https://www.behance.net/gallery/131444675/x" target="_blank" rel="noopener">Behance &nearr;</a></p></div>
+        <a class="media" href="showcase-bunta-bar.html"><img src="assets/showcase/poster_bunta.webp" alt="Bunta Bar Express — the showcase poster" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="project">
+        <div class="datas"><p class="label">Burger Now</p><p class="year"><span>Brand identity, two directions &middot; 2021</span><a href="showcase-burger-now.html">Showcase &rarr;</a><a href="https://www.behance.net/gallery/131444327/x" target="_blank" rel="noopener">Behance &nearr;</a></p></div>
+        <a class="media" href="showcase-burger-now.html"><img src="assets/showcase/poster_burger.webp" alt="Burger Now — the showcase poster" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="project">
+        <div class="datas"><p class="label">JD Jewellers</p><p class="year"><span>Logo, lockups, reveal film &middot; 2026</span><a href="showcase-jd-jewellers.html">Showcase &rarr;</a><a href="talent.html#made">On the reel &rarr;</a></p></div>
+        <a class="media" href="showcase-jd-jewellers.html"><img src="assets/showcase/poster_jd.webp" alt="JD Jewellers — the showcase poster" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="project">
+        <div class="datas"><p class="label">Noidawery</p><p class="year"><span>Brewery &amp; restaurant &mdash; banner &middot; 2023</span><a href="talent.html#made">On the reel &rarr;</a></p></div>
+        <a class="media ph" href="talent.html#made"><b>N</b><span>Poster to come</span></a>
+      </div>
+      <div class="project">
+        <div class="datas"><p class="label">CHNKRS</p><p class="year"><span>Sneaker reselling platform &mdash; app concept &middot; 2022</span><a href="https://www.behance.net/gallery/135300689/x" target="_blank" rel="noopener">Behance &nearr;</a></p></div>
+        <a class="media ph" href="https://www.behance.net/gallery/135300689/x" target="_blank" rel="noopener"><b>C</b><span>Poster to come</span></a>
+      </div>
+      <div class="project">
+        <div class="datas"><p class="label">Ruto</p><p class="year"><span>Travel app &mdash; concept &middot; 2022</span><a href="https://www.behance.net/gallery/135300883/x" target="_blank" rel="noopener">Behance &nearr;</a></p></div>
+        <a class="media ph" href="https://www.behance.net/gallery/135300883/x" target="_blank" rel="noopener"><b>R</b><span>Poster to come</span></a>
+      </div>
+      <div class="project">
+        <div class="datas"><p class="label">Search</p><p class="year"><span>Home-finding app &mdash; concept &middot; 2022</span><a href="https://www.behance.net/gallery/135301101/x" target="_blank" rel="noopener">Behance &nearr;</a></p></div>
+        <a class="media ph" href="https://www.behance.net/gallery/135301101/x" target="_blank" rel="noopener"><b>S</b><span>Poster to come</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!--S98:FOOT — the shared footer: written by Workshop/patch_site_chrome_v353.py; edit it there -->
+<footer class="s98-foot" id="s98-foot">
+  <div class="s98-fc s98-f1">
+    <span class="s98-faint">Socials:</span>
+    <a href="https://instagram.com/98.entertainment" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.behance.net/harsharya" target="_blank" rel="noopener">Behance</a>
+    <a href="https://wa.me/919711184674?text=Here%27s%20what%20I%27m%20building%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="s98-fc s98-f2">
+    <span class="s98-faint">Pages:</span>
+    <a href="index.html">Home</a>
+    <a href="marketing.html">Marketing &mdash; seven instruments</a>
+    <a href="talent.html">Talent &amp; Branding</a>
+    <a href="blog/index.html">The journal</a>
+    <a href="cases.html">Case studies</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="s98-fc s98-f3">
+    <span class="s98-faint">Marketing, instrument by instrument:</span>
+    <a href="identity.html" aria-current="page">Branding &mdash; identity &amp; design</a>
+    <a href="press.html">PR &amp; Media &mdash; the press room</a>
+    <a href="amplify.html">Creators &mdash; the creator floor</a>
+    <a href="performance-marketing.html">Paid &amp; Search &mdash; performance marketing</a>
+    <a href="retain.html">Social &mdash; the feed, held</a>
+    <a href="production.html">Production &mdash; the shoots</a>
+    <a href="events.html">Events &mdash; the night floor</a>
+  </div>
+  <div class="s98-fc s98-f4">
+    <span class="s98-faint">Contact:</span>
+    <a href="mailto:contact@ninety-eight.in" data-s98-mail="contact@ninety-eight.in">contact@ninety-eight.in</a>
+    <a href="index.html#contact">Tell us what you&rsquo;re building &rarr;</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+  <div class="s98-rights">
+    <span>All rights reserved. &copy;2026 Ninety-Eight Entertainment</span>
+    <span class="s98-faint">Delhi NCR &middot; est. 01.01.2020 &middot; <span data-s98-clock>IST</span></span>
+  </div>
+</footer>
+<!--/S98:FOOT-->
+
+<script>
+/* ---- 03: the identity strip, effect 038, driven by hand ----
+   The container is held by position:sticky for the pin's 300vh; the page's
+   scroll through that runway is the progress, the project nearest it is the
+   open one, and the strip slides left by its overflow — measured once, as
+   the reference does — times the progress. Moved here from retain.html. */
+(function(){
+  var strip=document.getElementById('strip'), pin=strip&&strip.querySelector('.pin'), c=document.getElementById('strip-c');
+  if(!strip||!c) return;
+  var projects=[].slice.call(c.querySelectorAll('.project')), n=projects.length; if(!n) return;
+  strip.style.setProperty('--n', n);
+  var wide=matchMedia('(min-width:901px)'), cur=-1, dist=0, raf=0;
+  function open(i){ if(i===cur) return; if(cur>=0) projects[cur].classList.remove('on'); projects[i].classList.add('on'); cur=i; }
+  /* a viewport with no width measures nothing — some panes lay out at 0x0
+     until they are shown, and a travel measured there is stale forever.
+     Wait, a frame at a time, until there is a width to measure against. */
+  function measure(){ if(!wide.matches){ dist=0; return; }
+    if(!innerWidth || !c.scrollWidth){ setTimeout(function(){ measure(); update(); }, 250); return; }
+    projects.forEach(function(p){ p.classList.remove('on'); }); cur=-1; open(0);
+    dist=Math.max(0, c.scrollWidth-innerWidth); }
+  function update(){ raf=0; if(!wide.matches){ return; }
+    var r=pin.getBoundingClientRect(), run=pin.offsetHeight-innerHeight; if(run<=0) return;
+    var p=Math.min(1, Math.max(0, -r.top/run));
+    open(Math.round(p*(n-1)));
+    c.style.transform='translate3d('+(-dist*p).toFixed(1)+'px,0,0)'; }
+  function onScroll(){ if(!raf) raf=requestAnimationFrame(update); }
+  measure(); update();
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', function(){ measure(); update(); });
+  wide.addEventListener('change', function(){ measure(); if(!wide.matches){ c.style.transform=''; projects.forEach(function(p){ p.classList.remove('on'); }); cur=-1; } update(); });
+  addEventListener('load', function(){ measure(); update(); });
+})();
+</script>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

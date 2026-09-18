@@ -1,0 +1,46 @@
+/* =========================================================================
+   A CASE PAGE — cases/<slug>/ (v3.75, Sep 2026)
+   Sits on top of assets/room.css and assets/journal.css: a case page is a
+   journal page that happens to be about one client, so the grid, the kick
+   line, the staircase headline, the measure, the pull, the sourcing note and
+   the next rail all come from there. This file adds only what a case record
+   needs that a piece of prose doesn't: the archive code in the kick line,
+   the numbers as a block, the roster, and the small mono labels the landing
+   sets them in. Pages under /cases/<slug>/ reach it with ../../assets/.
+   The pages are written by Workshop/build_case_pages.py.
+   ========================================================================= */
+
+/* the landing's label face, at the size the rooms use for theirs */
+.mono{font-family:'Space Mono',ui-monospace,monospace;font-size:10.5px;line-height:16px;letter-spacing:.12em;text-transform:uppercase}
+
+/* ---------- the kick line: the archive code stands in the number column ----------
+   "ISH—2020" is wider than the journal's "02"; on a phone the first column is
+   twenty pixels, so the code takes more of the row and the label moves over */
+.kick.case .n{white-space:nowrap}
+@media(max-width:900px){
+  .kick.case .n{grid-column:1/3}.kick.case .t{grid-column:3/8}
+}
+@media(max-width:520px){
+  .kick.case .n{grid-column:1/5}.kick.case .t{grid-column:5/13}
+}
+
+/* ---------- the numbers: two to a row, a hairline over each ----------
+   Legible at rest: the value in the display face, the label in mono, the note
+   in the body face, all at full ink. A value that is a phrase rather than a
+   number (.long) takes the h2's size; a handle or a hashtag (.handle) keeps
+   its own case. */
+.post .body .stats{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--gap);margin-top:calc(var(--lh) * 1.8)}
+.post .body .st{min-width:0;border-top:1px solid var(--line);padding:calc(var(--lh) * .6) 0 var(--lh)}
+.post .body .st .v{display:block;font-weight:800;font-stretch:112%;text-transform:uppercase;letter-spacing:-.03em;
+  font-size:clamp(28px,3vw,40px);line-height:1;overflow-wrap:anywhere}
+.post .body .st.long .v{font-size:19px;line-height:24px;letter-spacing:-.02em;padding-top:calc(clamp(28px,3vw,40px) - 24px)}   /* its label lines up with a number's */
+.post .body .st.handle .v{text-transform:none}
+.post .body .st .k{display:block;margin-top:9px}
+.post .body .st .d{display:block;margin-top:1px}
+
+/* ---------- the chapters count themselves ---------- */
+.post .body h2 .n{font-family:'Space Mono',ui-monospace,monospace;font-weight:400;font-stretch:100%;font-size:10.5px;letter-spacing:.12em;opacity:var(--faint);margin-right:.7em}
+
+/* ---------- the roster: the handles that posted, in mono, run on ---------- */
+.post .body .roster{font-family:'Space Mono',ui-monospace,monospace;font-size:11px;line-height:20px;letter-spacing:.06em}
+.post .body .roster span{display:inline-block;margin-right:1.4em}

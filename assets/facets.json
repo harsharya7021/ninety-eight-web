@@ -1,0 +1,498 @@
+{
+ "ishant": {
+  "name": "Ishant Sharma",
+  "sector": "Talent",
+  "discipline": [
+   "branding",
+   "creators",
+   "paid",
+   "pr",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "launch",
+   "retain"
+  ],
+  "evidence": "case"
+ },
+ "borges": {
+  "name": "Borges India",
+  "sector": "F&B",
+  "discipline": [
+   "creators",
+   "events",
+   "paid",
+   "pr",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "retain"
+  ],
+  "evidence": "case"
+ },
+ "slay-coffee": {
+  "name": "Slay Coffee",
+  "sector": "F&B",
+  "discipline": [
+   "branding",
+   "creators",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "rooh": {
+  "name": "Rooh",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "events",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "case"
+ },
+ "limitless": {
+  "name": "Limitless",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "events",
+   "paid",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "arista-vault": {
+  "name": "Arista Vault",
+  "sector": "D2C",
+  "discipline": [
+   "branding",
+   "social"
+  ],
+  "filed": [
+   "retain"
+  ],
+  "evidence": "record"
+ },
+ "yyc-group": {
+  "name": "Yum Yum Cha Group",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "events",
+   "pr",
+   "social"
+  ],
+  "filed": [
+   "launch"
+  ],
+  "evidence": "case"
+ },
+ "andreas": {
+  "name": "Andrea's Eatery",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "paid",
+   "pr",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "launch",
+   "retain"
+  ],
+  "evidence": "case"
+ },
+ "daryaganj": {
+  "name": "Daryaganj",
+  "sector": "F&B",
+  "discipline": [
+   "creators",
+   "events",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "case"
+ },
+ "tickled-pink": {
+  "name": "Tickled Pink",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "events",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events",
+   "retain"
+  ],
+  "evidence": "case"
+ },
+ "ophelia": {
+  "name": "Ophelia",
+  "sector": "F&B",
+  "discipline": [
+   "creators",
+   "events",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "record"
+ },
+ "khubani": {
+  "name": "Khubani",
+  "sector": "F&B",
+  "discipline": [
+   "creators",
+   "events",
+   "pr",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "launch"
+  ],
+  "evidence": "case"
+ },
+ "hard-rock": {
+  "name": "Hard Rock Cafe",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "events",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "case"
+ },
+ "roseate": {
+  "name": "iSKATE by Roseate",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "fast-up": {
+  "name": "Fast & Up",
+  "sector": "Lifestyle",
+  "discipline": [
+   "creators",
+   "events",
+   "pr",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "record"
+ },
+ "unacademy": {
+  "name": "Unacademy",
+  "sector": "Talent",
+  "discipline": [
+   "creators",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "meta-creator": {
+  "name": "Meta Creator Enablement Programme",
+  "sector": "Platform",
+  "discipline": [
+   "creators",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "happy-dent": {
+  "name": "Happydent · Sparkling Smile",
+  "sector": "F&B",
+  "discipline": [
+   "creators",
+   "pr",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "launch"
+  ],
+  "evidence": "record"
+ },
+ "tgisf": {
+  "name": "The Great Indian Sneaker Fest",
+  "sector": "Lifestyle",
+  "discipline": [
+   "creators",
+   "events",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "record"
+ },
+ "punjab-grill": {
+  "name": "Punjab Grill",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "events",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "bayroute": {
+  "name": "Bayroute",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "dejabrew": {
+  "name": "Deja Brew",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "rizq": {
+  "name": "RIZQ",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators"
+  ],
+  "filed": [
+   "retain"
+  ],
+  "evidence": "record"
+ },
+ "poetry": {
+  "name": "Poetry",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "nao": {
+  "name": "Nao by Berco’s",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "local": {
+  "name": "Local",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "production"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "monet": {
+  "name": "Monet",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "pr"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "slique": {
+  "name": "Slique",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "farzi-cafe": {
+  "name": "Farzi Cafe",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "events",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "case"
+ },
+ "flaunt": {
+  "name": "Flaunt by Duty Free",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "events",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "case"
+ },
+ "iskate": {
+  "name": "iSKATE by Roseate",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify"
+  ],
+  "evidence": "record"
+ },
+ "sky-lantern": {
+  "name": "Sky Lantern",
+  "sector": "Hospitality",
+  "discipline": [
+   "creators",
+   "events",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "case"
+ },
+ "tablespoon": {
+  "name": "Tablespoon (TBSP)",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events",
+   "retain"
+  ],
+  "evidence": "case"
+ },
+ "the-weekend": {
+  "name": "The Weekend",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "events",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events"
+  ],
+  "evidence": "case"
+ },
+ "one8-commune": {
+  "name": "One8 Commune",
+  "sector": "Hospitality",
+  "discipline": [
+   "branding",
+   "creators",
+   "events",
+   "pr",
+   "production",
+   "social"
+  ],
+  "filed": [
+   "amplify",
+   "events",
+   "retain"
+  ],
+  "evidence": "case"
+ }
+}

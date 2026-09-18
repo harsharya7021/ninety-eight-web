@@ -1,0 +1,81 @@
+/* =========================================================================
+   FIELD 98 — the ground's stylesheet (v3.43, Sep 2026)
+   Pairs with assets/field.js. Three states:
+     html.field-on      · the WebGL canvas is live and painting
+     html.field-static  · no WebGL, or reduced motion, or a lost context —
+                          a CSS gradient stack stands in, still and correct
+     (neither)          · the script never ran; the body's own background
+                          shows and the page is plain but perfectly readable
+   Nothing here positions page content. It only paints behind it.
+   ========================================================================= */
+
+.field98{
+  position:fixed; inset:0; width:100%; height:100%;
+  z-index:0; display:block; pointer-events:none;
+  background:var(--bg,#0B0B0C);
+}
+
+/* the still stand-in — three offset radials in the same three colours the
+   shader blooms, at the same weight, so the page never looks broken */
+html.field-static .field98{
+  background:
+    radial-gradient(62% 48% at 24% 20%, rgba(44,62,96,.90),  transparent 72%),
+    radial-gradient(54% 46% at 80% 38%, rgba(7,74,37,.70),   transparent 74%),
+    radial-gradient(66% 54% at 50% 94%, rgba(110,30,27,.80), transparent 76%),
+    var(--bg,#0B0B0C);
+}
+
+/* the white ground (v3.53): the same three radials as pastels on paper */
+html[data-ground="white"] .field98{ background:var(--bg,#FFFFFF); }
+html[data-ground="white"].field-static .field98{
+  background:
+    radial-gradient(62% 48% at 24% 20%, rgba(142,176,240,.34), transparent 72%),
+    radial-gradient(54% 46% at 80% 38%, rgba(96,210,146,.26),  transparent 74%),
+    radial-gradient(66% 54% at 50% 94%, rgba(240,128,120,.28), transparent 76%),
+    var(--bg,#FFFFFF);
+}
+
+/* v3.66: the ground arrives, it does not switch on. The canvas is only inserted once
+   the script runs, a few hundred milliseconds after first paint, and used to appear
+   in one frame — flat carbon, then the bloom. An animation rather than a transition,
+   because the class and the canvas land in the same tick and a transition would
+   never see the change. The static stand-in comes up the same way. */
+html.field-on .field98,
+html.field-static .field98{ animation:field98in 1.2s ease both }
+@keyframes field98in{ from{ opacity:0 } to{ opacity:1 } }
+@media (prefers-reduced-motion:reduce){ html.field-static .field98{ animation:none } }
+
+/* content sits above the ground; the ground never traps a click */
+.field98 ~ *{ position:relative; z-index:1 }
+
+/* A grain plate over the field. On a carbon ground an 8-bit gradient still
+   shows faint contour rings after dithering in the shader; this breaks them
+   up for good, and costs one repeat-painted 140-byte SVG. */
+.grain98{
+  position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+@media (prefers-reduced-motion:reduce){ .grain98{ opacity:.02 } }
+
+/* =========================================================================
+   The geometry plate — enormous hairline roundels, 98's own mark blown up
+   past the point of being a logo. One per screen, drifting. Positioned by
+   the page; this file only says how they look and how slowly they turn.
+   ========================================================================= */
+.rings98{
+  position:absolute; pointer-events:none; z-index:0;
+  width:min(92vmin,1180px); aspect-ratio:1; opacity:.5;
+  will-change:transform;
+}
+.rings98 circle{ fill:none; stroke:currentColor; vector-effect:non-scaling-stroke }
+.rings98 .r-a{ stroke-width:1;   opacity:.30 }
+.rings98 .r-b{ stroke-width:1;   opacity:.18 }
+.rings98 .r-c{ stroke-width:1;   opacity:.10 }
+.rings98 .r-arc{ stroke-width:1.4; opacity:.55; stroke-linecap:round }
+
+@media (prefers-reduced-motion:no-preference){
+  .rings98 .spin{ transform-origin:50% 50%; animation:ring98 210s linear infinite }
+  .rings98 .spin-b{ transform-origin:50% 50%; animation:ring98 340s linear infinite reverse }
+}
+@keyframes ring98{ to{ transform:rotate(360deg) } }

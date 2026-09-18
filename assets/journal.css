@@ -1,0 +1,65 @@
+/* =========================================================================
+   THE JOURNAL — reading rules (v3.40, Sep 2026)
+   Sits on top of assets/room.css. Everything structural — the 12-column
+   grid, the header meta, the kickers, the footer, the White / Carbon
+   ground — comes from there. This file adds only what a page of prose
+   needs that a directory page doesn't: a measure, a drop, and the small
+   furniture of a post (date line, pull quote, notes, the next-piece rail).
+   Pages under /blog reach both with ../assets/.
+   ========================================================================= */
+
+/* ---------- the index: a directory of pieces ---------- */
+.jrn .row{grid-template-columns:1fr 6fr 2fr;height:auto;min-height:21px;white-space:normal;align-items:baseline;padding:6px 0}
+.jrn .hd{grid-template-columns:1fr 6fr 2fr}
+.jrn .row span:nth-child(2){overflow:visible;text-overflow:clip}
+.jrn .row span:last-child{text-align:right;opacity:var(--faint);white-space:nowrap}
+.jrn a.row:hover span:last-child{opacity:1}
+@media(max-width:900px){
+  .jrn .hd,.jrn .row{grid-template-columns:36px 1fr 4.6em}
+}
+
+/* ---------- a post ---------- */
+.post{margin-top:var(--lh)}
+.post .meta-line{grid-column:1/4}
+.post .meta-line span{display:block}
+.post .body{grid-column:4/11;max-width:66ch}
+@media(max-width:900px){
+  .post .meta-line{grid-column:1/13;margin-bottom:var(--lh)}
+  .post .meta-line span{display:inline;margin-right:1.4em}
+  .post .body{grid-column:1/13;max-width:none}
+}
+.post .body > p,.post .body > ul,.post .body > ol{margin-top:var(--lh)}
+.post .body > p:first-child{margin-top:0}
+.post .body .lede{font-size:19px;line-height:27px;letter-spacing:-.02em}
+.post .body h2{margin-top:calc(var(--lh) * 2.4);font-size:19px;line-height:24px;font-weight:800;font-stretch:112%;
+  text-transform:uppercase;letter-spacing:-.02em}
+.post .body h2 + p{margin-top:calc(var(--lh) * .6)}
+.post .body h3{margin-top:calc(var(--lh) * 1.6);font-weight:800;font-stretch:112%}
+.post .body h3 + p{margin-top:calc(var(--lh) * .4)}
+.post .body ul,.post .body ol{padding-left:1.15em}
+.post .body li{margin-top:calc(var(--lh) * .4)}
+.post .body li::marker{opacity:var(--faint)}
+.post .body strong{font-weight:800;font-stretch:106%}
+.post .body em{font-style:italic}
+.post .body a:not(.more){border-bottom:1px solid var(--line);padding-bottom:1px}
+.post .body a:not(.more):hover{border-bottom-color:var(--ink)}
+.post .body code{font-family:'Space Mono',ui-monospace,monospace;font-size:.92em;opacity:.85}
+
+/* a pulled line, set across the measure with a rule above it */
+.post .pull{margin-top:calc(var(--lh) * 1.8);padding-top:calc(var(--lh) * .6);border-top:1px solid var(--line);
+  font-size:26px;line-height:30px;letter-spacing:-.03em;font-weight:800;font-stretch:112%;text-transform:uppercase}
+.post .pull + p{margin-top:calc(var(--lh) * 1.2)}
+
+/* the sourcing note every piece ends on */
+.post .sourced{margin-top:calc(var(--lh) * 2.4);padding-top:calc(var(--lh) * .6);border-top:1px solid var(--line);opacity:var(--faint)}
+.post .sourced p{margin-top:calc(var(--lh) * .4)}
+
+/* the rail at the foot of a post: what to read next */
+.next{margin-top:clamp(120px,22vh,260px)}
+.next a.crow{--i:0}
+.next .hd{grid-column:1/13;display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gap);margin-bottom:3px}
+.next .hd .n{grid-column:1/2}
+.next .hd .p{grid-column:2/9}
+.next a.crow .n{grid-column:1/2}
+.next a.crow .p{grid-column:2/11}
+.next a.crow::after{left:0}
