@@ -419,7 +419,8 @@ footer .fleft{display:flex;align-items:center;gap:.8rem}
    first frame, so it stands in for the file while it arrives and the cut to motion is
    invisible; nothing else has to fill the slot in the meantime (the nine subway stills
    used to flicker here at .42 for however long the 4 MB took, which read as a fault).
-   .62 is the film's opacity over the carbon floor, as before. */
+   .62 is the film's opacity over the carbon floor, as before. v3.82: the film is the
+   1080p master's own resolution now (four files, see the <video>); the poster with it. */
 .mont video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62}
 /* The bottom edge has to arrive at carbon BEFORE the section ends, not at it.
    The old ramp hit full opacity only on the last pixel row, so a few percent
@@ -503,13 +504,8 @@ footer .fleft{display:flex;align-items:center;gap:.8rem}
 #top.previewing .practice a.on{color:#fff}
 .nudge-l{position:absolute;left:1.4rem;bottom:1.7rem;width:1px;height:46px;background:rgba(244,244,242,.2);overflow:hidden;z-index:3}
 .nudge-l::after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--ink);animation:drip 2.1s var(--ease) infinite}
-.nudge-r{position:absolute;right:1.4rem;bottom:1.6rem;z-index:3;animation:npulse 2.8s ease-in-out infinite}
-/* the studio, kept quiet: one mono line in the corner, dim until hovered */
-a.studio-hint{color:rgba(244,244,242,.42);animation:none;text-decoration:none;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}
-.in a.studio-hint{transition:color .3s}
-a.studio-hint:hover{color:var(--ink)}
-a.studio-hint sup{font-size:.7em;color:var(--red);margin-left:.35em;letter-spacing:.1em}
-@media (max-width:640px){ a.studio-hint{right:1.2rem;font-size:.62rem;padding:10px 0;margin-bottom:-10px} }   /* v3.67: was .55rem (8.8px) on a 15px line */
+/* v3.82: the corner line (.nudge-r / a.studio-hint, "Something in the building ·
+   98 Studio") and its rules are gone at Harsh's call */
 /* v3.67: on touch the two words carry a small mark, so they read as doors and
    not as a caption — the hover preview that says so on a desktop never fires */
 @media (hover:none){
@@ -635,7 +631,6 @@ a.studio-hint sup{font-size:.7em;color:var(--red);margin-left:.35em;letter-spaci
   .mark98{width:82px}
   .practice a{font-size:clamp(1.35rem,6.4vw,1.9rem)}
   .preview .pcap{bottom:6.4rem}
-  .nudge-r{bottom:1.2rem}
   .brow{grid-template-columns:minmax(84px,110px) 1fr 24px;gap:.7rem}
   .brow .c-cat,.brow .c-stat{display:none}
   .nazar{right:1.4rem;width:26px}
@@ -1388,7 +1383,17 @@ html[data-ground="white"] #top{background:#0B0B0C}
 <!-- ============ HERO — the mark over the film ============ -->
 <section id="top">
   <div class="mont" id="mont" aria-hidden="true">
-    <video id="montv" muted playsinline autoplay loop preload="auto" poster="assets/hero.jpg"><source src="assets/hero.mp4" type="video/mp4"></video>
+    <!-- v3.82: the film at full quality, from the 1920×1080 master (Bin.mp4) rather than the
+         960×540 cut of v3.35. Landscape screens get the full frame, a phone held upright the
+         centre of it at the master's own resolution (the part it showed anyway); each as HEVC
+         first, H.264 after. The landscape pair comes first so a browser too old to read media=
+         still gets the full frame. See Workshop/patch_v382.py for the encode. -->
+    <video id="montv" muted playsinline autoplay loop preload="auto" poster="assets/hero.jpg">
+      <source src="assets/hero.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L123.B0"' media="(min-aspect-ratio: 3/5)">
+      <source src="assets/hero.mp4" type="video/mp4" media="(min-aspect-ratio: 3/5)">
+      <source src="assets/hero-portrait.hevc.mp4" type='video/mp4; codecs="hvc1.1.6.L123.B0"'>
+      <source src="assets/hero-portrait.mp4" type="video/mp4">
+    </video>
     <div class="mont-shade"></div>
   </div>
   <div class="preview" id="preview" aria-hidden="true"><video id="pvid" muted loop playsinline preload="metadata"></video><span class="pcap mono" id="pcap"></span></div>
@@ -1408,8 +1413,7 @@ html[data-ground="white"] #top{background:#0B0B0C}
     <a class="rev" style="--d:.7s" href="marketing.html" data-t118 data-img="assets/practice/hospitality.jpg" data-video="assets/practice/marketing.mp4" data-cap="Marketing — the opening · the noise · the return · the habit · the night">Marketing</a>
   </nav>
 
-  <span class="nudge-l rev" style="--d:.9s" aria-hidden="true"></span><!-- v3.66: arrives with the corner line opposite, not before the mark -->
-  <a class="nudge-r mono studio-hint rev" style="--d:.9s" href="#film" data-film="1" aria-label="98 Studio, in beta — watch the first film">Something in the building &middot; 98 Studio<sup>beta</sup></a>
+  <span class="nudge-l rev" style="--d:.9s" aria-hidden="true"></span><!-- v3.66: arrives after the mark, not before it. v3.82: the corner line opposite ("Something in the building · 98 Studio") is gone at Harsh's call; the film still opens from the 98 Studio card, the menu and #film. -->
 </section>
 
 
