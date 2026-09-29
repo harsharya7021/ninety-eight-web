@@ -1,6 +1,6 @@
 # Ninety-Eight Entertainment
 
-> A creative and strategic firm in Delhi NCR, founded 1 January 2020 by Harsh Arya, that works as a business partner, not a vendor. Two verticals: Talent & Branding (personal branding and talent management — exclusive representation for athletes, creators and founders) and Marketing (seven instruments: branding, PR & media, creators/influencer marketing, paid & search, social, production, events). 70+ brands, 35 documented cases, an exclusive contract with Test cricketer Ishant Sharma, three restaurant awards for one client group in 2023. Every number on the site traces to a case; where there is no case, the page says so. Reach is reported as combined follower reach, never impressions.
+> A creative and strategic firm in Delhi NCR, founded 1 January 2020 by Harsh Arya, that works as a business partner, not a vendor. Two verticals: Talent & Branding (personal branding and talent management — exclusive representation for athletes, creators and founders) and Marketing (six instruments: branding, PR & media, creators/influencer marketing, social, production, events). 70+ brands, 35 documented cases, an exclusive contract with Test cricketer Ishant Sharma, three restaurant awards for one client group in 2023. Every number on the site traces to a case; where there is no case, the page says so. Reach is reported as combined follower reach, never impressions.
 
 Contact: contact@ninety-eight.in · WhatsApp +91 97111 84674 · Instagram @98.entertainment
 
@@ -8,11 +8,10 @@ Contact: contact@ninety-eight.in · WhatsApp +91 97111 84674 · Instagram @98.en
 
 - [About](https://www.ninety-eight.in/about.html): who we are — the facts, the founder, the book
 - [Talent & Branding](https://www.ninety-eight.in/talent.html): personal branding and talent management; the Ishant Sharma case in ten chapters
-- [Marketing](https://www.ninety-eight.in/marketing.html): the seven instruments
+- [Marketing](https://www.ninety-eight.in/marketing.html): the six instruments
 - [Branding — identity & design](https://www.ninety-eight.in/identity.html)
 - [PR & Media — the press room](https://www.ninety-eight.in/press.html)
 - [Creators — influencer marketing, the creator floor](https://www.ninety-eight.in/amplify.html)
-- [Paid & Search — performance marketing](https://www.ninety-eight.in/performance-marketing.html): no case published yet, and the page says so
 - [Social — the feed, held](https://www.ninety-eight.in/retain.html)
 - [Production — food photography and the shoots](https://www.ninety-eight.in/production.html)
 - [Events — experiential, the night floor](https://www.ninety-eight.in/events.html)
