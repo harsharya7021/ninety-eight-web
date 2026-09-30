@@ -123,6 +123,39 @@
   var expanded = function(){ return window.innerWidth > 768 ? 122 : 90; };
   var lastIndexEntered = 0, tls = [], isOpen = false;
 
+  /* v3.95: every row keeps a bank of pictures (Harsh, Sep 30: "each aisle has a bank of
+     icons to show ... it shows it in a random order"). Each time a row opens (the menu
+     opening, or the pointer coming onto a row) it deals them afresh: a random order, then as
+     many as fit between the end of the row's name and its right edge, 24px clear, five at
+     most; the rest wait, hidden (.n35-off). A picture that keeps its own shape (.n35-own)
+     counts at the width its tag's width and height give at the row's height. The dealt ones
+     are always the row's first, so site.css's per-width ceilings (three under 768px, two
+     under 400px) agree with the deal. */
+  var DEAL_MAX = 5, DEAL_CLEAR = 24;
+  function fit(item){
+    var box = item && item.querySelector('.n35-medias'), name = item && item.querySelector('.n35-name');
+    if (!box || !name) return;
+    var range = document.createRange(); range.selectNodeContents(name);
+    var textRight = 0; [].forEach.call(range.getClientRects(), function(q){ if (q.right > textRight) textRight = q.right; });
+    var cs = getComputedStyle(box), gap = parseFloat(cs.columnGap) || 0;
+    var room = item.getBoundingClientRect().right - (parseFloat(cs.right) || 0) - textRight - DEAL_CLEAR;
+    var used = 0, n = 0, full = false;
+    [].forEach.call(box.querySelectorAll('.n35-media'), function(p){
+      var h = parseFloat(getComputedStyle(p).height) || 92, aw = +p.getAttribute('width'), ah = +p.getAttribute('height');
+      var w = (p.classList.contains('n35-own') && aw && ah) ? h * aw / ah : h, need = used + (n ? gap : 0) + w;
+      if (!full && n < DEAL_MAX && need <= room){ used = need; n++; p.classList.remove('n35-off'); }
+      else { full = true; p.classList.add('n35-off'); }
+    });
+  }
+  function deal(item){
+    var box = item && item.querySelector('.n35-medias'); if (!box) return;
+    var pics = [].slice.call(box.querySelectorAll('.n35-media'));
+    for (var i = pics.length - 1; i > 0; i--){ var k = Math.floor(Math.random() * (i + 1)), t = pics[i]; pics[i] = pics[k]; pics[k] = t; }
+    pics.forEach(function(p){ box.appendChild(p); });
+    fit(item);
+  }
+  window.addEventListener('resize', function(){ if (isOpen) fit(items[fx ? lastIndexEntered : 0]); });
+
   if (fx){
     [].forEach.call(items, function(item, index){
       var medias = item.querySelectorAll('.n35-media');
@@ -130,8 +163,10 @@
       tl.to(medias, { y: 0, stagger: { each: 0.04, from: 'random' }, duration: 0.4, ease: 'power4.out' });
       tls.push(tl);
       item.addEventListener('mouseenter', function(){
+        var fresh = tls[index].progress() === 0;     /* v3.95: a row whose pictures are down is dealt afresh */
         tls[lastIndexEntered].timeScale(3).reverse();
         lastIndexEntered = index;
+        if (fresh) deal(item);
         tls[index].timeScale(1).play();
         gsap.to(items, { flex: '1 1 45px', duration: 0.2, ease: 'power2.inOut' });
         gsap.to(item, { flex: '1 1 ' + expanded() + 'px', duration: 0.2, ease: 'power2.inOut' });
@@ -272,6 +307,7 @@
     btn.setAttribute('aria-label', 'Close menu');
     if (txt) txt.textContent = 'Close';
     doc.classList.add('s98-menu-open');
+    deal(items[0]);                                  /* v3.95: the first row, dealt afresh on every open */
     if (fx){
       /* the reference's load moment, replayed per open: first row expanded, its media rising */
       lastIndexEntered = 0;

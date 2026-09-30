@@ -186,6 +186,15 @@ html.s98-menu-open .s98-head{z-index:500;background:transparent;-webkit-backdrop
 .n35-name .beta{font-size:.55em;font-weight:600;color:var(--s98-red);letter-spacing:.1em;vertical-align:super;margin-left:.5em}
 .n35-medias{display:flex;gap:15px;position:absolute;right:var(--s98-pad);top:50%;transform:translate(0,-50%);overflow:hidden}
 .n35-media{width:92px;height:92px;max-width:none;object-fit:cover;transform:translate(0,100%);border-radius:4%}
+/* v3.92–3.94: pictures that keep their own shape — in Talent & Branding, the laptop (a
+   transparent cut-out, 423×276: 141px wide, 92px under 768px) and the Jerry Maguire poster
+   (3:4, 207×276: 69px wide): the row's height, and the width their shape gives (the tag's
+   width and height, then the picture itself) instead of a square crop */
+.n35-media.n35-own{width:auto}
+/* v3.95: every row's pictures are its bank; assets/site.js deals them afresh each time the
+   row opens (a random order, as many as fit beside the name, five at most) and the ones a
+   deal leaves out wait here, hidden */
+.n35-media.n35-off{display:none}
 .nav035.nofx .n35-media{transform:none}
 .nav035.nofx li:not(:first-child) .n35-media{display:none}   /* no motion, no bloom: only the open first row shows its pictures */
 @media (max-width:768px){
@@ -195,17 +204,20 @@ html.s98-menu-open .s98-head{z-index:500;background:transparent;-webkit-backdrop
   .n35-media{width:60px;height:60px}
   .n35-media:nth-child(n+4){display:none}
   .n35-name{font-size:.8rem}
-  .nav035 ul li:first-child .n35-name{padding-right:150px}   /* v3.67: the first row's name ran under its three pictures at 360px */
+  .nav035 ul li:first-child .n35-name{padding-right:230px}   /* v3.67: the first row's name ran under its three pictures at 360px; v3.93: Ishant, the laptop and the notebook take 60 + 5 + 92 + 5 + 60 */
 }
 @media (max-width:400px){
   .n35-media:nth-child(n+3){display:none}
-  .nav035 ul li:first-child .n35-name{padding-right:110px}
+  .nav035 ul li:first-child .n35-name{padding-right:165px}   /* v3.93: two pictures here, Ishant and the laptop (60 + 5 + 92) */
 }
 
 /* ---------- the footer ---------- */
+/* v3.91: no hairline along its top (Harsh, Sep 30: "remove the line before the footer
+   everywhere"). border-top is 0, not left out: index, talent and privacy still carry
+   old footer{border-top:…} rules that this one has to go on beating. */
 .s98-foot{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:10px;row-gap:20px;align-items:start;
   position:relative;z-index:2;margin:0;padding:clamp(80px,14vh,160px) var(--s98-m) var(--s98-m);box-sizing:border-box;
-  background:var(--s98-bg);color:var(--s98-ink);border-top:1px solid var(--s98-line);
+  background:var(--s98-bg);color:var(--s98-ink);border-top:0;
   font:400 13px/20px 'Archivo',Helvetica,Arial,sans-serif;font-stretch:100%;letter-spacing:-.01em;text-transform:none;text-align:left;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .s98-foot *{box-sizing:border-box}
