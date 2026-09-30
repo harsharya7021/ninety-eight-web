@@ -100,6 +100,34 @@ html.js.in .crw,html.js.in .term{opacity:1}
   .cidx .col + .col{margin-top:calc(var(--lh) * 2)}
   .cnote p{grid-column:1/13}
 }
+/* ---------- v3.89: the filter bar over the directory ----------
+   The room's type (Archivo, upper case, tracked) in 1px hairline boxes; the
+   active filter on the page's red with dark type. Shown only with the script,
+   between the summary and the column heads (outside .cdir, so pointing at the
+   bar does not dim the rows); it comes in with the room's entrance. */
+.cflt{display:none;flex-wrap:wrap;gap:var(--gap);margin:calc(var(--lh) * 3) var(--m) 0}
+html.js .cflt{display:flex;opacity:0;transition:opacity .8s var(--ease) .25s}
+html.js.in .cflt{opacity:1}
+html.js .cflt ~ .cdir{margin-top:calc(var(--lh) * 1.5)}
+.cflt button{font:inherit;font-size:13px;line-height:20px;letter-spacing:.08em;text-transform:uppercase;padding:11px 20px;margin:0;
+  border:1px solid var(--line);border-radius:0;background:transparent;color:var(--ink);color:color-mix(in srgb,var(--ink) 62%,transparent);
+  cursor:pointer;-webkit-appearance:none;appearance:none;transition:color .25s,border-color .25s,background-color .25s}
+.cflt button:hover{color:var(--ink);border-color:var(--ink)}
+.cflt button.on,.cflt button.on:hover{background:var(--room);border-color:var(--room);color:#0B0B0C}
+.cflt button:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
+.cflt-live{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.cdir .crw[hidden]{display:none}
+/* a filter's rows come back in, a little staggered; a row an index number
+   lands on still flashes (the hit above) */
+@keyframes cfltIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.cdir .crw.cflt-in{animation:cfltIn .45s var(--ease) backwards;animation-delay:calc(var(--k,0) * 14ms)}
+.cdir .crw.cflt-in:target{animation:hit 2.4s var(--ease)}
+@media(max-width:900px){ .cflt{gap:6px} .cflt button{font-size:12px;padding:8px 12px} }
+@media(prefers-reduced-motion:reduce){
+  html.js .cflt{transition:none;opacity:1}
+  .cdir .crw.cflt-in,.cdir .crw.cflt-in:target{animation:none}
+  .cflt button{transition:none}
+}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -230,6 +258,19 @@ html.js.in .crw,html.js.in .term{opacity:1}
     <span class="ln l half" style="--i:5"><i>A to Z</i></span><span class="hl"></span>
   </h1>
 </section>
+<!-- v3.89: the filter bar (Harsh, Sep 30). Seven filters over the rows' own Discipline cells;
+     the script at the foot maps each discipline to its filter. Shown only with the script. -->
+<div class="cflt" id="cflt" role="group" aria-label="Filter the directory by discipline">
+  <button type="button" class="on" data-f="all" aria-pressed="true">All</button>
+  <button type="button" data-f="creators" aria-pressed="false">Creator marketing</button>
+  <button type="button" data-f="social" aria-pressed="false">Social media</button>
+  <button type="button" data-f="events" aria-pressed="false">Events</button>
+  <button type="button" data-f="pr" aria-pressed="false">Launch &amp; PR</button>
+  <button type="button" data-f="production" aria-pressed="false">Production</button>
+  <button type="button" data-f="identity" aria-pressed="false">Brand identity</button>
+  <button type="button" data-f="personal" aria-pressed="false">Personal branding</button>
+</div>
+<p class="cflt-live" id="cflt-live" aria-live="polite"></p>
 <section class="g cdir" aria-label="The directory, A to Z">
   <div class="chd"><span class="n faint">Number:</span><span class="p faint">Project:</span><span class="d faint">Discipline:</span><span class="s faint">Sector:</span><span class="y faint">Year:</span><span class="o faint">Opens:</span></div>
     <a class="crw" href="production.html" id="w01" style="--i:0" data-img="assets/retain/prod/aarushi.webp" title="F&amp;B photography"><span class="n">01</span><span class="p">Aarushi Jain — shoot</span><span class="d">Production &amp; photography</span><span class="s">Food &amp; drink brands</span><span class="y">2026</span><span class="o">Production &rarr;</span></a>
@@ -422,6 +463,66 @@ html.js.in .crw,html.js.in .term{opacity:1}
     row.addEventListener('mouseleave', function(){ peek.classList.remove('on'); on = false; });
   });
   addEventListener('scroll', function(){ if (on){ peek.classList.remove('on'); on = false; } }, { passive: true });
+})();
+</script>
+
+<script>
+/* ---- v3.89: the filter bar over the directory ----
+   Each row's filters are read off its own Discipline cell (the builder writes
+   it), so a rebuilt directory keeps working. A filter hides the rows it does
+   not hold and fades the rest back in; the choice rides in the address
+   (?f=events) so a view can be shared; a link to a row that is filtered out
+   (the index's numbers) goes back to All first, so every number still lands. */
+(function(){
+  var bar = document.getElementById('cflt'); if (!bar) return;
+  var live = document.getElementById('cflt-live');
+  var rows = [].slice.call(document.querySelectorAll('.cdir .crw'));
+  var MAP = { 'creator marketing':'creators', 'social media & retain':'social', 'events & experiential':'events',
+              'launch & pr':'pr', 'media relations':'pr', 'digital & social pr':'pr',
+              'production & photography':'production', 'brand identity & design':'identity',
+              'app & product design':'identity', 'personal branding':'personal' };
+  rows.forEach(function(r){
+    var d = r.querySelector('.d'), f = {};
+    (d ? d.textContent : '').split(',').forEach(function(t){ var k = MAP[t.trim().toLowerCase()]; if (k) f[k] = 1; });
+    r._cf = f;
+    r.addEventListener('animationend', function(e){ if (e.animationName === 'cfltIn') r.classList.remove('cflt-in'); });
+  });
+  var btns = [].slice.call(bar.querySelectorAll('button[data-f]')), cur = null;
+  var NAME = {}; btns.forEach(function(b){ NAME[b.getAttribute('data-f')] = b.textContent; });
+  function set(f, quiet){
+    if (!NAME[f]) f = 'all';
+    if (f === cur) return;
+    cur = f;
+    btns.forEach(function(b){ var on = b.getAttribute('data-f') === f; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+    var k = 0;
+    rows.forEach(function(r){
+      var show = f === 'all' || !!r._cf[f];
+      r.hidden = !show;
+      r.classList.remove('cflt-in');
+      if (show && !quiet){ r.style.setProperty('--k', Math.min(k, 24)); k++; }
+      else if (show) k++;
+    });
+    if (!quiet){
+      void bar.offsetWidth;                        /* restart the fade on the rows that show */
+      rows.forEach(function(r){ if (!r.hidden) r.classList.add('cflt-in'); });
+      if (live) live.textContent = f === 'all' ? 'Showing all ' + rows.length + ' entries' : 'Showing ' + k + ' of ' + rows.length + ' entries: ' + NAME[f];
+      try { var u = new URL(location.href); if (f === 'all') u.searchParams.delete('f'); else u.searchParams.set('f', f); history.replaceState(history.state, '', u); } catch (e) {}
+    }
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ set(b.getAttribute('data-f')); }); });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="#w"]'); if (!a) return;
+    var row = document.getElementById(a.getAttribute('href').slice(1));
+    if (row && row.hidden) set('all');
+  }, true);
+  addEventListener('hashchange', function(){
+    var row = location.hash && document.getElementById(location.hash.slice(1));
+    if (row && row.hidden){ set('all'); row.scrollIntoView(); }
+  });
+  var q = null; try { q = new URLSearchParams(location.search).get('f'); } catch (e) {}
+  set(q || 'all', true);
+  var h = location.hash && document.getElementById(location.hash.slice(1));
+  if (h && h.hidden) set('all', true);
 })();
 </script>
 
