@@ -18,6 +18,9 @@
 <meta property="og:locale" content="en_IN">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Ccircle cx='51' cy='50' r='48' fill='%23EE352E'/%3E%3Ccircle cx='149' cy='50' r='48' fill='%2300933C'/%3E%3Ctext x='51' y='69' font-family='Helvetica,Arial' font-size='56' font-weight='700' fill='%23fff' text-anchor='middle'%3E9%3C/text%3E%3Ctext x='149' y='69' font-family='Helvetica,Arial' font-size='56' font-weight='700' fill='%23fff' text-anchor='middle'%3E8%3C/text%3E%3C/svg%3E">
+<!-- v3.102: the landing's mark in the round: drag it and it turns. async and up here so its model
+     (assets/98-3d.glb) is asked for while the page is still arriving; without it the flat mark stays. -->
+<script src="assets/mark98.js" async></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -478,6 +481,27 @@ footer .fleft{display:flex;align-items:center;gap:.8rem}
    entirely. A child cannot opt out of an ancestor's blend, so the blend has
    to be the mark alone. */
 .mark98{width:clamp(94px,11vw,160px);height:auto;mix-blend-mode:difference}
+/* v3.102: the mark in the round (Harsh, Oct 5: "use the 3D logo on the top -
+   let people spin it around it's axis"). assets/mark98.js lays this canvas
+   over the flat mark and draws assets/98-3d.glb on it, the flat mark's size at
+   rest; dragged sideways it turns about its upright axis, coasts, and comes
+   back to face front. The canvas is wider and taller than the mark so the near
+   end has room as it swings round (and a thumb has something to hold); it is
+   out of the flow, so nothing in the hero moves. The flat PNG keeps the layout
+   and stays the mark until a frame of the model is up (.gl-on), and for good
+   where there is no WebGL or no script. pan-y pinch-zoom: a vertical swipe or
+   a pinch that starts on the mark is still the page's. No blend on the canvas:
+   tried, and a shaded solid through difference goes grey over the film and to
+   a ghost over white; the script turns the model to ink over a light hover
+   instead. On paper the flat mark prints, as it did (a white model on white
+   would not). */
+.mark98-gl{position:absolute;left:-20%;top:-40%;width:140%;height:180%;max-width:none;display:block;visibility:hidden;
+  cursor:grab;touch-action:pan-y pinch-zoom;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+.mark98-gl.is-held{cursor:grabbing}
+.mark98-gl.late{transition:none}
+.hero-mark.gl-on .mark98-gl{visibility:visible}
+.hero-mark.gl-on .mark98{visibility:hidden}
+@media print{ .hero-mark.gl-on .mark98{visibility:visible} .hero-mark .mark98-gl{display:none} }
 .practice{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:.12rem;text-align:center}
 .practice a{display:block;font-weight:750;font-stretch:112%;text-transform:uppercase;letter-spacing:.012em;line-height:1.3;font-size:clamp(1.5rem,2.9vw,2.45rem);color:var(--ink);transition:color .3s,opacity .3s}
 .practice a:hover{color:#fff}
@@ -502,6 +526,47 @@ footer .fleft{display:flex;align-items:center;gap:.8rem}
 #practice.armed a{transition:color .3s var(--ease),opacity .3s var(--ease);transition-delay:0s}
 #top.previewing .practice a:not(.on){opacity:0}
 #top.previewing .practice a.on{color:#fff}
+/* v3.102: Marketing's hover is the tiny people (Harsh, Oct 5: "add the tiny
+   people image to the marketing screen on the home page"). His picture is
+   1920x1080 on white, three of its groups lean on its edges, and the word and
+   the mark sit over it, so it is not stretched or cropped to the screen. The
+   eight groups are eight tiles of the one file (assets/practice/marketing.webp,
+   its white cut to transparent), each put where it stands in the picture at
+   the picture's own scale (--u is one picture pixel, the largest that fits the
+   screen) and then let out with the screen: --fx and --fy say how much of the
+   spare width or height a group takes, 0 keeping it on the left or top edge and
+   1 on the right or bottom. At 16:9 it is the picture; wider or taller, the
+   gaps open and nobody is cut. Three groups give way to the furniture: the
+   pair with the amp and the man with the newspaper stay clear above the word
+   (.pv-w; the pair need it on any laptop, the reader only in a very short
+   window), and the man with the case stays left of the mark (.pv-m) and sits
+   out a window too short to have room for him between the mark and the pair.
+   While it is up the word, the header and the mark are ink. #top.pv-light is
+   left on after the pointer goes so the screen fades out as it stood (the
+   next hover sets it afresh); html.pv98-light is on only while it is up. */
+#top.pv-light .preview{background-color:#fff}
+#top.pv-light .preview video{opacity:0!important;transition:none}   /* a word's hover film (Talent's, the day it has one) must not show through this screen on the way across */
+.pv98{position:absolute;inset:0;display:none;overflow:hidden;
+  --wz:calc(2.4rem + 1.3*clamp(1.5rem,2.9vw,2.45rem) + .75rem);   /* the word's line at the foot, and air above it */
+  --mw:clamp(94px,11vw,160px)}                                   /* the mark's width */
+#top.pv-light .pv98{display:block}
+.pv98 i{position:absolute;display:block;--u:min(100vw/1920,100vh/1080);
+  width:calc(var(--w)*var(--u));height:calc(var(--h)*var(--u));
+  left:calc(var(--x)*var(--u) + var(--fx)*(100% - 1920*var(--u)));
+  top:calc(var(--y)*var(--u) + var(--fy)*(100% - 1080*var(--u)));
+  background:url(assets/practice/marketing.webp) calc(-1*var(--x)*var(--u)) calc(-1*var(--y)*var(--u))/calc(1920*var(--u)) calc(1080*var(--u)) no-repeat}
+.pv98 i.pv-w{top:min(calc(var(--y)*var(--u) + var(--fy)*(100% - 1080*var(--u))),calc(100% - var(--wz) - var(--h)*var(--u)))}
+.pv98 i.pv-m{left:min(calc(var(--x)*var(--u) + var(--fx)*(100% - 1920*var(--u))),calc(50% - var(--mw)/2 - 1.25rem - var(--w)*var(--u)))}
+@media (max-height:460px){ .pv98 i.pv-m{display:none} .pv98 i.pv-w{margin-left:calc(16*var(--u))} }   /* and the pair, lifted level with the painters there, step clear of their stand */
+@supports (width:1cqw){
+  .preview{container-type:size}                       /* the hero's own box, not the window: exact where a scrollbar takes room */
+  .pv98 i{--u:min(100cqw/1920,100cqh/1080)}
+}
+#top.previewing.pv-light .practice a.on{color:#0B0B0C}
+#top.previewing.pv-light .practice a:not(.on){opacity:0!important}   /* under reduced motion .rev pins opacity:1, and a pale word on white is a smudge */
+#top.pv-light .nudge-l{transition-duration:.3s;transition-delay:0s}
+#top.previewing.pv-light .nudge-l{opacity:0!important}
+html.pv98-light:not(.s98-menu-open) #s98-head:not(.s98-glass){color:#0B0B0C}   /* the id: this has to outrank site.css's light-ink rule for the landing's dark top */
 .nudge-l{position:absolute;left:1.4rem;bottom:1.7rem;width:1px;height:46px;background:rgba(244,244,242,.2);overflow:hidden;z-index:3}
 .nudge-l::after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--ink);animation:drip 2.1s var(--ease) infinite}
 /* v3.82: the corner line (.nudge-r / a.studio-hint, "Something in the building ·
@@ -629,6 +694,7 @@ footer .fleft{display:flex;align-items:center;gap:.8rem}
 }
 @media (max-width:960px){
   .mark98{width:82px}
+  .pv98{--wz:calc(2.4rem + 1.3*clamp(1.35rem,6.4vw,1.9rem) + .75rem);--mw:82px}   /* v3.102: the word and the mark are these sizes here */
   .practice a{font-size:clamp(1.35rem,6.4vw,1.9rem)}
   .preview .pcap{bottom:6.4rem}
   .brow{grid-template-columns:minmax(84px,110px) 1fr 24px;gap:.7rem}
@@ -1244,6 +1310,9 @@ footer .fleft{display:flex;align-items:center;gap:.8rem}
   display:flex;align-items:center;padding:0 3.2vw 0 var(--pad);white-space:normal}
 #press .mwg087 .pr-lead .pr-title{margin:0}
 @media(max-width:768px){
+  /* v3.101: centred on a phone, as the titles above it are (Harsh, Sep 30) —
+     above the swipe and, without the rail, at the head of the list */
+  #press .pr-title{text-align:center}
   #press .mwg087 .pr-title{margin:0 11vw 28px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -1396,7 +1465,7 @@ html[data-ground="white"] #top{background:#0B0B0C}
     </video>
     <div class="mont-shade"></div>
   </div>
-  <div class="preview" id="preview" aria-hidden="true"><video id="pvid" muted loop playsinline preload="metadata"></video><span class="pcap mono" id="pcap"></span></div>
+  <div class="preview" id="preview" aria-hidden="true"><video id="pvid" muted loop playsinline preload="metadata"></video><span class="pcap mono" id="pcap"></span><div class="pv98"><i style="--x:0;--y:297;--w:524;--h:354;--fx:0;--fy:.44"></i><i class="pv-m" style="--x:622;--y:221;--w:235;--h:304;--fx:.386;--fy:.345"></i><i style="--x:1223;--y:134;--w:479;--h:284;--fx:.76;--fy:.256"></i><i class="pv-w" style="--x:999;--y:493;--w:351;--h:319;--fx:.61;--fy:.6"></i><i style="--x:1530;--y:431;--w:390;--h:376;--fx:1;--fy:.573"></i><i style="--x:0;--y:790;--w:422;--h:290;--fx:0;--fy:1"></i><i class="pv-w" style="--x:512;--y:669;--w:447;--h:330;--fx:.38;--fy:.77"></i><i style="--x:1408;--y:831;--w:392;--h:195;--fx:.835;--fy:.86"></i></div></div>
 
   <div class="hero-mark">
     <img src="assets/98-graffiti.png" alt="Ninety-Eight — the mark, as found on the wall" class="mark98 rev">
@@ -1410,7 +1479,7 @@ html[data-ground="white"] #top{background:#0B0B0C}
        exists at data-video (assets/practice/talent.mp4 / marketing.mp4). -->
   <nav class="practice" id="practice" aria-label="The practice">
     <a class="rev" style="--d:.63s" href="talent.html" data-t118 data-img="assets/practice/talent.jpg" data-video="assets/practice/talent.mp4" data-cap="Talent Management &amp; Personal Branding — exclusive contracts · editorial · individuals built into brands">Talent &amp; Branding</a>
-    <a class="rev" style="--d:.7s" href="marketing.html" data-t118 data-img="assets/practice/hospitality.jpg" data-video="assets/practice/marketing.mp4" data-cap="Marketing — the opening · the noise · the return · the habit · the night">Marketing</a>
+    <a class="rev" style="--d:.7s" href="marketing.html" data-t118 data-img="assets/practice/marketing.webp" data-pv="light" data-cap="Marketing — the opening · the noise · the return · the habit · the night">Marketing</a>
   </nav>
 
   <span class="nudge-l rev" style="--d:.9s" aria-hidden="true"></span><!-- v3.66: arrives after the mark, not before it. v3.82: the corner line opposite ("Something in the building · 98 Studio") is gone at Harsh's call; the film still opens from the 98 Studio card, the menu and #film. -->
@@ -1884,15 +1953,23 @@ if (document.readyState === 'loading') {
   /* ---------- practice hover previews (Indigo borrow) ---------- */
   var topSec = document.getElementById('top'), preview = document.getElementById('preview'), pcap = document.getElementById('pcap');
   var plinks = Array.prototype.slice.call(document.querySelectorAll('.practice a'));
-  plinks.forEach(function(a){ var im = new Image(); im.src = a.dataset.img; }); /* preload */
+  /* v3.102: fetched ahead only where something can hover. A phone never shows
+     these (a tap simply goes), and it was downloading both for nothing. */
+  if (!window.matchMedia || !window.matchMedia('(any-hover: none)').matches) plinks.forEach(function(a){ var im = new Image(); im.src = a.dataset.img; }); /* preload */
   function showPreview(a){
+    /* v3.102: a word marked data-pv="light" (Marketing: the tiny people) brings
+       up the .pv98 tiles on white instead of a full-bleed picture, and says so
+       on #top and <html> so the word, the mark and the header turn to ink. */
+    var light = a.getAttribute('data-pv') === 'light';
     document.getElementById('practice').classList.add('armed');
     plinks.forEach(function(x){ x.classList.toggle('on', x===a); });
-    preview.style.backgroundImage = 'url("'+a.dataset.img+'")';
+    preview.style.backgroundImage = light ? 'none' : 'url("'+a.dataset.img+'")';
     pcap.textContent = a.dataset.cap;
+    topSec.classList.toggle('pv-light', light);
+    document.documentElement.classList.toggle('pv98-light', light);
     topSec.classList.add('previewing');
   }
-  function hidePreview(){ topSec.classList.remove('previewing'); plinks.forEach(function(x){ x.classList.remove('on'); }); }
+  function hidePreview(){ topSec.classList.remove('previewing'); document.documentElement.classList.remove('pv98-light'); plinks.forEach(function(x){ x.classList.remove('on'); }); }
   plinks.forEach(function(a){
     a.addEventListener('pointerenter', function(e){ if(e.pointerType!=='touch') showPreview(a); });
     a.addEventListener('click', function(e){
@@ -1913,6 +1990,10 @@ if (document.readyState === 'loading') {
     });
   });
   document.getElementById('practice').addEventListener('pointerleave', function(e){ if(e.pointerType==='touch') return; hidePreview(); });
+  /* v3.102: a landing kept whole in the back/forward cache comes back from a
+     vertical's page with the hover still up and no pointer event to take it
+     down, which over the film went unnoticed and as a white screen does not */
+  window.addEventListener('pageshow', function(e){ if (e.persisted) hidePreview(); });
 
   /* ---------- departure board: flap-scramble ---------- */
   var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·—';
