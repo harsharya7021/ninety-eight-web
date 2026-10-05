@@ -543,21 +543,39 @@ footer .fleft{display:flex;align-items:center;gap:.8rem}
    out a window too short to have room for him between the mark and the pair.
    While it is up the word, the header and the mark are ink. #top.pv-light is
    left on after the pointer goes so the screen fades out as it stood (the
-   next hover sets it afresh); html.pv98-light is on only while it is up. */
+   next hover sets it afresh); html.pv98-light is on only while it is up.
+   v3.103: Talent & Branding has its own picture (Harsh, Oct 5: "replace the
+   existing image in talent and branding with this one"), made to match -
+   seven groups, assets/practice/talent.webp. Each word's tiles sit in their
+   own .pv98, named by data-pv on the word and on the div; the script puts
+   .on on the one being pointed at. Talent's word is the upper of the two
+   lines, so its --wz is the foot, both lines and the gap between them. The
+   woman with the ring light stays left of the mark (.pv-m) and above the
+   word (.pv-w), the photographer and his sitter above the word (.pv-w); both
+   sit out a window under 460px tall, which has no room between the mark and
+   the word. The two at the foot, the mirror and the man on the case (.pv-n),
+   lift clear of the word in a window under 800px wide, where the word is
+   most of the width, and sit out one under 600px tall as well. */
 #top.pv-light .preview{background-color:#fff}
-#top.pv-light .preview video{opacity:0!important;transition:none}   /* a word's hover film (Talent's, the day it has one) must not show through this screen on the way across */
+#top.pv-light .preview video{opacity:0!important;transition:none}   /* a word's hover film (neither has one now; the hook is data-video on the link) must not show through this screen on the way across */
 .pv98{position:absolute;inset:0;display:none;overflow:hidden;
+  --pic:url(assets/practice/marketing.webp);
   --wz:calc(2.4rem + 1.3*clamp(1.5rem,2.9vw,2.45rem) + .75rem);   /* the word's line at the foot, and air above it */
   --mw:clamp(94px,11vw,160px)}                                   /* the mark's width */
-#top.pv-light .pv98{display:block}
+.pv98[data-pv="talent"]{--pic:url(assets/practice/talent.webp);
+  --wz:calc(2.4rem + 2.6*clamp(1.5rem,2.9vw,2.45rem) + .12rem + .75rem)}   /* v3.103: the upper line */
+#top.pv-light .pv98.on{display:block}
 .pv98 i{position:absolute;display:block;--u:min(100vw/1920,100vh/1080);
   width:calc(var(--w)*var(--u));height:calc(var(--h)*var(--u));
   left:calc(var(--x)*var(--u) + var(--fx)*(100% - 1920*var(--u)));
   top:calc(var(--y)*var(--u) + var(--fy)*(100% - 1080*var(--u)));
-  background:url(assets/practice/marketing.webp) calc(-1*var(--x)*var(--u)) calc(-1*var(--y)*var(--u))/calc(1920*var(--u)) calc(1080*var(--u)) no-repeat}
+  background:var(--pic) calc(-1*var(--x)*var(--u)) calc(-1*var(--y)*var(--u))/calc(1920*var(--u)) calc(1080*var(--u)) no-repeat}
 .pv98 i.pv-w{top:min(calc(var(--y)*var(--u) + var(--fy)*(100% - 1080*var(--u))),calc(100% - var(--wz) - var(--h)*var(--u)))}
 .pv98 i.pv-m{left:min(calc(var(--x)*var(--u) + var(--fx)*(100% - 1920*var(--u))),calc(50% - var(--mw)/2 - 1.25rem - var(--w)*var(--u)))}
-@media (max-height:460px){ .pv98 i.pv-m{display:none} .pv98 i.pv-w{margin-left:calc(16*var(--u))} }   /* and the pair, lifted level with the painters there, step clear of their stand */
+@media (max-height:460px){ .pv98 i.pv-m{display:none} .pv98[data-pv="marketing"] i.pv-w{margin-left:calc(16*var(--u))} .pv98[data-pv="talent"] i.pv-w{display:none} }   /* and the pair, lifted level with the painters there, step clear of their stand; v3.103: Talent's two that keep above the word have no room there between the mark and the word, and sit out */
+@media (max-width:800px){ .pv98[data-pv="talent"] i.pv-n{top:min(calc(var(--y)*var(--u) + var(--fy)*(100% - 1080*var(--u))),calc(100% - var(--wz) - var(--h)*var(--u)))} }   /* v3.103: in a narrow window the word is most of the width, and the two at the foot lift clear of it */
+@media (max-width:800px) and (max-height:600px){ .pv98[data-pv="talent"] i.pv-n{display:none} }   /* narrow and short, there is no room above the word for them either: they sit out */
+@media (max-width:480px){ .pv98[data-pv="talent"] i.pv-m{display:none} }   /* a phone's width, which never shows this; should a window be this narrow, the ring light has no room beside the mark */
 @supports (width:1cqw){
   .preview{container-type:size}                       /* the hero's own box, not the window: exact where a scrollbar takes room */
   .pv98 i{--u:min(100cqw/1920,100cqh/1080)}
@@ -695,6 +713,7 @@ html.pv98-light:not(.s98-menu-open) #s98-head:not(.s98-glass){color:#0B0B0C}   /
 @media (max-width:960px){
   .mark98{width:82px}
   .pv98{--wz:calc(2.4rem + 1.3*clamp(1.35rem,6.4vw,1.9rem) + .75rem);--mw:82px}   /* v3.102: the word and the mark are these sizes here */
+  .pv98[data-pv="talent"]{--wz:calc(2.4rem + 2.6*clamp(1.35rem,6.4vw,1.9rem) + .12rem + .75rem)}
   .practice a{font-size:clamp(1.35rem,6.4vw,1.9rem)}
   .preview .pcap{bottom:6.4rem}
   .brow{grid-template-columns:minmax(84px,110px) 1fr 24px;gap:.7rem}
@@ -1465,7 +1484,7 @@ html[data-ground="white"] #top{background:#0B0B0C}
     </video>
     <div class="mont-shade"></div>
   </div>
-  <div class="preview" id="preview" aria-hidden="true"><video id="pvid" muted loop playsinline preload="metadata"></video><span class="pcap mono" id="pcap"></span><div class="pv98"><i style="--x:0;--y:297;--w:524;--h:354;--fx:0;--fy:.44"></i><i class="pv-m" style="--x:622;--y:221;--w:235;--h:304;--fx:.386;--fy:.345"></i><i style="--x:1223;--y:134;--w:479;--h:284;--fx:.76;--fy:.256"></i><i class="pv-w" style="--x:999;--y:493;--w:351;--h:319;--fx:.61;--fy:.6"></i><i style="--x:1530;--y:431;--w:390;--h:376;--fx:1;--fy:.573"></i><i style="--x:0;--y:790;--w:422;--h:290;--fx:0;--fy:1"></i><i class="pv-w" style="--x:512;--y:669;--w:447;--h:330;--fx:.38;--fy:.77"></i><i style="--x:1408;--y:831;--w:392;--h:195;--fx:.835;--fy:.86"></i></div></div>
+  <div class="preview" id="preview" aria-hidden="true"><video id="pvid" muted loop playsinline preload="metadata"></video><span class="pcap mono" id="pcap"></span><div class="pv98" data-pv="marketing"><i style="--x:0;--y:297;--w:524;--h:354;--fx:0;--fy:.44"></i><i class="pv-m" style="--x:622;--y:221;--w:235;--h:304;--fx:.386;--fy:.345"></i><i style="--x:1223;--y:134;--w:479;--h:284;--fx:.76;--fy:.256"></i><i class="pv-w" style="--x:999;--y:493;--w:351;--h:319;--fx:.61;--fy:.6"></i><i style="--x:1530;--y:431;--w:390;--h:376;--fx:1;--fy:.573"></i><i style="--x:0;--y:790;--w:422;--h:290;--fx:0;--fy:1"></i><i class="pv-w" style="--x:512;--y:669;--w:447;--h:330;--fx:.38;--fy:.77"></i><i style="--x:1408;--y:831;--w:392;--h:195;--fx:.835;--fy:.86"></i></div><div class="pv98" data-pv="talent"><i class="pv-n" style="--x:0;--y:725;--w:295;--h:352;--fx:0;--fy:1"></i><i style="--x:155;--y:329;--w:299;--h:301;--fx:.16;--fy:.44"></i><i class="pv-m pv-w" style="--x:639;--y:139;--w:268;--h:330;--fx:.38;--fy:.45"></i><i class="pv-w" style="--x:1011;--y:490;--w:284;--h:326;--fx:.6;--fy:.6"></i><i style="--x:1247;--y:167;--w:398;--h:234;--fx:.75;--fy:.26"></i><i class="pv-n" style="--x:1446;--y:678;--w:344;--h:340;--fx:.84;--fy:.66"></i><i style="--x:1772;--y:291;--w:148;--h:371;--fx:1;--fy:.44"></i></div></div>
 
   <div class="hero-mark">
     <img src="assets/98-graffiti.png" alt="Ninety-Eight — the mark, as found on the wall" class="mark98 rev">
@@ -1476,10 +1495,14 @@ html[data-ground="white"] #top{background:#0B0B0C}
        the corner below (and as a menu row). The two verticals now land on
        their own cards (#v-talent / #v-marketing); each will get its own page
        later - see NOTES FOR UX.md. Hover: image today, film when a file
-       exists at data-video (assets/practice/talent.mp4 / marketing.mp4). -->
+       exists at data-video (assets/practice/talent.mp4 / marketing.mp4).
+       v3.102-v3.103: both words bring up tiny people on white instead
+       (data-pv names the word's set of .pv98 tiles in #preview), and
+       data-video is off both links. To return a word to a film: data-video
+       back on, data-pv off, and data-img a full-bleed still again. -->
   <nav class="practice" id="practice" aria-label="The practice">
-    <a class="rev" style="--d:.63s" href="talent.html" data-t118 data-img="assets/practice/talent.jpg" data-video="assets/practice/talent.mp4" data-cap="Talent Management &amp; Personal Branding — exclusive contracts · editorial · individuals built into brands">Talent &amp; Branding</a>
-    <a class="rev" style="--d:.7s" href="marketing.html" data-t118 data-img="assets/practice/marketing.webp" data-pv="light" data-cap="Marketing — the opening · the noise · the return · the habit · the night">Marketing</a>
+    <a class="rev" style="--d:.63s" href="talent.html" data-t118 data-img="assets/practice/talent.webp" data-pv="talent" data-cap="Talent Management &amp; Personal Branding — exclusive contracts · editorial · individuals built into brands">Talent &amp; Branding</a>
+    <a class="rev" style="--d:.7s" href="marketing.html" data-t118 data-img="assets/practice/marketing.webp" data-pv="marketing" data-cap="Marketing — the opening · the noise · the return · the habit · the night">Marketing</a>
   </nav>
 
   <span class="nudge-l rev" style="--d:.9s" aria-hidden="true"></span><!-- v3.66: arrives after the mark, not before it. v3.82: the corner line opposite ("Something in the building · 98 Studio") is gone at Harsh's call; the film still opens from the 98 Studio card, the menu and #film. -->
@@ -1953,17 +1976,20 @@ if (document.readyState === 'loading') {
   /* ---------- practice hover previews (Indigo borrow) ---------- */
   var topSec = document.getElementById('top'), preview = document.getElementById('preview'), pcap = document.getElementById('pcap');
   var plinks = Array.prototype.slice.call(document.querySelectorAll('.practice a'));
+  var pv98s = Array.prototype.slice.call(document.querySelectorAll('.pv98'));   /* v3.103: a set of tiles per word */
   /* v3.102: fetched ahead only where something can hover. A phone never shows
      these (a tap simply goes), and it was downloading both for nothing. */
   if (!window.matchMedia || !window.matchMedia('(any-hover: none)').matches) plinks.forEach(function(a){ var im = new Image(); im.src = a.dataset.img; }); /* preload */
   function showPreview(a){
-    /* v3.102: a word marked data-pv="light" (Marketing: the tiny people) brings
-       up the .pv98 tiles on white instead of a full-bleed picture, and says so
-       on #top and <html> so the word, the mark and the header turn to ink. */
-    var light = a.getAttribute('data-pv') === 'light';
+    /* v3.102: a word marked data-pv (Marketing: the tiny people) brings up
+       its .pv98 tiles on white instead of a full-bleed picture, and says so
+       on #top and <html> so the word, the mark and the header turn to ink.
+       v3.103: data-pv names the set (marketing | talent), each word its own. */
+    var pv = a.getAttribute('data-pv'), light = !!pv;
     document.getElementById('practice').classList.add('armed');
     plinks.forEach(function(x){ x.classList.toggle('on', x===a); });
     preview.style.backgroundImage = light ? 'none' : 'url("'+a.dataset.img+'")';
+    pv98s.forEach(function(d){ d.classList.toggle('on', d.getAttribute('data-pv') === pv); });
     pcap.textContent = a.dataset.cap;
     topSec.classList.toggle('pv-light', light);
     document.documentElement.classList.toggle('pv98-light', light);
