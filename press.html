@@ -42,6 +42,21 @@
                              While all three rows fit the window there is
                              nothing to travel, so the wall is not pinned
                              and its rows sit in the middle (.still).
+                             v3.108: "I had asked for the invites to be
+                             placed in the template itself. You could
+                             have changed or modified the content to fit
+                             in the template or for the template to fit
+                             in our invites" (Harsh, Oct 6). Both: the
+                             wall is the zip's 36 frames again, in its
+                             rows of 12, 14 and 10. Eleven upright frames
+                             take an invite's own shape and hold it
+                             whole; 25 close-ups cut from the same
+                             invites fill the wide and square frames,
+                             each in its invite's set. The rows run past
+                             any ordinary window, so the wall is pinned
+                             and travels as the zip's does; .still is
+                             left for a window so wide and short that
+                             all three fit.
      03 Digital & Social PR  creators' posts from our campaigns on a second
                              088 row, each at its own proportions.
 
@@ -51,9 +66,10 @@
    the line that describes each section; "sync press room" writes new pictures to
    assets/press/, assets/events/ and assets/social/ and regenerates this
    file from _press_template.html. Edit the template, not this. The events
-   wall splits its pictures into three rows in board order, each row as
-   close as can be to the others' width; with none, it keeps the zip's 36
-   empty frames.
+   wall fills three rows in board order, cut as the zip cuts its own: 12,
+   14 and 10 of 36, any other count in proportion (v3.108; until then the
+   rows were cut for the closest widths, which moved all three at one
+   speed); with none, it keeps the zip's 36 empty frames.
 
    The CSS ships the READABLE state: plain grids. The scripts add .fx
    before they move anything, so reduced motion or a blocked script
@@ -120,6 +136,15 @@ main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before th
 .w065 .medias{justify-content:center}
 .w065.fx.still .pin-height{height:auto}
 .w065.fx.still .medias{align-self:center}
+/* v3.108: without the effect (no script, or motion reduced) the wall is one justified gallery. It now holds the zip's
+   36 frames; three rows each wrapping on its own, in the middle, left ragged lines and a row's last frame on a line
+   by itself. The rows' boxes are set aside (display:contents) so the frames flow on from row to row, and each frame
+   grows with its own proportions (--ar), so every line runs the full width at one height; the ::after takes up the
+   slack of the last line, which stays at the frames' own height. None of this touches the wall once .fx is on. */
+.w065:not(.fx) .container{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px;padding:0 var(--m) 8px}
+.w065:not(.fx) .container::after{content:"";flex:1000 1 0}
+.w065:not(.fx) .medias{display:contents}
+.w065:not(.fx) .media{height:auto;min-width:0;flex:calc(var(--ar)) 1 calc(var(--ar) * clamp(120px, 16vw, 220px))}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -264,21 +289,46 @@ main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before th
     <div class="pin-height">
       <div class="container">
         <div class="medias">
-          <img class="media" src="assets/events/sky-lantern-sky-sunday-luncheon.webp" alt="Invitation: Sky Sunday Luncheon at Sky Lantern, Panchsheel Park, New Delhi. Sunday 27 November, 2 pm onwards" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
-          <img class="media" src="assets/events/one8-commune-the-brunch-club.webp" alt="Invitation: The Brunch Club at One8 Commune. 6 January 2023, 12 pm onwards" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
-          <img class="media" src="assets/events/the-weekend-rock-n-brunch.webp" alt="Invitation: Rock n’ Brunch at The Weekend, Gardens Galleria Mall, Noida. Sunday 22 January, 12 pm onwards" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
-          <img class="media" src="assets/events/poetry-cyber-hub-welcome.webp" alt="Welcome note from Poetry by Love &amp; Cheesecake to its guests at Cyber Hub, Gurgaon" width="641" height="1000" style="--ar:641/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-the-brunch-club-detail-1.webp" alt="" width="1000" height="708" style="--ar:1000/708" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-the-brunch-club.webp" alt="Invitation: The Brunch Club at One8 Commune. 6 January 2023, 12 pm onwards" width="576" height="1024" style="--ar:576/1024" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-the-brunch-club-detail-2.webp" alt="" width="1000" height="724" style="--ar:1000/724" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/rooh-ambawatta-one-mausiqi.webp" alt="Invitation: Mausiqi, a sufi evening by Rooh × Ambawatta One, with Shariq Mustafa. 9 April 2023, 8.30 pm onwards, Ambawatta One Courtyard" width="788" height="1400" style="--ar:788/1400" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/rooh-ambawatta-one-mausiqi-detail-1.webp" alt="" width="900" height="637" style="--ar:900/637" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/rooh-ambawatta-one-mausiqi-detail-2.webp" alt="" width="900" height="637" style="--ar:900/637" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-grants-commune-counter-detail-1.webp" alt="" width="900" height="636" style="--ar:900/636" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-grants-commune-counter-detail-2.webp" alt="" width="1000" height="982" style="--ar:1000/982" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-grants-commune-counter.webp" alt="Invitation: One8 Commune × Grant’s present Commune Counter, featuring The Whiskey Cruise. Friday 28 October 2022, One8 Commune, Punjabi Bagh" width="788" height="1400" style="--ar:788/1400" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/poetry-cyber-hub-welcome-detail-1.webp" alt="" width="1000" height="725" style="--ar:1000/725" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/poetry-cyber-hub-welcome.webp" alt="Welcome note from Poetry by Love &amp; Cheesecake to its guests at Cyber Hub, Gurgaon" width="821" height="1280" style="--ar:821/1280" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/poetry-cyber-hub-welcome-detail-2.webp" alt="" width="1000" height="709" style="--ar:1000/709" loading="lazy" decoding="async" draggable="false">
         </div>
         <div class="medias">
-          <img class="media" src="assets/events/one8-commune-hendricks-unusual-sundowner.webp" alt="Invitation: One8 Commune × Hendrick’s present The Unusual Sundowner, marking three years of One8 Commune. Friday 26 August, 6 pm onwards, Aerocity, New Delhi" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
-          <img class="media" src="assets/events/one8-commune-grants-commune-counter.webp" alt="Invitation: One8 Commune × Grant’s present Commune Counter, featuring The Whiskey Cruise. Friday 28 October 2022, One8 Commune, Punjabi Bagh" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
-          <img class="media" src="assets/events/deja-brew-sufi-and-sheesha-nights.webp" alt="Poster: Sufi &amp; Sheesha Nights at Deja Brew, Greater Kailash II, New Delhi. Azmat Sufi Band live, every Wednesday, 7.30 pm onwards" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
-          <img class="media" src="assets/events/rooh-ambawatta-one-mausiqi.webp" alt="Invitation: Mausiqi, a sufi evening by Rooh × Ambawatta One, with Shariq Mustafa. 9 April 2023, 8.30 pm onwards, Ambawatta One Courtyard" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/the-weekend-rock-n-brunch-detail-1.webp" alt="" width="1000" height="707" style="--ar:1000/707" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/the-weekend-rock-n-brunch.webp" alt="Invitation: Rock n’ Brunch at The Weekend, Gardens Galleria Mall, Noida. Sunday 22 January, 12 pm onwards" width="720" height="1280" style="--ar:720/1280" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/the-weekend-rock-n-brunch-detail-2.webp" alt="" width="1000" height="998" style="--ar:1000/998" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/flaunt-by-duty-free-launch-carnival-detail-1.webp" alt="" width="900" height="900" style="--ar:900/900" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/flaunt-by-duty-free-launch-carnival.webp" alt="Invitation: Flaunt by Duty Free, a launch carnival. 14 December 2022, 8 pm, Advant Navis, Sector 142, Noida" width="788" height="1400" style="--ar:788/1400" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/flaunt-by-duty-free-launch-carnival-detail-2.webp" alt="" width="1000" height="707" style="--ar:1000/707" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/sky-lantern-sky-sunday-luncheon.webp" alt="Invitation: Sky Sunday Luncheon at Sky Lantern, Panchsheel Park, New Delhi. Sunday 27 November, 2 pm onwards" width="788" height="1400" style="--ar:788/1400" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/sky-lantern-sky-sunday-luncheon-detail-1.webp" alt="" width="882" height="582" style="--ar:882/582" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/sky-lantern-sky-sunday-luncheon-detail-2.webp" alt="" width="900" height="637" style="--ar:900/637" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/sky-lantern-sky-sunday-luncheon-detail-3.webp" alt="" width="1000" height="1000" style="--ar:1000/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/hard-rock-cafe-rock-the-night-away-detail-1.webp" alt="" width="899" height="636" style="--ar:899/636" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/hard-rock-cafe-rock-the-night-away.webp" alt="Invitation: It’s Time to Rock the Night Away at Hard Rock Cafe New Delhi. 8 January, 8 pm; live music, drinks, food" width="787" height="1400" style="--ar:787/1400" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/hard-rock-cafe-rock-the-night-away-detail-2.webp" alt="" width="899" height="636" style="--ar:899/636" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/hard-rock-cafe-rock-the-night-away-detail-3.webp" alt="" width="1000" height="658" style="--ar:1000/658" loading="lazy" decoding="async" draggable="false">
         </div>
         <div class="medias">
-          <img class="media" src="assets/events/rooh-taiyiba-the-rooh-of-awadh.webp" alt="Invitation: Taiyiba, the Rooh of Awadh. Rooh × Cooked by Taiyaba Ali, dinner, Saturday 20 May 2023, 7.30 pm, Rooh, New Delhi" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
-          <img class="media" src="assets/events/flaunt-by-duty-free-launch-carnival.webp" alt="Invitation: Flaunt by Duty Free, a launch carnival. 14 December 2022, 8 pm, Advant Navis, Sector 142, Noida" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
-          <img class="media" src="assets/events/hard-rock-cafe-rock-the-night-away.webp" alt="Invitation: It’s Time to Rock the Night Away at Hard Rock Cafe New Delhi. 8 January, 8 pm; live music, drinks, food" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/rooh-taiyiba-the-rooh-of-awadh-detail-1.webp" alt="" width="900" height="637" style="--ar:900/637" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/rooh-taiyiba-the-rooh-of-awadh.webp" alt="Invitation: Taiyiba, the Rooh of Awadh. Rooh × Cooked by Taiyaba Ali, dinner, Saturday 20 May 2023, 7.30 pm, Rooh, New Delhi" width="788" height="1400" style="--ar:788/1400" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/rooh-taiyiba-the-rooh-of-awadh-detail-2.webp" alt="" width="1000" height="1000" style="--ar:1000/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/deja-brew-sufi-and-sheesha-nights-detail-1.webp" alt="" width="992" height="702" style="--ar:992/702" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/deja-brew-sufi-and-sheesha-nights.webp" alt="Poster: Sufi &amp; Sheesha Nights at Deja Brew, Greater Kailash II, New Delhi. Azmat Sufi Band live, every Wednesday, 7.30 pm onwards" width="720" height="1280" style="--ar:720/1280" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/deja-brew-sufi-and-sheesha-nights-detail-2.webp" alt="" width="1000" height="725" style="--ar:1000/725" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/deja-brew-sufi-and-sheesha-nights-detail-3.webp" alt="" width="1000" height="660" style="--ar:1000/660" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-hendricks-unusual-sundowner-detail-1.webp" alt="" width="1000" height="707" style="--ar:1000/707" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-hendricks-unusual-sundowner-detail-2.webp" alt="" width="1000" height="725" style="--ar:1000/725" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-hendricks-unusual-sundowner.webp" alt="Invitation: One8 Commune × Hendrick’s present The Unusual Sundowner, marking three years of One8 Commune. Friday 26 August, 6 pm onwards, Aerocity, New Delhi" width="720" height="1280" style="--ar:720/1280" loading="lazy" decoding="async" draggable="false">
         </div>
       </div>
     </div>
@@ -547,7 +597,11 @@ main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before th
       most (the zip's 400vh, which a full wall still gets). Measured
       before every refresh, in the rows' own one-line layout, so a resize
       or a late picture can change its mind.
-   Nothing at all without GSAP or with reduced motion: the rows wrap. */
+   6. (v3.108) Pictures that land late ask for one re-measure between
+      them, 200ms after the last, not one each: there are 36 now, and
+      each already holds its width before it loads (--ar).
+   Nothing at all without GSAP or with reduced motion: the frames wrap
+   as one gallery (see the CSS). */
 (function(){
   var root = document.getElementById('w065'); if (!root) return;
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -574,9 +628,9 @@ main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before th
     });
     return function(){ ScrollTrigger.removeEventListener('refreshInit', fit); pinHeight.style.height = ''; root.classList.remove('fx', 'still'); };
   });
-  var imgs = [].slice.call(root.querySelectorAll('img.media'));
+  var imgs = [].slice.call(root.querySelectorAll('img.media')), late = 0;
   imgs.forEach(function(img){
-    if (!img.complete) img.addEventListener('load', function(){ ScrollTrigger.refresh(); }, { once: true });
+    if (!img.complete) img.addEventListener('load', function(){ clearTimeout(late); late = setTimeout(function(){ ScrollTrigger.refresh(); }, 200); }, { once: true });
   });
   if (imgs.length && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(es){
