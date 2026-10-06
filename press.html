@@ -35,6 +35,13 @@
                              scroll so all three reach their ends together.
                              Empty frames at the zip's proportions until
                              Harsh's event photos arrive (see the rows).
+                             v3.106: the first eleven are in, invites to
+                             the nights we ran ("place these invites
+                             under Events & Experiential Marketing";
+                             Harsh, Oct 6, who chose three small rows).
+                             While all three rows fit the window there is
+                             nothing to travel, so the wall is not pinned
+                             and its rows sit in the middle (.still).
      03 Digital & Social PR  creators' posts from our campaigns on a second
                              088 row, each at its own proportions.
 
@@ -105,6 +112,14 @@ main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before th
 .w065.fx .medias{flex-wrap:nowrap;width:max-content;height:calc(33.33% - 32px / 3);padding:0 8px}
 .w065.fx .media{height:100%}
 @supports (height:100svh){ .w065.fx .container{height:calc(100svh - var(--s98-h,0px))} }
+/* v3.106: a wall whose three rows all fit the window has nothing to travel. The script puts .still on it while
+   that is so: no 400vh held with nothing moving, and each row in the middle of the screen. It comes off the
+   moment a row outgrows the window (a phone, a narrower window, more pictures), and the wall pins and travels
+   as it was built to, for a runway the script sizes to the travel (400vh is the most, and what stands until
+   the script has measured). Without the script, or with motion reduced, the rows wrap, in the middle too. */
+.w065 .medias{justify-content:center}
+.w065.fx.still .pin-height{height:auto}
+.w065.fx.still .medias{align-self:center}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -249,46 +264,21 @@ main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before th
     <div class="pin-height">
       <div class="container">
         <div class="medias">
-          <div class="media ph" style="--ar:622/440" data-n="01" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:348/440" data-n="02" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:667/440" data-n="03" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="04" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:440/440" data-n="05" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:348/440" data-n="06" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="07" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:440/440" data-n="08" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:448/440" data-n="09" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:607/440" data-n="10" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="11" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:348/440" data-n="12" aria-hidden="true"></div>
+          <img class="media" src="assets/events/sky-lantern-sky-sunday-luncheon.webp" alt="Invitation: Sky Sunday Luncheon at Sky Lantern, Panchsheel Park, New Delhi. Sunday 27 November, 2 pm onwards" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-the-brunch-club.webp" alt="Invitation: The Brunch Club at One8 Commune. 6 January 2023, 12 pm onwards" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/the-weekend-rock-n-brunch.webp" alt="Invitation: Rock n’ Brunch at The Weekend, Gardens Galleria Mall, Noida. Sunday 22 January, 12 pm onwards" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/poetry-cyber-hub-welcome.webp" alt="Welcome note from Poetry by Love &amp; Cheesecake to its guests at Cyber Hub, Gurgaon" width="641" height="1000" style="--ar:641/1000" loading="lazy" decoding="async" draggable="false">
         </div>
         <div class="medias">
-          <div class="media ph" style="--ar:348/440" data-n="13" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="14" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:440/440" data-n="15" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="16" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:348/440" data-n="17" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:448/440" data-n="18" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="19" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:440/440" data-n="20" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:667/440" data-n="21" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:348/440" data-n="22" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:607/440" data-n="23" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="24" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:348/440" data-n="25" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="26" aria-hidden="true"></div>
+          <img class="media" src="assets/events/one8-commune-hendricks-unusual-sundowner.webp" alt="Invitation: One8 Commune × Hendrick’s present The Unusual Sundowner, marking three years of One8 Commune. Friday 26 August, 6 pm onwards, Aerocity, New Delhi" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/one8-commune-grants-commune-counter.webp" alt="Invitation: One8 Commune × Grant’s present Commune Counter, featuring The Whiskey Cruise. Friday 28 October 2022, One8 Commune, Punjabi Bagh" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/deja-brew-sufi-and-sheesha-nights.webp" alt="Poster: Sufi &amp; Sheesha Nights at Deja Brew, Greater Kailash II, New Delhi. Azmat Sufi Band live, every Wednesday, 7.30 pm onwards" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/rooh-ambawatta-one-mausiqi.webp" alt="Invitation: Mausiqi, a sufi evening by Rooh × Ambawatta One, with Shariq Mustafa. 9 April 2023, 8.30 pm onwards, Ambawatta One Courtyard" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
         </div>
         <div class="medias">
-          <div class="media ph" style="--ar:622/440" data-n="27" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:667/440" data-n="28" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:440/440" data-n="29" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="30" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:348/440" data-n="31" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:607/440" data-n="32" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:448/440" data-n="33" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:440/440" data-n="34" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:622/440" data-n="35" aria-hidden="true"></div>
-          <div class="media ph" style="--ar:348/440" data-n="36" aria-hidden="true"></div>
+          <img class="media" src="assets/events/rooh-taiyiba-the-rooh-of-awadh.webp" alt="Invitation: Taiyiba, the Rooh of Awadh. Rooh × Cooked by Taiyaba Ali, dinner, Saturday 20 May 2023, 7.30 pm, Rooh, New Delhi" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/flaunt-by-duty-free-launch-carnival.webp" alt="Invitation: Flaunt by Duty Free, a launch carnival. 14 December 2022, 8 pm, Advant Navis, Sector 142, Noida" width="563" height="1000" style="--ar:563/1000" loading="lazy" decoding="async" draggable="false">
+          <img class="media" src="assets/events/hard-rock-cafe-rock-the-night-away.webp" alt="Invitation: It’s Time to Rock the Night Away at Hard Rock Cafe New Delhi. 8 January, 8 pm; live music, drinks, food" width="562" height="1000" style="--ar:562/1000" loading="lazy" decoding="async" draggable="false">
         </div>
       </div>
     </div>
@@ -549,6 +539,14 @@ main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before th
    4. The pictures load lazily, and all at once when the wall comes within
       a screen of view: a row's far end is clipped, so the browser alone
       would fetch those only as they slide in.
+   5. (v3.106) The runway is as long as the rows need. While every row
+      fits the window the wall is .still: the runway is the wall's own
+      height, so nothing is held, and the rows sit in the middle. When a
+      row runs past the window the wall is held for three pixels of scroll
+      to each pixel the longest row has to travel, four screens at the
+      most (the zip's 400vh, which a full wall still gets). Measured
+      before every refresh, in the rows' own one-line layout, so a resize
+      or a late picture can change its mind.
    Nothing at all without GSAP or with reduced motion: the rows wrap. */
 (function(){
   var root = document.getElementById('w065'); if (!root) return;
@@ -561,12 +559,20 @@ main{padding-bottom:clamp(80px,14vh,160px)}   /* the last row breathes before th
 
   gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', function(){
     root.classList.add('fx');
+    function fit(){
+      var vw = document.body.clientWidth, far = 0;
+      rows.forEach(function(row){ far = Math.max(far, row.scrollWidth - vw); });
+      root.classList.toggle('still', far <= 0);
+      pinHeight.style.height = far > 0 ? Math.min(4 * window.innerHeight, container.offsetHeight + 3 * far) + 'px' : '';
+    }
+    fit();
+    ScrollTrigger.addEventListener('refreshInit', fit);
     ScrollTrigger.create({ trigger: pinHeight, start: under, end: 'bottom bottom', pin: container, invalidateOnRefresh: true });
     var tl = gsap.timeline({ scrollTrigger: { trigger: pinHeight, start: under, end: 'bottom bottom', scrub: true, invalidateOnRefresh: true } });
     rows.forEach(function(row){
       tl.to(row, { x: function(){ return -Math.max(0, row.scrollWidth - document.body.clientWidth); }, ease: 'none', duration: 1 }, 0);
     });
-    return function(){ root.classList.remove('fx'); };
+    return function(){ ScrollTrigger.removeEventListener('refreshInit', fit); pinHeight.style.height = ''; root.classList.remove('fx', 'still'); };
   });
   var imgs = [].slice.call(root.querySelectorAll('img.media'));
   imgs.forEach(function(img){
