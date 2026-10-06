@@ -28,23 +28,39 @@ document.documentElement.classList.add('js');})();
    01 The nights — the directory, beside the headline.
    02 The room   — the montage, then what experiential actually buys.
    03 The records — every case filed under this room.
-   Shared rules in assets/room.css; the film band is the only addition.
+   Shared rules in assets/room.css; the film is the only addition.
    ========================================================================= */
 :root{ --room:#EE352E; }   /* The Night's colour on the flywheel */
 
 .roomtag{display:inline-block;border:1px solid var(--room);color:var(--room);padding:2px 7px;line-height:16px}
 
-/* the film band — one montage, full width of the grid, no chrome.
-   v3.66: the poster is the montage's own first frame (assets/montage-poster.jpg); it was
-   assets/montage/m1.jpg, a New York subway sign from the retired flicker set, which stood
-   in for the film until it played and for good under reduced motion. */
+/* the film — one upright screen on the grid, nothing beside it, no chrome.
+   v3.66: the poster is a frame of the film itself; it was assets/montage/m1.jpg, a New
+   York subway sign from the retired flicker set, which stood in for the film until it
+   played and for good under reduced motion.
+   v3.105: the film is Harsh's own (assets/events.mp4, 720x960, 38 s, silent) in place of
+   the stand-in montage, which was a 16:7 band the width of the grid and started by itself.
+   Harsh, Oct 6: "wire this video in the events section"; of three layouts he chose "One
+   screen, plain". .fr is the screen, its note and its caption, in the middle of the grid:
+   480px wide at most (the film is 720 wide; much past that it only gets soft), as tall as
+   the window allows down to 180px wide, the width of the page on a phone. .sc is the screen.
+   THE FILM DOES NOT START BY ITSELF, AND MUST NOT BE MADE TO. It flashes far more than
+   three times a second (the white-flash cuts, the stage lights, an LED wall strobing at
+   the end): past WCAG 2.3.1's limit at any size, and a risk to anyone photosensitive (the
+   measure is Workshop/_v3105_film/flashaudit.py). Waiting for a press, and saying so
+   first, lowers that risk; it does not make the page pass. Shown the film beside a
+   steadied one, Harsh chose "Keep my edit, press Play": the still stands until Play is
+   pressed, the note (.warn) sits on the button's own line, and the film plays once. */
 .film{margin-top:var(--lh)}
-.film .fr{grid-column:1/13;position:relative;aspect-ratio:16/7;overflow:hidden;background:#000;outline:1px solid var(--line);outline-offset:-1px}
+.film .fr{grid-column:1/13;justify-self:center;width:100%;max-width:480px}
+.film .fr{width:min(100%,480px,max(180px,calc((100vh - 170px)*.75)))}   /* a browser that does not know min() keeps the line above */
+.film .sc{position:relative;aspect-ratio:3/4;overflow:hidden;background:#000;outline:1px solid var(--line);outline-offset:-1px}
 .film video{width:100%;height:100%;object-fit:cover;display:block}
-.film .cap{grid-column:1/13;display:flex;justify-content:space-between;gap:var(--gap);margin-top:6px;flex-wrap:wrap}
-.film button.snd{border-bottom:1px solid var(--line);padding-bottom:1px}
-.film button.snd:hover{opacity:.5}
-@media(max-width:900px){ .film .fr{aspect-ratio:16/10} }
+.film .cap{display:flex;justify-content:space-between;align-items:baseline;gap:var(--gap);margin-top:6px}
+.film .cap .snd{flex:none;min-width:38px;text-align:right}   /* Play and Pause are one width, so the note beside them never re-wraps */
+.film button.snd{position:relative;border-bottom:1px solid var(--line);padding-bottom:1px}
+.film button.snd::after{content:"";position:absolute;inset:-12px -10px}   /* a thumb-sized target under the same word */
+@media(hover:hover){ .film button.snd:hover{opacity:.5} }
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -188,11 +204,14 @@ document.documentElement.classList.add('js');})();
 </div>
 <section class="g film" aria-label="Montage — the nights">
   <div class="fr">
-    <video id="montage" src="assets/montage.mp4" muted loop playsinline preload="metadata" poster="assets/montage-poster.jpg" aria-label="Montage from the nights"></video>
-  </div>
-  <div class="cap">
-    <span class="faint">Montage &mdash; from the floor, across the twelve</span>
-    <button class="snd" id="playbtn" type="button">Play &nearr;</button>
+    <div class="sc">
+      <video id="montage" src="assets/events.mp4" width="720" height="960" muted playsinline preload="none" poster="assets/events-poster.jpg" aria-label="Montage from the nights"></video>
+    </div>
+    <div class="cap">
+      <span class="warn" id="flashnote">Contains fast flashing lights</span>
+      <button class="snd" id="playbtn" type="button" aria-describedby="flashnote">Play &nearr;</button>
+    </div>
+    <p class="capline faint">Montage &mdash; from the floor, across the twelve</p>
   </div>
 </section>
 <section class="second" aria-label="Forty creators in the room is the campaign">
@@ -281,23 +300,37 @@ document.documentElement.classList.add('js');})();
 
 <script src="assets/room.js"></script>
 <script>
-/* the montage plays when it is on screen and stops when it isn't — no
-   autoplay bandwidth spent on a page nobody scrolled to, and a button for
-   anyone whose browser refuses inline autoplay. */
+/* v3.105: the film waits for Play (the note in the styles above says why).
+   Only a press of the button may start it: `asked` is true from a press until
+   the film next stops, and a play that nobody asked for - a browser resuming
+   it in a tab come back to, a context menu, a media key - is stopped as it
+   starts. Nothing of the film is fetched before the first press (preload
+   none). It stops when it scrolls out of view, when the tab is hidden and
+   when the page is left, and stays stopped. It plays once: at its end the
+   source comes off, so the still returns and nothing is fetched again until
+   the next press.
+   (Until v3.104 the stand-in montage played whenever it was on screen.) */
 (function(){
   var v=document.getElementById('montage'), btn=document.getElementById('playbtn');
-  if(!v) return;
-  function label(){ if(btn) btn.textContent = v.paused ? 'Play ↗' : 'Pause'; }
-  if(btn) btn.addEventListener('click', function(){ if(v.paused){ v.play().catch(function(){}); } else { v.pause(); } label(); });
-  v.addEventListener('play', label); v.addEventListener('pause', label);
-  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+  if(!v||!btn) return;
+  var src=v.getAttribute('src'), asked=false;
+  function label(){ btn.textContent = v.paused ? 'Play ↗' : 'Pause'; }
+  function stop(){ if(!v.paused) v.pause(); }
+  btn.addEventListener('click', function(){
+    if(!v.paused){ v.pause(); return; }
+    asked=true; if(!v.hasAttribute('src')) v.setAttribute('src',src);
+    v.play().catch(function(){ if(v.paused) asked=false; });
+  });
+  v.addEventListener('play', function(){ if(!asked) v.pause(); label(); });
+  v.addEventListener('pause', function(){ if(v.paused) asked=false; label(); });
+  v.addEventListener('ended', function(){ asked=false; v.removeAttribute('src'); v.load(); label(); });
+  if('IntersectionObserver' in window){
     new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){ v.play().then(label).catch(function(){}); }
-        else { v.pause(); label(); }
-      });
+      es.forEach(function(e){ if(!e.isIntersecting) stop(); });
     },{threshold:.35}).observe(v);
   }
+  addEventListener('pagehide', stop);
+  document.addEventListener('visibilitychange', function(){ if(document.hidden) stop(); });
   label();
 })();
 </script>
