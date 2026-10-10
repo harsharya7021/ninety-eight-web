@@ -1794,8 +1794,8 @@ if (document.readyState === 'loading') {
   <!-- The brief, as a postcard: the drum asks, this is where the answer gets
        written. The card hangs on the 089 physics — a soft pin and scroll
        tugs, so it sways like jelly and settles — and springs in elastically
-       the first time it enters. "Send the brief" composes the mail from the
-       fields; nothing needs a backend. -->
+       the first time it enters. "Send the brief" posts the fields to
+       Formspree (v3.113); "mail it instead" is the fallback. -->
   <div class="pc-wrap" id="pc-wrap">
     <article class="postcard" id="postcard">
       <span class="pc-tag mono">Priority · Drop : 98</span>
@@ -3130,9 +3130,10 @@ if (document.readyState === 'loading') {
 
   /* The postcard posts for real now. A mailto was the whole conversion path —
      on a phone that is a bounce into an unconfigured mail app and a lost brief.
-     Harsh: create the form at formspree.io and paste its ID over REPLACE_ME;
-     until then submissions take the old mailto road, so nothing is ever dead. */
-  var ENDPOINT='https://formspree.io/f/REPLACE_ME';
+     v3.113 (Oct 10, 2026): the endpoint is Harsh's Formspree form "The brief
+     (ninety-eight.in)". A failed post shows the mail-it-instead link; an
+     endpoint set back to REPLACE_ME would take the old mailto road. */
+  var ENDPOINT='https://formspree.io/f/myekjwjl';
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var v=function(n){ var el=form.elements[n]; return el&&el.value?el.value.trim():''; };
