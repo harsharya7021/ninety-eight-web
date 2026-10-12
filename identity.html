@@ -56,7 +56,7 @@ document.documentElement.classList.add('js');})();
 .strip .datas .year a{opacity:1}
 /* every cover in the strip is a poster: 1080x1920, the shape the showcase
    files are cut to. The three that have one carry it; the four still to be
-   made hold a placeholder in the same frame. Same box for all of them —
+   made say Loading in the same frame (v3.114). Same box for all of them —
    so every open project is the same width, and opening the one under the
    pointer never moves another one under it (v3.83). */
 .strip .media{display:block;margin:15px;width:calc(100% - 30px);aspect-ratio:1080/1920;overflow:hidden;background:var(--bg);position:relative;
@@ -67,6 +67,19 @@ document.documentElement.classList.add('js');})();
   text-transform:uppercase;opacity:.12}
 .strip .media.ph span{opacity:var(--faint)}
 a.media.ph:hover b{opacity:.2}
+/* v3.114: a frame that waits for its poster says Loading (Harsh, Oct 12:
+   "wherever there are placeholders mention loading"). Three dots follow the
+   word; as the frame opens each dims and comes back in turn, three times
+   (4.9s in all, so nothing blinks without end), then they rest. With motion
+   reduced they never move. The word is plain text and the dots are hidden
+   from assistive tech: nothing here is marked busy, because nothing is on
+   its way down the wire. The three frames that are links carry an
+   aria-label, or a list of links would read them as "C Loading". */
+.strip .media.ph .ld i{font-style:normal;animation:ld98 1.5s 3 both}
+.strip .media.ph .ld i:nth-child(2){animation-delay:.2s}
+.strip .media.ph .ld i:nth-child(3){animation-delay:.4s}
+@keyframes ld98{0%,60%,100%{opacity:1}30%{opacity:.15}}
+@media (prefers-reduced-motion:reduce){ .strip .media.ph .ld i{animation:none} }
 .strip .project:not(:first-child){border-top:1px solid var(--line)}
 @media(min-width:901px){
   /* v3.83: opened by hover, not by scroll — so no runway: the row is one
@@ -210,19 +223,19 @@ a.media.ph:hover b{opacity:.2}
       </div>
       <div class="project">
         <div class="datas"><p class="label">Noidawery</p><p class="year"><span>Brewery &amp; restaurant &mdash; banner &middot; 2023</span></p></div>
-        <div class="media ph"><b>N</b><span>Poster to come</span></div>
+        <div class="media ph"><b>N</b><span class="ld">Loading<i aria-hidden="true">.</i><i aria-hidden="true">.</i><i aria-hidden="true">.</i></span></div>
       </div>
       <div class="project">
         <div class="datas"><p class="label">CHNKRS</p><p class="year"><span>Sneaker reselling platform &mdash; app concept &middot; 2022</span><a href="https://www.behance.net/gallery/135300689/x" target="_blank" rel="noopener">Behance &nearr;</a></p></div>
-        <a class="media ph" href="https://www.behance.net/gallery/135300689/x" target="_blank" rel="noopener"><b>C</b><span>Poster to come</span></a>
+        <a class="media ph" href="https://www.behance.net/gallery/135300689/x" target="_blank" rel="noopener" aria-label="CHNKRS on Behance, poster loading"><b>C</b><span class="ld">Loading<i aria-hidden="true">.</i><i aria-hidden="true">.</i><i aria-hidden="true">.</i></span></a>
       </div>
       <div class="project">
         <div class="datas"><p class="label">Ruto</p><p class="year"><span>Travel app &mdash; concept &middot; 2022</span><a href="https://www.behance.net/gallery/135300883/x" target="_blank" rel="noopener">Behance &nearr;</a></p></div>
-        <a class="media ph" href="https://www.behance.net/gallery/135300883/x" target="_blank" rel="noopener"><b>R</b><span>Poster to come</span></a>
+        <a class="media ph" href="https://www.behance.net/gallery/135300883/x" target="_blank" rel="noopener" aria-label="Ruto on Behance, poster loading"><b>R</b><span class="ld">Loading<i aria-hidden="true">.</i><i aria-hidden="true">.</i><i aria-hidden="true">.</i></span></a>
       </div>
       <div class="project">
         <div class="datas"><p class="label">Search</p><p class="year"><span>Home-finding app &mdash; concept &middot; 2022</span><a href="https://www.behance.net/gallery/135301101/x" target="_blank" rel="noopener">Behance &nearr;</a></p></div>
-        <a class="media ph" href="https://www.behance.net/gallery/135301101/x" target="_blank" rel="noopener"><b>S</b><span>Poster to come</span></a>
+        <a class="media ph" href="https://www.behance.net/gallery/135301101/x" target="_blank" rel="noopener" aria-label="The Search app concept on Behance, poster loading"><b>S</b><span class="ld">Loading<i aria-hidden="true">.</i><i aria-hidden="true">.</i><i aria-hidden="true">.</i></span></a>
       </div>
     </div>
   </div>
