@@ -61,6 +61,48 @@ document.documentElement.classList.add('js');})();
 .film button.snd{position:relative;border-bottom:1px solid var(--line);padding-bottom:1px}
 .film button.snd::after{content:"";position:absolute;inset:-12px -10px}   /* a thumb-sized target under the same word */
 @media(hover:hover){ .film button.snd:hover{opacity:.5} }
+
+/* ---------- v3.116: the nights in pictures — effect 064, on every screen but a phone's ----------
+   Harsh, Oct 13: "populating the events pictures on a desktop or any device which doesn't have the
+   viewport of a mobile phone", with the MWG 064 zip: "use this template for the events page". So 02
+   The room opens on the zip's gallery: its two lines in the middle (the site's words, in Archivo at
+   the zip's size), its frames — max(14vw,100px) squares, each photo whole inside its own — set out
+   on its sunflower spiral over the screen, each coming in from in front of the viewer as the page
+   scrolls, pinned under the header for the zip's 400vh (more, in proportion, for more than its
+   twelve: --pin). The film is behind "Watch the film" (#reel opens it, by :target, no script). A
+   phone — narrower than 601px, or on its side: under 501px tall with no hover — keeps the film as it
+   was and never fetches the photos (lazy, inside a section it never shows). Without script or with
+   motion reduced the photos are one gallery under the lines; the script puts .fx on the section for
+   the effect. Its pictures are in assets/nights/. Like every picture in a room, each frame also wears
+   the site's soft-picture hairline and lift (site.css), which the zip's frames do not. */
+.ev064{position:relative;margin-top:var(--lh)}
+.ev064 .text{display:flex;flex-direction:column;align-items:center;text-align:center;margin:0 var(--m) calc(var(--lh)*1.5);
+  font-size:min(65px,6vw);line-height:1;font-weight:500;letter-spacing:-.02em}
+.ev064 .text span:last-child{opacity:.6}
+.ev064 .container{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 var(--m)}
+.ev064 .media{height:clamp(120px,16vw,220px)}
+.ev064 .media img{display:block;height:100%;width:auto;border-radius:6px}
+.ev064 .text{flex:0 0 100%}
+/* the effect: the zip's rules, under the site's header */
+.ev064.fx .pin-height{height:var(--pin,400vh)}
+.ev064.fx .container{display:block;position:relative;margin:0;height:calc(100vh - var(--s98-h,0px));perspective:250vw}
+@supports (height:100svh){ .ev064.fx .container{height:calc(100svh - var(--s98-h,0px))} }
+.ev064.fx .text{position:absolute;top:50%;left:50%;margin:0;width:max-content}   /* centred by the script (xPercent/yPercent -50), as the zip's translate(-50%,-50%) */
+.ev064.fx .media{position:absolute;top:50%;left:50%;width:max(14vw,100px);height:max(14vw,100px);
+  display:flex;justify-content:center;align-items:center;opacity:0}
+.ev064.fx .media img{border-radius:.5vw}
+.ev064.fx .media img.landscape{width:100%;height:auto}
+.ev064.fx .media img.portrait{width:auto;height:100%}
+.watch{margin-top:var(--lh)}
+.watch a{grid-column:1/13;justify-self:center;border-bottom:1px solid var(--line);padding-bottom:1px}
+@media(hover:hover){ .watch a:hover{opacity:.5} }
+.film{scroll-margin-top:calc(var(--s98-h,40px) + var(--lh))}
+.film:not(:target){display:none}
+/* a phone keeps the page as it was */
+@media (max-width:600px), (max-height:500px) and (hover:none){
+  .ev064, .watch{display:none}
+  .film:not(:target){display:grid}
+}
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -196,7 +238,42 @@ document.documentElement.classList.add('js');})();
   <span class="t" style="--i:1">The room</span>
   <span class="s faint" style="--i:2">Experiential, which is a long way of saying: be in the room</span>
 </div>
-<section class="g film" aria-label="Montage — the nights">
+<!-- v3.116: the nights in pictures, effect 064 (see the styles). Phones keep the film below. -->
+<section class="ev064" id="nights-in-pictures" aria-label="The nights, in pictures" style="--pin:535vh">
+  <div class="pin-height">
+    <div class="container">
+      <p class="text"><span>In the room,</span><span>on the night.</span></p>
+          <div class="media"><img class="portrait" src="assets/nights/0884.webp" width="667" height="1000" alt="A singer in a red shirt, mid-song, under pink light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/0887.webp" width="1000" height="667" alt="A singer under the lighting truss, in teal light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/1017.webp" width="1000" height="667" alt="A DJ at the decks, a beam of teal light across the stage" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5078.webp" width="1000" height="751" alt="The band on a dark stage under a row of lights, in black and white" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/cb9e5335.webp" width="1000" height="667" alt="A guitarist singing with his head back, in black and white" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/1016.webp" width="1000" height="667" alt="A DJ in a leather jacket at the decks, in red light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/0900.webp" width="1000" height="920" alt="A singer in a red shirt, mid-note, under magenta light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="portrait" src="assets/nights/0890.webp" width="667" height="1000" alt="A singer under the truss, in green light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5623.webp" width="1000" height="667" alt="A guitarist at the microphone in blue light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5077.webp" width="1000" height="751" alt="A drummer at the kit, in black and white" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/1021.webp" width="1000" height="667" alt="A DJ in headphones, shouting, under the truss in pink light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/773e8608.webp" width="1000" height="668" alt="Zaeden at the decks, in black and white" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/61c18f7b.webp" width="1000" height="667" alt="Zaeden at the decks, his name on the screen behind him, in black and white" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/1018.webp" width="1000" height="667" alt="A DJ at the decks beside a laptop, in blue light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5625.webp" width="1000" height="667" alt="A guitarist at the microphone in red and green light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/0889.webp" width="1000" height="667" alt="A singer in a red shirt, the truss and speakers behind him" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="portrait" src="assets/nights/1015.webp" width="721" height="1000" alt="A DJ in headphones and a leather jacket, hands raised, in blue light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5619.webp" width="1000" height="667" alt="Two guitarists on a smoky stage in blue light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5630.webp" width="1000" height="667" alt="A DJ with red hair on the microphone at the decks" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/1020.webp" width="1000" height="667" alt="A DJ at the laptop, the lights of the crowd beyond, in teal" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5075.webp" width="1000" height="751" alt="A drummer, sticks raised, in black and white" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/0888.webp" width="1000" height="667" alt="A singer in profile at the microphone, in teal light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5624.webp" width="1000" height="667" alt="Three musicians on stage in purple light" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/5620.webp" width="1000" height="667" alt="A guitarist at the microphone in stage smoke, in black and white" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/0883.webp" width="1000" height="667" alt="A singer in red on a stage strung with amber lights" loading="lazy" decoding="async"></div>
+          <div class="media"><img class="landscape" src="assets/nights/1019.webp" width="1000" height="630" alt="A DJ, arms up, behind the decks, in teal light" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+<div class="g watch"><a href="#reel">Watch the film &darr;</a></div>
+<section class="g film" id="reel" aria-label="Montage — the nights">
   <div class="fr">
     <div class="sc">
       <video id="montage" src="assets/events.mp4" width="720" height="960" muted playsinline preload="none" poster="assets/events-poster.jpg" aria-label="Montage from the nights"></video>
@@ -329,6 +406,84 @@ document.documentElement.classList.add('js');})();
 })();
 </script>
 <script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script>
+/* ---- v3.116: the nights in pictures, effect 064 (see the styles) ----
+   The zip's script, kept: a Vogel spiral (radius sqrt((i+.5)/n), the golden angle, a random start)
+   over the stage less one frame; a timeline scrubbed (1) over the pin — the lines fade and shrink
+   (.1), then each frame comes in from z = 0.9 x the window's width to 0 (back.out(1.7), 2 long, one
+   every .1) and fades in over its first .1. Added: it runs only where the gallery shows (not on a
+   phone) and with motion allowed (gsap.matchMedia: it undoes itself when either changes); it pins
+   under the header; sizes and the spiral are measured again on every refresh, once the pin has
+   let go (the zip measures once, at load); and the photos are fetched when the section comes near, not before. */
+(function(){
+  var root=document.getElementById('nights-in-pictures');
+  if(!root||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+  var pinHeight=root.querySelector('.pin-height'), container=root.querySelector('.container'),
+      text=root.querySelector('.text'), medias=[].slice.call(root.querySelectorAll('.media'));
+  var PHONE='(max-width:600px), (max-height:500px) and (hover:none)';
+  function under(){ var h=document.getElementById('s98-head'); return 'top '+(h?h.offsetHeight:0)+'px'; }
+  var golden=Math.PI*(3-Math.sqrt(5)), start=Math.random()*Math.PI*2;
+  gsap.matchMedia().add({fx:'(prefers-reduced-motion: no-preference)', phone:PHONE}, function(ctx){
+    if(!ctx.conditions.fx||ctx.conditions.phone) return;
+    root.classList.add('fx');
+    gsap.set(text,{xPercent:-50, yPercent:-50});
+    function place(){
+      var vw=window.innerWidth, w=container.clientWidth, h=container.clientHeight;
+      var size=Math.max(vw*.14,100), rx=(w-size)/2, ry=(h-size)/2, total=medias.length;
+      medias.forEach(function(m,i){
+        var r=Math.sqrt((i+.5)/total), a=start+i*golden;
+        gsap.set(m,{x:Math.cos(a)*r*rx, y:Math.sin(a)*r*ry, xPercent:-50, yPercent:-50});
+      });
+    }
+    place();
+    /* measured again once the pin has let go of the stage: at refreshInit it still wears the last window's size */
+    ScrollTrigger.addEventListener('revert',place);
+    var A=0, Z=0;   /* where the hold starts and ends, as last measured (for the place-keeping below) */
+    var tl=gsap.timeline({scrollTrigger:{trigger:pinHeight, start:under, end:'bottom bottom', scrub:1, pin:container, invalidateOnRefresh:true,
+      onRefresh:function(self){ A=self.start; Z=self.end; }}});
+    tl.to(text,{autoAlpha:0, scale:.9, duration:.1, ease:'power1.in'});
+    medias.forEach(function(m,i){
+      tl.fromTo(m,{z:function(){ return .9*window.innerWidth; }, scale:1},{z:0, duration:2, ease:'back.out(1.7)'},i*.1);
+      tl.to(m,{opacity:1, duration:.1, ease:'power2.in'},'<');
+    });
+    /* when the effect is switched off under the reader (motion reduced, or the window narrowed to a
+       phone's), the hold goes and the page shortens: keep the place. Below the gallery the next
+       section stays where it was on the screen; inside it, the reader is put at the start of 02.
+       Where the reader was is read from the pin's last measure and the last scroll, because by the
+       time this runs a narrowed window has already hidden the section. */
+    var next=document.querySelector('.second'), kick=document.getElementById('room'), was=null, lastY=0, tick=0;
+    function note(){ tick=0; lastY=window.scrollY; was=next?next.getBoundingClientRect().top:null; }
+    function seen(){ if(!tick) tick=requestAnimationFrame(note); }
+    addEventListener('scroll',seen,{passive:true}); note();
+    return function(){
+      var y=lastY, a=A, z=Z, w=was;   /* a narrowed window may already have clamped the scroll */
+      removeEventListener('scroll',seen); if(tick) cancelAnimationFrame(tick);
+      ScrollTrigger.removeEventListener('revert',place); root.classList.remove('fx');
+      gsap.set(medias,{clearProps:'all'}); gsap.set(text,{clearProps:'all'});
+      if(y<a) return;
+      function back(){
+        var head=document.getElementById('s98-head'), hh=head?head.offsetHeight:0;
+        if(y>=z&&next&&w!==null) window.scrollTo(0,next.getBoundingClientRect().top+window.scrollY-w);
+        else if(kick) window.scrollTo(0,kick.getBoundingClientRect().top+window.scrollY-hh);
+      }
+      requestAnimationFrame(function(){ requestAnimationFrame(back); });
+      setTimeout(back,350);
+    };
+  });
+  /* the photos are lazy; once the section is within a screen of the window they are all asked for
+     together (on most computers that is as the page loads: the section starts just below the fold) */
+  if('IntersectionObserver' in window){
+    var imgs=[].slice.call(root.querySelectorAll('img'));
+    var io=new IntersectionObserver(function(es){
+      if(!es[0].isIntersecting||matchMedia(PHONE).matches) return;
+      imgs.forEach(function(i){ i.loading='eager'; }); io.disconnect();
+    },{rootMargin:'100% 0px'});
+    io.observe(root);
+  }
+})();
+</script>
 <script src="assets/site.js"></script>
 </body>
 </html>

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Social media marketing agency, Delhi — the feed, held · Ninety-Eight</title>
-<meta name="description" content="Social — the channels we build and hold, week after week: eleven feeds, 2021–2023, and the shoots behind them, on one moving wall.">
+<meta name="description" content="Social — the channels we build and hold, week after week: twelve brands’ posts, a creators’ series, our own, and seven shoots, on one moving wall.">
 <meta property="og:title" content="Social media marketing agency, Delhi — the feed, held · Ninety-Eight">
-<meta property="og:description" content="Social — the channels we build and hold, week after week: eleven feeds, 2021–2023, and the shoots behind them, on one moving wall.">
+<meta property="og:description" content="Social — the channels we build and hold, week after week: twelve brands’ posts, a creators’ series, our own, and seven shoots, on one moving wall.">
 <meta property="og:image" content="https://www.ninety-eight.in/assets/og-cover.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.ninety-eight.in/retain.html">
@@ -65,6 +65,30 @@ html.js.in .mwg_effect034{opacity:1}
    overscroll is off, so a swipe down on a phone never pulls to refresh.
    Without the script, or under reduced motion, the page scrolls as before. */
 html.s98-wall,html.s98-wall body{overflow:hidden;overscroll-behavior:none}
+/* v3.116: one post on the wall moves — Esquire Club's Friday Night invite, a 14.4 s loop
+   (assets/retain/feed/esquire-friday-motion.mp4, 480x480, silent). It plays while it is on
+   screen and stops off it; it starts by itself and runs past five seconds, so it carries a
+   Pause (WCAG 2.2.2), and under reduced motion it waits for Play. It measures under the
+   flash limit at every width the wall shows it. Without script it is its own still (the
+   poster) and the button is hidden. The repeats are inert. A narrow tile (a phone's
+   column) plays a 240px copy (-240.mp4, picked by the script). The tile wears the site's
+   soft-picture corners, hairline and lift, as the pictures do.
+   And for the whole wall, since v3.116: while it is live it clips (overflow:clip) rather
+   than hides what it holds, because a box with overflow:hidden still scrolls itself to show
+   a focused control and that put the columns out of step until a reload; when it is not
+   live (no script, motion reduced) it is as tall as its pictures and the page scrolls
+   through them, each once (the repeats, .rep, are for the loop). */
+html.s98-wall .mwg_effect034{overflow:clip}
+html:not(.s98-wall) .mwg_effect034{height:auto;overflow:visible}
+html:not(.s98-wall) .mwg_effect034 .rep{display:none}
+.mwg_effect034 .mv{position:relative;overflow:hidden;border-radius:clamp(4px,.45vw,8px);box-shadow:0 0 0 1px var(--s98-stroke),var(--s98-lift)}
+.mwg_effect034 .mv video{display:block;width:100%;height:auto;aspect-ratio:1/1;background:#000}
+.mwg_effect034 .mvb{position:absolute;left:8px;top:8px;padding:5px 8px 6px;border-radius:2px;background:rgba(20,20,26,.8);color:#fff;font-size:12px;line-height:1}
+.mwg_effect034 .mvb::after{content:"";position:absolute;inset:-10px}   /* a thumb-sized target under the same word */
+.mwg_effect034 .mvb:focus-visible{outline:2px solid #fff;outline-offset:0;box-shadow:0 0 0 4px #14141a}   /* two tones: one of them stands out on any frame */
+@media(hover:hover){ .mwg_effect034 .mvb:hover{background:rgba(20,20,26,.6)} }
+html:not(.js) .mwg_effect034 .mvb{display:none}
+@media(max-width:600px){ .mwg_effect034 .mvb{left:4px;top:4px;padding:3px 5px 4px;font-size:10px} }
 </style>
 <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -171,63 +195,98 @@ html.s98-wall,html.s98-wall body{overflow:hidden;overscroll-behavior:none}
      the page. Four columns, 10 / 8 / 10 / 8 pictures as the component has them — each
      column's set twice over, so it wraps without a seam (the repeats carry alt=""):
      the eleven feeds from the old directory and seven shoots from production.html.
-     id="social" keeps the case index's retain.html#social rows landing here. -->
+     id="social" keeps the case index's retain.html#social rows landing here.
+     v3.116, Oct 13: Harsh's new posts ("pictures which are to be uploaded in the social
+     media tab"): fourteen tiles more, 9 / 8 / 8 / 7, each post in its own shape (720 wide,
+     assets/retain/feed/) — six from our own feed, a "This Barbie is" series of three
+     creators, Betway Insider with Ishant, two Esquire Club invites and one in motion, a
+     Spice Station post. Studio Xo's and Darzi's tiles show the whole post he sent in place
+     of a 4:3 crop of it (the crops stay: cases.html shows them). The repeats carry .rep:
+     without the live wall they are hidden. The moving post is the one <video>: see .mv. -->
 <h1 class="vh">Social media marketing &mdash; the feed, held week after week</h1>
-<section class="mwg_effect034" id="social" aria-label="The feed: posts for eleven brands, 2021&ndash;2023, and the shoots behind them">
+<section class="mwg_effect034" id="social" aria-label="The feed: posts for twelve brands, a creators&rsquo; series and our own, and seven shoots">
   <div class="col">
     <div class="container container1">
       <img class="media" width="720" height="540" src="assets/retain/spice.webp" alt="Spice Station &mdash; social media creatives, 2021" decoding="async" draggable="false">
+      <img class="media" width="720" height="1280" src="assets/retain/feed/98-influencer-matchmaking.webp" alt="Ninety-Eight &mdash; &ldquo;Influencer Matchmaking&rdquo;, a story from our own feed" decoding="async" draggable="false">
       <img class="media" width="480" height="611" src="assets/retain/prod/aarushi.webp" alt="Aarushi Jain &mdash; F&amp;B photography, 2026" decoding="async" draggable="false">
+      <img class="media" width="720" height="720" src="assets/retain/feed/esquire-halloween.webp" alt="Esquire Club &mdash; Danza Occulta, a Halloween night" decoding="async" draggable="false">
       <img class="media" width="720" height="540" src="assets/retain/fastup.webp" alt="Fast &amp; Up &mdash; Instagram stories, creator unboxings, 2021" decoding="async" draggable="false">
+      <img class="media" width="720" height="900" src="assets/retain/feed/barbie-sahibabali.webp" alt="@sahibabali &mdash; &ldquo;This Barbie is&rdquo;, a creator post" decoding="async" draggable="false">
       <img class="media" width="480" height="611" src="assets/retain/prod/theobroma.webp" alt="Theobroma &mdash; patisserie shoot" decoding="async" draggable="false">
+      <img class="media" width="720" height="720" src="assets/retain/feed/98-luxury-icons.webp" alt="Ninety-Eight &mdash; &ldquo;Luxury Icons&rdquo;, a post from our own feed" decoding="async" draggable="false">
       <img class="media" width="720" height="540" src="assets/retain/one8.webp" alt="One8 Commune &mdash; posts, 2022" decoding="async" draggable="false">
 
-      <img class="media" width="720" height="540" src="assets/retain/spice.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="480" height="611" src="assets/retain/prod/aarushi.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="720" height="540" src="assets/retain/fastup.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="480" height="611" src="assets/retain/prod/theobroma.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="720" height="540" src="assets/retain/one8.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/spice.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="1280" src="assets/retain/feed/98-influencer-matchmaking.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="480" height="611" src="assets/retain/prod/aarushi.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="720" src="assets/retain/feed/esquire-halloween.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/fastup.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="900" src="assets/retain/feed/barbie-sahibabali.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="480" height="611" src="assets/retain/prod/theobroma.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="720" src="assets/retain/feed/98-luxury-icons.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/one8.webp" alt="" decoding="async" draggable="false">
     </div>
   </div>
   <div class="col">
     <div class="container container2">
       <img class="media" width="480" height="611" src="assets/retain/prod/doozy.webp" alt="Miss Doozy &mdash; influencer shoot, 2023" decoding="async" draggable="false">
+      <img class="media" width="720" height="720" src="assets/retain/feed/98-brewing-101.webp" alt="Ninety-Eight &mdash; &ldquo;Brewing 101&rdquo;, a post from our own feed" decoding="async" draggable="false">
       <img class="media" width="720" height="540" src="assets/retain/skyhouse.webp" alt="Sky House &mdash; live-music posts, 2022" decoding="async" draggable="false">
+      <img class="media" width="720" height="720" src="assets/retain/feed/betway-ishant.webp" alt="Betway Insider &mdash; Ishant Sharma on India&rsquo;s T20 World Cup chances" decoding="async" draggable="false">
       <img class="media" width="480" height="611" src="assets/retain/prod/nycpie.webp" alt="NYC Pie &mdash; menu and hero photography" decoding="async" draggable="false">
+      <img class="media" width="720" height="1280" src="assets/retain/feed/98-social-media-sins.webp" alt="Ninety-Eight &mdash; &ldquo;Social Media Sins&rdquo;, a story from our own feed" decoding="async" draggable="false">
       <img class="media" width="720" height="540" src="assets/retain/baris.webp" alt="Baris &mdash; Arabian Night event creatives, 2022" decoding="async" draggable="false">
+      <div class="media mv"><video width="480" height="480" src="assets/retain/feed/esquire-friday-motion.mp4" data-small="assets/retain/feed/esquire-friday-motion-240.mp4" poster="assets/retain/feed/esquire-friday-motion.webp" muted loop playsinline preload="none" aria-label="Esquire Club &mdash; Friday Night, featuring Viju: the invite in motion"></video><button class="mvb" type="button" aria-label="Play the moving Esquire Club post">Play</button></div>
 
-      <img class="media" width="480" height="611" src="assets/retain/prod/doozy.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="720" height="540" src="assets/retain/skyhouse.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="480" height="611" src="assets/retain/prod/nycpie.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="720" height="540" src="assets/retain/baris.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="480" height="611" src="assets/retain/prod/doozy.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="720" src="assets/retain/feed/98-brewing-101.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/skyhouse.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="720" src="assets/retain/feed/betway-ishant.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="480" height="611" src="assets/retain/prod/nycpie.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="1280" src="assets/retain/feed/98-social-media-sins.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/baris.webp" alt="" decoding="async" draggable="false">
+      <div class="media mv rep" aria-hidden="true" inert><video width="480" height="480" src="assets/retain/feed/esquire-friday-motion.mp4" data-small="assets/retain/feed/esquire-friday-motion-240.mp4" poster="assets/retain/feed/esquire-friday-motion.webp" muted loop playsinline preload="none" aria-label="Esquire Club &mdash; Friday Night, featuring Viju: the invite in motion"></video><button class="mvb" type="button" tabindex="-1" aria-label="Play the moving Esquire Club post">Play</button></div>
     </div>
   </div>
   <div class="col">
     <div class="container container3">
-      <img class="media" width="720" height="540" src="assets/retain/studio-xo.webp" alt="Studio Xo &mdash; social media creatives, 2022" decoding="async" draggable="false">
+      <img class="media" width="720" height="720" src="assets/retain/feed/studio-xo-zikrr.webp" alt="Studio Xo &mdash; Zikrr, live on a Saturday night" decoding="async" draggable="false">
+      <img class="media" width="720" height="900" src="assets/retain/feed/barbie-shivaniipancholi.webp" alt="@shivaniipancholi &mdash; &ldquo;This Barbie is&rdquo;, a creator post" decoding="async" draggable="false">
       <img class="media" width="480" height="611" src="assets/retain/prod/twigly.webp" alt="Twigly &mdash; menu-system shoot" decoding="async" draggable="false">
+      <img class="media" width="720" height="720" src="assets/retain/feed/spice-station-fresh.webp" alt="Spice Station &mdash; &ldquo;Fresh, delicious &amp; healthy food&rdquo;, an order-in post" decoding="async" draggable="false">
       <img class="media" width="720" height="540" src="assets/retain/esquire.webp" alt="Esquire Club &mdash; social media creatives, 2022" decoding="async" draggable="false">
+      <img class="media" width="720" height="1280" src="assets/retain/feed/98-mythbusters.webp" alt="Ninety-Eight &mdash; &ldquo;MythBusters&rdquo;, a story from our own feed" decoding="async" draggable="false">
       <img class="media" width="480" height="611" src="assets/retain/prod/tilt.webp" alt="TILT &mdash; beverage shoot" decoding="async" draggable="false">
       <img class="media" width="720" height="540" src="assets/retain/dillusion.webp" alt="Dillusion &mdash; creatives, 2022" decoding="async" draggable="false">
 
-      <img class="media" width="720" height="540" src="assets/retain/studio-xo.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="480" height="611" src="assets/retain/prod/twigly.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="720" height="540" src="assets/retain/esquire.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="480" height="611" src="assets/retain/prod/tilt.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="720" height="540" src="assets/retain/dillusion.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="720" src="assets/retain/feed/studio-xo-zikrr.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="900" src="assets/retain/feed/barbie-shivaniipancholi.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="480" height="611" src="assets/retain/prod/twigly.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="720" src="assets/retain/feed/spice-station-fresh.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/esquire.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="1280" src="assets/retain/feed/98-mythbusters.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="480" height="611" src="assets/retain/prod/tilt.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/dillusion.webp" alt="" decoding="async" draggable="false">
     </div>
   </div>
   <div class="col">
     <div class="container container4">
-      <img class="media" width="720" height="540" src="assets/retain/darzi.webp" alt="Darzi Bar &amp; Kitchen &mdash; creatives, 2022" decoding="async" draggable="false">
+      <img class="media" width="720" height="720" src="assets/retain/feed/darzi-inchtape.webp" alt="Darzi Bar &amp; Kitchen &mdash; the Inchtape Sale, a drinks offer" decoding="async" draggable="false">
+      <img class="media" width="720" height="720" src="assets/retain/feed/98-virtual-influencers.webp" alt="Ninety-Eight &mdash; &ldquo;The Rise of the Virtual Influencers&rdquo;, a post from our own feed" decoding="async" draggable="false">
       <img class="media" width="480" height="611" src="assets/retain/prod/costa.webp" alt="Costa Coffee &mdash; cafe shoot" decoding="async" draggable="false">
+      <img class="media" width="720" height="727" src="assets/retain/feed/esquire-friday-viju-miles.webp" alt="Esquire Club &mdash; Friday Night, featuring Viju Miles" decoding="async" draggable="false">
       <img class="media" width="720" height="540" src="assets/retain/ishant-social.webp" alt="Ishant Sharma &mdash; posts and reels, 2023" decoding="async" draggable="false">
+      <img class="media" width="720" height="900" src="assets/retain/feed/barbie-soumyapuri.webp" alt="@soumyapuri &mdash; &ldquo;This Barbie is&rdquo;, a creator post" decoding="async" draggable="false">
       <img class="media" width="720" height="540" src="assets/retain/velvett.webp" alt="Velvett Spa &mdash; posts, 2023" decoding="async" draggable="false">
 
-      <img class="media" width="720" height="540" src="assets/retain/darzi.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="480" height="611" src="assets/retain/prod/costa.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="720" height="540" src="assets/retain/ishant-social.webp" alt="" decoding="async" draggable="false">
-      <img class="media" width="720" height="540" src="assets/retain/velvett.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="720" src="assets/retain/feed/darzi-inchtape.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="720" src="assets/retain/feed/98-virtual-influencers.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="480" height="611" src="assets/retain/prod/costa.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="727" src="assets/retain/feed/esquire-friday-viju-miles.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/ishant-social.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="900" src="assets/retain/feed/barbie-soumyapuri.webp" alt="" decoding="async" draggable="false">
+      <img class="media rep" width="720" height="540" src="assets/retain/velvett.webp" alt="" decoding="async" draggable="false">
     </div>
   </div>
 </section>
@@ -276,6 +335,52 @@ html.s98-wall,html.s98-wall body{overflow:hidden;overscroll-behavior:none}
 
 <script src="assets/vendor/gsap.min.js"></script>
 <script>
+/* ---- v3.116: the moving post (see .mv in the styles) ----
+   Every copy of it on the wall plays while it is on screen, muted and looping, and stops
+   off screen or in a hidden tab; a Pause on any copy holds them all, Play lets them go.
+   Under reduced motion they wait for Play. A browser that refuses to start it (an
+   iPhone in Low Power Mode: NotAllowedError) leaves it on its poster with Play showing;
+   a play cut short because the tile left the screen while it loaded (AbortError) is not
+   a refusal. A tile shown under 260 device pixels wide (a phone's column) plays the 240px
+   copy (data-small); a laptop's (about 350) plays the 480 one. The wall calls s98mv() after it adds copies, so they are watched too. */
+(function(){
+  var root=document.querySelector('.mwg_effect034'); if(!root) return;
+  var held=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){
+    es.forEach(function(e){ e.target.s98in=e.isIntersecting; sync(e.target); }); }):null;
+  function vids(){ return root.querySelectorAll('.mv video'); }
+  function label(){
+    [].forEach.call(root.querySelectorAll('.mvb'),function(b){
+      b.textContent=held?'Play':'Pause';
+      b.setAttribute('aria-label',(held?'Play':'Pause')+' the moving Esquire Club post');
+    });
+  }
+  /* the copy to play is picked once, as a tile first plays, from the width it is shown at */
+  function pick(v){
+    var w=v.getBoundingClientRect().width, sm=v.getAttribute('data-small');
+    if(v.s98p||!w) return; v.s98p=1;
+    if(sm&&w*(window.devicePixelRatio||1)<=260) v.setAttribute('src',sm);
+  }
+  function sync(v){
+    if(!held&&v.s98in&&!document.hidden){
+      pick(v);
+      var p=v.play(); if(p&&p.catch) p.catch(function(e){ if(e&&e.name==='NotAllowedError'&&!held){ held=true; label(); } });
+    } else if(!v.paused) v.pause();
+  }
+  function all(){ [].forEach.call(vids(),sync); }
+  window.s98mv=function(){
+    [].forEach.call(vids(),function(v){ if(v.s98w) return; v.s98w=1; v.muted=true;
+      if(io) io.observe(v); else { v.s98in=true; sync(v); } });
+  };
+  root.addEventListener('click',function(e){
+    if(!e.target.closest||!e.target.closest('.mvb')) return;
+    held=!held; label(); all();
+  });
+  document.addEventListener('visibilitychange',all);
+  label(); window.s98mv();
+})();
+</script>
+<script>
 /* ---- the feed, as effect 034 (v3.85) ----
    The component's script, kept: every column holds its set twice and its y
    is wrapped into [-set, 0], so it runs without end; the wheel moves all
@@ -299,21 +404,30 @@ html.s98-wall,html.s98-wall body{overflow:hidden;overscroll-behavior:none}
   var incr=0;
   var cols=[['.container1',.5],['.container2',.8],['.container3',.6],['.container4',.2]].map(function(d){
     var el=root.querySelector(d[0]); if(!el) return null;
-    var imgs=el.querySelectorAll('img');
-    var c={el:el, set:[].slice.call(imgs,0,imgs.length/2), copies:2, period:el.clientHeight/2};
+    var tiles=[].filter.call(el.children,function(n){ return n.classList.contains('media'); });
+    var c={el:el, set:tiles.slice(0,tiles.length/2), copies:2, period:el.clientHeight/2};
     c.to=gsap.quickTo(el,'y',{duration:d[1], ease:'power3',
       modifiers:{ y:gsap.utils.unitize(function(v){ return gsap.utils.wrap(-c.period,0,v); }) }});
     return c;
   }).filter(Boolean);
+  /* v3.116: a copy of a tile, like the markup's own repeats: a picture without alt, the
+     moving post inert (hidden from assistive tech, out of the tab order) */
+  function copy(t){
+    var k=t.cloneNode(true); k.classList.add('rep');
+    if(k.tagName==='IMG') k.alt='';
+    else { k.setAttribute('aria-hidden','true'); k.inert=true; [].forEach.call(k.querySelectorAll('button'),function(b){ b.tabIndex=-1; }); }
+    return k;
+  }
   function measure(){
     var wall=root.clientHeight;
     cols.forEach(function(c){
       c.period=c.el.clientHeight/c.copies;
       while(c.period>0&&c.el.clientHeight-c.period<wall){
-        c.set.forEach(function(im){ var k=im.cloneNode(false); k.alt=''; c.el.appendChild(k); });
+        c.set.forEach(function(t){ c.el.appendChild(copy(t)); });
         c.copies++;
       }
     });
+    if(window.s98mv) window.s98mv();
   }
   function menuOpen(){ return !!menu&&menu.getAttribute('aria-expanded')==='true'; }
   function drive(d){ if(menuOpen()) return; if(pageYOffset) scrollTo(0,0);
@@ -337,6 +451,12 @@ html.s98-wall,html.s98-wall body{overflow:hidden;overscroll-behavior:none}
     var k=e.key, h=innerHeight*.8;
     var d=k==='ArrowDown'?80:k==='ArrowUp'?-80:k==='PageDown'?h:k==='PageUp'?-h:k===' '?(e.shiftKey?-h:h):0;
     if(d){ e.preventDefault(); drive(d); }
+  });
+  /* v3.116: a control on the wall that takes the focus is brought into view */
+  root.addEventListener('focusin', function(e){
+    var r=e.target.getBoundingClientRect(), w=root.getBoundingClientRect();
+    if(r.top>=w.top&&r.bottom<=w.bottom) return;
+    drive(2*(r.top-(w.top+(w.height-r.height)/2)));
   });
   /* tabbing into the footer brings it up; tabbing out puts the wall back */
   document.addEventListener('focusin', function(e){ if(foot&&!foot.contains(e.target)&&pageYOffset) scrollTo(0,0); });
