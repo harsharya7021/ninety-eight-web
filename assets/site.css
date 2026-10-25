@@ -128,21 +128,52 @@ html.s98-menu-open .s98-head{z-index:500;background:transparent;-webkit-backdrop
 .nav035{position:fixed;inset:0;z-index:400;background:var(--s98-bg);color:var(--s98-ink);
   font-family:'Archivo',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55;letter-spacing:normal;text-align:left;
   visibility:hidden;transform:translate3d(0,-100%,0);will-change:transform,opacity;-webkit-font-smoothing:antialiased}
+/* v3.117: on a short window MENU keeps its size and the rows make room for it (Harsh,
+   25 Oct: "I'd rather MENU stay big on short screens"). Before, the word was sized by
+   the window's width (10vw) and its band by what the height left over after the rows,
+   so on a short window its letters ran through the first rule, and on a shorter one
+   into Close as well.
+   Now the band above the rows (.n35-top) is never less than --n35-pad, then the word's
+   capitals (.72 of its size; they measure .70) with --n35-g clear above and below them.
+   It takes that room first from the rail below the rows (down to --n35-foot), then from
+   the rows, which flex lets shrink together: each by the same proportion of its content
+   box (its 1px rule stays), so the bloom keeps its numbers. The open row's pictures shrink
+   in that proportion too (--n35-pic: 92/429 and 60/397 of what the rows give up, 429 and
+   397 being the rows' content boxes, 121 + 7 × 44 and 89 + 7 × 44). The rows stop at
+   --n35-floor (0.7 of their height, or 62% of the window if that is less); only past that
+   does the word give way, by just enough. A window about 830px tall or more is exactly
+   as it was.
+   The numbers assume these eight rows, 45px each and the open one 122px (90px under
+   768px), as site.js tweens them: a row more or less changes --n35-rows (122 + 7 × 45,
+   and 1 for the last rule) and the two factors with it.
+   --n35-vh is the window's height as the visitor sees it. On a phone 100vh is the height
+   with the browser's bars tucked away, and while the menu is down the page cannot scroll
+   to tuck them, so there the menu is sized by 100dvh. */
+.nav035{
+  --n35-vh:100vh;
+  --n35-pad:3.2rem; --n35-g:14px; --n35-foot:3.75rem;
+  --n35-rows:438px; --n35-floor:min(306px,.62 * var(--n35-vh));
+  --n35-w:max(1.5rem,min(clamp(3.4rem,10vw,11rem),(var(--n35-vh) - var(--n35-foot) - var(--n35-floor) - var(--n35-pad) - 2 * var(--n35-g)) / .72));
+  --n35-band:calc(var(--n35-pad) + .72 * var(--n35-w) + 2 * var(--n35-g));
+  --n35-r:clamp(var(--n35-floor),var(--n35-vh) - var(--n35-band) - var(--n35-foot),var(--n35-rows));
+  --n35-pic:calc(92px - (var(--n35-rows) - var(--n35-r)) * .2145);
+}
+@supports (height:100dvh){ .nav035{--n35-vh:100dvh} }
 .nav035 *{box-sizing:border-box}
 .nav035.open{visibility:visible}
 /* motion is script-owned (one eased number on the GSAP ticker); these
    transitions only serve the no-GSAP / reduced-motion fallback */
 .nav035.nofx{transition:transform .6s cubic-bezier(.76,0,.24,1),opacity .6s ease,visibility 0s .6s}
 .nav035.nofx.open{transform:none;opacity:1;transition:transform .6s cubic-bezier(.76,0,.24,1),opacity .6s ease}
-.n35-inner{height:100vh;display:flex;flex-direction:column;justify-content:center}
+.n35-inner{height:var(--n35-vh);display:flex;flex-direction:column;justify-content:center}   /* v3.117: 100vh, or 100dvh where there is one */
 .n35-top,.n35-bottom{flex:1 1 0;min-height:0;display:flex;align-items:center;padding:0 var(--s98-pad)}
-.n35-top{padding-top:3.2rem;position:relative;z-index:3}  /* the word's pictures above the rules */
+.n35-top{padding-top:var(--n35-pad);min-height:var(--n35-band);position:relative;z-index:3}  /* the word's pictures above the rules */
 /* the bottom rail (v3.69): the ground switch on the left, the hint in the middle.
    A grid rather than a centred flex row, so the hint sits in the middle of the
    SCREEN whatever the switch measures beside it. Under 600px the two stack,
    centred, rather than meet. The switch is the header's old one, quieter: the
    ground you are on is at full ink and underlined, the other at half. */
-.n35-bottom{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;padding-bottom:1.6rem}
+.n35-bottom{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;padding-bottom:1.6rem;min-height:var(--n35-foot)}
 .n35-ground{grid-column:1;justify-self:start;white-space:nowrap;color:var(--s98-ink);
   font:400 13px/20px 'Archivo',Helvetica,Arial,sans-serif;letter-spacing:-.01em}
 .n35-ground button{position:relative;font:inherit;color:inherit;letter-spacing:inherit;text-transform:none;
@@ -166,18 +197,26 @@ html.s98-menu-open .s98-head{z-index:500;background:transparent;-webkit-backdrop
      this tall would otherwise stretch and stand half a screen apart */
   .n35-bottom{grid-template-columns:1fr;justify-items:center;align-content:end;row-gap:.6rem}
   .n35-ground,.n35-hint{grid-column:1;justify-self:center}
+  .nav035{--n35-foot:5.6rem}   /* v3.117: two lines, so the rail at its least is taller */
 }
 @keyframes s98pulse{0%,100%{opacity:.25}50%{opacity:.6}}
 /* effect 093: the word */
 .n35-word{display:flex;font-weight:800;font-stretch:118%;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;
-  font-size:clamp(3.4rem,10vw,11rem);color:var(--s98-ink);margin:0;user-select:none}
+  font-size:var(--n35-w);color:var(--s98-ink);margin:0;user-select:none}   /* v3.117: clamp(3.4rem,10vw,11rem) as before, unless the window is too short even with the rows at their slimmest */
 .n35-word .letter{position:relative;display:inline-block;cursor:default}
+/* v3.117: the word takes the pointer over its capitals only. Text is hit-tested by the
+   font's own height, which reaches about a tenth of the word's size past the line, so
+   on a short window the word took the pointer over the top of Talent & Branding (and,
+   before v3.117, over all of it) and a click there went nowhere. Each letter's ::before
+   is its capital, 10% down from the top of the letter's box to 11% up from the bottom. */
+.n35-word{pointer-events:none}
+.n35-word .letter::before{content:"";position:absolute;left:0;right:0;top:10%;bottom:11%;pointer-events:auto}
 .n35-word .letter:has(.n35-cm){color:transparent}
 .n35-wmedias{position:absolute;top:0;left:0;pointer-events:none}
 .n35-wmedia{width:1px;height:1px;visibility:hidden;position:absolute}
-.n35-cm{position:absolute;width:9vw;min-width:64px;height:auto;max-width:none;aspect-ratio:1;object-fit:cover;top:50%;left:50%;border-radius:1vw;pointer-events:none;
-  box-shadow:0 0 0 1px var(--s98-stroke),var(--s98-lift)}
-.nav035 ul{width:100%;border-bottom:1px solid var(--s98-rule);display:flex;flex-direction:column;list-style:none;margin:0;padding:0}
+.n35-cm{position:absolute;width:calc(9vw - .9 * (clamp(3.4rem,10vw,11rem) - var(--n35-w)));min-width:64px;height:auto;max-width:none;aspect-ratio:1;object-fit:cover;top:50%;left:50%;border-radius:1vw;pointer-events:none;
+  box-shadow:0 0 0 1px var(--s98-stroke),var(--s98-lift)}   /* v3.117: 9vw, less by .9 of what the word gives way; site.js reads the width it gets */
+.nav035 ul{width:100%;border-bottom:1px solid var(--s98-rule);display:flex;flex-direction:column;list-style:none;margin:0;padding:0;min-height:var(--n35-floor)}
 .nav035 ul li{flex:1 1 45px;align-items:center;border-top:1px solid var(--s98-rule);width:100%;padding:0 var(--s98-pad);display:flex;justify-content:space-between;position:relative;overflow:hidden;margin:0}
 .nav035 ul li:first-child{flex:1 1 122px}
 .nav035 ul li a{display:flex;align-items:center;align-self:stretch;flex:1;color:var(--s98-ink);text-decoration:none}
@@ -185,7 +224,7 @@ html.s98-menu-open .s98-head{z-index:500;background:transparent;-webkit-backdrop
 .nav035 ul li:hover .n35-name,.nav035 ul li a:focus-visible .n35-name{color:var(--s98-red)}
 .n35-name .beta{font-size:.55em;font-weight:600;color:var(--s98-red);letter-spacing:.1em;vertical-align:super;margin-left:.5em}
 .n35-medias{display:flex;gap:15px;position:absolute;right:var(--s98-pad);top:50%;transform:translate(0,-50%);overflow:hidden}
-.n35-media{width:92px;height:92px;max-width:none;object-fit:cover;transform:translate(0,100%);border-radius:4%}
+.n35-media{width:var(--n35-pic);height:var(--n35-pic);max-width:none;object-fit:cover;transform:translate(0,100%);border-radius:4%}   /* v3.117: 92px (60 under 768px) until the rows shrink */
 /* v3.92–3.94: pictures that keep their own shape — in Talent & Branding, the laptop (a
    transparent cut-out, 423×276: 141px wide, 92px under 768px) and the Jerry Maguire poster
    (3:4, 207×276: 69px wide): the row's height, and the width their shape gives (the tag's
@@ -201,7 +240,7 @@ html.s98-menu-open .s98-head{z-index:500;background:transparent;-webkit-backdrop
   .nav035 ul li{padding:0 15px}
   .nav035 ul li:first-child{flex:1 1 90px}
   .n35-medias{gap:5px;right:15px}
-  .n35-media{width:60px;height:60px}
+  .nav035{--n35-rows:406px;--n35-floor:min(284px,.62 * var(--n35-vh));--n35-pic:calc(60px - (var(--n35-rows) - var(--n35-r)) * .1511)}   /* v3.117: 90 + 7 × 45 + 1; the pictures 60px until the rows shrink */
   .n35-media:nth-child(n+4){display:none}
   .n35-name{font-size:.8rem}
   .nav035 ul li:first-child .n35-name{padding-right:230px}   /* v3.67: the first row's name ran under its three pictures at 360px; v3.93: Ishant, the laptop and the notebook take 60 + 5 + 92 + 5 + 60 */
@@ -210,6 +249,20 @@ html.s98-menu-open .s98-head{z-index:500;background:transparent;-webkit-backdrop
   .n35-media:nth-child(n+3){display:none}
   .nav035 ul li:first-child .n35-name{padding-right:165px}   /* v3.93: two pictures here, Ishant and the laptop (60 + 5 + 92) */
 }
+@media (max-height:572px) and (min-width:601px),(max-height:512px) and (max-width:600px){
+  /* v3.117: a short window (a phone held sideways, a laptop with its developer tools
+     docked, a browser zoomed in, a split screen): the header's own height above the word
+     in place of 3.2rem, less clear space around it and a slimmer rail, so the word gives
+     way as late as it can. 572px is where the roomier spacing would first make an 11rem
+     word give way, so a taller window never shows a smaller MENU than a shorter one; under
+     601px wide, where the word is 60px at most, the same holds from 512px down, which also
+     keeps About's and Contact's two-line names clear of their rules. (Before v3.117 a
+     phone held sideways had MENU and the first row above the top of the screen and
+     Contact below the bottom.) */
+  .nav035{--n35-pad:var(--s98-h);--n35-g:8px;--n35-foot:2.6rem}
+  .n35-bottom{padding-bottom:.6rem}
+}
+@media (max-height:512px) and (max-width:600px){ .n35-hint{display:none} }   /* v3.117: there the rail's two lines are one; the switch stays */
 
 /* ---------- the footer ---------- */
 /* v3.91: no hairline along its top (Harsh, Sep 30: "remove the line before the footer

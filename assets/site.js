@@ -160,7 +160,11 @@
     [].forEach.call(items, function(item, index){
       var medias = item.querySelectorAll('.n35-media');
       var tl = gsap.timeline({ paused: true });
-      tl.to(medias, { y: 0, stagger: { each: 0.04, from: 'random' }, duration: 0.4, ease: 'power4.out' });
+      /* v3.117: down by their own height in percent, not in pixels. The pictures change size
+         with the window's height now, and an offset GSAP measured once in pixels left a strip
+         of every closed row's pictures showing after the window grew */
+      gsap.set(medias, { y: 0, yPercent: 100 });
+      tl.to(medias, { yPercent: 0, stagger: { each: 0.04, from: 'random' }, duration: 0.4, ease: 'power4.out' });
       tls.push(tl);
       item.addEventListener('mouseenter', function(){
         var fresh = tls[index].progress() === 0;     /* v3.95: a row whose pictures are down is dealt afresh */
@@ -185,7 +189,9 @@
     word.innerHTML = word.textContent.split('').map(function(ch){ return ch === ' ' ? '<span>&nbsp;</span>' : '<span class="letter">' + ch + '</span>'; }).join('');
     wletters = [].slice.call(word.querySelectorAll('.letter'));
     woverflows = wletters.map(function(){ return 0; });
-    var mediaWidth = function(){ return Math.max(64, 0.095 * window.innerWidth); };
+    /* v3.117: scaled by the picture's own width against its usual 9vw, which is less when a
+       short window makes the word give way (site.css) */
+    var mediaWidth = function(img){ return Math.max(64, 0.095 * window.innerWidth) * parseFloat(getComputedStyle(img).width) / Math.max(64, 0.09 * window.innerWidth); };
     var applyOffsets = function(){
       var sumLeft = 0, targets = woverflows.map(function(ov, i){
         var sumRight = 0; for (var j = i + 1; j < woverflows.length; j++) sumRight += woverflows[j];
@@ -201,7 +207,7 @@
       gsap.from(img, { rotation: (Math.random() - 0.5) * 20, scale: 1.05, duration: 0.3, ease: 'back.out(2)' });
       wIndex = (wIndex + 1) % wsrcs.length;
       var index = wletters.indexOf(letter);
-      woverflows[index] = Math.max(woverflows[index], Math.max(0, (mediaWidth() - letter.getBoundingClientRect().width) / 2));
+      woverflows[index] = Math.max(woverflows[index], Math.max(0, (mediaWidth(img) - letter.getBoundingClientRect().width) / 2));
       applyOffsets();
       var dc = gsap.delayedCall(1.2, function(){
         var idx = wletters.indexOf(img.parentElement);
